@@ -42,12 +42,12 @@ CREATE TABLE IF NOT EXISTS ecogrouppolygon (
 
 """/* Spatial view showing dominant ecogroup per polygon with area percentage of ecogroup. Inserted into table for usefulness and speed. */
 INSERT INTO ecogrouppolygon (ecogroup, group_type, modal, pub_status, area_ha, ecogrouppct, SHAPE)
-SELECT ecogroup, group_type, modal, pub_status, (ST_Area(SHAPE, 1)/10000) AS area_ha, (ecogrouparea_sqm/ST_Area(SHAPE, 1)) AS ecogrouppct, ST_Multi(SHAPE) AS SHAPE
+SELECT ecogroup, group_type, modal, pub_status, (ST_Area(SHAPE)/10000) AS area_ha, (ecogrouparea_sqm/ST_Area(SHAPE)) AS ecogrouppct, ST_Multi(SHAPE) AS SHAPE
   FROM (
        SELECT ST_Union(SHAPE) AS SHAPE, ecogroup, group_type, modal, pub_status, sum(ecogrouparea_sqm) AS ecogrouparea_sqm
          FROM (
               SELECT a.SHAPE, b.ecogroup, b.group_type, b.modal, b.pub_status,
-                     (ST_Area(a.SHAPE, 1)*(CAST(b.ecogrouppct AS REAL)/100)) AS ecogrouparea_sqm
+                     (ST_Area(a.SHAPE)*(CAST(b.ecogrouppct AS REAL)/100)) AS ecogrouparea_sqm
                 FROM mupolygon AS a
                 LEFT JOIN ecogroup_mudominant AS b ON a.mukey = b.mukey)
               AS x
