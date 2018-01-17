@@ -15,8 +15,13 @@ python main.py "/path/to/scan"
 
 See the help documentation provided via --help option for more info. This will create a local database in the script directory called SSURGO.sqlite and import any SSURGOs found within the scan path.
 
-Additionally for those users wanting custom ecological site groupings in their database, the following command can be run:
+# Custom Additions #
+There are a number of custom SQL views added to provide quick access to certain types of data within the database (e.g. dominant component, surface texture, etc.)  For a look at what each does, there is a brief comment for each located in the create_views.py file. 
+
+Additionally, the database is automatically populated with a polygon feature called 'ecopolygon', which is a calculated feature that shows the dominant ecological sites for the imported data and the area of the final polygon they make up.
+
+Furthermore, for those users wanting custom ecological site groupings in their database, the following command can be run:
 
 python create_ecogroups.py "/path/to/db.sqlite" "/path/to/csvfile.csv"
 
-Run the above with the --help option for more information on the command's specific functionality.
+Run the above with the --help option for more information on the command's specific functionality.  This will create a similar feature to 'ecopolygon' called 'ecogrouppolygon' showing the dominant ecological groups in the imported data and their final percentage of the resulting polygon.  An example csv file containing example ecological groups has been provided. Please note that this format needs to be adhered to strictly or the import will fail. All fields can be filled with blank strings (i.e. '') with the exception of the ecoid and ecogroup fields, which are required. Mainly, it is necessary to make sure one is using a stripped version of the ecosite name (e.g. 027XY001NV) so as to match the 'coecoclassid_std' field from the coecoclass_mudominant view.

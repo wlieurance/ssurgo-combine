@@ -77,12 +77,40 @@ tablist = [('ccancov.txt', 'cocanopycover'),
            ('sdvfolderattribute.txt', 'sdvfolderattribute'),
            ('version.txt', 'version')]
 
-spatlist = [('soilmu_a', 'mupolygon', 'SHAPE, areasymbol, spatialver, musym, mukey', 'SELECT ST_Multi(ST_Union(Geometry)), AREASYMBOL, SPATIALVER, MUSYM, MUKEY FROM {!s} GROUP BY AREASYMBOL, SPATIALVER, MUSYM, MUKEY'),
-            ('soilmu_l', 'muline', 'SHAPE, areasymbol, spatialver, musym, mukey', 'SELECT ST_Multi(ST_Union(Geometry)), AREASYMBOL, SPATIALVER, MUSYM, MUKEY FROM {!s} GROUP BY AREASYMBOL, SPATIALVER, MUSYM, MUKEY'),
-            ('soilmu_p', 'mupoint', 'SHAPE, areasymbol, spatialver, musym, mukey', 'SELECT ST_Multi(ST_Union(Geometry)), AREASYMBOL, SPATIALVER, MUSYM, MUKEY FROM {!s} GROUP BY AREASYMBOL, SPATIALVER, MUSYM, MUKEY'),
-            ('soilsa_a', 'sapolygon', 'SHAPE, areasymbol, spatialver, lkey', 'SELECT ST_Multi(ST_Union(Geometry)), AREASYMBOL, SPATIALVER, LKEY FROM {!s} GROUP BY AREASYMBOL, SPATIALVER, LKEY'),
-            ('soilsf_l', 'featline', 'SHAPE, areasymbol, spatialver, featsym, featkey', 'SELECT ST_Multi(ST_Union(Geometry)), AREASYMBOL, SPATIALVER, FEATSYM, FEATKEY FROM {!s} GROUP BY AREASYMBOL, SPATIALVER, FEATSYM, FEATKEY'),
-            ('soilsf_p', 'featpoint', 'SHAPE, areasymbol, spatialver, featsym, featkey', 'SELECT ST_Multi(ST_Union(Geometry)), AREASYMBOL, SPATIALVER, FEATSYM, FEATKEY FROM {!s} GROUP BY AREASYMBOL, SPATIALVER, FEATSYM, FEATKEY')]
+soilmu_a_sql = """
+SELECT ST_SnapToGrid(ST_Multi(ST_Union(Geometry)), 0.000009), AREASYMBOL, SPATIALVER, MUSYM, MUKEY
+  FROM {!s} GROUP BY AREASYMBOL, SPATIALVER, MUSYM, MUKEY""".strip()
+
+soilmu_l_sql = """
+SELECT ST_SnapToGrid(ST_Multi(ST_Union(Geometry)), 0.000009), AREASYMBOL, SPATIALVER, MUSYM, MUKEY
+  FROM {!s}
+ GROUP BY AREASYMBOL, SPATIALVER, MUSYM, MUKEY""".strip()
+
+soilmu_p_sql = """
+SELECT ST_SnapToGrid(ST_Multi(ST_Union(Geometry)), 0.000009), AREASYMBOL, SPATIALVER, MUSYM, MUKEY
+  FROM {!s}
+ GROUP BY AREASYMBOL, SPATIALVER, MUSYM, MUKEY""".strip()
+
+soilsa_a_sql ="""
+SELECT ST_SnapToGrid(ST_Multi(ST_Union(Geometry)), 0.000009), AREASYMBOL, SPATIALVER, LKEY
+  FROM {!s} GROUP BY AREASYMBOL, SPATIALVER, LKEY""".strip()
+
+soilsf_l_sql = """
+SELECT ST_SnapToGrid(ST_Multi(ST_Union(Geometry)), 0.000009), AREASYMBOL, SPATIALVER, FEATSYM, FEATKEY
+  FROM {!s}
+ GROUP BY AREASYMBOL, SPATIALVER, FEATSYM, FEATKEY""".strip()
+
+soilsf_p_sql = """
+SELECT ST_SnapToGrid(ST_Multi(ST_Union(Geometry)), 0.000009), AREASYMBOL, SPATIALVER, FEATSYM, FEATKEY
+  FROM {!s}
+ GROUP BY AREASYMBOL, SPATIALVER, FEATSYM, FEATKEY""".strip()
+
+spatlist = [('soilmu_a', 'mupolygon', 'SHAPE, areasymbol, spatialver, musym, mukey', soilmu_a_sql),
+            ('soilmu_l', 'muline', 'SHAPE, areasymbol, spatialver, musym, mukey', soilmu_l_sql),
+            ('soilmu_p', 'mupoint', 'SHAPE, areasymbol, spatialver, musym, mukey', soilmu_p_sql),
+            ('soilsa_a', 'sapolygon', 'SHAPE, areasymbol, spatialver, lkey', soilsa_a_sql),
+            ('soilsf_l', 'featline', 'SHAPE, areasymbol, spatialver, featsym, featkey', soilsf_l_sql),
+            ('soilsf_p', 'featpoint', 'SHAPE, areasymbol, spatialver, featsym, featkey', soilsf_p_sql)]
 
 def printhelp():
     print("\nThis script will scan a folder and import all found SSURGO data found in separate Soil Survey Area "
@@ -191,11 +219,39 @@ def scan_insert(dbpath, scanpath):
             else:
                 if current_ssa != '':
                     print("Already imported ", current_ssa, ". Skipping ", os.path.join(root, f), sep = '')
-                        
+                    
+    ### delete vestige virtual table information from shapefile import                    
     c.execute("DELETE FROM virts_geometry_columns;")
     c.execute("DELETE FROM virts_geometry_columns_auth;")
     c.execute("DELETE FROM virts_geometry_columns_field_infos;")
     c.execute("DELETE FROM virts_geometry_columns_statistics;")
+
+    ### fix geometries
+    print("Repairing invalid geometries...")
+    c.execute("CREATE TEMP TABLE mupolygon_temp AS SELECT OBJECTID, areasymbol, spatialver, musym, mukey, ST_MakeValid(SHAPE) AS SHAPE FROM mupolygon;")
+    c.execute("DELETE FROM mupolygon;")
+    c.execute("INSERT INTO mupolygon SELECT * FROM mupolygon_temp")
+
+    c.execute("CREATE TEMP TABLE muline_temp AS SELECT OBJECTID, areasymbol, spatialver, musym, mukey, ST_MakeValid(SHAPE) AS SHAPE FROM muline;")
+    c.execute("DELETE FROM muline;")
+    c.execute("INSERT INTO muline SELECT * FROM muline_temp")
+
+    c.execute("CREATE TEMP TABLE mupoint_temp AS SELECT OBJECTID, areasymbol, spatialver, musym, mukey, ST_MakeValid(SHAPE) AS SHAPE FROM mupoint;")
+    c.execute("DELETE FROM mupoint;")
+    c.execute("INSERT INTO mupoint SELECT * FROM mupoint_temp")
+
+    c.execute("CREATE TEMP TABLE sapolygon_temp AS SELECT OBJECTID, areasymbol, spatialver, lkey, ST_MakeValid(SHAPE) AS SHAPE FROM sapolygon;")
+    c.execute("DELETE FROM sapolygon;")
+    c.execute("INSERT INTO sapolygon SELECT * FROM sapolygon_temp")
+
+    c.execute("CREATE TEMP TABLE featline_temp AS SELECT OBJECTID, areasymbol, spatialver, featsym, featkey, ST_MakeValid(SHAPE) AS SHAPE FROM featline;")
+    c.execute("DELETE FROM featline;")
+    c.execute("INSERT INTO featline SELECT * FROM featline_temp")
+
+    c.execute("CREATE TEMP TABLE featpoint_temp AS SELECT OBJECTID, areasymbol, spatialver, featsym, featkey, ST_MakeValid(SHAPE) AS SHAPE FROM featpoint;")
+    c.execute("DELETE FROM featpoint;")
+    c.execute("INSERT INTO featpoint SELECT * FROM featpoint_temp")
+
     conn.commit()
     conn.close()
     return new_imports
@@ -209,6 +265,13 @@ def make_custom(dbpath):
     for stmt in custom_statements:
         c.execute(stmt)
     conn.commit()
+    conn.close()
+
+def vacuum(dbpath):
+    print("Compressing db...")
+    conn = sqlite.connect(dbpath)
+    c = conn.cursor()
+    c.execute("VACUUM;")
     conn.close()
 
 if __name__ == "__main__":
@@ -235,4 +298,5 @@ if __name__ == "__main__":
     new_imports = scan_insert(dbpath, scanpath)
     if new_imports:
         make_custom(dbpath)
+    vacuum(dbpath)
     print("Script finished.")
