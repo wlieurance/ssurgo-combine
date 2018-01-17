@@ -1,0 +1,639 @@
+﻿<MD_Metadata xmlns="http://www.isotc211.org/2005/gmd" xmlns:gco="http://www.isotc211.org/2005/gco" xmlns:gts="http://www.isotc211.org/2005/gts" xmlns:srv="http://www.isotc211.org/2005/srv" xmlns:gml="http://www.opengis.net/gml" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <language>
+    <LanguageCode codeList="http://www.loc.gov/standards/iso639-2/php/code_list.php" codeListValue="eng" codeSpace="ISO639-2">eng</LanguageCode>
+  </language>
+  <characterSet>
+    <MD_CharacterSetCode codeList="http://www.isotc211.org/2005/resources/Codelist/gmxCodelists.xml#MD_CharacterSetCode" codeListValue="utf8" codeSpace="ISOTC211/19115">utf8</MD_CharacterSetCode>
+  </characterSet>
+  <hierarchyLevel>
+    <MD_ScopeCode codeList="http://www.isotc211.org/2005/resources/Codelist/gmxCodelists.xml#MD_ScopeCode" codeListValue="dataset" codeSpace="ISOTC211/19115">dataset</MD_ScopeCode>
+  </hierarchyLevel>
+  <hierarchyLevelName>
+    <gco:CharacterString>dataset</gco:CharacterString>
+  </hierarchyLevelName>
+  <contact>
+    <CI_ResponsibleParty>
+      <organisationName>
+        <gco:CharacterString>U.S. Department of Agriculture, Natural Resources Conservation Service, National Soil Survey Center</gco:CharacterString>
+      </organisationName>
+      <contactInfo>
+        <CI_Contact>
+          <address>
+            <CI_Address>
+              <deliveryPoint>
+                <gco:CharacterString>100 Centennial Mall North</gco:CharacterString>
+              </deliveryPoint>
+              <deliveryPoint>
+                <gco:CharacterString>Federal Building, Room 152</gco:CharacterString>
+              </deliveryPoint>
+              <city>
+                <gco:CharacterString>Lincoln</gco:CharacterString>
+              </city>
+              <administrativeArea>
+                <gco:CharacterString>NE</gco:CharacterString>
+              </administrativeArea>
+              <postalCode>
+                <gco:CharacterString>68508-3866</gco:CharacterString>
+              </postalCode>
+              <country>
+                <Country codeList="http://www.iso.org/iso/country_codes/iso_3166_code_lists.htm" codeListValue="US" codeSpace="ISO3166-1">US</Country>
+              </country>
+              <electronicMailAddress>
+                <gco:CharacterString>SoilsHotline@lin.usda.gov</gco:CharacterString>
+              </electronicMailAddress>
+            </CI_Address>
+          </address>
+        </CI_Contact>
+      </contactInfo>
+      <role>
+        <CI_RoleCode codeList="http://www.isotc211.org/2005/resources/Codelist/gmxCodelists.xml#CI_RoleCode" codeListValue="pointOfContact" codeSpace="ISOTC211/19115">pointOfContact</CI_RoleCode>
+      </role>
+    </CI_ResponsibleParty>
+  </contact>
+  <dateStamp>
+    <gco:Date>2016-11-25</gco:Date>
+  </dateStamp>
+  <metadataStandardName>
+    <gco:CharacterString>ISO 19139 Geographic Information - Metadata - Implementation Specification</gco:CharacterString>
+  </metadataStandardName>
+  <metadataStandardVersion>
+    <gco:CharacterString>2007</gco:CharacterString>
+  </metadataStandardVersion>
+  <spatialRepresentationInfo>
+    <MD_VectorSpatialRepresentation>
+      <topologyLevel>
+        <MD_TopologyLevelCode codeList="http://www.isotc211.org/2005/resources/Codelist/gmxCodelists.xml#MD_TopologyLevelCode" codeListValue="geometryOnly" codeSpace="ISOTC211/19115">geometryOnly</MD_TopologyLevelCode>
+      </topologyLevel>
+      <geometricObjects>
+        <MD_GeometricObjects>
+          <geometricObjectType>
+            <MD_GeometricObjectTypeCode codeList="http://www.isotc211.org/2005/resources/Codelist/gmxCodelists.xml#MD_GeometricObjectTypeCode" codeListValue="composite" codeSpace="ISOTC211/19115">composite</MD_GeometricObjectTypeCode>
+          </geometricObjectType>
+          <geometricObjectCount>
+            <gco:Integer>5</gco:Integer>
+          </geometricObjectCount>
+        </MD_GeometricObjects>
+      </geometricObjects>
+    </MD_VectorSpatialRepresentation>
+  </spatialRepresentationInfo>
+  <referenceSystemInfo>
+    <MD_ReferenceSystem>
+      <referenceSystemIdentifier>
+        <RS_Identifier>
+          <code>
+            <gco:CharacterString>102039</gco:CharacterString>
+          </code>
+          <codeSpace>
+            <gco:CharacterString>Esri</gco:CharacterString>
+          </codeSpace>
+          <version>
+            <gco:CharacterString>8.1.2</gco:CharacterString>
+          </version>
+        </RS_Identifier>
+      </referenceSystemIdentifier>
+    </MD_ReferenceSystem>
+  </referenceSystemInfo>
+  <identificationInfo>
+    <MD_DataIdentification>
+      <citation>
+        <CI_Citation>
+          <title>
+            <gco:CharacterString>MULINE - Nevada</gco:CharacterString>
+          </title>
+          <date gco:nilReason="missing" />
+          <presentationForm>
+            <CI_PresentationFormCode codeList="http://www.isotc211.org/2005/resources/Codelist/gmxCodelists.xml#CI_PresentationFormCode" codeListValue="mapDigital" codeSpace="ISOTC211/19115">mapDigital</CI_PresentationFormCode>
+          </presentationForm>
+        </CI_Citation>
+      </citation>
+      <abstract>
+        <gco:CharacterString>This dataset is a digital soil survey and generally is the most detailed level of soil geographic data developed by the National Cooperative Soil Survey. The information was prepared by digitizing maps, by compiling information onto a planimetric correct base and digitizing, or by revising digitized maps using remotely sensed and other information.This dataset consists of georeferenced digital map data and computerized attribute data. The map data are in a state-wide extent format and include a detailed, field verified inventory of soils and miscellaneous areas that normally occur in a repeatable pattern on the landscape and that can be cartographically shown at the scale mapped. The soil map units are linked to attributes in the National Soil Information System relational database, which gives the proportionate extent of the component soils and their properties.</gco:CharacterString>
+      </abstract>
+      <purpose>
+        <gco:CharacterString>The dataset was created for use in national, regional, and state-wide resource planning and analysis of soils data. The Soil Survey Geographic (SSURGO) Database depicts information about the kinds and distribution of soils on the landscape. The soil map and data used in the SSURGO product were prepared by soil scientists as part of the National Cooperative Soil Survey.</gco:CharacterString>
+      </purpose>
+      <credit>
+        <gco:CharacterString>Soil Survey Staff. Gridded Soil Survey Geographic (gSSURGO) Database for Nevada. United States Department of Agriculture, Natural Resources Conservation Service. Available online at http://datagateway.nrcs.usda.gov/. 20161129 (FY2017 official release).</gco:CharacterString>
+      </credit>
+      <pointOfContact>
+        <CI_ResponsibleParty>
+          <organisationName>
+            <gco:CharacterString>U.S. Department of Agriculture, Natural Resources Conservation Service, National Soil Survey Center</gco:CharacterString>
+          </organisationName>
+          <contactInfo>
+            <CI_Contact>
+              <address>
+                <CI_Address>
+                  <deliveryPoint>
+                    <gco:CharacterString>Federal Building, Room 152</gco:CharacterString>
+                  </deliveryPoint>
+                  <deliveryPoint>
+                    <gco:CharacterString>100 Centennial Mall North</gco:CharacterString>
+                  </deliveryPoint>
+                  <city>
+                    <gco:CharacterString>Lincoln</gco:CharacterString>
+                  </city>
+                  <administrativeArea>
+                    <gco:CharacterString>NE</gco:CharacterString>
+                  </administrativeArea>
+                  <postalCode>
+                    <gco:CharacterString>68508-3866</gco:CharacterString>
+                  </postalCode>
+                  <country>
+                    <Country codeList="http://www.iso.org/iso/country_codes/iso_3166_code_lists.htm" codeListValue="US" codeSpace="ISO3166-1">US</Country>
+                  </country>
+                  <electronicMailAddress>
+                    <gco:CharacterString>SoilsHotline@lin.usda.gov</gco:CharacterString>
+                  </electronicMailAddress>
+                </CI_Address>
+              </address>
+            </CI_Contact>
+          </contactInfo>
+          <role>
+            <CI_RoleCode codeList="http://www.isotc211.org/2005/resources/Codelist/gmxCodelists.xml#CI_RoleCode" codeListValue="pointOfContact" codeSpace="ISOTC211/19115">pointOfContact</CI_RoleCode>
+          </role>
+        </CI_ResponsibleParty>
+      </pointOfContact>
+      <pointOfContact>
+        <CI_ResponsibleParty>
+          <organisationName>
+            <gco:CharacterString>U.S. Department of Agriculture, Natural Resources Conservation Service, National Soil Survey Center</gco:CharacterString>
+          </organisationName>
+          <contactInfo>
+            <CI_Contact>
+              <address>
+                <CI_Address>
+                  <deliveryPoint>
+                    <gco:CharacterString>Federal Building, Room 152</gco:CharacterString>
+                  </deliveryPoint>
+                  <deliveryPoint>
+                    <gco:CharacterString>100 Centennial Mall North</gco:CharacterString>
+                  </deliveryPoint>
+                  <city>
+                    <gco:CharacterString>Lincoln</gco:CharacterString>
+                  </city>
+                  <administrativeArea>
+                    <gco:CharacterString>NE</gco:CharacterString>
+                  </administrativeArea>
+                  <postalCode>
+                    <gco:CharacterString>68508-3866</gco:CharacterString>
+                  </postalCode>
+                  <country>
+                    <Country codeList="http://www.iso.org/iso/country_codes/iso_3166_code_lists.htm" codeListValue="US" codeSpace="ISO3166-1">US</Country>
+                  </country>
+                  <electronicMailAddress>
+                    <gco:CharacterString>SoilsHotline@lin.usda.gov</gco:CharacterString>
+                  </electronicMailAddress>
+                </CI_Address>
+              </address>
+            </CI_Contact>
+          </contactInfo>
+          <role>
+            <CI_RoleCode codeList="http://www.isotc211.org/2005/resources/Codelist/gmxCodelists.xml#CI_RoleCode" codeListValue="pointOfContact" codeSpace="ISOTC211/19115">pointOfContact</CI_RoleCode>
+          </role>
+        </CI_ResponsibleParty>
+      </pointOfContact>
+      <pointOfContact>
+        <CI_ResponsibleParty>
+          <organisationName>
+            <gco:CharacterString>U.S. Department of Agriculture, Natural Resources Conservation Service, National Geospatial Center of Excellence</gco:CharacterString>
+          </organisationName>
+          <contactInfo>
+            <CI_Contact>
+              <phone>
+                <CI_Telephone>
+                  <voice>
+                    <gco:CharacterString>800 672 5559</gco:CharacterString>
+                  </voice>
+                  <facsimile>
+                    <gco:CharacterString>817 509 3469</gco:CharacterString>
+                  </facsimile>
+                </CI_Telephone>
+              </phone>
+              <address>
+                <CI_Address>
+                  <deliveryPoint>
+                    <gco:CharacterString>501 West Felix Street</gco:CharacterString>
+                  </deliveryPoint>
+                  <city>
+                    <gco:CharacterString>Fort Worth</gco:CharacterString>
+                  </city>
+                  <administrativeArea>
+                    <gco:CharacterString>TX</gco:CharacterString>
+                  </administrativeArea>
+                  <postalCode>
+                    <gco:CharacterString>76115</gco:CharacterString>
+                  </postalCode>
+                  <country>
+                    <Country codeList="http://www.iso.org/iso/country_codes/iso_3166_code_lists.htm" codeListValue="US" codeSpace="ISO3166-1">US</Country>
+                  </country>
+                </CI_Address>
+              </address>
+            </CI_Contact>
+          </contactInfo>
+          <role>
+            <CI_RoleCode codeList="http://www.isotc211.org/2005/resources/Codelist/gmxCodelists.xml#CI_RoleCode" codeListValue="pointOfContact" codeSpace="ISOTC211/19115">pointOfContact</CI_RoleCode>
+          </role>
+        </CI_ResponsibleParty>
+      </pointOfContact>
+      <resourceMaintenance>
+        <MD_MaintenanceInformation>
+          <maintenanceAndUpdateFrequency>
+            <MD_MaintenanceFrequencyCode codeList="http://www.isotc211.org/2005/resources/Codelist/gmxCodelists.xml#MD_MaintenanceFrequencyCode" codeListValue="annually" codeSpace="ISOTC211/19115">annually</MD_MaintenanceFrequencyCode>
+          </maintenanceAndUpdateFrequency>
+        </MD_MaintenanceInformation>
+      </resourceMaintenance>
+      <descriptiveKeywords>
+        <MD_Keywords>
+          <keyword>
+            <gco:CharacterString>ID677 (2015-09-16), CA685 (2016-09-12), NV759 (2016-09-02), NV792 (2013-12-06), NV760 (2016-09-02), NV777 (2016-09-01), NV763 (2016-08-31), NV764 (2013-12-04), NV767 (2016-08-31), NV765 (2016-08-31), UT611 (2016-09-12), NV771 (2016-09-02), NV612 (2016-08-31), NV766 (2016-09-01), NV761 (2016-09-02), NV775 (2016-09-07), NV769 (2016-09-02), NV776 (2016-09-02), NV602 (2016-09-02), NV621 (2016-08-30), NV780 (2016-08-31), NV779 (2016-09-16), NV628 (2016-09-12), NV770 (2016-09-02), NV768 (2016-09-12), NV603 (2016-09-09), NV778 (2016-08-30), NV772 (2016-09-12), NV782 (2013-12-04), NV625 (2016-09-09), CA693 (2016-09-12), NV629 (2016-09-09), NV781 (2016-08-26), NV622 (2016-09-09), NV783 (2016-08-29), NV773 (2016-09-12), NV774 (2016-09-12), NV708 (2016-09-15), NV709 (2016-09-16), NV799 (2016-09-09), NV784 (2016-08-30), NV796 (2016-08-26), NV713 (2016-08-29), NV785 (2016-09-16), NV786 (2013-12-04), NV611 (2016-08-29), NV754 (2016-08-29), NV757 (2016-09-16), NV608 (2016-09-15), NV755 (2016-09-16), NV788 (2016-09-16)</gco:CharacterString>
+          </keyword>
+          <keyword>
+            <gco:CharacterString>Nevada</gco:CharacterString>
+          </keyword>
+          <keyword>
+            <gco:CharacterString>USA</gco:CharacterString>
+          </keyword>
+          <keyword>
+            <gco:CharacterString>United States of America</gco:CharacterString>
+          </keyword>
+          <type>
+            <MD_KeywordTypeCode codeList="http://www.isotc211.org/2005/resources/Codelist/gmxCodelists.xml#MD_KeywordTypeCode" codeListValue="place" codeSpace="ISOTC211/19115">place</MD_KeywordTypeCode>
+          </type>
+          <thesaurusName>
+            <CI_Citation>
+              <title>
+                <gco:CharacterString>Counties and County Equivalents of the States of the United States and the District of Columbia (FIPS Pub 6-3)</gco:CharacterString>
+              </title>
+              <date gco:nilReason="missing" />
+            </CI_Citation>
+          </thesaurusName>
+        </MD_Keywords>
+      </descriptiveKeywords>
+      <descriptiveKeywords>
+        <MD_Keywords>
+          <keyword>
+            <gco:CharacterString>soils, Geospatial Data Gateway, Soil Survey, gSSURGO, SSURGO</gco:CharacterString>
+          </keyword>
+          <type>
+            <MD_KeywordTypeCode codeList="http://www.isotc211.org/2005/resources/Codelist/gmxCodelists.xml#MD_KeywordTypeCode" codeListValue="theme" codeSpace="ISOTC211/19115">theme</MD_KeywordTypeCode>
+          </type>
+        </MD_Keywords>
+      </descriptiveKeywords>
+      <descriptiveKeywords>
+        <MD_Keywords>
+          <keyword>
+            <gco:CharacterString>geoscientificInformation</gco:CharacterString>
+          </keyword>
+          <keyword>
+            <gco:CharacterString>environment</gco:CharacterString>
+          </keyword>
+          <keyword>
+            <gco:CharacterString>farming</gco:CharacterString>
+          </keyword>
+          <type>
+            <MD_KeywordTypeCode codeList="http://www.isotc211.org/2005/resources/Codelist/gmxCodelists.xml#MD_KeywordTypeCode" codeListValue="theme" codeSpace="ISOTC211/19115">theme</MD_KeywordTypeCode>
+          </type>
+          <thesaurusName>
+            <CI_Citation>
+              <title>
+                <gco:CharacterString>ISO 19115 Topic Categories</gco:CharacterString>
+              </title>
+              <date gco:nilReason="missing" />
+            </CI_Citation>
+          </thesaurusName>
+        </MD_Keywords>
+      </descriptiveKeywords>
+      <descriptiveKeywords>
+        <MD_Keywords>
+          <keyword>
+            <gco:CharacterString>Downloadable Data</gco:CharacterString>
+          </keyword>
+          <thesaurusName uuidref="723f6998-058e-11dc-8314-0800200c9a66" />
+        </MD_Keywords>
+      </descriptiveKeywords>
+      <resourceConstraints>
+        <MD_Constraints>
+          <useLimitation>
+            <gco:CharacterString>The U.S. Department of Agriculture, Natural Resources Conservation Service, should be acknowledged as the data source in products derived from these data.This dataset is not designed for use as a primary regulatory tool in permitting or siting decisions, but may be used as a reference source. This is public information and may be interpreted by organizations, agencies, units of government, or others based on needs; however, they are responsible for the appropriate application. Federal, State, or local regulatory bodies are not to reassign to the Natural Resources Conservation Service any authority for the decisions that they make. The Natural Resources Conservation Service will not perform any evaluations of these maps for purposes related solely to State or local regulatory programs. Digital data files are periodically updated. Files are dated, and users are responsible for obtaining the latest version of the data.</gco:CharacterString>
+          </useLimitation>
+        </MD_Constraints>
+      </resourceConstraints>
+      <resourceConstraints>
+        <MD_LegalConstraints>
+          <useLimitation>
+            <gco:CharacterString>See access and use constraints information.</gco:CharacterString>
+          </useLimitation>
+          <otherConstraints>
+            <gco:CharacterString>The U.S. Department of Agriculture (USDA) prohibits discrimination against its customers, employees, and applicants for employment on the bases of race, color, national origin, age, disability, sex, gender identity, religion, reprisal, and where applicable, political beliefs, marital status, familial or parental status, sexual orientation, or all or part of an individual's income is derived from any public assistance program, or protected genetic information in employment or in any program or activity conducted or funded by the Department. (Not all prohibited bases will apply to all programs and/or employment activities.) To file a complaint of discrimination, complete, sign and mail the USDA Program Discrimination Complaint Form (PDF), found online at http://www.ascr.usda.gov/complaint_filing_cust.html, or at any USDA office, or call (866) 632-9992 to request the form. Send your completed complaint form or letter to us by mail at: USDA Office of the Assistant Secretary for Civil Rights 1400 Independence Avenue, S.W. Washington, D.C. 20250-9410 Or by email at program.intake@usda.gov. Individuals who are deaf, hard of hearing or have speech disabilities and you wish to file either an EEO or program complaint please contact USDA through the Federal Relay Service at (800) 877-8339 or (800) 845-6136 (in Spanish). Persons with disabilities who wish to file a program complaint, please see information above on how to contact us by mail directly or by email. If you require alternative means of communication for program information (e.g., Braille, large print, audiotape, etc.) please contact USDA's TARGET Center at (202) 720-2600 (voice and TDD).</gco:CharacterString>
+          </otherConstraints>
+        </MD_LegalConstraints>
+      </resourceConstraints>
+      <spatialRepresentationType>
+        <MD_SpatialRepresentationTypeCode codeList="http://www.isotc211.org/2005/resources/Codelist/gmxCodelists.xml#MD_SpatialRepresentationTypeCode" codeListValue="vector" codeSpace="ISOTC211/19115">vector</MD_SpatialRepresentationTypeCode>
+      </spatialRepresentationType>
+      <language>
+        <LanguageCode codeList="http://www.loc.gov/standards/iso639-2/php/code_list.php" codeListValue="eng" codeSpace="ISO639-2">eng</LanguageCode>
+      </language>
+      <characterSet>
+        <MD_CharacterSetCode codeList="http://www.isotc211.org/2005/resources/Codelist/gmxCodelists.xml#MD_CharacterSetCode" codeListValue="utf8" codeSpace="ISOTC211/19115">utf8</MD_CharacterSetCode>
+      </characterSet>
+      <topicCategory>
+        <MD_TopicCategoryCode>farming</MD_TopicCategoryCode>
+      </topicCategory>
+      <topicCategory>
+        <MD_TopicCategoryCode>environment</MD_TopicCategoryCode>
+      </topicCategory>
+      <topicCategory>
+        <MD_TopicCategoryCode>geoscientificInformation</MD_TopicCategoryCode>
+      </topicCategory>
+      <environmentDescription>
+        <gco:CharacterString>Microsoft Windows 7 Version 6.1 (Build 7601) Service Pack 1; Esri ArcGIS 10.1.1.3143</gco:CharacterString>
+      </environmentDescription>
+      <extent>
+        <EX_Extent>
+          <geographicElement>
+            <EX_GeographicBoundingBox>
+              <westBoundLongitude>
+                <gco:Decimal>-114.363245</gco:Decimal>
+              </westBoundLongitude>
+              <eastBoundLongitude>
+                <gco:Decimal>-114.226686</gco:Decimal>
+              </eastBoundLongitude>
+              <southBoundLatitude>
+                <gco:Decimal>38.951442</gco:Decimal>
+              </southBoundLatitude>
+              <northBoundLatitude>
+                <gco:Decimal>39.041116</gco:Decimal>
+              </northBoundLatitude>
+            </EX_GeographicBoundingBox>
+          </geographicElement>
+        </EX_Extent>
+      </extent>
+      <extent>
+        <EX_Extent>
+          <geographicElement>
+            <EX_GeographicBoundingBox>
+              <extentTypeCode>
+                <gco:Boolean>true</gco:Boolean>
+              </extentTypeCode>
+              <westBoundLongitude>
+                <gco:Decimal>-114.363245</gco:Decimal>
+              </westBoundLongitude>
+              <eastBoundLongitude>
+                <gco:Decimal>-114.226686</gco:Decimal>
+              </eastBoundLongitude>
+              <southBoundLatitude>
+                <gco:Decimal>38.951442</gco:Decimal>
+              </southBoundLatitude>
+              <northBoundLatitude>
+                <gco:Decimal>39.041116</gco:Decimal>
+              </northBoundLatitude>
+            </EX_GeographicBoundingBox>
+          </geographicElement>
+        </EX_Extent>
+      </extent>
+    </MD_DataIdentification>
+  </identificationInfo>
+  <distributionInfo>
+    <MD_Distribution>
+      <distributionFormat>
+        <MD_Format>
+          <name>
+            <gco:CharacterString>File Geodatabase Feature Class</gco:CharacterString>
+          </name>
+          <version gco:nilReason="missing" />
+        </MD_Format>
+      </distributionFormat>
+      <distributor>
+        <MD_Distributor>
+          <distributorContact>
+            <CI_ResponsibleParty>
+              <organisationName>
+                <gco:CharacterString>U.S. Department of Agriculture, Natural Resources Conservation Service, National Geospatial Center of Excellence</gco:CharacterString>
+              </organisationName>
+              <contactInfo>
+                <CI_Contact>
+                  <phone>
+                    <CI_Telephone>
+                      <voice>
+                        <gco:CharacterString>800 672 5559</gco:CharacterString>
+                      </voice>
+                      <facsimile>
+                        <gco:CharacterString>817 509 3469</gco:CharacterString>
+                      </facsimile>
+                    </CI_Telephone>
+                  </phone>
+                  <address>
+                    <CI_Address>
+                      <deliveryPoint>
+                        <gco:CharacterString>501 West Felix Street</gco:CharacterString>
+                      </deliveryPoint>
+                      <city>
+                        <gco:CharacterString>Fort Worth</gco:CharacterString>
+                      </city>
+                      <administrativeArea>
+                        <gco:CharacterString>TX</gco:CharacterString>
+                      </administrativeArea>
+                      <postalCode>
+                        <gco:CharacterString>76115</gco:CharacterString>
+                      </postalCode>
+                      <country>
+                        <Country codeList="http://www.iso.org/iso/country_codes/iso_3166_code_lists.htm" codeListValue="US" codeSpace="ISO3166-1">US</Country>
+                      </country>
+                    </CI_Address>
+                  </address>
+                </CI_Contact>
+              </contactInfo>
+              <role>
+                <CI_RoleCode codeList="http://www.isotc211.org/2005/resources/Codelist/gmxCodelists.xml#CI_RoleCode" codeListValue="distributor" codeSpace="ISOTC211/19115">distributor</CI_RoleCode>
+              </role>
+            </CI_ResponsibleParty>
+          </distributorContact>
+          <distributionOrderProcess>
+            <MD_StandardOrderProcess>
+              <fees>
+                <gco:CharacterString>The charge is $100 for a DVD or $250 for an external hard drive that contains one or more datasets. A dataset is one state that includes both spatial and attribute data.</gco:CharacterString>
+              </fees>
+              <orderingInstructions>
+                <gco:CharacterString>Call or write to organizations listed under Distributor.</gco:CharacterString>
+              </orderingInstructions>
+            </MD_StandardOrderProcess>
+          </distributionOrderProcess>
+          <distributorFormat>
+            <MD_Format>
+              <name>
+                <gco:CharacterString>ESRI File Geodatabase</gco:CharacterString>
+              </name>
+              <version>
+                <gco:CharacterString>10.0</gco:CharacterString>
+              </version>
+            </MD_Format>
+          </distributorFormat>
+          <distributorTransferOptions>
+            <MD_DigitalTransferOptions>
+              <onLine>
+                <CI_OnlineResource>
+                  <linkage>
+                    <URL>http://datagateway.nrcs.usda.gov</URL>
+                  </linkage>
+                </CI_OnlineResource>
+              </onLine>
+            </MD_DigitalTransferOptions>
+          </distributorTransferOptions>
+          <distributorTransferOptions>
+            <MD_DigitalTransferOptions>
+              <offLine>
+                <MD_Medium>
+                  <name>
+                    <MD_MediumNameCode codeList="http://www.isotc211.org/2005/resources/Codelist/gmxCodelists.xml#MD_MediumNameCode" codeListValue="dvd" codeSpace="ISOTC211/19115">dvd</MD_MediumNameCode>
+                  </name>
+                  <mediumNote>
+                    <gco:CharacterString>Recording Format UDF 2.5</gco:CharacterString>
+                  </mediumNote>
+                </MD_Medium>
+              </offLine>
+            </MD_DigitalTransferOptions>
+          </distributorTransferOptions>
+        </MD_Distributor>
+      </distributor>
+    </MD_Distribution>
+  </distributionInfo>
+  <dataQualityInfo>
+    <DQ_DataQuality>
+      <scope>
+        <DQ_Scope>
+          <level>
+            <MD_ScopeCode codeList="http://www.isotc211.org/2005/resources/Codelist/gmxCodelists.xml#MD_ScopeCode" codeListValue="dataset" codeSpace="ISOTC211/19115">dataset</MD_ScopeCode>
+          </level>
+        </DQ_Scope>
+      </scope>
+      <lineage>
+        <LI_Lineage>
+          <processStep>
+            <LI_ProcessStep>
+              <description>
+                <gco:CharacterString>All available SSURGO data were downloaded from Web Soil Survey to a local cache. As part of the download process, the tabular data for each survey were imported into individual SSURGO template databases (MS Access format) using a custom set of ‘SSURGO Download Tools’ for ArcGIS 10.x. For each state or territory, intersecting SSURGO datasets were identified using the 'laoverlap' table (Legend Area Overlap). The selected datasets were merged and converted from shapefile and MS Access tables into a single ESRI file geodatabase for that state or territory. The data were not clipped to a state boundary, thus in some instances feature classes may extend beyond a state's boundary. All datasets were projected from the original Geographic WGS 1984 coordinate system to the appropriate Albers Equal Area Conic coordinate system. Relationship classes between tables and feature classes were created in the geodatabase.</gco:CharacterString>
+              </description>
+              <processor>
+                <CI_ResponsibleParty>
+                  <organisationName>
+                    <gco:CharacterString>U.S. Department of Agriculture, Natural Resources Conservation Service, National Geospatial Center of Excellence</gco:CharacterString>
+                  </organisationName>
+                  <contactInfo>
+                    <CI_Contact>
+                      <phone>
+                        <CI_Telephone>
+                          <voice>
+                            <gco:CharacterString>800 672 5559</gco:CharacterString>
+                          </voice>
+                          <facsimile>
+                            <gco:CharacterString>817 509 3469</gco:CharacterString>
+                          </facsimile>
+                        </CI_Telephone>
+                      </phone>
+                      <address>
+                        <CI_Address>
+                          <deliveryPoint>
+                            <gco:CharacterString>501 West Felix Street</gco:CharacterString>
+                          </deliveryPoint>
+                          <city>
+                            <gco:CharacterString>Fort Worth</gco:CharacterString>
+                          </city>
+                          <administrativeArea>
+                            <gco:CharacterString>TX</gco:CharacterString>
+                          </administrativeArea>
+                          <postalCode>
+                            <gco:CharacterString>76115</gco:CharacterString>
+                          </postalCode>
+                          <country>
+                            <Country codeList="http://www.iso.org/iso/country_codes/iso_3166_code_lists.htm" codeListValue="US" codeSpace="ISO3166-1">US</Country>
+                          </country>
+                        </CI_Address>
+                      </address>
+                    </CI_Contact>
+                  </contactInfo>
+                  <role>
+                    <CI_RoleCode codeList="http://www.isotc211.org/2005/resources/Codelist/gmxCodelists.xml#CI_RoleCode" codeListValue="processor" codeSpace="ISOTC211/19115">processor</CI_RoleCode>
+                  </role>
+                </CI_ResponsibleParty>
+              </processor>
+              <source>
+                <LI_Source>
+                  <sourceCitation>
+                    <CI_Citation>
+                      <title gco:nilReason="missing" />
+                      <alternateTitle>
+                        <gco:CharacterString>Soil Survey Geographic (SSURGO) Database for Soil Survey Areas</gco:CharacterString>
+                      </alternateTitle>
+                      <date gco:nilReason="missing" />
+                    </CI_Citation>
+                  </sourceCitation>
+                </LI_Source>
+              </source>
+            </LI_ProcessStep>
+          </processStep>
+          <processStep>
+            <LI_ProcessStep>
+              <description>
+                <gco:CharacterString>The SSURGO dataset is a digital soil survey and generally is the most detailed level of soil geographic data developed by the National Cooperative Soil Survey. The information was prepared by digitizing maps, by compiling information onto a planimetric correct base and digitizing, or by revising digitized maps using remotely sensed and other information. This dataset consists of georeferenced digital map data and computerized attribute data. The map data are in a soil survey area extent format and include a detailed, field verified inventory of soils and miscellaneous areas that normally occur in a repeatable pattern on the landscape and that can be cartographically shown at the scale mapped. The soil map units are linked to attributes in the National Soil Information System (NASIS) relational database, which gives the proportionate extent of the component soils and their properties.</gco:CharacterString>
+              </description>
+              <processor>
+                <CI_ResponsibleParty>
+                  <organisationName>
+                    <gco:CharacterString>U.S. Department of Agriculture, Natural Resources Conservation Service, National Soil Survey Center</gco:CharacterString>
+                  </organisationName>
+                  <contactInfo>
+                    <CI_Contact>
+                      <address>
+                        <CI_Address>
+                          <deliveryPoint>
+                            <gco:CharacterString>Federal Building, Room 152</gco:CharacterString>
+                          </deliveryPoint>
+                          <deliveryPoint>
+                            <gco:CharacterString>100 Centennial Mall North</gco:CharacterString>
+                          </deliveryPoint>
+                          <city>
+                            <gco:CharacterString>Lincoln</gco:CharacterString>
+                          </city>
+                          <administrativeArea>
+                            <gco:CharacterString>NE</gco:CharacterString>
+                          </administrativeArea>
+                          <postalCode>
+                            <gco:CharacterString>68508-3866</gco:CharacterString>
+                          </postalCode>
+                          <country>
+                            <Country codeList="http://www.iso.org/iso/country_codes/iso_3166_code_lists.htm" codeListValue="US" codeSpace="ISO3166-1">US</Country>
+                          </country>
+                          <electronicMailAddress>
+                            <gco:CharacterString>SoilsHotline@lin.usda.gov</gco:CharacterString>
+                          </electronicMailAddress>
+                        </CI_Address>
+                      </address>
+                    </CI_Contact>
+                  </contactInfo>
+                  <role>
+                    <CI_RoleCode codeList="http://www.isotc211.org/2005/resources/Codelist/gmxCodelists.xml#CI_RoleCode" codeListValue="processor" codeSpace="ISOTC211/19115">processor</CI_RoleCode>
+                  </role>
+                </CI_ResponsibleParty>
+              </processor>
+              <source>
+                <LI_Source>
+                  <sourceCitation>
+                    <CI_Citation>
+                      <title gco:nilReason="missing" />
+                      <alternateTitle>
+                        <gco:CharacterString>Soil Survey Geographic (SSURGO) Database for Soil Survey Areas</gco:CharacterString>
+                      </alternateTitle>
+                      <date gco:nilReason="missing" />
+                    </CI_Citation>
+                  </sourceCitation>
+                </LI_Source>
+              </source>
+            </LI_ProcessStep>
+          </processStep>
+        </LI_Lineage>
+      </lineage>
+    </DQ_DataQuality>
+  </dataQualityInfo>
+</MD_Metadata>
