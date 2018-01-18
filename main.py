@@ -78,30 +78,30 @@ tablist = [('ccancov.txt', 'cocanopycover'),
            ('version.txt', 'version')]
 
 soilmu_a_sql = """
-SELECT ST_SnapToGrid(ST_Multi(ST_Union(Geometry)), 0.000009), AREASYMBOL, SPATIALVER, MUSYM, MUKEY
+SELECT ST_SnapToGrid(ST_Multi(ST_Union(Geometry)), 0.00000898271), AREASYMBOL, SPATIALVER, MUSYM, MUKEY
   FROM {!s} GROUP BY AREASYMBOL, SPATIALVER, MUSYM, MUKEY""".strip()
 
 soilmu_l_sql = """
-SELECT ST_SnapToGrid(ST_Multi(ST_Union(Geometry)), 0.000009), AREASYMBOL, SPATIALVER, MUSYM, MUKEY
+SELECT ST_SnapToGrid(ST_Multi(ST_Union(Geometry)), 0.00000898271), AREASYMBOL, SPATIALVER, MUSYM, MUKEY
   FROM {!s}
  GROUP BY AREASYMBOL, SPATIALVER, MUSYM, MUKEY""".strip()
 
 soilmu_p_sql = """
-SELECT ST_SnapToGrid(ST_Multi(ST_Union(Geometry)), 0.000009), AREASYMBOL, SPATIALVER, MUSYM, MUKEY
+SELECT ST_SnapToGrid(ST_Multi(ST_Union(Geometry)), 0.00000898271), AREASYMBOL, SPATIALVER, MUSYM, MUKEY
   FROM {!s}
  GROUP BY AREASYMBOL, SPATIALVER, MUSYM, MUKEY""".strip()
 
 soilsa_a_sql ="""
-SELECT ST_SnapToGrid(ST_Multi(ST_Union(Geometry)), 0.000009), AREASYMBOL, SPATIALVER, LKEY
+SELECT ST_SnapToGrid(ST_Multi(ST_Union(Geometry)), 0.00000898271), AREASYMBOL, SPATIALVER, LKEY
   FROM {!s} GROUP BY AREASYMBOL, SPATIALVER, LKEY""".strip()
 
 soilsf_l_sql = """
-SELECT ST_SnapToGrid(ST_Multi(ST_Union(Geometry)), 0.000009), AREASYMBOL, SPATIALVER, FEATSYM, FEATKEY
+SELECT ST_SnapToGrid(ST_Multi(ST_Union(Geometry)), 0.00000898271), AREASYMBOL, SPATIALVER, FEATSYM, FEATKEY
   FROM {!s}
  GROUP BY AREASYMBOL, SPATIALVER, FEATSYM, FEATKEY""".strip()
 
 soilsf_p_sql = """
-SELECT ST_SnapToGrid(ST_Multi(ST_Union(Geometry)), 0.000009), AREASYMBOL, SPATIALVER, FEATSYM, FEATKEY
+SELECT ST_SnapToGrid(ST_Multi(ST_Union(Geometry)), 0.00000898271), AREASYMBOL, SPATIALVER, FEATSYM, FEATKEY
   FROM {!s}
  GROUP BY AREASYMBOL, SPATIALVER, FEATSYM, FEATKEY""".strip()
 
@@ -298,5 +298,5 @@ if __name__ == "__main__":
     new_imports = scan_insert(dbpath, scanpath)
     if new_imports:
         make_custom(dbpath)
-    vacuum(dbpath)
+    #vacuum(dbpath)
     print("Script finished.")
