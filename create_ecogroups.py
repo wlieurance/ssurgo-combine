@@ -1,6 +1,7 @@
 import os
 import csv
 import sys
+import argparse
 import sqlite3 as sqlite
 
 ecogroup_statements = [
@@ -25,6 +26,8 @@ SELECT y.mukey, y.ecogroup, y.group_type, y.modal, y.pub_status, max(y.ecogroupp
         GROUP BY x.mukey, x.ecogroup, x.group_type, x.modal)
        AS y
  GROUP BY mukey;""",
+
+"""SELECT DiscardGeometryColumn('ecogrouppolygon', 'SHAPE');""",
 
 """DROP TABLE IF EXISTS ecogrouppolygon;""",
 
@@ -53,12 +56,6 @@ SELECT ecogroup, group_type, modal, pub_status, (ST_Area(SHAPE)/10000) AS area_h
               AS x
         GROUP BY ecogroup) AS y;"""
 ]
-
-def printhelp():
-    print("\nThis script will load custom ecological groupings into an existing SpatialLite SSURGO created with the import.py script. "
-          "The script will load them from a comma delimited file into a new custom table called 'ecogroups' and create an associated "
-          "polygon feature called 'ecogrouppolygon' which sptially displays dominant ecogroups. See the 'example.csv' file for a template.")
-    print("\nUsage syntax: create_ecogroups.py dbfile csvfile\n")
 
 def create_table(dbpath):
     conn = sqlite.connect(dbpath)
@@ -102,24 +99,23 @@ def create_views(dbpath):
     
 if __name__ == "__main__":
     ### parses script arguments
-    if len(sys.argv) > 1 and len(sys.argv) < 4:
-        if str(sys.argv[1]) == '-h' or str(sys.argv[1]) == '--help':
-            printhelp()
-            quit()
-        else:
-            dbpath = os.path.abspath(str(sys.argv[1]))
-            csvpath = os.path.abspath(str(sys.argv[2]))
-    else:
-        printhelp()
-        quit()
-    if not os.path.isfile(dbpath):
+    parser = argparse.ArgumentParser(formatter_class=argparse.ArgumentDefaultsHelpFormatter,
+                                     description='This script will add ecological groupings to an already created SSURGO database. '
+                                     'The ecogroups table will be created and populated via a comma delimited file, and the '
+                                     'ecogrouppolygon spatial feature will be created.')
+    ### positional arguments
+    parser.add_argument('dbpath', help='path of the sqlite SSURGO created via main.py within this toolset')
+    parser.add_argument('csvpath', help='path of the csv file containing the ecological groupings (see ecogroups_example.csv)')
+    args = parser.parse_args()
+    ### check for valid arguments
+    if not os.path.isfile(args.dbpath):
         print("dbpath does not exist. Please choose an existing SSURGO file to use.")
         quit()
-    if not os.path.isfile(csvpath):
+    if not os.path.isfile(args.csvpath):
         print("csvpath does not exist. Please choose an existing comma delimited ecogroup file to use.")
         quit()
-
-    create_table(dbpath)
-    load_ecogroups(dbpath, csvpath)
-    create_views(dbpath)
+    
+    create_table(args.dbpath)
+    load_ecogroups(args.dbpath, args.csvpath)
+    create_views(args.dbpath)
     print('Script finished.')

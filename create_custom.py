@@ -1,4 +1,6 @@
 custom_statements = [
+"""SELECT DiscardGeometryColumn('ecopolygon', 'SHAPE');""",
+
 """DROP TABLE IF EXISTS ecopolygon;""",
 
 """/* Creates a new table in which store spatial query results for dominant ecosite polygons. */
