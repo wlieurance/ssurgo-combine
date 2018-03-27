@@ -1,25 +1,29 @@
 # Introduction #
-The purpose of this toolset is to give the user the ability to quickly combine individual soil area based SSURGOs downloaded from NRCS. These are packaged as a collection of tabular (.txt) and shapefile data for individual Soil Survey Areas.  This toolset combines all downloaded SSURGOs located within the same base folder and imports them into a new SpatiaLite database, usable in ArcMap (>= 10.2), QGIS, R, et al.
+The purpose of this toolset is to give the user the ability to quickly combine individual soil area based SSURGOs downloaded from NRCS. These are packaged as a collection of tabular (.txt) and shapefile data for individual Soil Survey Areas.  This toolset combines all downloaded SSURGOs located within the same base folder and imports them into a new SpatiaLite or PostGIS database, usable in ArcMap (>= 10.2), QGIS, R, et al.
 
 This toolset also adds some custom SQL queries and features to the dataset.  See the Custom Additions Section for more info.
 
 # Prerequisites/Installation #
 This toolset was written in python 3.6 and does not attempt to be backwards compatible with earlier python version. That being said it will likely function properly for most python3 installations.
 
-This toolset does not require any non-standard python libraries, but **does** require that the modular SpatiaLite library (4.3+) be installed on your system and in the case of MS Windows, its location added manually into either your user or system PATH variable. See the [Gaia-SINS](https://www.gaia-gis.it/gaia-sins/) site for more info on how to install the SpatiaLite modular library for your specific system. 
+This toolset requires some non-standard libraries (see requirements.txt), and also requires that the modular SpatiaLite library (4.3+) or PostGIS (2.4+) be installed on your system. In the case of SpatiaLite on MS Windows, its location needs to be added manually into either your user, or system PATH variable. See the [Gaia-SINS](https://www.gaia-gis.it/gaia-sins/) site for more info on how to install the SpatiaLite modular library for your specific system. 
 
 # Use #
-Basic use would be to run the following, modifying python calls as necessary for your system: 
+Basic use would be to run the following, modifying python calls as necessary for your system (e.g python vs python3.6 vs py -3.6 etc).: 
 
 python extract.py "/path/to/scan"
 
-A more complex usage example would be:
+A more complex usage example (SpatiaLite/Windows) for would be:
 
 python extract.py --dbpath .\test.sqlite --ecosite --groups .\ecogroups.csv --snap 1 --restrict .\surveylist.csv --repair C:\Users\someuser\Documents\SSURGO
 
+An alternative example with PostGIS and short command line options on a linux system:
+
+python extract.py -t postgis -d "dbname=somedb user=someuser password='somepass'" -e -g ./ecogroups.csv "/home/user/soils folder/SSURGO"
+
 Please note that any argument passed to the script containing a space needs to be enclosed in double quotes (e.g. "C:\Soil Surveys"). See the help documentation provided via --help option for more info. 
 
-Depending on if the dbpath the user supplied already exists, this script will create a new SpatiaLite database and import the SSURGO data into it. If the db path exists, his script can be rerun on the existing database in order to import more data.  Any existing data will be skipped in the new import process.
+Depending on if the dbpath the user supplied already exists, this script will create a new SpatiaLite database and import the SSURGO data into it. If the db path exists, his script can be rerun on the existing database in order to import more data.  Any existing data will be skipped in the new import process. In the case of a PostGIS import, a new blank postgres database is recommended .  The script will initialize the blank postgres database as a PostGIS database.
 
 Also note that snapping grid size should be used carefully. It can be useful to fix linear artifacts produced from joining soil surveys that don't quite meet up exactly, but also tends to produce invalid geometries that can't be repaired if the snapping size is too big.  A snap size of less than 2.0 meters is recommended.  Also, if using the snapping option, it is also recommended to use the --repair flag, which can fix some invalid geometries present in the original data (or produced via the ST_SnapToGrid() SpatiaLite function) via the ST_MakeValid() SpatiaLite function.
 
