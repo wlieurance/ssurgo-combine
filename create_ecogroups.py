@@ -60,53 +60,129 @@ SELECT ecogroup, group_type, modal, pub_status, ST_Area(shape) AS area_dd, (ecog
 ]
 
 ecogroup_postgis = [
-"""/* This  view  determines the dominant ecogroup per map unit from values listed in the ecogroup table. */
+"""/* This  view ranks ecogroup per map unit by area percent from values listed in the ecogroup table. */
+CREATE OR REPLACE VIEW ecogroup_mapunit_ranked AS
+SELECT f.mukey, f.ecogroup, f.group_type, f.modal, f.pub_status, f.ecogrouppct, f.grouprank 
+  FROM (
+       SELECT Row_Number() OVER (PARTITION BY b.mukey ORDER BY b.ecogrouppct DESC, b.group_type ASC, b.ecogroup ASC) AS grouprank, 
+	          b.mukey, b.ecogroup, b.group_type, b.modal, b.pub_status, b.ecogrouppct 
+	     FROM (
+		      SELECT a.mukey, a.ecogroup, a.group_type, a.pub_status, a.modal, sum(a.ecoclasspct) AS ecogrouppct 
+		        FROM (
+				     SELECT m.mukey, m.ecoclassid, m.ecoclassid_std, m.ecoclassname, 
+					        LOWER(LTRIM(RTRIM(REPLACE(REPLACE(m.ecoclassname,'"',' in'),'  ',' ')))) AS ecoclassname_std, 
+							m.ecoclasspct,
+			                CASE WHEN m.ecoclassid_std IS NULL THEN 'NA'
+				                 WHEN n.ecogroup IS NULL THEN m.ecoclassid_std 
+				                 ELSE n.ecogroup END AS ecogroup, 
+			                CASE WHEN m.ecoclassid_std IS NULL THEN Null
+				                 WHEN n.ecogroup IS NULL THEN (CASE WHEN LEFT(m.ecoclassid, 1) = 'R' THEN 'Range'
+                                                                    WHEN LEFT(m.ecoclassid, 1) = 'F' THEN 'Forest'
+				                                                    ELSE Null END)
+				                 ELSE Null END AS ecosubgroup,
+				            CASE WHEN m.ecoclassid_std IS NULL THEN 'Ecosite'
+				                 WHEN n.ecogroup IS NULL THEN 'Ecosite'
+				                 ELSE n.group_type END AS group_type, 
+			                CASE WHEN m.ecoclassid_std IS NULL THEN Null
+				                 WHEN n.ecogroup IS NULL THEN TRUE
+				                 ELSE n.modal END AS modal, 
+			                CASE WHEN m.ecoclassid_std IS NULL THEN Null
+				                 ELSE n.pub_status END AS pub_status 
+			           FROM (
+					        SELECT g.mukey, g.ecoclassid, l.ecoclassid_std, l.ecoclassname, g.ecoclasspct, 
+							       ROW_NUMBER() OVER(PARTITION BY g.mukey ORDER BY g.ecoclasspct Desc, g.ecoclassid) AS RowNum
+				              FROM (
+							       SELECT q.mukey, COALESCE(r.ecoclassid, 'NA') AS ecoclassid, Sum(q.comppct_r) AS ecoclasspct
+					                 FROM component AS q
+					                 LEFT JOIN (
+									      SELECT y.*
+						                    FROM coecoclass AS y 
+						                   INNER JOIN (
+										         SELECT cokey, coecoclasskey
+                                                   FROM (
+												        SELECT a.cokey, a.coecoclasskey, b.n, 
+														       ROW_NUMBER() OVER (PARTITION BY a.cokey ORDER BY b.n DESC) AS RowNum
+									                      FROM coecoclass AS a 
+									                     INNER JOIN (
+														       SELECT ecoclasstypename, Count(cokey) AS n
+											                     FROM coecoclass
+											                    GROUP BY ecoclasstypename
+															   ) AS b ON a.ecoclasstypename = b.ecoclasstypename
+														) AS x
+									              WHERE RowNum = 1
+												 ) AS z ON y.coecoclasskey = z.coecoclasskey
+									      ) AS r ON q.cokey = r.cokey
+								    GROUP BY mukey, ecoclassid
+								   ) AS g
+						      LEFT JOIN (
+							       SELECT ecoclassid, 
+								          CASE WHEN SUBSTRING(ecoclassid, 1, 1) IN ('F', 'R') THEN SUBSTRING(ecoclassid, 2, 10) 
+									           WHEN SUBSTRING(ecoclassid, 1, 1) = '0' THEN SUBSTRING(ecoclassid, 1, 10) 
+									           ELSE ecoclassid END AS ecoclassid_std, 
+										  ecoclassname 
+							         FROM (
+									      SELECT ecoclassid, ecoclassname, n, 
+										         ROW_NUMBER() OVER(PARTITION BY ecoclassid ORDER BY n DESC, ecoclassname) AS RowNum
+								            FROM (
+											     SELECT ecoclassid, ecoclassname, Count(ecoclassname) AS n
+									               FROM coecoclass
+									              GROUP BY ecoclassid, ecoclassname
+												 ) AS j
+										  ) AS k
+							        WHERE RowNum = 1
+								   ) AS l ON g.ecoclassid = l.ecoclassid
+							) AS m
+					   LEFT JOIN ecogroup AS n on m.ecoclassid_std = n.ecoid
+					 ) AS a
+               GROUP BY mukey, ecogroup, group_type, modal, pub_status
+			  ) AS b
+	   ) AS f;""",
+	   
+"""/* This  view ranks ecogroup per map unit by area percent from values listed in the ecogroup table. */
 CREATE OR REPLACE VIEW ecogroup_mudominant AS
-SELECT f.mukey, f.ecogroup, f.group_type, f.modal, f.pub_status, f.ecogrouppct 
-  FROM (SELECT Row_Number() OVER (PARTITION BY b.mukey ORDER BY b.ecogrouppct DESC, b.group_type ASC, b.ecogroup ASC) AS rownum, b.mukey, b.ecogroup, b.group_type, b.modal, b.pub_status, b.ecogrouppct 
-	  FROM (SELECT a.mukey, a.ecogroup, a.group_type, a.pub_status, a.modal, sum(a.ecoclasspct) AS ecogrouppct 
-		  FROM (SELECT m.mukey, m.ecoclassid, m.ecoclassid_std, m.ecoclassname, LOWER(LTRIM(RTRIM(REPLACE(REPLACE(m.ecoclassname,'"',' in'),'  ',' ')))) AS ecoclassname_std, m.ecoclasspct,
-			       CASE WHEN m.ecoclassid_std IS NULL THEN Null
-				    WHEN n.ecogroup IS NULL THEN m.ecoclassid_std 
-				    ELSE n.ecogroup END AS ecogroup, 
-			       CASE WHEN m.ecoclassid_std IS NULL THEN Null
-				    WHEN n.ecogroup IS NULL THEN (CASE WHEN LEFT(m.ecoclassid, 1) = 'R' THEN 'Range'
-                                                                       WHEN LEFT(m.ecoclassid, 1) = 'F' THEN 'Forest'
-				                                       ELSE Null END)
-				    ELSE Null END AS ecosubgroup,
-				    CASE WHEN m.ecoclassid_std IS NULL THEN Null
-				    WHEN n.ecogroup IS NULL THEN 'Ecosite'
-				    ELSE n.group_type END AS group_type, 
-			       CASE WHEN m.ecoclassid_std IS NULL THEN Null
-				    WHEN n.ecogroup IS NULL THEN TRUE
-				    ELSE n.modal END AS modal, 
-			       CASE WHEN m.ecoclassid_std IS NULL THEN Null
-				    ELSE n.pub_status END AS pub_status 
-			  FROM (SELECT g.mukey, g.ecoclassid, l.ecoclassid_std, l.ecoclassname, g.ecoclasspct, ROW_NUMBER() OVER(PARTITION BY g.mukey ORDER BY g.ecoclasspct Desc, g.ecoclassid) AS RowNum
-				  FROM (SELECT q.mukey, COALESCE(r.ecoclassid, 'NA') AS ecoclassid, Sum(q.comppct_r) AS ecoclasspct
-					  FROM COMPONENT AS q
-					  LEFT JOIN (SELECT y.*
-						       FROM COECOCLASS AS y 
-						      INNER JOIN (SELECT cokey, coecoclasskey
-                                                                    FROM (SELECT a.cokey, a.coecoclasskey, b.n, ROW_NUMBER() OVER (PARTITION BY a.cokey ORDER BY b.n DESC) AS RowNum
-									    FROM COECOCLASS AS a 
-									   INNER JOIN (SELECT ecoclasstypename, Count(cokey) AS n
-											 FROM COECOCLASS
-											GROUP BY ecoclasstypename) AS b ON a.ecoclasstypename = b.ecoclasstypename) AS x
-									   WHERE RowNum = 1) AS z ON y.coecoclasskey = z.coecoclasskey) AS r ON q.cokey = r.cokey
-								   GROUP BY mukey, ecoclassid) AS g
-						       LEFT JOIN (SELECT ecoclassid, 
-								         CASE WHEN SUBSTRING(ecoclassid, 1, 1) IN ('F', 'R') THEN SUBSTRING(ecoclassid, 2, 10) 
-									      WHEN SUBSTRING(ecoclassid, 1, 1) = '0' THEN SUBSTRING(ecoclassid, 1, 10) 
-									      ELSE ecoclassid END AS ecoclassid_std, ecoclassname 
-							            FROM (SELECT ecoclassid, ecoclassname, n, ROW_NUMBER() OVER(PARTITION BY ecoclassid ORDER BY n DESC, ecoclassname) AS RowNum
-								            FROM (SELECT ecoclassid, ecoclassname, Count(ecoclassname) AS n
-									            FROM COECOCLASS
-									           GROUP BY ecoclassid, ecoclassname) AS j) AS k
-							           WHERE RowNum = 1) AS l ON g.ecoclassid = l.ecoclassid) AS m
-					              LEFT JOIN ecogroup AS n on m.ecoclassid_std = n.ecoid) AS a
-             GROUP BY mukey, ecogroup, group_type, modal, pub_status) AS b) AS f
- WHERE rownum = 1;""",
+SELECT mukey, ecogroup, group_type, modal, pub_status, ecogrouppct  
+  FROM ecogroup_mapunit_ranked
+ WHERE grouprank = 1;""",
+ 
+"""/* Isolates the six most dominant ecogroups/ecosites per mapunit and arranges them in a wide table format with their percentages
+Ecogroup/ecosites percentages summed within map unit.  Join to mupolygon or mapunit via mukey. */
+CREATE OR REPLACE VIEW ecogroup_wide AS
+SELECT a.mukey, 
+       a.ecogroup AS ecogroup_1, a.group_type AS group_type_1, a.ecogrouppct AS ecogrouppct_1, 
+       b.ecogroup AS ecogroup_2, b.group_type AS group_type_2, b.ecogrouppct AS ecogrouppct_2, 
+	   c.ecogroup AS ecogroup_3, c.group_type AS group_type_3, c.ecogrouppct AS ecogrouppct_3, 
+	   d.ecogroup AS ecogroup_4, d.group_type AS group_type_4, d.ecogrouppct AS ecogrouppct_4, 
+	   e.ecogroup AS ecogroup_5, e.group_type AS group_type_5, e.ecogrouppct AS ecogrouppct_5, 
+	   f.ecogroup AS ecogroup_6, f.group_type AS group_type_6, f.ecogrouppct AS ecogrouppct_6
+  FROM ecogroup_mapunit_ranked AS a
+  LEFT JOIN ecogroup_mapunit_ranked AS b ON a.mukey = b.mukey
+  LEFT JOIN ecogroup_mapunit_ranked AS c ON a.mukey = c.mukey
+  LEFT JOIN ecogroup_mapunit_ranked AS d ON a.mukey = d.mukey
+  LEFT JOIN ecogroup_mapunit_ranked AS e ON a.mukey = e.mukey
+  LEFT JOIN ecogroup_mapunit_ranked AS f ON a.mukey = f.mukey
+ WHERE a.grouprank = 1 AND 
+       b.grouprank = 2 AND 
+	   c.grouprank = 3 AND 
+	   d.grouprank = 4 AND 
+	   e.grouprank = 5 AND 
+	   f.grouprank = 6;""",
+       
+""" /*  Creates a list of unique ecogroups and calculates area statistics based on mupolygon.shape and component.comppct_r */
+CREATE OR REPLACE VIEW ecogroup_unique AS
+SELECT x.ecogroup, COUNT(ecogroup) AS group_n, 
+		AVG(CAST(ecogrouppct AS float)) AS ecogrouppct_mean, SUM(groupacres) AS groupacres,
+		MIN(group_type) AS group_type, BOOL_AND(modal) AS modal, MIN(pub_status) AS pubstatus
+	FROM (
+		SELECT a.mukey, a.ecogroup, a.group_type, a.modal, a.pub_status, 
+			   a.ecogrouppct, a.grouprank, (a.ecogrouppct * b.muacres / 100) AS groupacres
+			FROM ecogroup_mapunit_ranked AS a
+			LEFT JOIN (
+				SELECT mukey, ST_Area(ST_Union(shape),True) * 0.000247105 AS muacres
+					FROM mupolygon
+				GROUP BY MUKEY
+				) AS b ON a.mukey = b.mukey
+		) AS x
+	GROUP BY x.ecogroup;""",
 
 """DROP TABLE IF EXISTS ecogrouppolygon;""",
 
@@ -131,9 +207,10 @@ SELECT ecogroup, group_type, modal, pub_status, ST_Area(shape) AS area_dd, (ecog
               SELECT a.shape, b.ecogroup, b.group_type, b.modal, b.pub_status,
                      (ST_Area(a.shape)*(CAST(b.ecogrouppct AS REAL)/100)) AS ecogrouparea_dd
                 FROM mupolygon AS a
-                LEFT JOIN ecogroup_mudominant AS b ON a.mukey = b.mukey)
-              AS x
-        GROUP BY ecogroup, group_type, modal, pub_status) AS y;"""
+                LEFT JOIN ecogroup_mudominant AS b ON a.mukey = b.mukey
+			  ) AS x
+        GROUP BY ecogroup, group_type, modal, pub_status
+	   ) AS y;"""
 ]
 
 def create_table(dbpath, dbtype):
