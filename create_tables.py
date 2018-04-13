@@ -2,13 +2,13 @@ table_statements = [
 
 ####### LEVEL 1 #######
     
-"""CREATE TABLE IF NOT EXISTS distmd (
+"""CREATE TABLE {notexists} distmd (
 	distgendate {date},
 	diststatus {limit_text} (254) NOT NULL,
 	interpmaxreasons {short_int},
 	distmdkey {limit_text} (30) PRIMARY KEY);""",
 
-"""CREATE TABLE IF NOT EXISTS featdesc (
+"""CREATE TABLE {notexists} featdesc (
 	areasymbol {limit_text} (20) NOT NULL,
 	spatialversion {int} NOT NULL,
 	featsym {limit_text} (3) NOT NULL,
@@ -16,21 +16,21 @@ table_statements = [
 	featdesc {text} NOT NULL,
 	featkey {limit_text} (30) PRIMARY KEY);""",
 
-"""CREATE TABLE IF NOT EXISTS featline (
+"""CREATE TABLE {notexists} featline (
 	OBJECTID {oid},
 	areasymbol {limit_text} (20),
 	spatialver {double},
 	featsym {limit_text} (3),
 	featkey {limit_text} (30));""",
 
-"""CREATE TABLE IF NOT EXISTS featpoint (
+"""CREATE TABLE {notexists} featpoint (
 	OBJECTID {oid},
 	areasymbol {limit_text} (20),
 	spatialver {double},
 	featsym {limit_text} (3),
 	featkey {limit_text} (30));""",
 
-"""CREATE TABLE IF NOT EXISTS legend (
+"""CREATE TABLE {notexists} legend (
 	areatypename {limit_text} (45) NOT NULL,
 	areasymbol {limit_text} (20) NOT NULL,
 	areaname {limit_text} (135),
@@ -46,7 +46,7 @@ table_statements = [
 	legendcertstat {limit_text} (254),
 	lkey {limit_text} (30) PRIMARY KEY);""",
 
-"""CREATE TABLE IF NOT EXISTS mdstatdomdet (
+"""CREATE TABLE {notexists} mdstatdomdet (
 	domainname {limit_text} (40) NOT NULL,
 	choicesequence {short_int} NOT NULL,
 	choice {limit_text} (254) NOT NULL,
@@ -54,24 +54,24 @@ table_statements = [
 	choiceobsolete {limit_text} (3) NOT NULL,
 	PRIMARY KEY (domainname, choicesequence));""",
 
-"""CREATE TABLE IF NOT EXISTS mdstatdommas (
+"""CREATE TABLE {notexists} mdstatdommas (
 	domainname {limit_text} (40) PRIMARY KEY,
 	domainmaxlen {short_int} NOT NULL);""",
 
-"""CREATE TABLE IF NOT EXISTS mdstatidxdet (
+"""CREATE TABLE {notexists} mdstatidxdet (
 	tabphyname {limit_text} (30) NOT NULL,
 	idxphyname {limit_text} (30) NOT NULL,
 	idxcolsequence {short_int} NOT NULL,
 	colphyname {limit_text} (30) NOT NULL,
 	PRIMARY KEY (tabphyname, idxphyname, idxcolsequence));""",
 
-"""CREATE TABLE IF NOT EXISTS mdstatidxmas (
+"""CREATE TABLE {notexists} mdstatidxmas (
 	tabphyname {limit_text} (30) NOT NULL,
 	idxphyname {limit_text} (30) NOT NULL,
 	uniqueindex {limit_text} (3) NOT NULL,
 	PRIMARY KEY (tabphyname, idxphyname));""",
 
-"""CREATE TABLE IF NOT EXISTS mdstatrshipdet (
+"""CREATE TABLE {notexists} mdstatrshipdet (
 	ltabphyname {limit_text} (30) NOT NULL,
 	rtabphyname {limit_text} (30) NOT NULL,
 	relationshipname {limit_text} (30) NOT NULL,
@@ -79,7 +79,7 @@ table_statements = [
 	rtabcolphyname {limit_text} (30) NOT NULL,
 	PRIMARY KEY (ltabphyname, rtabphyname, relationshipname, ltabcolphyname, rtabcolphyname));""",
 
-"""CREATE TABLE IF NOT EXISTS mdstatrshipmas (
+"""CREATE TABLE {notexists} mdstatrshipmas (
 	ltabphyname {limit_text} (30) NOT NULL,
 	rtabphyname {limit_text} (30) NOT NULL,
 	relationshipname {limit_text} (30) NOT NULL,
@@ -87,7 +87,7 @@ table_statements = [
 	mandatory {limit_text} (3) NOT NULL,
 	PRIMARY KEY (ltabphyname, rtabphyname, relationshipname));""",
 
-"""CREATE TABLE IF NOT EXISTS mdstattabcols (
+"""CREATE TABLE {notexists} mdstattabcols (
 	tabphyname {limit_text} (30) NOT NULL,
 	colsequence {short_int} NOT NULL,
 	colphyname {limit_text} (30) NOT NULL,
@@ -104,18 +104,18 @@ table_statements = [
 	coldesc {text} NOT NULL,
 	PRIMARY KEY (tabphyname, colsequence));""",
 
-"""CREATE TABLE IF NOT EXISTS mdstattabs (
+"""CREATE TABLE {notexists} mdstattabs (
 	tabphyname {limit_text} (30) PRIMARY KEY,
 	tablogname {limit_text} (30) NOT NULL,
 	tablabel {limit_text} (80) NOT NULL,
 	tabdesc {text} NOT NULL,
 	iefilename {limit_text} (30) NOT NULL);""",
 
-"""CREATE TABLE IF NOT EXISTS month (
+"""CREATE TABLE {notexists} month (
 	monthseq {short_int} NOT NULL,
 	monthname {limit_text} (9) PRIMARY KEY);""",
 
-"""CREATE TABLE IF NOT EXISTS muaggatt (
+"""CREATE TABLE {notexists} muaggatt (
 	musym {limit_text} (6) NOT NULL,
 	muname {limit_text} (175),
 	mustatus {limit_text} (254),
@@ -157,7 +157,7 @@ table_statements = [
 	awmmfpwwta {double},
 	mukey {limit_text} (30) PRIMARY KEY);""",
 
-"""CREATE TABLE IF NOT EXISTS muline (
+"""CREATE TABLE {notexists} muline (
 	OBJECTID {oid},
 	areasymbol {limit_text} (20),
 	spatialver {double},
@@ -165,7 +165,7 @@ table_statements = [
 	mukey {limit_text} (30));""",
 
 							  
-"""CREATE TABLE IF NOT EXISTS mupoint (
+"""CREATE TABLE {notexists} mupoint (
 	OBJECTID {oid},
 	areasymbol {limit_text} (20),
 	spatialver {double},
@@ -173,14 +173,14 @@ table_statements = [
 	mukey {limit_text} (30));""",
 
 							  
-"""CREATE TABLE IF NOT EXISTS mupolygon (
+"""CREATE TABLE {notexists} mupolygon (
 	OBJECTID {oid},
 	areasymbol {limit_text} (20),
 	spatialver {double},
 	musym {limit_text} (6),
 	mukey {limit_text} (30));""",
 
-"""CREATE TABLE IF NOT EXISTS sacatalog (
+"""CREATE TABLE {notexists} sacatalog (
 	areasymbol {limit_text} (20) NOT NULL,
 	areaname {limit_text} (135) NOT NULL,
 	saversion {int} NOT NULL,
@@ -193,19 +193,19 @@ table_statements = [
 	fgdcmetadata {text} NOT NULL,
 	sacatalogkey {limit_text} (30) PRIMARY KEY);""",
 
-"""CREATE TABLE IF NOT EXISTS sapolygon (
+"""CREATE TABLE {notexists} sapolygon (
 	OBJECTID {oid},
 	areasymbol {limit_text} (20),
 	spatialver {double},
 	lkey {limit_text} (30));""",
 
-"""CREATE TABLE IF NOT EXISTS sdvalgorithm (
+"""CREATE TABLE {notexists} sdvalgorithm (
 	algorithmsequence {short_int} NOT NULL,
 	algorithmname {limit_text} (50) PRIMARY KEY,
 	algorithminitials {limit_text} (3) NOT NULL,
 	algorithmdescription {text} NOT NULL);""",
 
-"""CREATE TABLE IF NOT EXISTS sdvattribute (
+"""CREATE TABLE {notexists} sdvattribute (
 	attributekey {int} PRIMARY KEY,
 	attributename {limit_text} (60) NOT NULL,
 	attributetablename {limit_text} (30) NOT NULL,
@@ -260,7 +260,7 @@ table_statements = [
 	readytodistribute {short_int} NOT NULL,
 	effectivelogicaldatatype {limit_text} (20) NOT NULL);""",
 
-"""CREATE TABLE IF NOT EXISTS sdvfolder (
+"""CREATE TABLE {notexists} sdvfolder (
 	foldersequence {short_int} NOT NULL,
 	foldername {limit_text} (80) NOT NULL,
 	folderdescription {text} NOT NULL,
@@ -268,12 +268,12 @@ table_statements = [
 	parentfolderkey {int},
 	wlupdated {date} NOT NULL);""",
 
-"""CREATE TABLE IF NOT EXISTS sdvfolderattribute (
+"""CREATE TABLE {notexists} sdvfolderattribute (
 	folderkey {int} NOT NULL,
 	attributekey {int} NOT NULL,
 	PRIMARY KEY (folderkey, attributekey));""",
 
-"""CREATE TABLE IF NOT EXISTS version (
+"""CREATE TABLE {notexists} version (
 	areasymbol {limit_text} (20),
 	datatype {limit_text} (20),
 	version {limit_text} (20),
@@ -281,7 +281,7 @@ table_statements = [
 
 ####### LEVEL 2 #######
 
-"""CREATE TABLE IF NOT EXISTS distinterpmd (
+"""CREATE TABLE {notexists} distinterpmd (
 	rulename {limit_text} (60),
 	ruledesign {limit_text} (254) NOT NULL,
 	ruledesc {text},
@@ -292,7 +292,7 @@ table_statements = [
 	distinterpmdkey {limit_text} (30) PRIMARY KEY,
 	FOREIGN KEY(distmdkey) REFERENCES distmd(distmdkey));""",
 
-"""CREATE TABLE IF NOT EXISTS distlegendmd (
+"""CREATE TABLE {notexists} distlegendmd (
 	areatypename {limit_text} (45),
 	areasymbol {limit_text} (20),
 	areaname {limit_text} (135),
@@ -306,7 +306,7 @@ table_statements = [
 	distlegendmdkey {limit_text} (30) PRIMARY KEY,
 	FOREIGN KEY(distmdkey) REFERENCES distmd(distmdkey));""",
 
-"""CREATE TABLE IF NOT EXISTS laoverlap (
+"""CREATE TABLE {notexists} laoverlap (
 	areatypename {limit_text} (45) NOT NULL,
 	areasymbol {limit_text} (20) NOT NULL,
 	areaname {limit_text} (135),
@@ -315,7 +315,7 @@ table_statements = [
 	lareaovkey {limit_text} (30) PRIMARY KEY,
 	FOREIGN KEY(lkey) REFERENCES legend(lkey));""",
 
-"""CREATE TABLE IF NOT EXISTS legendtext (
+"""CREATE TABLE {notexists} legendtext (
 	recdate {date},
 	legendtextkind {limit_text} (254),
 	textcat {limit_text} (20),
@@ -325,7 +325,7 @@ table_statements = [
 	legtextkey {limit_text} (30) PRIMARY KEY,
 	FOREIGN KEY(lkey) REFERENCES legend(lkey));""",
 
-"""CREATE TABLE IF NOT EXISTS mapunit (
+"""CREATE TABLE {notexists} mapunit (
 	musym {limit_text} (6) NOT NULL,
 	muname {limit_text} (175),
 	mukind {limit_text} (254),
@@ -352,7 +352,7 @@ table_statements = [
 	mukey {limit_text} (30) PRIMARY KEY,
 	FOREIGN KEY(lkey) REFERENCES legend(lkey));""",
 
-"""CREATE TABLE IF NOT EXISTS sainterp (
+"""CREATE TABLE {notexists} sainterp (
 	areasymbol {limit_text} (20) NOT NULL,
 	interpname {limit_text} (60) NOT NULL,
 	interptype {limit_text} (254) NOT NULL,
@@ -366,7 +366,7 @@ table_statements = [
 
 ####### LEVEL 3 #######
 
-"""CREATE TABLE IF NOT EXISTS component (
+"""CREATE TABLE {notexists} component (
 	comppct_l {short_int},
 	comppct_r {short_int},
 	comppct_h {short_int},
@@ -478,14 +478,14 @@ table_statements = [
 	cokey {limit_text} (30) PRIMARY KEY,
 	FOREIGN KEY(mukey) REFERENCES mapunit(mukey));""",
 
-"""CREATE TABLE IF NOT EXISTS muaoverlap (
+"""CREATE TABLE {notexists} muaoverlap (
 	areaovacres {int},
 	lareaovkey {limit_text} (30) NOT NULL,
 	mukey {limit_text} (30) NOT NULL,
 	muareaovkey {limit_text} (30) PRIMARY KEY,
 	FOREIGN KEY(mukey) REFERENCES mapunit(mukey));""",
 	
-"""CREATE TABLE IF NOT EXISTS mucropyld (
+"""CREATE TABLE {notexists} mucropyld (
 	cropname {limit_text} (254),
 	yldunits {limit_text} (254),
 	nonirryield_l {double},
@@ -498,7 +498,7 @@ table_statements = [
 	mucrpyldkey {limit_text} (30) PRIMARY KEY,
 	FOREIGN KEY(mukey) REFERENCES mapunit(mukey));""",
 
-"""CREATE TABLE IF NOT EXISTS mutext (
+"""CREATE TABLE {notexists} mutext (
 	recdate {date},
 	mapunittextkind {limit_text} (254),
 	textcat {limit_text} (20),
@@ -510,7 +510,7 @@ table_statements = [
 
 ####### LEVEL 4 #######
 	
-"""CREATE TABLE IF NOT EXISTS chorizon (
+"""CREATE TABLE {notexists} chorizon (
 	hzname {limit_text} (12),
 	desgndisc {short_int},
 	desgnmaster {limit_text} (254),
@@ -684,7 +684,7 @@ table_statements = [
 	chkey {limit_text} (30) PRIMARY KEY,
 	FOREIGN KEY(cokey) REFERENCES component(cokey));""",
 
-"""CREATE TABLE IF NOT EXISTS cocanopycover (
+"""CREATE TABLE {notexists} cocanopycover (
 	plantcov {short_int},
 	plantsym {limit_text} (8) NOT NULL,
 	plantsciname {limit_text} (127),
@@ -693,7 +693,7 @@ table_statements = [
 	cocanopycovkey {limit_text} (30) PRIMARY KEY,
 	FOREIGN KEY(cokey) REFERENCES component(cokey));""",
 
-"""CREATE TABLE IF NOT EXISTS cocropyld (
+"""CREATE TABLE {notexists} cocropyld (
 	cropname {limit_text} (254),
 	yldunits {limit_text} (254),
 	nonirryield_l {double},
@@ -708,7 +708,7 @@ table_statements = [
 	cocropyldkey {limit_text} (30) PRIMARY KEY,
 	FOREIGN KEY(cokey) REFERENCES component(cokey));""",
 
-"""CREATE TABLE IF NOT EXISTS codiagfeatures (
+"""CREATE TABLE {notexists} codiagfeatures (
 	featkind {limit_text} (254),
 	featdept_l {short_int},
 	featdept_r {short_int},
@@ -723,7 +723,7 @@ table_statements = [
 	codiagfeatkey {limit_text} (30) PRIMARY KEY,
 	FOREIGN KEY(cokey) REFERENCES component(cokey));""",
 
-"""CREATE TABLE IF NOT EXISTS coecoclass (
+"""CREATE TABLE {notexists} coecoclass (
 	ecoclasstypename {limit_text} (60) NOT NULL,
 	ecoclassref {limit_text} (254),
 	ecoclassid {limit_text} (30) NOT NULL,
@@ -732,7 +732,7 @@ table_statements = [
 	coecoclasskey {limit_text} (30) PRIMARY KEY,
 	FOREIGN KEY(cokey) REFERENCES component(cokey));""",
 
-"""CREATE TABLE IF NOT EXISTS coeplants (
+"""CREATE TABLE {notexists} coeplants (
 	plantsym {limit_text} (8) NOT NULL,
 	plantsciname {limit_text} (127),
 	plantcomname {limit_text} (60),
@@ -742,14 +742,14 @@ table_statements = [
 	coeplantskey {limit_text} (30) PRIMARY KEY,
 	FOREIGN KEY(cokey) REFERENCES component(cokey));""",
 
-"""CREATE TABLE IF NOT EXISTS coerosionacc (
+"""CREATE TABLE {notexists} coerosionacc (
 	erokind {limit_text} (254),
 	rvindicator {limit_text} (3) NOT NULL,
 	cokey {limit_text} (30) NOT NULL,
 	coeroacckey {limit_text} (30) PRIMARY KEY,
 	FOREIGN KEY(cokey) REFERENCES component(cokey));""",
 
-"""CREATE TABLE IF NOT EXISTS coforprod (
+"""CREATE TABLE {notexists} coforprod (
 	plantsym {limit_text} (8) NOT NULL,
 	plantsciname {limit_text} (127),
 	plantcomname {limit_text} (60),
@@ -764,7 +764,7 @@ table_statements = [
 	cofprodkey {limit_text} (30) PRIMARY KEY,
 	FOREIGN KEY(cokey) REFERENCES component(cokey));""",
 
-"""CREATE TABLE IF NOT EXISTS cogeomordesc (
+"""CREATE TABLE {notexists} cogeomordesc (
 	geomftname {limit_text} (30) NOT NULL,
 	geomfname {limit_text} (50) NOT NULL,
 	geomfmod {limit_text} (60),
@@ -775,13 +775,13 @@ table_statements = [
 	cogeomdkey {limit_text} (30) PRIMARY KEY,
 	FOREIGN KEY(cokey) REFERENCES component(cokey));""",
 
-"""CREATE TABLE IF NOT EXISTS cohydriccriteria (
+"""CREATE TABLE {notexists} cohydriccriteria (
 	hydriccriterion {limit_text} (254),
 	cokey {limit_text} (30) NOT NULL,
 	cohydcritkey {limit_text} (30) PRIMARY KEY,
 	FOREIGN KEY(cokey) REFERENCES component(cokey));""",
 
-"""CREATE TABLE IF NOT EXISTS cointerp (
+"""CREATE TABLE {notexists} cointerp (
 	cokey {limit_text} (30) NOT NULL,
 	mrulekey {limit_text} (30) NOT NULL,
 	mrulename {limit_text} (60) NOT NULL,
@@ -803,7 +803,7 @@ table_statements = [
 	cointerpkey {limit_text} (30) PRIMARY KEY,
 	FOREIGN KEY(cokey) REFERENCES component(cokey));""",
 
-"""CREATE TABLE IF NOT EXISTS comonth (
+"""CREATE TABLE {notexists} comonth (
 	monthseq {short_int},
 	month {limit_text} (254),
 	flodfreqcl {limit_text} (254),
@@ -823,14 +823,14 @@ table_statements = [
 	comonthkey {limit_text} (30) PRIMARY KEY,
 	FOREIGN KEY(cokey) REFERENCES component(cokey));""",
 
-"""CREATE TABLE IF NOT EXISTS copmgrp (
+"""CREATE TABLE {notexists} copmgrp (
 	pmgroupname {limit_text} (252),
 	rvindicator {limit_text} (3) NOT NULL,
 	cokey {limit_text} (30) NOT NULL,
 	copmgrpkey {limit_text} (30) PRIMARY KEY,
 	FOREIGN KEY(cokey) REFERENCES component(cokey));""",
 
-"""CREATE TABLE IF NOT EXISTS copwindbreak (
+"""CREATE TABLE {notexists} copwindbreak (
 	wndbrkht_l {double},
 	wndbrkht_r {double},
 	wndbrkht_h {double},
@@ -841,7 +841,7 @@ table_statements = [
 	copwindbreakkey {limit_text} (30) PRIMARY KEY,
 	FOREIGN KEY(cokey) REFERENCES component(cokey));""",
 
-"""CREATE TABLE IF NOT EXISTS corestrictions (
+"""CREATE TABLE {notexists} corestrictions (
 	reskind {limit_text} (254),
 	reshard {limit_text} (254),
 	resdept_l {short_int},
@@ -857,7 +857,7 @@ table_statements = [
 	corestrictkey {limit_text} (30) PRIMARY KEY,
 	FOREIGN KEY(cokey) REFERENCES component(cokey));""",
 
-"""CREATE TABLE IF NOT EXISTS cosurffrags (
+"""CREATE TABLE {notexists} cosurffrags (
 	sfragcov_l {double},
 	sfragcov_r {double},
 	sfragcov_h {double},
@@ -875,19 +875,19 @@ table_statements = [
 	cosurffragskey {limit_text} (30) PRIMARY KEY,
 	FOREIGN KEY(cokey) REFERENCES component(cokey));""",
 
-"""CREATE TABLE IF NOT EXISTS cotaxfmmin (
+"""CREATE TABLE {notexists} cotaxfmmin (
 	taxminalogy {limit_text} (254),
 	cokey {limit_text} (30) NOT NULL,
 	cotaxfmminkey {limit_text} (30) PRIMARY KEY,
 	FOREIGN KEY(cokey) REFERENCES component(cokey));""",
 
-"""CREATE TABLE IF NOT EXISTS cotaxmoistcl (
+"""CREATE TABLE {notexists} cotaxmoistcl (
 	taxmoistcl {limit_text} (254),
 	cokey {limit_text} (30) NOT NULL,
 	cotaxmckey {limit_text} (30) PRIMARY KEY,
 	FOREIGN KEY(cokey) REFERENCES component(cokey));""",
 
-"""CREATE TABLE IF NOT EXISTS cotext (
+"""CREATE TABLE {notexists} cotext (
 	recdate {date},
 	comptextkind {limit_text} (254),
 	textcat {limit_text} (20),
@@ -897,7 +897,7 @@ table_statements = [
 	cotextkey {limit_text} (30) PRIMARY KEY,
 	FOREIGN KEY(cokey) REFERENCES component(cokey));""",
 
-"""CREATE TABLE IF NOT EXISTS cotreestomng (
+"""CREATE TABLE {notexists} cotreestomng (
 	plantsym {limit_text} (8) NOT NULL,
 	plantsciname {limit_text} (127),
 	plantcomname {limit_text} (60),
@@ -905,7 +905,7 @@ table_statements = [
 	cotreestomngkey {limit_text} (30) PRIMARY KEY,
 	FOREIGN KEY(cokey) REFERENCES component(cokey));""",
 
-"""CREATE TABLE IF NOT EXISTS cotxfmother (
+"""CREATE TABLE {notexists} cotxfmother (
 	taxfamother {limit_text} (254),
 	cokey {limit_text} (30) NOT NULL,
 	cotaxfokey {limit_text} (30) PRIMARY KEY,
@@ -913,14 +913,14 @@ table_statements = [
 
 ####### LEVEL 5 #######
 
-"""CREATE TABLE IF NOT EXISTS chaashto (
+"""CREATE TABLE {notexists} chaashto (
 	aashtocl {limit_text} (254),
 	rvindicator {limit_text} (3) NOT NULL,
 	chkey {limit_text} (30) NOT NULL,
 	chaashtokey {limit_text} (30) PRIMARY KEY,
 	FOREIGN KEY(chkey) REFERENCES chorizon(chkey));""",
 
-"""CREATE TABLE IF NOT EXISTS chconsistence (
+"""CREATE TABLE {notexists} chconsistence (
 	rupresblkmst {limit_text} (254),
 	rupresblkdry {limit_text} (254),
 	rupresblkcem {limit_text} (254),
@@ -933,13 +933,13 @@ table_statements = [
 	chconsistkey {limit_text} (30) PRIMARY KEY,
 	FOREIGN KEY(chkey) REFERENCES chorizon(chkey));""",
 
-"""CREATE TABLE IF NOT EXISTS chdesgnsuffix (
+"""CREATE TABLE {notexists} chdesgnsuffix (
 	desgnsuffix {limit_text} (254),
 	chkey {limit_text} (30) NOT NULL,
 	chdesgnsfxkey {limit_text} (30) PRIMARY KEY,
 	FOREIGN KEY(chkey) REFERENCES chorizon(chkey));""",
 
-"""CREATE TABLE IF NOT EXISTS chfrags (
+"""CREATE TABLE {notexists} chfrags (
 	fragvol_l {short_int},
 	fragvol_r {short_int},
 	fragvol_h {short_int},
@@ -954,7 +954,7 @@ table_statements = [
 	chfragskey {limit_text} (30) PRIMARY KEY,
 	FOREIGN KEY(chkey) REFERENCES chorizon(chkey));""",
 
-"""CREATE TABLE IF NOT EXISTS chpores (
+"""CREATE TABLE {notexists} chpores (
 	poreqty_l {double},
 	poreqty_r {double},
 	poreqty_h {double},
@@ -966,14 +966,14 @@ table_statements = [
 	chporeskey {limit_text} (30) PRIMARY KEY,
 	FOREIGN KEY(chkey) REFERENCES chorizon(chkey));""",
 
-"""CREATE TABLE IF NOT EXISTS chstructgrp (
+"""CREATE TABLE {notexists} chstructgrp (
 	structgrpname {limit_text} (254),
 	rvindicator {limit_text} (3) NOT NULL,
 	chkey {limit_text} (30) NOT NULL,
 	chstructgrpkey {limit_text} (30) PRIMARY KEY,
 	FOREIGN KEY(chkey) REFERENCES chorizon(chkey));""",
 
-"""CREATE TABLE IF NOT EXISTS chtext (
+"""CREATE TABLE {notexists} chtext (
 	recdate {date},
 	chorizontextkind {limit_text} (254),
 	textcat {limit_text} (20),
@@ -983,7 +983,7 @@ table_statements = [
 	chtextkey {limit_text} (30) PRIMARY KEY,
 	FOREIGN KEY(chkey) REFERENCES chorizon(chkey));""",
 
-"""CREATE TABLE IF NOT EXISTS chtexturegrp (
+"""CREATE TABLE {notexists} chtexturegrp (
 	texture {limit_text} (30),
 	stratextsflag {limit_text} (3) NOT NULL,
 	rvindicator {limit_text} (3) NOT NULL,
@@ -992,14 +992,14 @@ table_statements = [
 	chtgkey {limit_text} (30) PRIMARY KEY,
 	FOREIGN KEY(chkey) REFERENCES chorizon(chkey));""",
 
-"""CREATE TABLE IF NOT EXISTS chunified (
+"""CREATE TABLE {notexists} chunified (
 	unifiedcl {limit_text} (254),
 	rvindicator {limit_text} (3) NOT NULL,
 	chkey {limit_text} (30) NOT NULL,
 	chunifiedkey {limit_text} (30) PRIMARY KEY,
 	FOREIGN KEY(chkey) REFERENCES chorizon(chkey));""",
 
-"""CREATE TABLE IF NOT EXISTS coforprodo (
+"""CREATE TABLE {notexists} coforprodo (
 	siteindexbase {limit_text} (254),
 	siteindex_l {short_int},
 	siteindex_r {short_int},
@@ -1012,7 +1012,7 @@ table_statements = [
 	cofprodokey {limit_text} (30) PRIMARY KEY,
 	FOREIGN KEY(cofprodkey) REFERENCES coforprod(cofprodkey));""",
 
-"""CREATE TABLE IF NOT EXISTS copm (
+"""CREATE TABLE {notexists} copm (
 	pmorder {short_int},
 	pmmodifier {limit_text} (254),
 	pmgenmod {limit_text} (60),
@@ -1022,7 +1022,7 @@ table_statements = [
 	copmkey {limit_text} (30) PRIMARY KEY,
 	FOREIGN KEY(copmgrpkey) REFERENCES copmgrp(copmgrpkey));""",
 
-"""CREATE TABLE IF NOT EXISTS cosoilmoist (
+"""CREATE TABLE {notexists} cosoilmoist (
 	soimoistdept_l {short_int},
 	soimoistdept_r {short_int},
 	soimoistdept_h {short_int},
@@ -1034,7 +1034,7 @@ table_statements = [
 	cosoilmoistkey {limit_text} (30) PRIMARY KEY,
 	FOREIGN KEY(comonthkey) REFERENCES comonth(comonthkey));""",
 
-"""CREATE TABLE IF NOT EXISTS cosoiltemp (
+"""CREATE TABLE {notexists} cosoiltemp (
 	soitempmm {short_int},
 	soitempdept_l {short_int},
 	soitempdept_r {short_int},
@@ -1046,7 +1046,7 @@ table_statements = [
 	cosoiltempkey {limit_text} (30) PRIMARY KEY,
 	FOREIGN KEY(comonthkey) REFERENCES comonth(comonthkey));""",
 
-"""CREATE TABLE IF NOT EXISTS cosurfmorphgc (
+"""CREATE TABLE {notexists} cosurfmorphgc (
 	geomposmntn {limit_text} (254),
 	geomposhill {limit_text} (254),
 	geompostrce {limit_text} (254),
@@ -1055,19 +1055,19 @@ table_statements = [
 	cosurfmorgckey {limit_text} (30) PRIMARY KEY,
 	FOREIGN KEY(cogeomdkey) REFERENCES cogeomordesc(cogeomdkey));""",
 
-"""CREATE TABLE IF NOT EXISTS cosurfmorphhpp (
+"""CREATE TABLE {notexists} cosurfmorphhpp (
 	hillslopeprof {limit_text} (254),
 	cogeomdkey {limit_text} (30) NOT NULL,
 	cosurfmorhppkey {limit_text} (30) PRIMARY KEY,
 	FOREIGN KEY(cogeomdkey) REFERENCES cogeomordesc(cogeomdkey));""",
 
-"""CREATE TABLE IF NOT EXISTS cosurfmorphmr (
+"""CREATE TABLE {notexists} cosurfmorphmr (
 	geomicrorelief {limit_text} (254),
 	cogeomdkey {limit_text} (30) NOT NULL,
 	cosurfmormrkey {limit_text} (30) PRIMARY KEY,
 	FOREIGN KEY(cogeomdkey) REFERENCES cogeomordesc(cogeomdkey));""",
 
-"""CREATE TABLE IF NOT EXISTS cosurfmorphss (
+"""CREATE TABLE {notexists} cosurfmorphss (
 	shapeacross {limit_text} (254),
 	shapedown {limit_text} (254),
 	cogeomdkey {limit_text} (30) NOT NULL,
@@ -1076,7 +1076,7 @@ table_statements = [
 
 ####### LEVEL 6 #######
 
-"""CREATE TABLE IF NOT EXISTS chstruct (
+"""CREATE TABLE {notexists} chstruct (
 	structgrade {limit_text} (254),
 	structsize {limit_text} (254),
 	structtype {limit_text} (254),
@@ -1086,7 +1086,7 @@ table_statements = [
 	chstructkey {limit_text} (30) PRIMARY KEY,
 	FOREIGN KEY(chstructgrpkey) REFERENCES chstructgrp(chstructgrpkey));""",
 
-"""CREATE TABLE IF NOT EXISTS chtexture (
+"""CREATE TABLE {notexists} chtexture (
 	texcl {limit_text} (254),
 	lieutex {limit_text} (254),
 	chtgkey {limit_text} (30) NOT NULL,
@@ -1095,7 +1095,7 @@ table_statements = [
 
 ####### LEVEL 7 #######
 
-"""CREATE TABLE IF NOT EXISTS chtexturemod (
+"""CREATE TABLE {notexists} chtexturemod (
 	texmod {limit_text} (254),
 	chtkey {limit_text} (30) NOT NULL,
 	chtexmodkey {limit_text} (30) PRIMARY KEY,

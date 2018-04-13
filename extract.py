@@ -5,17 +5,18 @@ import sys
 import re
 import sqlite3 as sqlite
 import psycopg2
+import pyodbc
 import argparse
 import subprocess
 import shapefile
 import pygeoif
-from create_tables import table_statements, temp_tables
+from create_tables import table_statements, temp_tables#, postgis_addgeom, mssql_addgeom
 from create_views import spatialite_views
 from create_views import postgis_views
 from create_custom import custom_spatialite, custom_postgis
 import create_ecogroups
 from create_ecogroups import ecogroup_spatialite, ecogroup_postgis
-from config import spatialite_tables, postgis_tables
+from config import spatialite_tables, postgis_tables, mssql_tables
 
 def initdb(dbpath, dbtype):
     ### connect to spatialite database, initialize if necessary and create tables.
@@ -62,7 +63,30 @@ def initdb(dbpath, dbtype):
             conn.commit()
         conn.close()
 
-### sets the the field size limit to as large as possible in order to deal with the legentext entries, which are large ungainly strings
+    ### connect to postgres database, initialize if necessary and create tables.
+    if dbtype == 'mssql':
+        dbpath = dbpath + ';driver={ODBC Driver 13 for SQL Server}'
+        conn = pyodbc.connect(dbpath)
+        c = conn.cursor()
+        c.execute("SELECT Count(*) FROM information_schema.tables WHERE table_schema = 'dbo';")
+        objects = c.fetchone()[0]
+        if objects >= 90:
+            newdb = False
+        else:
+            newdb = True
+        if newdb:
+            print("Creating tables...")
+            for stmt in table_statements:
+                print(stmt.format(**mssql_tables))
+                c.execute(stmt.format(**mssql_tables))
+            conn.commit()
+            print("Creating views...")
+            for stmt in postgis_views:
+                c.execute(stmt)
+            conn.commit()
+        conn.close()
+
+### sets the the field size limit to as large as possible in order to deal with the legendtext entries, which are large ungainly strings
 def set_csv_limit():
     maxInt = sys.maxsize
     decrement = True
@@ -151,7 +175,8 @@ def scan_insert(dbpath, dbtype, scanpath, snap, survey_areas):
         geom = "ST_Multi(ST_Union(shape))"
         print("Importing...")
     else:
-        geom = "ST_SnapToGrid(ST_Multi(ST_Union(shape)), {!s})".format('{:.20f}'.format(snap/111319.9)) #converts meters to decimal degrees and formats for non-scientific notation
+        ###'{:.20f}'.format(snap/111319.9) converts meters to decimal degrees and formats for non-scientific notation
+        geom = "ST_SnapToGrid(ST_Multi(ST_Union(shape)), {!s})".format('{:.20f}'.format(snap/111319.9))
         print("Importing with snapping...")
         
     soilmu_a_sql = ("SELECT {!s}, AREASYMBOL, SPATIALVER, MUSYM, MUKEY"
@@ -380,7 +405,7 @@ if __name__ == "__main__":
     parser.add_argument('-d', '--dbpath', metavar='CONNECTION_STRING', default=dbpath_default,
                         help='if db type is spatialite, then this is the path to the SpatialLite database to import into, (e.g. ("path/to/db.sqlite") '
                         'which will be created if does not exist. Otherwise, this is the database connection string for your database. '
-                        '(e.g. "dbname=somedb user=someuser password=\'somepass\'")')
+                        '(e.g. "dbname=somedb user=someuser password=\'somepass\'" for postgis or "server=SOME\SQLSERVER;database=somedb;trusted_connection=yes" for mssql)')
     parser.add_argument('-e', '--ecosite', action='store_true',
                         help='creates a spatial feature called ecopolygon which shows the aggregate dominant ecological sites')
     parser.add_argument('-g', '--groups', metavar='"path/to/ecogroups.csv"',
@@ -398,7 +423,7 @@ if __name__ == "__main__":
     parser.add_argument('-s', '--snap', default=0, type=float, metavar='grid_size_m',
                         help='the grid size (in meters) to snap features to')
     parser.add_argument('-t', '--type', metavar='DATABASE_TYPE', default = 'spatialite', 
-                        help='decides which database type to import to, spatialite or postgis')
+                        help='decides which database type to import to: spatialite, postgis, or mssql')
     args = parser.parse_args()
 
     ### check for valid arguments
