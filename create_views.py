@@ -511,25 +511,20 @@ SELECT mukey, ecoclassid, ecoclassid_std, ecoclassname, ecoclassname_std, ecotyp
 """/* Isolates the six most dominant ecosites per mapunit and arranges them in a wide table format with their percentages.
 Join to mupolygon or mapunit via mukey */
 CREATE OR REPLACE VIEW coecoclass_wide AS
-SELECT n.mukey, 
+SELECT a.mukey, 
        n.ecoclassid AS ecoclassid_1, n.ecoclassname AS ecoclassname_1, n.ecoclasspct AS ecoclasspct_1, 
        o.ecoclassid AS ecoclassid_2, o.ecoclassname AS ecoclassname_2, o.ecoclasspct AS ecoclasspct_2, 
-	   p.ecoclassid AS ecoclassid_3, p.ecoclassname AS ecoclassname_3, p.ecoclasspct AS ecoclasspct_3, 
-	   q.ecoclassid AS ecoclassid_4, q.ecoclassname AS ecoclassname_4, q.ecoclasspct AS ecoclasspct_4, 
-	   r.ecoclassid AS ecoclassid_5, r.ecoclassname AS ecoclassname_5, r.ecoclasspct AS ecoclasspct_5, 
-	   s.ecoclassid AS ecoclassid_6, s.ecoclassname AS ecoclassname_6, s.ecoclasspct AS ecoclasspct_6
-  FROM coecoclass_mapunit_ranked AS n
-  LEFT JOIN coecoclass_mapunit_ranked AS o ON n.mukey = o.mukey
-  LEFT JOIN coecoclass_mapunit_ranked AS p ON n.mukey = p.mukey
-  LEFT JOIN coecoclass_mapunit_ranked AS q ON n.mukey = q.mukey
-  LEFT JOIN coecoclass_mapunit_ranked AS r ON n.mukey = r.mukey
-  LEFT JOIN coecoclass_mapunit_ranked AS s ON n.mukey = s.mukey
- WHERE n.ecorank = 1 AND 
-       o.ecorank = 2 AND 
-	   p.ecorank = 3 AND 
-	   q.ecorank = 4 AND 
-	   r.ecorank = 5 AND 
-	   s.ecorank = 6;""",
+       p.ecoclassid AS ecoclassid_3, p.ecoclassname AS ecoclassname_3, p.ecoclasspct AS ecoclasspct_3, 
+       q.ecoclassid AS ecoclassid_4, q.ecoclassname AS ecoclassname_4, q.ecoclasspct AS ecoclasspct_4, 
+       r.ecoclassid AS ecoclassid_5, r.ecoclassname AS ecoclassname_5, r.ecoclasspct AS ecoclasspct_5, 
+       s.ecoclassid AS ecoclassid_6, s.ecoclassname AS ecoclassname_6, s.ecoclasspct AS ecoclasspct_6
+  FROM mapunit AS a
+  LEFT JOIN (SELECT * FROM coecoclass_mapunit_ranked WHERE ecorank = 1) AS n ON a.mukey = n.mukey
+  LEFT JOIN (SELECT * FROM coecoclass_mapunit_ranked WHERE ecorank = 2) AS o ON a.mukey = o.mukey
+  LEFT JOIN (SELECT * FROM coecoclass_mapunit_ranked WHERE ecorank = 3) AS p ON a.mukey = p.mukey
+  LEFT JOIN (SELECT * FROM coecoclass_mapunit_ranked WHERE ecorank = 4) AS q ON a.mukey = q.mukey
+  LEFT JOIN (SELECT * FROM coecoclass_mapunit_ranked WHERE ecorank = 5) AS r ON a.mukey = r.mukey
+  LEFT JOIN (SELECT * FROM coecoclass_mapunit_ranked WHERE ecorank = 6) AS s ON a.mukey = s.mukey;""",
        
 """ /* Creates a unique list of ecosites in the database and calculates area statistics via mupolygon.shape and component.comppct_r (ecoacres).
        ecoclasspct_mean is the average percentage of the a map unit the ecosite takes up if it is present. */

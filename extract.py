@@ -100,7 +100,7 @@ def set_csv_limit():
             maxInt = int(maxInt/10)
             decrement = True
 
-def scan_insert(dbpath, dbtype, scanpath, snap, survey_areas):
+def scan_insert(dbpath, dbtype, scanpath, snap, repair, skip, survey_areas):
     ### define variables
     tablist = [('ccancov.txt', 'cocanopycover'),
                ('ccrpyd.txt', 'cocropyld'),
@@ -170,14 +170,28 @@ def scan_insert(dbpath, dbtype, scanpath, snap, survey_areas):
                ('sdvfolder.txt', 'sdvfolder'),
                ('sdvfolderattribute.txt', 'sdvfolderattribute'),
                ('version.txt', 'version')]
+    if skip:
+        skiplist = skip.split(',')
+        for s in skiplist:
+            for i in tablist:
+                if s == i[1]:
+                    tablist.remove(i)
 
     if snap == 0:
-        geom = "ST_Multi(ST_Union(shape))"
-        print("Importing...")
+        if repair:
+            geom = "ST_Multi(ST_Union(ST_MakeValid(shape)))"
+            print("Importing: no snapping with repair...")
+        else:
+            geom = "ST_Multi(ST_Union(shape))"
+            print("Importing: no snapping no repair...")
     else:
         ###'{:.20f}'.format(snap/111319.9) converts meters to decimal degrees and formats for non-scientific notation
-        geom = "ST_SnapToGrid(ST_Multi(ST_Union(shape)), {!s})".format('{:.20f}'.format(snap/111319.9))
-        print("Importing with snapping...")
+        if repair:
+            geom = "ST_SnapToGrid(ST_Multi(ST_Union(ST_MakeValid(shape))), {!s})".format('{:.20f}'.format(snap/111319.9))
+            print("Importing with snapping with repair...")
+        else:
+            geom = "ST_SnapToGrid(ST_Multi(ST_Union(shape)), {!s})".format('{:.20f}'.format(snap/111319.9))
+            print("Importing with snapping no repair...")
         
     soilmu_a_sql = ("SELECT {!s}, AREASYMBOL, SPATIALVER, MUSYM, MUKEY"
                     "  FROM {{!s}}"
@@ -424,6 +438,10 @@ if __name__ == "__main__":
                         help='the grid size (in meters) to snap features to')
     parser.add_argument('-t', '--type', metavar='DATABASE_TYPE', default = 'spatialite', 
                         help='decides which database type to import to: spatialite, postgis, or mssql')
+    parser.add_argument('-k', '--skip', metavar='tables,to,skip',
+                        help='a comma separated list of tabular tables to skip during the import (e.g. cointerp). '
+                             'WARNING: skipping tables can be dangerous if they are referenced by a FOREIGN KEY '
+                             'CONSTRAINT. Use caution.')
     args = parser.parse_args()
 
     ### check for valid arguments
@@ -457,7 +475,7 @@ if __name__ == "__main__":
     featlist = ['featline', 'featpoint','muline','mupoint','mupolygon','sapolygon']
     set_csv_limit()
     initdb(args.dbpath, args.type)
-    new_imports = scan_insert(args.dbpath, args.type, args.scanpath, args.snap, survey_areas)
+    new_imports = scan_insert(args.dbpath, args.type, args.scanpath, args.snap, args.repair, args.skip, survey_areas)
 
     if args.repair:
         repair_geom(args.dbpath, args.type, featlist)

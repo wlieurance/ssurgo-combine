@@ -147,25 +147,20 @@ SELECT mukey, ecogroup, group_type, modal, pub_status, ecogrouppct
 """/* Isolates the six most dominant ecogroups/ecosites per mapunit and arranges them in a wide table format with their percentages
 Ecogroup/ecosites percentages summed within map unit.  Join to mupolygon or mapunit via mukey. */
 CREATE OR REPLACE VIEW ecogroup_wide AS
-SELECT a.mukey, 
+SELECT x.mukey, 
        a.ecogroup AS ecogroup_1, a.group_type AS group_type_1, a.ecogrouppct AS ecogrouppct_1, 
        b.ecogroup AS ecogroup_2, b.group_type AS group_type_2, b.ecogrouppct AS ecogrouppct_2, 
-	   c.ecogroup AS ecogroup_3, c.group_type AS group_type_3, c.ecogrouppct AS ecogrouppct_3, 
-	   d.ecogroup AS ecogroup_4, d.group_type AS group_type_4, d.ecogrouppct AS ecogrouppct_4, 
-	   e.ecogroup AS ecogroup_5, e.group_type AS group_type_5, e.ecogrouppct AS ecogrouppct_5, 
-	   f.ecogroup AS ecogroup_6, f.group_type AS group_type_6, f.ecogrouppct AS ecogrouppct_6
-  FROM ecogroup_mapunit_ranked AS a
-  LEFT JOIN ecogroup_mapunit_ranked AS b ON a.mukey = b.mukey
-  LEFT JOIN ecogroup_mapunit_ranked AS c ON a.mukey = c.mukey
-  LEFT JOIN ecogroup_mapunit_ranked AS d ON a.mukey = d.mukey
-  LEFT JOIN ecogroup_mapunit_ranked AS e ON a.mukey = e.mukey
-  LEFT JOIN ecogroup_mapunit_ranked AS f ON a.mukey = f.mukey
- WHERE a.grouprank = 1 AND 
-       b.grouprank = 2 AND 
-	   c.grouprank = 3 AND 
-	   d.grouprank = 4 AND 
-	   e.grouprank = 5 AND 
-	   f.grouprank = 6;""",
+       c.ecogroup AS ecogroup_3, c.group_type AS group_type_3, c.ecogrouppct AS ecogrouppct_3, 
+       d.ecogroup AS ecogroup_4, d.group_type AS group_type_4, d.ecogrouppct AS ecogrouppct_4, 
+       e.ecogroup AS ecogroup_5, e.group_type AS group_type_5, e.ecogrouppct AS ecogrouppct_5, 
+       f.ecogroup AS ecogroup_6, f.group_type AS group_type_6, f.ecogrouppct AS ecogrouppct_6
+  FROM mapunit AS x
+  LEFT JOIN (SELECT * FROM ecogroup_mapunit_ranked WHERE grouprank=1) AS a ON x.mukey = a.mukey
+  LEFT JOIN (SELECT * FROM ecogroup_mapunit_ranked WHERE grouprank=2) AS b ON x.mukey = b.mukey
+  LEFT JOIN (SELECT * FROM ecogroup_mapunit_ranked WHERE grouprank=3) AS c ON x.mukey = c.mukey
+  LEFT JOIN (SELECT * FROM ecogroup_mapunit_ranked WHERE grouprank=4) AS d ON x.mukey = d.mukey
+  LEFT JOIN (SELECT * FROM ecogroup_mapunit_ranked WHERE grouprank=5) AS e ON x.mukey = e.mukey
+  LEFT JOIN (SELECT * FROM ecogroup_mapunit_ranked WHERE grouprank=6) AS f ON x.mukey = f.mukey;""",
        
 """ /*  Creates a list of unique ecogroups and calculates area statistics based on mupolygon.shape and component.comppct_r */
 CREATE OR REPLACE VIEW ecogroup_unique AS
