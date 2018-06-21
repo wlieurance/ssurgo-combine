@@ -419,7 +419,7 @@ if __name__ == "__main__":
     parser.add_argument('-d', '--dbpath', metavar='CONNECTION_STRING', default=dbpath_default,
                         help='if db type is spatialite, then this is the path to the SpatialLite database to import into, (e.g. ("path/to/db.sqlite") '
                         'which will be created if does not exist. Otherwise, this is the database connection string for your database. '
-                        '(e.g. "dbname=somedb user=someuser password=\'somepass\'" for postgis or "server=SOME\SQLSERVER;database=somedb;trusted_connection=yes" for mssql)')
+                        '(e.g. "dbname=somedb user=someuser password=\'somepass\'" for postgis') # or "server=SOME\SQLSERVER;database=somedb;trusted_connection=yes" for mssql)
     parser.add_argument('-e', '--ecosite', action='store_true',
                         help='creates a spatial feature called ecopolygon which shows the aggregate dominant ecological sites')
     parser.add_argument('-g', '--groups', metavar='"path/to/ecogroups.csv"',
@@ -437,7 +437,7 @@ if __name__ == "__main__":
     parser.add_argument('-s', '--snap', default=0, type=float, metavar='grid_size_m',
                         help='the grid size (in meters) to snap features to')
     parser.add_argument('-t', '--type', metavar='DATABASE_TYPE', default = 'spatialite', 
-                        help='decides which database type to import to: spatialite, postgis, or mssql')
+                        help='decides which database type to import to: spatialite, postgis') #, or mssql
     parser.add_argument('-k', '--skip', metavar='tables,to,skip',
                         help='a comma separated list of tabular tables to skip during the import (e.g. cointerp). '
                              'WARNING: skipping tables can be dangerous if they are referenced by a FOREIGN KEY '
