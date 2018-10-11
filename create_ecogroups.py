@@ -281,7 +281,7 @@ SELECT ecogroup, group_type, modal, pub_status, ST_Area(shape) AS area_dd, (ecog
        SELECT ST_Union(shape) AS shape, 
               COALESCE(ecogroup, 'NA') AS ecogroup, 
               COALESCE(group_type, 'NA') AS group_type, 
-              COALESCE(modal, 0) AS modal,
+              COALESCE(modal, FALSE) AS modal,
               pub_status, sum(ecogrouparea_dd) AS ecogrouparea_dd
          FROM (
               SELECT a.shape, b.ecogroup, b.group_type, b.modal, b.pub_status,

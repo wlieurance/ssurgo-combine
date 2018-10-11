@@ -1,6 +1,10 @@
 table_statements = [
 
 ####### LEVEL 1 #######
+"""CREATE TABLE {notexists} imports (
+    ssa {limit_text} (10) PRIMARY KEY, 
+    version {limit_text} (10) NOT NULL, 
+    est_date {limit_text} (25) NOT NULL);""",
     
 """CREATE TABLE {notexists} distmd (
 	distgendate {date},

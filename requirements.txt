@@ -1,3 +1,4 @@
 pyshp>=1.2.12
 pygeoif>=0.7
 psycopg2>=2.7.4
+pyodbc
