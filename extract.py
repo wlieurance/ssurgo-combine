@@ -248,14 +248,31 @@ def scan_insert(dbpath, dbtype, scanpath, snap, repair, skip, survey_areas):
     for row in c:
         existing.append(row[0].lower())
     current_ssa = ''
+    meta_ssa = ''
+    meta_ssa_version = ''
+    meta_ssa_date = ''
     new_imports = False
     ### searches scanpath for SSURGO tabular data and imports into dbpath
     for root, dirs, files in os.walk(scanpath):
         for f in files:
             if f.find('soil_metadata_') >= 0 and f.find('.txt') > 0:
                 current_ssa = re.findall(r'soil_metadata_(.*?).txt',f)[0]
+            if f == 'readme.txt':
+                with open(os.path.join(root, f), 'r') as readme:
+                    for line in readme.readlines():
+                        if line.lower().find('ssa symbol:') >= 0:
+                            meta_ssa = line.split()[-1].lower()
+                        if line.lower().find('ssa version:') >= 0:
+                            meta_ssa_version = line.split()[-1]
+                        if line.lower().find('ssa version est.:') >= 0:
+                            meta_ssa_date = ' '.join(line.split()[-3:])
             if not current_ssa.lower() in existing:
                 if current_ssa.lower() in survey_areas or survey_areas == '':
+                    ### inserts import/version info from readme
+                    SQL = "INSERT {{!s}} INTO imports (ssa, version, est_date) VALUES ({!s}) {{!s}};".format(','.join([paramstr]*3))
+                    SQL = SQL.format(ins1, ins2)
+                    c.execute(SQL, (meta_ssa, meta_ssa_version, meta_ssa_date))
+                    conn.commit()
                     ### finds and inserts tabular data
                     if f in [(i[0]) for i in tablist]:
                         tbl = [t[1] for t in tablist if t[0] == f][0]

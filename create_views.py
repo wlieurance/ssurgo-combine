@@ -34,7 +34,7 @@ SELECT y.*,
               INNER JOIN (SELECT ecoclasstypename, Count(cokey) AS n 
                             FROM coecoclass 
                            GROUP BY ecoclasstypename ) AS b ON a.ecoclasstypename = b.ecoclasstypename
-              GROUP BY a.cokey, a.coecoclasskey) AS x ON y.coecoclasskey = x.coecoclasskey;""",
+              GROUP BY a.cokey) AS x ON y.coecoclasskey = x.coecoclasskey;""",
 
 """/* Creates a list of ecosites per map unit key ranked by total area.
 Ranking removied due to inefficient executeion within SQLITE (due to no Row_Number Function). */
