@@ -971,7 +971,15 @@ SELECT a.mukey, a.cokey, a.compname,
               ROW_NUMBER() OVER (PARTITION BY mukey ORDER BY comppct_r DESC, compname ASC) AS comprank
          FROM component) AS a
          LEFT JOIN (SELECT * FROM chorizon WHERE hzdept_r = 0) as b ON a.cokey = b.cokey
-         LEFT JOIN chtexturegrp AS c ON b.chkey = c.chkey;""",
+         LEFT JOIN (
+	          SELECT x.* 
+	            FROM chtexturegrp AS x
+	           INNER JOIN (
+	   		         SELECT chkey, min(chtgkey) AS chtgkey
+		               FROM chtexturegrp
+		              GROUP BY chkey
+	                 ) AS y ON x.chtgkey = y.chtgkey
+			  ) AS c ON b.chkey = c.chkey;""",
          
 """/* Provides the most dominant component per map unit by comppct_r and descending alphabetical order.
 Join to mupolygon or mapunit via mukey. */

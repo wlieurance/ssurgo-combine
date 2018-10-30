@@ -2,14 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3c562d38-d514-423b-9fca-d6677d55e7dd" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/create_ecogroups.py" beforeDir="false" afterPath="$PROJECT_DIR$/create_ecogroups.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/create_tables.py" beforeDir="false" afterPath="$PROJECT_DIR$/create_tables.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/create_views.py" beforeDir="false" afterPath="$PROJECT_DIR$/create_views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/extract.py" beforeDir="false" afterPath="$PROJECT_DIR$/extract.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../arc-tools/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../arc-tools/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../arc-tools/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../arc-tools/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../arc-tools/sum_overlap_poly_union.py" beforeDir="false" afterPath="$PROJECT_DIR$/../arc-tools/sum_overlap_poly_union.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../arc-tools/Index Clipper.tbx" beforeDir="false" afterPath="$PROJECT_DIR$/../arc-tools/Index Clipper.tbx" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -21,31 +16,37 @@
     <session id="1680433014">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="2" />
+          <entry key="project.closed" value="9" />
           <entry key="project.open.time.0" value="1" />
-          <entry key="project.open.time.8" value="1" />
-          <entry key="project.opened" value="2" />
+          <entry key="project.open.time.10" value="1" />
+          <entry key="project.open.time.6" value="1" />
+          <entry key="project.open.time.7" value="1" />
+          <entry key="project.open.time.8" value="2" />
+          <entry key="project.open.time.9" value="3" />
+          <entry key="project.opened" value="9" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="py" value="8" />
+          <entry key="py" value="22" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="Python" value="8" />
+          <entry key="Python" value="21" />
+          <entry key="Scratch" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="Python Console" value="143" />
-          <entry key="py" value="625" />
+          <entry key="Python Console" value="208" />
+          <entry key="py" value="4105" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Python" value="768" />
+          <entry key="Python" value="3707" />
+          <entry key="Scratch" value="606" />
         </counts>
       </usages-collector>
     </session>
@@ -53,24 +54,46 @@
   <component name="FileEditorManager">
     <leaf>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/create_ecogroups.py">
+        <entry file="file://$PROJECT_DIR$/../arc-tools/SplitByAttribute.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-736">
-              <caret line="290" column="20" lean-forward="true" selection-start-line="290" selection-start-column="20" selection-end-line="290" selection-end-column="20" />
+            <state relative-caret-position="772">
+              <caret line="47" column="36" selection-start-line="47" selection-start-column="36" selection-end-line="47" selection-end-column="36" />
+              <folding>
+                <element signature="e#22#59#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/extract.py">
+        <entry file="file://$PROJECT_DIR$/../arc-tools/ClipByMulitple.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-3485">
-              <caret line="273" column="79" selection-start-line="273" selection-start-column="79" selection-end-line="273" selection-end-column="79" />
+            <state relative-caret-position="638">
+              <caret line="104" column="32" selection-start-line="104" selection-start-column="8" selection-end-line="104" selection-end-column="44" />
+              <folding>
+                <element signature="e#22#59#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../arc-tools/sum_overlap_poly_union.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="219">
+              <caret line="127" selection-start-line="127" selection-end-line="133" selection-end-column="87" />
             </state>
           </provider>
         </entry>
       </file>
     </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
@@ -78,26 +101,35 @@
       <find>coalesce(</find>
       <find>**postgis_tables</find>
       <find>COALESCE(modal</find>
+      <find>img_lyr</find>
+      <find>img_type</find>
+      <find>in_type</find>
+      <find>valida</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../arc-tools" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/create_tables.py" />
         <option value="$PROJECT_DIR$/extract.py" />
-        <option value="$PROJECT_DIR$/../arc-tools/sum_overlap_poly_union.py" />
         <option value="$PROJECT_DIR$/create_ecogroups.py" />
+        <option value="$PROJECT_DIR$/../arc-tools/PlaceElementsLayouts.py" />
+        <option value="$PROJECT_DIR$/../arc-tools/PlaceElements.py" />
+        <option value="$APPLICATION_CONFIG_DIR$/scratches/scratch_4.py" />
+        <option value="$PROJECT_DIR$/../arc-tools/ClipByMulitple.py" />
+        <option value="$PROJECT_DIR$/../arc-tools/sum_overlap_poly_union.py" />
+        <option value="$PROJECT_DIR$/../arc-tools/SplitByAttribute.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="2003" />
-    <option name="y" value="-24" />
+    <option name="x" value="2019" />
+    <option name="y" value="91" />
     <option name="width" value="1627" />
-    <option name="height" value="1070" />
+    <option name="height" value="1047" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="1" id="Add" />
@@ -112,7 +144,7 @@
           <expand>
             <path>
               <item name="SSURGO-combine" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SSURGO-combine" type="462c0819:PsiDirectoryNode" />
+              <item name="arc-tools" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -122,6 +154,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
+    <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/New Scratch File" value="Python" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../arc-tools" />
   </component>
   <component name="RunDashboard">
@@ -135,6 +168,34 @@
         </RuleState>
       </list>
     </option>
+  </component>
+  <component name="RunManager">
+    <configuration name="ClipByMulitple" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="arc-tools" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/../arc-tools" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/../arc-tools/ClipByMulitple.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.ClipByMulitple" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -157,7 +218,7 @@
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.33734939" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -165,7 +226,7 @@
       <window_info anchor="bottom" id="Version Control" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Terminal" order="8" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
-      <window_info anchor="bottom" id="Python Console" order="10" visible="true" weight="0.329718" />
+      <window_info anchor="bottom" id="Python Console" order="10" weight="0.32478634" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -174,19 +235,18 @@
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/../arc-tools/ClipByMulitple.py</url>
+          <line>1</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/../arc-tools/sum_overlap_poly_union.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="196">
-          <caret line="195" column="31" selection-start-line="195" selection-start-column="31" selection-end-line="195" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../arc-tools/ClipRasterByMulitple.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-518" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/create_tables.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="250">
@@ -201,17 +261,69 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/create_ecogroups.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="290" column="20" selection-start-line="290" selection-start-column="20" selection-end-line="290" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/extract.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-3485">
+        <state relative-caret-position="17">
           <caret line="273" column="79" selection-start-line="273" selection-start-column="79" selection-end-line="273" selection-end-column="79" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/create_ecogroups.py">
+    <entry file="file://$PROJECT_DIR$/../arc-tools/PlaceElementsLayouts.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-736">
-          <caret line="290" column="20" lean-forward="true" selection-start-line="290" selection-start-column="20" selection-end-line="290" selection-end-column="20" />
+        <state relative-caret-position="1411">
+          <caret line="144" column="18" selection-start-line="144" selection-start-column="18" selection-end-line="144" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../arc-tools/PlaceElements.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-246">
+          <caret line="206" column="39" lean-forward="true" selection-start-line="206" selection-start-column="39" selection-end-line="206" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../arc-tools/ClipRasterByMulitple.py" />
+    <entry file="file://$PROJECT_DIR$/../arc-tools/project_autoclipper.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/scratches/scratch_4.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="833">
+          <caret line="49" selection-start-line="49" selection-end-line="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../arc-tools/sum_overlap_poly_union.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="219">
+          <caret line="127" selection-start-line="127" selection-end-line="133" selection-end-column="87" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../arc-tools/ClipByMulitple.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="638">
+          <caret line="104" column="32" selection-start-line="104" selection-start-column="8" selection-end-line="104" selection-end-column="44" />
+          <folding>
+            <element signature="e#22#59#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../arc-tools/SplitByAttribute.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="772">
+          <caret line="47" column="36" selection-start-line="47" selection-start-column="36" selection-end-line="47" selection-end-column="36" />
+          <folding>
+            <element signature="e#22#59#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
