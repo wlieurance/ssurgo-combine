@@ -45,7 +45,7 @@ SELECT m.mukey, m.ecoclassid, m.ecoclassid_std, m.ecoclassname,
   FROM (
         SELECT g.mukey, g.ecoclassid, l.ecoclassid_std, l.ecoclassname, l.ecotype, g.ecoclasspct
           FROM (
-                SELECT q.mukey, COALESCE(r.ecoclassid, 'NA') AS ecoclassid, SUM(q.comppct_r) AS ecoclasspct
+                SELECT q.mukey, r.ecoclassid, SUM(q.comppct_r) AS ecoclasspct
                   FROM component AS q
                   LEFT JOIN (
                        SELECT y.*
@@ -191,12 +191,12 @@ SELECT a.mukey,
 """/* Creates a unique list of ecosites in the database and calculates area statistics via mupolygon.shape and component.comppct_r (eco_ha).
 ecoclasspct_mean is the average percentage of the a map unit the ecosite takes up if it is present. */
 CREATE VIEW IF NOT EXISTS coecoclass_unique AS
-SELECT i.ecoclassid_std, COALESCE(j.ecoclassid, 'NA') AS ecoclassid, j.ecoclassname, j.ecoclassname_std, j.ecoclasstypename, i.eco_n, i.ecoclasspct_mean, i.eco_ha
+SELECT i.ecoclassid_std, j.ecoclassid, j.ecoclassname, j.ecoclassname_std, j.ecoclasstypename, i.eco_n, i.ecoclasspct_mean, i.eco_ha
   FROM (
-        SELECT x.ecoclassid_std, COUNT(x.ecoclassid_std) AS eco_n,
+        SELECT x.ecoclassid_std, COUNT(x.mukey) AS eco_n,
                AVG(CAST(ecoclasspct AS float)) AS ecoclasspct_mean, SUM(eco_ha) AS eco_ha
           FROM (
-                SELECT a.mukey, a.ecoclassid, COALESCE(a.ecoclassid_std, 'NA') AS ecoclassid_std, a.ecoclassname, a.ecoclassname_std, 
+                SELECT a.mukey, a.ecoclassid, a.ecoclassid_std, a.ecoclassname, a.ecoclassname_std, 
                        a.ecotype, a.ecoclasspct, (a.ecoclasspct * b.mu_ha / 100) AS eco_ha
                   FROM coecoclass_mapunit_ranked AS a
                   LEFT JOIN (
@@ -542,7 +542,7 @@ INNER JOIN (
 """/* Compiles a list of unique components in the database and displays some statistics, including total area in hectares
    Calculated from the mupolygon feature and the comppct_r field. */
 CREATE VIEW IF NOT EXISTS component_unique AS
-SELECT x.compname, MIN(x.compkind) AS compkind, 
+ELECT x.compname, MIN(x.compkind) AS compkind, 
        AVG(CAST(x.comppct_r AS FLOAT)) AS comppct_r_mean, SUM(x.comp_ha) AS comp_ha
   FROM ( 
        SELECT a.mukey, a.compname, a.compkind, a.comppct_r,
@@ -780,7 +780,7 @@ SELECT mukey, ecoclassid, ecoclassid_std, ecoclassname,
        SELECT g.mukey, g.ecoclassid, l.ecoclassid_std, l.ecoclassname, l.ecotype, g.ecoclasspct, 
               ROW_NUMBER() OVER(PARTITION BY g.mukey ORDER BY g.ecoclasspct Desc, g.ecoclassid) AS ecorank
          FROM (
-              SELECT q.mukey, COALESCE(r.ecoclassid, 'NA') AS ecoclassid, Sum(q.comppct_r) AS ecoclasspct
+              SELECT q.mukey, r.ecoclassid, Sum(q.comppct_r) AS ecoclasspct
                 FROM COMPONENT AS q
                 LEFT JOIN (
                      SELECT y.*
@@ -851,13 +851,13 @@ SELECT a.mukey,
 """/* Creates a unique list of ecosites in the database and calculates area statistics via mupolygon.shape and component.comppct_r (eco_ha).
 ecoclasspct_mean is the average percentage of the a map unit the ecosite takes up if it is present. */
 CREATE OR REPLACE VIEW coecoclass_unique AS
-SELECT i.ecoclassid_std, COALESCE(j.ecoclassid, 'NA') AS ecoclassid, j.ecoclassname, j.ecoclassname_std, 
+SELECT i.ecoclassid_std, j.ecoclassid, j.ecoclassname, j.ecoclassname_std, 
        j.ecoclasstypename, i.eco_n, i.ecoclasspct_mean, i.eco_ha
   FROM (
-        SELECT x.ecoclassid_std, COUNT(x.ecoclassid_std) AS eco_n,
+        SELECT x.ecoclassid_std, COUNT(x.mukey) AS eco_n,
                AVG(CAST(ecoclasspct AS float)) AS ecoclasspct_mean, SUM(eco_ha) AS eco_ha
           FROM (
-                SELECT a.mukey, a.ecoclassid, COALESCE(a.ecoclassid_std, 'NA') AS ecoclassid_std, a.ecoclassname, a.ecoclassname_std, 
+                SELECT a.mukey, a.ecoclassid, a.ecoclassid_std, a.ecoclassname, a.ecoclassname_std, 
                        a.ecotype, a.ecoclasspct, a.ecorank, (a.ecoclasspct * b.mu_ha / 100) AS eco_ha
                   FROM coecoclass_mapunit_ranked AS a
                   LEFT JOIN (

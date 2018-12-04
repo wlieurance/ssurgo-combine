@@ -19,7 +19,7 @@ SELECT f.mukey, f.ecogroup, f.group_type, f.modal, f.pub_status, f.ecogrouppct
                      SELECT m.mukey, m.ecoclassid, m.ecoclassid_std, m.ecoclassname, 
                             LOWER(LTRIM(RTRIM(REPLACE(REPLACE(m.ecoclassname,'"',' in'),'  ',' ')))) AS ecoclassname_std, 
                             m.ecoclasspct,
-                            CASE WHEN m.ecoclassid_std IS NULL THEN 'NA'
+                            CASE WHEN m.ecoclassid_std IS NULL THEN NULL
                                  WHEN n.ecogroup IS NULL THEN m.ecoclassid_std 
                                  ELSE n.ecogroup END AS ecogroup, 
                             CASE WHEN m.ecoclassid_std IS NULL THEN NULL
@@ -38,7 +38,7 @@ SELECT f.mukey, f.ecogroup, f.group_type, f.modal, f.pub_status, f.ecogrouppct
                        FROM (
                             SELECT g.mukey, g.ecoclassid, l.ecoclassid_std, l.ecoclassname, g.ecoclasspct
                               FROM (
-                                   SELECT q.mukey, COALESCE(r.ecoclassid, 'NA') AS ecoclassid, Sum(q.comppct_r) AS ecoclasspct
+                                   SELECT q.mukey, r.ecoclassid, Sum(q.comppct_r) AS ecoclasspct
                                      FROM component AS q
                                      LEFT JOIN (
                                           SELECT y.*
@@ -91,7 +91,7 @@ SELECT mukey, ecogroup, group_type, modal, pub_status, MAX(ecogrouppct) AS ecogr
 
 """/*  Creates a list of unique ecogroups and calculates area statistics based on mupolygon.shape and component.comppct_r */
 CREATE VIEW IF NOT EXISTS ecogroup_unique AS
-SELECT x.ecogroup, COUNT(ecogroup) AS group_n, 
+SELECT x.ecogroup, COUNT(x.mukey) AS group_n, 
         AVG(CAST(ecogrouppct AS float)) AS ecogrouppct_mean, SUM(group_ha) AS group_ha,
         group_type, modal, pub_status
     FROM (
@@ -126,9 +126,7 @@ CREATE TABLE IF NOT EXISTS ecogrouppolygon (
 INSERT INTO ecogrouppolygon (ecogroup, group_type, modal, pub_status, area_dd, ecogrouppct, shape)
 SELECT ecogroup, group_type, modal, pub_status, ST_Area(shape) AS area_dd, (ecogrouparea_dd/ST_Area(shape)) AS ecogrouppct, ST_Multi(shape) AS shape
   FROM (
-       SELECT ST_Union(shape) AS shape, 
-              COALESCE(ecogroup, 'NA') AS ecogroup, 
-              COALESCE(group_type, 'NA') AS group_type, 
+       SELECT ST_Union(shape) AS shape, ecogroup, group_type, 
               COALESCE(modal, 0) AS modal, 
               pub_status, sum(ecogrouparea_dd) AS ecogrouparea_dd
          FROM (
@@ -153,7 +151,7 @@ SELECT f.mukey, f.ecogroup, f.group_type, f.modal, f.pub_status, f.ecogrouppct, 
                      SELECT m.mukey, m.ecoclassid, m.ecoclassid_std, m.ecoclassname, 
                             LOWER(LTRIM(RTRIM(REPLACE(REPLACE(m.ecoclassname,'"',' in'),'  ',' ')))) AS ecoclassname_std, 
                             m.ecoclasspct,
-                            CASE WHEN m.ecoclassid_std IS NULL THEN 'NA'
+                            CASE WHEN m.ecoclassid_std IS NULL THEN NULL
                                  WHEN n.ecogroup IS NULL THEN m.ecoclassid_std 
                                  ELSE n.ecogroup END AS ecogroup, 
                             CASE WHEN m.ecoclassid_std IS NULL THEN Null
@@ -173,7 +171,7 @@ SELECT f.mukey, f.ecogroup, f.group_type, f.modal, f.pub_status, f.ecogrouppct, 
                             SELECT g.mukey, g.ecoclassid, l.ecoclassid_std, l.ecoclassname, g.ecoclasspct, 
                                    ROW_NUMBER() OVER(PARTITION BY g.mukey ORDER BY g.ecoclasspct Desc, g.ecoclassid) AS RowNum
                               FROM (
-                                   SELECT q.mukey, COALESCE(r.ecoclassid, 'NA') AS ecoclassid, Sum(q.comppct_r) AS ecoclasspct
+                                   SELECT q.mukey, r.ecoclassid, Sum(q.comppct_r) AS ecoclasspct
                                      FROM component AS q
                                      LEFT JOIN (
                                           SELECT y.*
@@ -245,7 +243,7 @@ SELECT x.mukey,
        
 """ /*  Creates a list of unique ecogroups and calculates area statistics based on mupolygon.shape and component.comppct_r */
 CREATE OR REPLACE VIEW ecogroup_unique AS
-SELECT x.ecogroup, COUNT(ecogroup) AS group_n, 
+SELECT x.ecogroup, COUNT(x.mukey) AS group_n, 
         AVG(CAST(ecogrouppct AS float)) AS ecogrouppct_mean, SUM(group_ha) AS group_ha,
         MIN(group_type) AS group_type, BOOL_AND(modal) AS modal, MIN(pub_status) AS pubstatus
     FROM (
@@ -278,9 +276,7 @@ CREATE TABLE IF NOT EXISTS ecogrouppolygon (
 INSERT INTO ecogrouppolygon (ecogroup, group_type, modal, pub_status, area_dd, ecogrouppct, shape)
 SELECT ecogroup, group_type, modal, pub_status, ST_Area(shape) AS area_dd, (ecogrouparea_dd/ST_Area(shape)) AS ecogrouppct, ST_Multi(shape) AS shape
   FROM (
-       SELECT ST_Union(shape) AS shape, 
-              COALESCE(ecogroup, 'NA') AS ecogroup, 
-              COALESCE(group_type, 'NA') AS group_type, 
+       SELECT ST_Union(shape) AS shape, ecogroup, group_type, 
               COALESCE(modal, FALSE) AS modal,
               pub_status, sum(ecogrouparea_dd) AS ecogrouparea_dd
          FROM (

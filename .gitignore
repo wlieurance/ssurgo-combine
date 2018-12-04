@@ -41,6 +41,7 @@ Thumbs.db
 __pycache__
 ecogroups.csv
 list.csv
+*.bak
 
 # Pycharm #
 ###########
