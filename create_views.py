@@ -542,7 +542,7 @@ INNER JOIN (
 """/* Compiles a list of unique components in the database and displays some statistics, including total area in hectares
    Calculated from the mupolygon feature and the comppct_r field. */
 CREATE VIEW IF NOT EXISTS component_unique AS
-ELECT x.compname, MIN(x.compkind) AS compkind, 
+SELECT x.compname, MIN(x.compkind) AS compkind, 
        AVG(CAST(x.comppct_r AS FLOAT)) AS comppct_r_mean, SUM(x.comp_ha) AS comp_ha
   FROM ( 
        SELECT a.mukey, a.compname, a.compkind, a.comppct_r,
