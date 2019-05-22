@@ -1,0 +1,62 @@
+﻿<metadata>
+  <idinfo>
+    <citation>
+      <citeinfo>
+        <title>COSURFMORPHGC</title>
+        <geoform>tabular digital data</geoform>
+      </citeinfo>
+    </citation>
+    <descript>
+      <abstract>The Component Three Dimensional Surface Morphometry table lists the typical geomorphic position (s) of the referenced map unit component, in three dimension terms. The geomorphic position(s) listed in this table apply to the geomorphic feature referenced in the Component Geomorphic Description table.</abstract>
+      <purpose>Component Three Dimensional Surface Morphometry Table</purpose>
+    </descript>
+    <accconst>None</accconst>
+    <useconst>None</useconst>
+    <native>Microsoft Windows 7 Version 6.1 (Build 7601) Service Pack 1; Esri ArcGIS 10.1.1.3143</native>
+  </idinfo>
+  <eainfo>
+    <detailed>
+      <enttyp>
+        <enttypl>cosurfmorphgc</enttypl>
+      </enttyp>
+      <attr>
+        <attrlabl>cosurfmorgckey</attrlabl>
+        <attrdef>A non-connotative string of characters used to uniquely identify a record in the Component Three Dimensional Surface Morphometry table.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>geomposflats</attrlabl>
+        <attrdef>Description of the geomorphic component for flats.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>cogeomdkey</attrlabl>
+        <attrdef>The unique identifier of a record in the Component Geomorphic Description table. Use this column to join the Component Geomorphic Description table to the Component Three Dimensional Surface Morphometry table.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>geompostrce</attrlabl>
+        <attrdef>A mappable part of the earth's surface (three dimensional) that represents an episode of landscape development of terraces.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>OBJECTID</attrlabl>
+        <attrdef>Internal feature number.</attrdef>
+        <attrdefs>Esri</attrdefs>
+        <attrdomv>
+          <udom>Sequential unique whole numbers that are automatically generated.</udom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>geomposmntn</attrlabl>
+        <attrdef>A mappable part of the earth's surface (three dimensional) that represents an episode of landscape development of mountains.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>geomposhill</attrlabl>
+        <attrdef>A mappable part of the earth's surface (three dimensional) that represents an episode of landscape development of hills.</attrdef>
+      </attr>
+    </detailed>
+  </eainfo>
+  <metainfo>
+    <metd>20131230</metd>
+    <metstdn>FGDC Content Standard for Digital Geospatial Metadata</metstdn>
+    <metstdv>FGDC-STD-001-1998</metstdv>
+    <mettc>local time</mettc>
+  </metainfo>
+</metadata>

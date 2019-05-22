@@ -1,0 +1,158 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<metadata xml:lang="en">
+  <Esri>
+    <CreaDate>20131230</CreaDate>
+    <CreaTime>18510300</CreaTime>
+    <ArcGISFormat>1.0</ArcGISFormat>
+    <ArcGISstyle>FGDC CSDGM Metadata</ArcGISstyle>
+    <SyncOnce>FALSE</SyncOnce>
+    <DataProperties>
+      <itemProps>
+        <itemName Sync="TRUE">copm</itemName>
+        <relatedItems>
+          <item>
+            <itemName />
+          </item>
+          <item>
+            <itemName Sync="TRUE">zCopmgrp_Copm</itemName>
+            <itemType Sync="TRUE">Relationship</itemType>
+          </item>
+        </relatedItems>
+        <itemLocation>
+          <linkage Sync="TRUE">file://\\ARCNELI95L00052\E$\Geodata\2013\TemplateDB\Template_FGDB_CONUS_AlbersNAD1983.gdb</linkage>
+          <protocol Sync="TRUE">Local Area Network</protocol>
+        </itemLocation>
+        <imsContentType Sync="TRUE">002</imsContentType>
+      </itemProps>
+    </DataProperties>
+    <SyncDate>20131230</SyncDate>
+    <SyncTime>18520900</SyncTime>
+    <ModDate>20131230</ModDate>
+    <ModTime>18520900</ModTime>
+  </Esri>
+  <mdLang>
+    <languageCode value="eng" />
+    <countryCode value="USA" Sync="TRUE" />
+  </mdLang>
+  <mdChar>
+    <CharSetCd value="004" />
+  </mdChar>
+  <mdHrLv>
+    <ScopeCd value="005" />
+  </mdHrLv>
+  <mdDateSt>20131230</mdDateSt>
+  <mdStanName>ArcGIS Metadata</mdStanName>
+  <mdStanVer>1.0</mdStanVer>
+  <dataIdInfo>
+    <idCitation>
+      <resTitle>COPM</resTitle>
+      <presForm>
+        <PresFormCd value="001" />
+      </presForm>
+      <presForm>
+        <fgdcGeoform>tabular digital data</fgdcGeoform>
+      </presForm>
+    </idCitation>
+    <idAbs>The Component Parent Material table lists the individual parent material(s) for the referenced map unit component. In some cases where soils developed in multiple materials in a vertical sequence, that sequence will be noted. In other cases multiple entries with no vertical sequence noted indicates the soil may have formed in one of the materials listed.</idAbs>
+    <idPurp>Component Parent Material Table</idPurp>
+    <dataLang>
+      <languageCode value="eng" />
+      <countryCode value="USA" Sync="TRUE" />
+    </dataLang>
+    <envirDesc>Microsoft Windows 7 Version 6.1 (Build 7601) Service Pack 1; Esri ArcGIS 10.1.1.3143</envirDesc>
+    <spatRpType>
+      <SpatRepTypCd value="003" Sync="TRUE" />
+    </spatRpType>
+  </dataIdInfo>
+  <eainfo>
+    <detailed Name="copm">
+      <enttyp>
+        <enttypl>copm</enttypl>
+        <enttypt Sync="TRUE">Table</enttypt>
+        <enttypc Sync="TRUE">0</enttypc>
+      </enttyp>
+      <attr>
+        <attrlabl>OBJECTID</attrlabl>
+        <attrdef>Internal feature number.</attrdef>
+        <attrdefs>Esri</attrdefs>
+        <attrdomv>
+          <udom>Sequential unique whole numbers that are automatically generated.</udom>
+        </attrdomv>
+        <attalias Sync="TRUE">OBJECTID</attalias>
+        <attrtype Sync="TRUE">OID</attrtype>
+        <attwidth Sync="TRUE">4</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>copmkey</attrlabl>
+        <attrdef>A non-connotative string of characters used to uniquely identify a record in the Component Parent Material table.</attrdef>
+        <attalias Sync="TRUE">Component Parent Material Key</attalias>
+        <attrtype Sync="TRUE">String</attrtype>
+        <attwidth Sync="TRUE">30</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>pmorigin</attrlabl>
+        <attrdef>The type of bedrock from which the parent material was derived.</attrdef>
+        <attalias Sync="TRUE">Parent Material Origin</attalias>
+        <attrtype Sync="TRUE">String</attrtype>
+        <attwidth Sync="TRUE">254</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>copmgrpkey</attrlabl>
+        <attrdef>The unique identifier of a record in the Component Parent Material Group table. Use this column to join the Component Parent Material Group table to the Component Parent Material table.</attrdef>
+        <attalias Sync="TRUE">Component Parent Material Group Key</attalias>
+        <attrtype Sync="TRUE">String</attrtype>
+        <attwidth Sync="TRUE">30</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>pmkind</attrlabl>
+        <attrdef>A term describing the general physical, chemical and mineralogical composition of the material, mineral or organic, from which the soil develops. Mode of deposition and/or weathering may be implied or implicit.</attrdef>
+        <attalias Sync="TRUE">Parent Material Kind</attalias>
+        <attrtype Sync="TRUE">String</attrtype>
+        <attwidth Sync="TRUE">254</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>pmorder</attrlabl>
+        <attrdef>The sequence in which the parent material occurs, when more than one parent material exists for one soil profile. If only one parent material occurs for a soil, i.e. no lithologic discontinuities, no entry is required.</attrdef>
+        <attalias Sync="TRUE">Vertical Order</attalias>
+        <attrtype Sync="TRUE">SmallInteger</attrtype>
+        <attwidth Sync="TRUE">2</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>pmmodifier</attrlabl>
+        <attrdef>General description of the texture of the parent material. Class limits correspond to those of textural groupings defined in the Soil Survey Manual and family particle-size classes in Soil Taxonomy.</attrdef>
+        <attalias Sync="TRUE">Textural Modifier</attalias>
+        <attrtype Sync="TRUE">String</attrtype>
+        <attwidth Sync="TRUE">254</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>pmgenmod</attrlabl>
+        <attrdef>A user specified term(s) used to further describe the nature of the parent material for a given soil.</attrdef>
+        <attalias Sync="TRUE">General Modifier</attalias>
+        <attrtype Sync="TRUE">String</attrtype>
+        <attwidth Sync="TRUE">60</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+    </detailed>
+  </eainfo>
+  <distInfo>
+    <distFormat>
+      <formatName Sync="TRUE">File Geodatabase Table</formatName>
+    </distFormat>
+  </distInfo>
+  <mdHrLvName Sync="TRUE">dataset</mdHrLvName>
+</metadata>

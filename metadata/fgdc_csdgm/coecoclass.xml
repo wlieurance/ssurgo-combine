@@ -1,0 +1,62 @@
+﻿<metadata>
+  <idinfo>
+    <citation>
+      <citeinfo>
+        <title>COECOCLASS</title>
+        <geoform>tabular digital data</geoform>
+      </citeinfo>
+    </citation>
+    <descript>
+      <abstract>The Component Ecological Classification table identifies the ecological sites typically associated with the referenced map unit component. These may include the official NRCS forestland and rangland ecological sites, as well as those of other classification systems, such as the USFS Habitat Types.</abstract>
+      <purpose>Component Ecological Classification Table</purpose>
+    </descript>
+    <accconst>None</accconst>
+    <useconst>None</useconst>
+    <native>Microsoft Windows 7 Version 6.1 (Build 7601) Service Pack 1; Esri ArcGIS 10.1.1.3143</native>
+  </idinfo>
+  <eainfo>
+    <detailed>
+      <enttyp>
+        <enttypl>coecoclass</enttypl>
+      </enttyp>
+      <attr>
+        <attrlabl>coecoclasskey</attrlabl>
+        <attrdef>A non-connotative string of characters used to uniquely identify a record in the Component Ecological Classification table.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>ecoclassname</attrlabl>
+        <attrdef>The descriptive name of a particular ecological community. For NRCS ecological sites, it is the concatenated form of three or six other fields. The actual fields that are concatenated together to form this name differ between range and forest ecological sites.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>cokey</attrlabl>
+        <attrdef>The unique identifier of a record in the Component table. Use this column to join the Component Ecological Classification table to the Component table.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>ecoclassid</attrlabl>
+        <attrdef>The identifier of a particular ecological community. For NRCS ecological sites, it is the concatenated form of ecological site type, ecological site MLRA, ecological site LRU, ecological site number and ecological site state FIPS alpha code.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>OBJECTID</attrlabl>
+        <attrdef>Internal feature number.</attrdef>
+        <attrdefs>Esri</attrdefs>
+        <attrdomv>
+          <udom>Sequential unique whole numbers that are automatically generated.</udom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>ecoclasstypename</attrlabl>
+        <attrdef>The name of a particular ecological classification scheme. An example might be "West Virginia Grassland Suitability Groups" or "NRCS Ecological Sites".</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>ecoclassref</attrlabl>
+        <attrdef>The reference citation for a particular ecological classification scheme, typically a publication.</attrdef>
+      </attr>
+    </detailed>
+  </eainfo>
+  <metainfo>
+    <metd>20131230</metd>
+    <metstdn>FGDC Content Standard for Digital Geospatial Metadata</metstdn>
+    <metstdv>FGDC-STD-001-1998</metstdv>
+    <mettc>local time</mettc>
+  </metainfo>
+</metadata>

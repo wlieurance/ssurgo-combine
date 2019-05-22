@@ -1,0 +1,122 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<metadata xml:lang="en">
+  <Esri>
+    <CreaDate>20131230</CreaDate>
+    <CreaTime>19010500</CreaTime>
+    <ArcGISFormat>1.0</ArcGISFormat>
+    <ArcGISstyle>FGDC CSDGM Metadata</ArcGISstyle>
+    <SyncOnce>FALSE</SyncOnce>
+    <DataProperties>
+      <itemProps>
+        <itemName Sync="TRUE">cosurfmorphmr</itemName>
+        <relatedItems>
+          <item>
+            <itemName />
+          </item>
+          <item>
+            <itemName Sync="TRUE">zCogeomordesc_Cosurfmorphmr</itemName>
+            <itemType Sync="TRUE">Relationship</itemType>
+          </item>
+        </relatedItems>
+        <itemLocation>
+          <linkage Sync="TRUE">file://\\ARCNELI95L00052\E$\Geodata\2013\TemplateDB\Template_FGDB_CONUS_AlbersNAD1983.gdb</linkage>
+          <protocol Sync="TRUE">Local Area Network</protocol>
+        </itemLocation>
+        <imsContentType Sync="TRUE">002</imsContentType>
+      </itemProps>
+    </DataProperties>
+    <SyncDate>20131230</SyncDate>
+    <SyncTime>19021200</SyncTime>
+    <ModDate>20131230</ModDate>
+    <ModTime>19021200</ModTime>
+  </Esri>
+  <mdLang>
+    <languageCode value="eng" />
+    <countryCode value="USA" Sync="TRUE" />
+  </mdLang>
+  <mdChar>
+    <CharSetCd value="004" />
+  </mdChar>
+  <mdHrLv>
+    <ScopeCd value="005" />
+  </mdHrLv>
+  <mdDateSt>20131230</mdDateSt>
+  <mdStanName>ArcGIS Metadata</mdStanName>
+  <mdStanVer>1.0</mdStanVer>
+  <dataIdInfo>
+    <idCitation>
+      <resTitle>COSURFMORPHMR</resTitle>
+      <presForm>
+        <PresFormCd value="001" />
+      </presForm>
+      <presForm>
+        <fgdcGeoform>tabular digital data</fgdcGeoform>
+      </presForm>
+    </idCitation>
+    <idAbs>The Component Microrelief Surface Morphometry table lists microrelief features associated with the referenced geomorphic (microfeature) feature shown in the Component Geomorphic Description table.</idAbs>
+    <idPurp>Component Microrelief Surface Morphometry Table</idPurp>
+    <dataLang>
+      <languageCode value="eng" />
+      <countryCode value="USA" Sync="TRUE" />
+    </dataLang>
+    <envirDesc>Microsoft Windows 7 Version 6.1 (Build 7601) Service Pack 1; Esri ArcGIS 10.1.1.3143</envirDesc>
+    <spatRpType>
+      <SpatRepTypCd value="003" Sync="TRUE" />
+    </spatRpType>
+  </dataIdInfo>
+  <eainfo>
+    <detailed Name="cosurfmorphmr">
+      <enttyp>
+        <enttypl>cosurfmorphmr</enttypl>
+        <enttypt Sync="TRUE">Table</enttypt>
+        <enttypc Sync="TRUE">0</enttypc>
+      </enttyp>
+      <attr>
+        <attrlabl>cosurfmormrkey</attrlabl>
+        <attrdef>A non-connotative string of characters used to uniquely identify a record in the Component Microrelief Surface Morphometry table.</attrdef>
+        <attalias Sync="TRUE">Component Surface Morphometry - Micro Relief Key</attalias>
+        <attrtype Sync="TRUE">String</attrtype>
+        <attwidth Sync="TRUE">30</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>geomicrorelief</attrlabl>
+        <attrdef>The kind of slight variations in the height of a land surface that are too small or intricate to delineate on a topographic or soils map at commonly used scales (1:24000, and 1:10000).</attrdef>
+        <attalias Sync="TRUE">Microrelief Kind</attalias>
+        <attrtype Sync="TRUE">String</attrtype>
+        <attwidth Sync="TRUE">254</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>cogeomdkey</attrlabl>
+        <attrdef>The unique identifier of a record in the Component Geomorphic Description table. Use this column to join the Component Geomorphic Description table to the Component Microrelief Surface Morphometry table.</attrdef>
+        <attalias Sync="TRUE">Component Geomorphic Description Key</attalias>
+        <attrtype Sync="TRUE">String</attrtype>
+        <attwidth Sync="TRUE">30</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>OBJECTID</attrlabl>
+        <attrdef>Internal feature number.</attrdef>
+        <attrdefs>Esri</attrdefs>
+        <attrdomv>
+          <udom>Sequential unique whole numbers that are automatically generated.</udom>
+        </attrdomv>
+        <attalias Sync="TRUE">OBJECTID</attalias>
+        <attrtype Sync="TRUE">OID</attrtype>
+        <attwidth Sync="TRUE">4</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+    </detailed>
+  </eainfo>
+  <distInfo>
+    <distFormat>
+      <formatName Sync="TRUE">File Geodatabase Table</formatName>
+    </distFormat>
+  </distInfo>
+  <mdHrLvName Sync="TRUE">dataset</mdHrLvName>
+</metadata>

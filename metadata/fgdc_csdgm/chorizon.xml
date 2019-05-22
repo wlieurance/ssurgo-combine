@@ -1,0 +1,722 @@
+﻿<metadata>
+  <idinfo>
+    <citation>
+      <citeinfo>
+        <title>CHORIZON</title>
+        <geoform>tabular digital data</geoform>
+      </citeinfo>
+    </citation>
+    <descript>
+      <abstract>The Horizon table lists the horizon(s) and related data for the referenced map unit component. If the horizon thickness is greater than zero (low=5, RV=8, high=12), the horizon exists everywhere this component occurs. If the horizon thickness includes zero (low=0, RV=1, high=3), the horizon may exist in some places, but not in other places. Horizons that have two distinct parts, such as E/B or E&amp;Bt horizons, are recorded twice. Once for the characteristics of the first part; and again on another row, using the same depths and thicknesses, for the characteristics of the other part.</abstract>
+      <purpose>Horizon Table</purpose>
+    </descript>
+    <accconst>None</accconst>
+    <useconst>None</useconst>
+    <native>Microsoft Windows 7 Version 6.1 (Build 7601) Service Pack 1; Esri ArcGIS 10.1.1.3143</native>
+  </idinfo>
+  <eainfo>
+    <detailed>
+      <enttyp>
+        <enttypl>chorizon</enttypl>
+      </enttyp>
+      <attr>
+        <attrlabl>dbfifteenbar_r</attrlabl>
+        <attrdef>The oven dry weight of the less than 2 mm soil material per unit volume of soil at a water tension of 15 bar.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>ec_h</attrlabl>
+        <attrdef>The electrical conductivity of an extract from saturated soil paste.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>claysizedcarb_h</attrlabl>
+        <attrdef>Carbonate particles less than 0.002mm in equivalent diameter as a weight percentage of the less than 2.0mm fraction.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>fraggt10_r</attrlabl>
+        <attrdef>The percent by weight of the horizon occupied by rock fragments greater than 10 inches in size.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>gypsum_r</attrlabl>
+        <attrdef>The percent by weight of hydrated calcium sulfate in the less than 20 mm fraction of soil.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>sieveno10_h</attrlabl>
+        <attrdef>Soil fraction passing a number 10 sieve (2.00mm square opening) as a weight percentage of the less than 3 inch (76.4mm) fraction.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>sar_r</attrlabl>
+        <attrdef>A measure of the amount of Sodium (Na) relative to Calcium (Ca) and Magnesium (Mg) in the water extract from saturated soil paste.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>feoxalate_r</attrlabl>
+        <attrdef>The amount of ammonium oxalate extractable iron in the less than 2mm fraction. It is considered a measure of noncrystalline iron in the soil.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>freeiron_h</attrlabl>
+        <attrdef>The secondary iron oxides such as geothite, hematite, ferrihydrite, lepidocrocite and maghemite. This form of iron may occur as discrete particles, as coatings on other particles, or as cementing agents between soil mineral grains. It is iron extracted by dithionite-citrate.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>freeiron_r</attrlabl>
+        <attrdef>The secondary iron oxides such as geothite, hematite, ferrihydrite, lepidocrocite and maghemite. This form of iron may occur as discrete particles, as coatings on other particles, or as cementing agents between soil mineral grains. It is iron extracted by dithionite-citrate.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>ph01mcacl2_h</attrlabl>
+        <attrdef>The negative logarithm to base of 10 or the hydrogen ion activity in the soil, using the 0.01M CaCl2 method, in a 1:2 soil:solution ratio. A numerical expression of the relative acidity or alkalinity of a soil sample. (SSM)</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>siltco_l</attrlabl>
+        <attrdef>Mineral particles ranging in size from 0.02mm to 0.05mm in equivalent diameter as a weight percentage of the less than 2.0mm fraction.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>sieveno40_r</attrlabl>
+        <attrdef>Soil fraction passing a number 40 sieve (0.42mm square opening) as a weight percentage of the less than 3 inch (76.4mm) fraction.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>om_h</attrlabl>
+        <attrdef>The amount by weight of decomposed plant and animal residue expressed as a weight percentage of the less than 2 mm soil material.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>gypsum_h</attrlabl>
+        <attrdef>The percent by weight of hydrated calcium sulfate in the less than 20 mm fraction of soil.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>lep_l</attrlabl>
+        <attrdef>The linear expression of the volume difference of natural soil fabric at 1/3 or 1/10 bar water content and oven dryness. The volume change is reported as percent change for the whole soil.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>pi_r</attrlabl>
+        <attrdef>The numerical difference between the liquid limit and plastic limit.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>ecec_l</attrlabl>
+        <attrdef>The sum of NH4OAc extractable bases plus KCl extractable aluminum.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>cec7_r</attrlabl>
+        <attrdef>The amount of readily exchangeable cations that can be electrically adsorbed to negative charges in the soil, soil constituent, or other material, at pH 7.0, as estimated by the ammonium acetate method.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>sar_h</attrlabl>
+        <attrdef>A measure of the amount of Sodium (Na) relative to Calcium (Ca) and Magnesium (Mg) in the water extract from saturated soil paste.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>ll_l</attrlabl>
+        <attrdef>The water content of the soil at the change between the liquid and plastic states.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>dbovendry_r</attrlabl>
+        <attrdef>The oven dry weight of the less than 2 mm soil material per unit volume of soil exclusive of the desication cracks, measured on a coated clod.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>sieveno200_r</attrlabl>
+        <attrdef>Soil fraction passing a number 200 sieve (0.074mm square opening) as a weight percentage of the less than 3 inch (76.4mm) fraction.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>aashind_r</attrlabl>
+        <attrdef>The empirical group index formula devised for approximately within-group evaluation of the "clayey granular materials" and the "silty-clay materials".</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>sandvc_l</attrlabl>
+        <attrdef>Mineral particles 1.0mm to 2.0mm in equivalent diameter as a weight percentage of the less than 2 mm fraction.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>om_r</attrlabl>
+        <attrdef>The amount by weight of decomposed plant and animal residue expressed as a weight percentage of the less than 2 mm soil material.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>desgnvert</attrlabl>
+        <attrdef>One of the four kinds of symbols, when concatenated, are used to distinguish different kinds of layers in soils. Vertical subdivisions are used to subdivide a horizon or layer designated by a single letter or combination of letters.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>awc_h</attrlabl>
+        <attrdef>The amount of water that an increment of soil depth, inclusive of fragments, can store that is available to plants. AWC is expressed as a volume fraction, and is commonly estimated as the difference between the water contents at 1/10 or 1/3 bar (field capacity) and 15 bars (permanent wilting point) tension and adjusted for salinity, and fragments.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>sieveno10_r</attrlabl>
+        <attrdef>Soil fraction passing a number 10 sieve (2.00mm square opening) as a weight percentage of the less than 3 inch (76.4mm) fraction.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>dbthirdbar_h</attrlabl>
+        <attrdef>The oven dry weight of the less than 2 mm soil material per unit volume of soil at a water tension of 1/3 bar.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>ph01mcacl2_l</attrlabl>
+        <attrdef>The negative logarithm to base of 10 or the hydrogen ion activity in the soil, using the 0.01M CaCl2 method, in a 1:2 soil:solution ratio. A numerical expression of the relative acidity or alkalinity of a soil sample. (SSM)</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>hzdept_h</attrlabl>
+        <attrdef>The distance from the top of the soil to the upper boundary of the soil horizon.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>siltco_r</attrlabl>
+        <attrdef>Mineral particles ranging in size from 0.02mm to 0.05mm in equivalent diameter as a weight percentage of the less than 2.0mm fraction.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>aloxalate_r</attrlabl>
+        <attrdef>The amount of ammonium oxalate extractable aluminum in the less than 2mm fraction. This is an estimate of the total pedogenic aluminum, much of which may be in noncrystalline material, or complexed by organic matter.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>extral_r</attrlabl>
+        <attrdef>The amount of aluminum extracted in 1 normal potassium chloride. The following laboratory method is applied: 55 ml of 1 normal potassium chloride is extracted through 2.5 g of soil sample. The extract is analyzed by use of an atomic adsorption spectrometer or similar instrument (SSIR #1, method 6G9a and NSSH).</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>extral_l</attrlabl>
+        <attrdef>The amount of aluminum extracted in 1 normal potassium chloride. The following laboratory method is applied: 55 ml of 1 normal potassium chloride is extracted through 2.5 g of soil sample. The extract is analyzed by use of an atomic adsorption spectrometer or similar instrument (SSIR #1, method 6G9a and NSSH).</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>ph2osoluble_r</attrlabl>
+        <attrdef>The amount of water soluble phosphorous in the less than 2mm fraction, that is extractable by distilled water. It represents the mobile phosphorous content.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>ph2osoluble_h</attrlabl>
+        <attrdef>The amount of water soluble phosphorous in the less than 2mm fraction, that is extractable by distilled water. It represents the mobile phosphorous content.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>poxalate_h</attrlabl>
+        <attrdef>The amount of phosphorous in the less than 2mm fraction, that is extractable by aluminum oxalate method. It represents the phosphorous level intermediate between total P and water soluble P.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>poxalate_r</attrlabl>
+        <attrdef>The amount of phosphorous in the less than 2mm fraction, that is extractable by aluminum oxalate method. It represents the phosphorous level intermediate between total P and water soluble P.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>pbray1_h</attrlabl>
+        <attrdef>The amount of phosphorous in the less than 2mm fraction, that is extractable using the Bray1 method. It represents the plant available phosphorous content.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>chkey</attrlabl>
+        <attrdef>A non-connotative string of characters used to uniquely identify a record in the Horizon table.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>excavdifms</attrlabl>
+        <attrdef>The soil moisture status for which the excavation difficulty class is assigned for the individual component.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>cokey</attrlabl>
+        <attrdef>The unique identifier of a record in the Component table. Use this column to join the Horizon table to the Component table.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>excavdifcl</attrlabl>
+        <attrdef>An estimation of the difficulty of working an excavation into soil layers, horizons, pedons, or geologic layers. In most instances, excavation difficulty is related to and controlled by a water state.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>ptotal_l</attrlabl>
+        <attrdef>The estimate of the total phosphorous content of the soil, measured after total dissolution of a size fraction of the soil material. It is reported as a gravimetric percent oxide of the size fraction used.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>feoxalate_h</attrlabl>
+        <attrdef>The amount of ammonium oxalate extractable iron in the less than 2mm fraction. It is considered a measure of noncrystalline iron in the soil.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>claysizedcarb_r</attrlabl>
+        <attrdef>Carbonate particles less than 0.002mm in equivalent diameter as a weight percentage of the less than 2.0mm fraction.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>caco3_r</attrlabl>
+        <attrdef>The quantity of Carbonate (CO3) in the soil expressed as CaCO3 and as a weight percentage of the less than 2 mm size fraction.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>sandfine_l</attrlabl>
+        <attrdef>Mineral particles 0.10 to 0.25mm in equivalent diameter as a weight percentage of the less than 2 mm fraction.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>aashind_l</attrlabl>
+        <attrdef>The empirical group index formula devised for approximately within-group evaluation of the "clayey granular materials" and the "silty-clay materials".</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>wfifteenbar_h</attrlabl>
+        <attrdef>The volumetric content of soil water retained at a tension of 15 bars (1500 kPa), expressed as a percentage of the whole soil.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>claytotal_h</attrlabl>
+        <attrdef>Mineral particles less than 0.002mm in equivalent diameter as a weight percentage of the less than 2.0mm fraction.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>dbtenthbar_l</attrlabl>
+        <attrdef>The oven dried weight of the less than 2 mm soil material per unit volume of soil at a water tension of 1/10 bar.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>sieveno40_h</attrlabl>
+        <attrdef>Soil fraction passing a number 40 sieve (0.42mm square opening) as a weight percentage of the less than 3 inch (76.4mm) fraction.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>silttotal_h</attrlabl>
+        <attrdef>Mineral particles 0.002 to 0.05mm in equivalent diameter as a weight percentage of the less than 2.0mm fraction.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>frag3to10_r</attrlabl>
+        <attrdef>The percent by weight of the horizon occupied by rock fragments 3 to 10 inches in size.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>sandtotal_h</attrlabl>
+        <attrdef>Mineral particles 0.05mm to 2.0mm in equivalent diameter as a weight percentage of the less than 2 mm fraction.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>sandvc_h</attrlabl>
+        <attrdef>Mineral particles 1.0mm to 2.0mm in equivalent diameter as a weight percentage of the less than 2 mm fraction.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>desgnmasterprime</attrlabl>
+        <attrdef>A character used to indicate that this horizon has an identical horizon designation as some overlying horizon. The two horizons in question are separated by at least one other horizon.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>cec7_h</attrlabl>
+        <attrdef>The amount of readily exchangeable cations that can be electrically adsorbed to negative charges in the soil, soil constituent, or other material, at pH 7.0, as estimated by the ammonium acetate method.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>hzdepb_r</attrlabl>
+        <attrdef>The distance from the top of the soil to the base of the soil horizon.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>sieveno4_r</attrlabl>
+        <attrdef>Soil fraction passing a number 4 sieve (4.70mm square opening) as a weight percentage of the less than 3 inch (76.4mm) fraction.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>wfifteenbar_r</attrlabl>
+        <attrdef>The volumetric content of soil water retained at a tension of 15 bars (1500 kPa), expressed as a percentage of the whole soil.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>sandmed_r</attrlabl>
+        <attrdef>Mineral particles 0.25mm to 0.5mm in equivalent diameter as a weight percentage of the less than 2 mm fraction.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>claysizedcarb_l</attrlabl>
+        <attrdef>Carbonate particles less than 0.002mm in equivalent diameter as a weight percentage of the less than 2.0mm fraction.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>wsatiated_l</attrlabl>
+        <attrdef>The estimated volumetric soil water content at or near zero bar tension, expressed as a percentage of the whole soil.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>sieveno200_l</attrlabl>
+        <attrdef>Soil fraction passing a number 200 sieve (0.074mm square opening) as a weight percentage of the less than 3 inch (76.4mm) fraction.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>hzdepb_l</attrlabl>
+        <attrdef>The distance from the top of the soil to the base of the soil horizon.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>sieveno200_h</attrlabl>
+        <attrdef>Soil fraction passing a number 200 sieve (0.074mm square opening) as a weight percentage of the less than 3 inch (76.4mm) fraction.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>sandco_r</attrlabl>
+        <attrdef>Mineral particles 0.5mm to 1.0mm in equivalent diameter as a weight percentage of the less than 2 mm fraction.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>hzthk_l</attrlabl>
+        <attrdef>A measurement from the top to bottom of a soil horizon throughout its areal extent.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>ptotal_h</attrlabl>
+        <attrdef>The estimate of the total phosphorous content of the soil, measured after total dissolution of a size fraction of the soil material. It is reported as a gravimetric percent oxide of the size fraction used.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>ptotal_r</attrlabl>
+        <attrdef>The estimate of the total phosphorous content of the soil, measured after total dissolution of a size fraction of the soil material. It is reported as a gravimetric percent oxide of the size fraction used.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>wtenthbar_r</attrlabl>
+        <attrdef>The volumetric content of soil water retained at a tension of 1/10 bar (10 kPa), expressed as a percentage of the whole soil.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>awc_l</attrlabl>
+        <attrdef>The amount of water that an increment of soil depth, inclusive of fragments, can store that is available to plants. AWC is expressed as a volume fraction, and is commonly estimated as the difference between the water contents at 1/10 or 1/3 bar (field capacity) and 15 bars (permanent wilting point) tension and adjusted for salinity, and fragments.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>hzdepb_h</attrlabl>
+        <attrdef>The distance from the top of the soil to the base of the soil horizon.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>claytotal_r</attrlabl>
+        <attrdef>Mineral particles less than 0.002mm in equivalent diameter as a weight percentage of the less than 2.0mm fraction.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>sandmed_h</attrlabl>
+        <attrdef>Mineral particles 0.25mm to 0.5mm in equivalent diameter as a weight percentage of the less than 2 mm fraction.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>gypsum_l</attrlabl>
+        <attrdef>The percent by weight of hydrated calcium sulfate in the less than 20 mm fraction of soil.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>hzdept_r</attrlabl>
+        <attrdef>The distance from the top of the soil to the upper boundary of the soil horizon.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>fraggt10_l</attrlabl>
+        <attrdef>The percent by weight of the horizon occupied by rock fragments greater than 10 inches in size.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>sandtotal_r</attrlabl>
+        <attrdef>Mineral particles 0.05mm to 2.0mm in equivalent diameter as a weight percentage of the less than 2 mm fraction.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>fraggt10_h</attrlabl>
+        <attrdef>The percent by weight of the horizon occupied by rock fragments greater than 10 inches in size.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>pi_l</attrlabl>
+        <attrdef>The numerical difference between the liquid limit and plastic limit.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>sandtotal_l</attrlabl>
+        <attrdef>Mineral particles 0.05mm to 2.0mm in equivalent diameter as a weight percentage of the less than 2 mm fraction.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>feoxalate_l</attrlabl>
+        <attrdef>The amount of ammonium oxalate extractable iron in the less than 2mm fraction. It is considered a measure of noncrystalline iron in the soil.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>ph1to1h2o_r</attrlabl>
+        <attrdef>The negative logarithm to the base 10, of the hydrogen ion activity in the soil using the 1:1 soil-water ratio method. A numerical expression of the relative acidity or alkalinity of a soil sample. (SSM)</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>dbtenthbar_r</attrlabl>
+        <attrdef>The oven dried weight of the less than 2 mm soil material per unit volume of soil at a water tension of 1/10 bar.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>caco3_l</attrlabl>
+        <attrdef>The quantity of Carbonate (CO3) in the soil expressed as CaCO3 and as a weight percentage of the less than 2 mm size fraction.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>sieveno40_l</attrlabl>
+        <attrdef>Soil fraction passing a number 40 sieve (0.42mm square opening) as a weight percentage of the less than 3 inch (76.4mm) fraction.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>frag3to10_h</attrlabl>
+        <attrdef>The percent by weight of the horizon occupied by rock fragments 3 to 10 inches in size.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>wsatiated_h</attrlabl>
+        <attrdef>The estimated volumetric soil water content at or near zero bar tension, expressed as a percentage of the whole soil.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>wthirdbar_r</attrlabl>
+        <attrdef>The volumetric content of soil water retained at a tension of 1/3 bar (33 kPa), expressed as a percentage of the whole soil.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>dbfifteenbar_l</attrlabl>
+        <attrdef>The oven dry weight of the less than 2 mm soil material per unit volume of soil at a water tension of 15 bar.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>awc_r</attrlabl>
+        <attrdef>The amount of water that an increment of soil depth, inclusive of fragments, can store that is available to plants. AWC is expressed as a volume fraction, and is commonly estimated as the difference between the water contents at 1/10 or 1/3 bar (field capacity) and 15 bars (permanent wilting point) tension and adjusted for salinity, and fragments.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>siltfine_r</attrlabl>
+        <attrdef>Mineral particles ranging in size from 0.002 to 0.02mm in equivalent diameter as a weight percentage of the less than 2.0mm fraction.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>pi_h</attrlabl>
+        <attrdef>The numerical difference between the liquid limit and plastic limit.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>ksat_r</attrlabl>
+        <attrdef>The amount of water that would move vertically through a unit area of saturated soil in unit time under unit hydraulic gradient.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>hzthk_r</attrlabl>
+        <attrdef>A measurement from the top to bottom of a soil horizon throughout its areal extent.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>ph1to1h2o_h</attrlabl>
+        <attrdef>The negative logarithm to the base 10, of the hydrogen ion activity in the soil using the 1:1 soil-water ratio method. A numerical expression of the relative acidity or alkalinity of a soil sample. (SSM)</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>wsatiated_r</attrlabl>
+        <attrdef>The estimated volumetric soil water content at or near zero bar tension, expressed as a percentage of the whole soil.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>ll_h</attrlabl>
+        <attrdef>The water content of the soil at the change between the liquid and plastic states.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>sumbases_h</attrlabl>
+        <attrdef>The sum of NH4OAc extractable bases (pH 7.0), reported on less than 2mm base.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>sandvf_r</attrlabl>
+        <attrdef>Mineral particles 0.05 to 0.10mm in equivalent diameter as a weight percentage of the less than 2 mm fraction.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>pbray1_r</attrlabl>
+        <attrdef>The amount of phosphorous in the less than 2mm fraction, that is extractable using the Bray1 method. It represents the plant available phosphorous content.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>extracid_r</attrlabl>
+        <attrdef>A measure of soil exchangeable hydrogen ions that may become active by cation exchange.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>sandco_h</attrlabl>
+        <attrdef>Mineral particles 0.5mm to 1.0mm in equivalent diameter as a weight percentage of the less than 2 mm fraction.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>sieveno10_l</attrlabl>
+        <attrdef>Soil fraction passing a number 10 sieve (2.00mm square opening) as a weight percentage of the less than 3 inch (76.4mm) fraction.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>silttotal_l</attrlabl>
+        <attrdef>Mineral particles 0.002 to 0.05mm in equivalent diameter as a weight percentage of the less than 2.0mm fraction.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>ph01mcacl2_r</attrlabl>
+        <attrdef>The negative logarithm to base of 10 or the hydrogen ion activity in the soil, using the 0.01M CaCl2 method, in a 1:2 soil:solution ratio. A numerical expression of the relative acidity or alkalinity of a soil sample. (SSM)</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>ecec_r</attrlabl>
+        <attrdef>The sum of NH4OAc extractable bases plus KCl extractable aluminum.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>sandvf_h</attrlabl>
+        <attrdef>Mineral particles 0.05 to 0.10mm in equivalent diameter as a weight percentage of the less than 2 mm fraction.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>sar_l</attrlabl>
+        <attrdef>A measure of the amount of Sodium (Na) relative to Calcium (Ca) and Magnesium (Mg) in the water extract from saturated soil paste.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>ecec_h</attrlabl>
+        <attrdef>The sum of NH4OAc extractable bases plus KCl extractable aluminum.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>dbfifteenbar_h</attrlabl>
+        <attrdef>The oven dry weight of the less than 2 mm soil material per unit volume of soil at a water tension of 15 bar.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>dbovendry_h</attrlabl>
+        <attrdef>The oven dry weight of the less than 2 mm soil material per unit volume of soil exclusive of the desication cracks, measured on a coated clod.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>ec_l</attrlabl>
+        <attrdef>The electrical conductivity of an extract from saturated soil paste.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>wtenthbar_h</attrlabl>
+        <attrdef>The volumetric content of soil water retained at a tension of 1/10 bar (10 kPa), expressed as a percentage of the whole soil.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>sandvf_l</attrlabl>
+        <attrdef>Mineral particles 0.05 to 0.10mm in equivalent diameter as a weight percentage of the less than 2 mm fraction.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>hzdept_l</attrlabl>
+        <attrdef>The distance from the top of the soil to the upper boundary of the soil horizon.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>aloxalate_h</attrlabl>
+        <attrdef>The amount of ammonium oxalate extractable aluminum in the less than 2mm fraction. This is an estimate of the total pedogenic aluminum, much of which may be in noncrystalline material, or complexed by organic matter.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>pbray1_l</attrlabl>
+        <attrdef>The amount of phosphorous in the less than 2mm fraction, that is extractable using the Bray1 method. It represents the plant available phosphorous content.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>extral_h</attrlabl>
+        <attrdef>The amount of aluminum extracted in 1 normal potassium chloride. The following laboratory method is applied: 55 ml of 1 normal potassium chloride is extracted through 2.5 g of soil sample. The extract is analyzed by use of an atomic adsorption spectrometer or similar instrument (SSIR #1, method 6G9a and NSSH).</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>kwfact</attrlabl>
+        <attrdef>An erodibility factor which quantifies the susceptibility of soil particles to detachment and movement by water. This factor is adjusted for the effect of rock fragments.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>ph2osoluble_l</attrlabl>
+        <attrdef>The amount of water soluble phosphorous in the less than 2mm fraction, that is extractable by distilled water. It represents the mobile phosphorous content.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>extracid_l</attrlabl>
+        <attrdef>A measure of soil exchangeable hydrogen ions that may become active by cation exchange.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>wthirdbar_h</attrlabl>
+        <attrdef>The volumetric content of soil water retained at a tension of 1/3 bar (33 kPa), expressed as a percentage of the whole soil.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>wthirdbar_l</attrlabl>
+        <attrdef>The volumetric content of soil water retained at a tension of 1/3 bar (33 kPa), expressed as a percentage of the whole soil.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>sandvc_r</attrlabl>
+        <attrdef>Mineral particles 1.0mm to 2.0mm in equivalent diameter as a weight percentage of the less than 2 mm fraction.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>dbovendry_l</attrlabl>
+        <attrdef>The oven dry weight of the less than 2 mm soil material per unit volume of soil exclusive of the desication cracks, measured on a coated clod.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>aashind_h</attrlabl>
+        <attrdef>The empirical group index formula devised for approximately within-group evaluation of the "clayey granular materials" and the "silty-clay materials".</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>hzthk_h</attrlabl>
+        <attrdef>A measurement from the top to bottom of a soil horizon throughout its areal extent.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>wtenthbar_l</attrlabl>
+        <attrdef>The volumetric content of soil water retained at a tension of 1/10 bar (10 kPa), expressed as a percentage of the whole soil.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>siltfine_h</attrlabl>
+        <attrdef>Mineral particles ranging in size from 0.002 to 0.02mm in equivalent diameter as a weight percentage of the less than 2.0mm fraction.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>sandfine_r</attrlabl>
+        <attrdef>Mineral particles 0.10 to 0.25mm in equivalent diameter as a weight percentage of the less than 2 mm fraction.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>dbthirdbar_l</attrlabl>
+        <attrdef>The oven dry weight of the less than 2 mm soil material per unit volume of soil at a water tension of 1/3 bar.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>ll_r</attrlabl>
+        <attrdef>The water content of the soil at the change between the liquid and plastic states.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>siltco_h</attrlabl>
+        <attrdef>Mineral particles ranging in size from 0.02mm to 0.05mm in equivalent diameter as a weight percentage of the less than 2.0mm fraction.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>freeiron_l</attrlabl>
+        <attrdef>The secondary iron oxides such as geothite, hematite, ferrihydrite, lepidocrocite and maghemite. This form of iron may occur as discrete particles, as coatings on other particles, or as cementing agents between soil mineral grains. It is iron extracted by dithionite-citrate.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>lep_r</attrlabl>
+        <attrdef>The linear expression of the volume difference of natural soil fabric at 1/3 or 1/10 bar water content and oven dryness. The volume change is reported as percent change for the whole soil.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>desgnmaster</attrlabl>
+        <attrdef>One of four kinds of symbols, that when concatenated, are used to distinguish different kinds of layers in soils. Master horizons and layers are the base symbols to which other characters are added to complete the designations. Capital letters, virgules (/), and ampersands (&amp;) are used. (SSM)</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>ksat_h</attrlabl>
+        <attrdef>The amount of water that would move vertically through a unit area of saturated soil in unit time under unit hydraulic gradient.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>OBJECTID</attrlabl>
+        <attrdef>Internal feature number.</attrdef>
+        <attrdefs>Esri</attrdefs>
+        <attrdomv>
+          <udom>Sequential unique whole numbers that are automatically generated.</udom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>sieveno4_l</attrlabl>
+        <attrdef>Soil fraction passing a number 4 sieve (4.70mm square opening) as a weight percentage of the less than 3 inch (76.4mm) fraction.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>caco3_h</attrlabl>
+        <attrdef>The quantity of Carbonate (CO3) in the soil expressed as CaCO3 and as a weight percentage of the less than 2 mm size fraction.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>dbtenthbar_h</attrlabl>
+        <attrdef>The oven dried weight of the less than 2 mm soil material per unit volume of soil at a water tension of 1/10 bar.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>desgndisc</attrlabl>
+        <attrdef>An Arabic numeral used to indicate a significant change in particle-size distribution or mineralogy that indicates a difference in the material from which the horizon(s) formed and/or a significant difference in age, unless that difference in age is indicated by the suffix "b". (SSM) This numeral is one of four kinds of symbols, that when concatenated, are used to distinguish different kinds of layers in the soil.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>lep_h</attrlabl>
+        <attrdef>The linear expression of the volume difference of natural soil fabric at 1/3 or 1/10 bar water content and oven dryness. The volume change is reported as percent change for the whole soil.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>sandco_l</attrlabl>
+        <attrdef>Mineral particles 0.5mm to 1.0mm in equivalent diameter as a weight percentage of the less than 2 mm fraction.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>frag3to10_l</attrlabl>
+        <attrdef>The percent by weight of the horizon occupied by rock fragments 3 to 10 inches in size.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>hzname</attrlabl>
+        <attrdef>The concatenated string of four kinds of symbols (five data elements) used to distinguish different kinds of layers in the soil. (SSM)</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>sieveno4_h</attrlabl>
+        <attrdef>Soil fraction passing a number 4 sieve (4.70mm square opening) as a weight percentage of the less than 3 inch (76.4mm) fraction.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>claytotal_l</attrlabl>
+        <attrdef>Mineral particles less than 0.002mm in equivalent diameter as a weight percentage of the less than 2.0mm fraction.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>ec_r</attrlabl>
+        <attrdef>The electrical conductivity of an extract from saturated soil paste.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>partdensity</attrlabl>
+        <attrdef>Mass per unit of volume (not including pore space) of the solid soil particle either mineral or organic. Also known as specific gravity.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>kffact</attrlabl>
+        <attrdef>An erodibility factor which quantifies the susceptibility of soil particles to detachment by water.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>sumbases_r</attrlabl>
+        <attrdef>The sum of NH4OAc extractable bases (pH 7.0), reported on less than 2mm base.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>om_l</attrlabl>
+        <attrdef>The amount by weight of decomposed plant and animal residue expressed as a weight percentage of the less than 2 mm soil material.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>silttotal_r</attrlabl>
+        <attrdef>Mineral particles 0.002 to 0.05mm in equivalent diameter as a weight percentage of the less than 2.0mm fraction.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>dbthirdbar_r</attrlabl>
+        <attrdef>The oven dry weight of the less than 2 mm soil material per unit volume of soil at a water tension of 1/3 bar.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>siltfine_l</attrlabl>
+        <attrdef>Mineral particles ranging in size from 0.002 to 0.02mm in equivalent diameter as a weight percentage of the less than 2.0mm fraction.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>wfifteenbar_l</attrlabl>
+        <attrdef>The volumetric content of soil water retained at a tension of 15 bars (1500 kPa), expressed as a percentage of the whole soil.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>sandfine_h</attrlabl>
+        <attrdef>Mineral particles 0.10 to 0.25mm in equivalent diameter as a weight percentage of the less than 2 mm fraction.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>ph1to1h2o_l</attrlabl>
+        <attrdef>The negative logarithm to the base 10, of the hydrogen ion activity in the soil using the 1:1 soil-water ratio method. A numerical expression of the relative acidity or alkalinity of a soil sample. (SSM)</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>sandmed_l</attrlabl>
+        <attrdef>Mineral particles 0.25mm to 0.5mm in equivalent diameter as a weight percentage of the less than 2 mm fraction.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>aloxalate_l</attrlabl>
+        <attrdef>The amount of ammonium oxalate extractable aluminum in the less than 2mm fraction. This is an estimate of the total pedogenic aluminum, much of which may be in noncrystalline material, or complexed by organic matter.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>ksat_l</attrlabl>
+        <attrdef>The amount of water that would move vertically through a unit area of saturated soil in unit time under unit hydraulic gradient.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>extracid_h</attrlabl>
+        <attrdef>A measure of soil exchangeable hydrogen ions that may become active by cation exchange.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>poxalate_l</attrlabl>
+        <attrdef>The amount of phosphorous in the less than 2mm fraction, that is extractable by aluminum oxalate method. It represents the phosphorous level intermediate between total P and water soluble P.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>cec7_l</attrlabl>
+        <attrdef>The amount of readily exchangeable cations that can be electrically adsorbed to negative charges in the soil, soil constituent, or other material, at pH 7.0, as estimated by the ammonium acetate method.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>sumbases_l</attrlabl>
+        <attrdef>The sum of NH4OAc extractable bases (pH 7.0), reported on less than 2mm base.</attrdef>
+      </attr>
+    </detailed>
+  </eainfo>
+  <metainfo>
+    <metd>20131230</metd>
+    <metstdn>FGDC Content Standard for Digital Geospatial Metadata</metstdn>
+    <metstdv>FGDC-STD-001-1998</metstdv>
+    <mettc>local time</mettc>
+  </metainfo>
+</metadata>

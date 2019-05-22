@@ -1,0 +1,158 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<metadata xml:lang="en">
+  <Esri>
+    <CreaDate>20130926</CreaDate>
+    <CreaTime>22323800</CreaTime>
+    <ArcGISFormat>1.0</ArcGISFormat>
+    <ArcGISstyle>FGDC CSDGM Metadata</ArcGISstyle>
+    <SyncOnce>FALSE</SyncOnce>
+    <DataProperties>
+      <itemProps>
+        <itemName Sync="TRUE">chstruct</itemName>
+        <relatedItems>
+          <item>
+            <itemName />
+          </item>
+          <item>
+            <itemName Sync="TRUE">zChstructgrp_Chstruct</itemName>
+            <itemType Sync="TRUE">Relationship</itemType>
+          </item>
+        </relatedItems>
+        <itemLocation>
+          <linkage Sync="TRUE">file://\\ARCNELI95L00052\E$\Geodata\2013\TemplateDB\Template_FGDB_CONUS_AlbersNAD1983.gdb</linkage>
+          <protocol Sync="TRUE">Local Area Network</protocol>
+        </itemLocation>
+        <imsContentType Sync="TRUE">002</imsContentType>
+      </itemProps>
+    </DataProperties>
+    <SyncDate>20131230</SyncDate>
+    <SyncTime>18294000</SyncTime>
+    <ModDate>20131230</ModDate>
+    <ModTime>18294000</ModTime>
+  </Esri>
+  <mdLang>
+    <languageCode value="eng" />
+    <countryCode value="USA" Sync="TRUE" />
+  </mdLang>
+  <mdChar>
+    <CharSetCd value="004" />
+  </mdChar>
+  <mdHrLv>
+    <ScopeCd value="005" />
+  </mdHrLv>
+  <mdDateSt>20131230</mdDateSt>
+  <mdStanName>ArcGIS Metadata</mdStanName>
+  <mdStanVer>1.0</mdStanVer>
+  <dataIdInfo>
+    <idCitation>
+      <resTitle>CHSTRUCT</resTitle>
+      <presForm>
+        <PresFormCd value="001" />
+      </presForm>
+      <presForm>
+        <fgdcGeoform>tabular digital data</fgdcGeoform>
+      </presForm>
+    </idCitation>
+    <idAbs>The Horizon Structure table lists the individual soil structure size, grade, and shape terms for the referenced horizon. Terms in this table are assembled into a structure group string which is recorded in the Horizon Structure Group table.</idAbs>
+    <idPurp>Horizon Structure Table</idPurp>
+    <dataLang>
+      <languageCode value="eng" />
+      <countryCode value="USA" Sync="TRUE" />
+    </dataLang>
+    <envirDesc>Microsoft Windows 7 Version 6.1 (Build 7601) Service Pack 1; Esri ArcGIS 10.1.1.3143</envirDesc>
+    <spatRpType>
+      <SpatRepTypCd value="003" Sync="TRUE" />
+    </spatRpType>
+  </dataIdInfo>
+  <eainfo>
+    <detailed Name="chstruct">
+      <enttyp>
+        <enttypl>chstruct</enttypl>
+        <enttypt Sync="TRUE">Table</enttypt>
+        <enttypc Sync="TRUE">0</enttypc>
+      </enttyp>
+      <attr>
+        <attrlabl>OBJECTID</attrlabl>
+        <attrdef>Internal feature number.</attrdef>
+        <attrdefs>Esri</attrdefs>
+        <attrdomv>
+          <udom>Sequential unique whole numbers that are automatically generated.</udom>
+        </attrdomv>
+        <attalias Sync="TRUE">OBJECTID</attalias>
+        <attrtype Sync="TRUE">OID</attrtype>
+        <attwidth Sync="TRUE">4</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>chstructkey</attrlabl>
+        <attrdef>A non-connotative string of characters used to uniquely identify a record in the Horizon Structure table.</attrdef>
+        <attalias Sync="TRUE">Chorizon Structure Key</attalias>
+        <attrtype Sync="TRUE">String</attrtype>
+        <attwidth Sync="TRUE">30</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>structpartsto</attrlabl>
+        <attrdef>An integer referring to the Structure ID in another row in the same table, intended to indicate if the soil structure described on the current row parts or separates to the structure described on the other row.</attrdef>
+        <attalias Sync="TRUE">Parts to Structure ID</attalias>
+        <attrtype Sync="TRUE">SmallInteger</attrtype>
+        <attwidth Sync="TRUE">2</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>chstructgrpkey</attrlabl>
+        <attrdef>The unique identifier of a record in the Horizon Structure Group table. Use this column to join the Horizon Structure table to the Horizon Structure Group table.</attrdef>
+        <attalias Sync="TRUE">Chorizon Structure Group Key</attalias>
+        <attrtype Sync="TRUE">String</attrtype>
+        <attwidth Sync="TRUE">30</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>structid</attrlabl>
+        <attrdef>An integer number assigned by the user to identify a particular row in the table.</attrdef>
+        <attalias Sync="TRUE">Structure ID</attalias>
+        <attrtype Sync="TRUE">SmallInteger</attrtype>
+        <attwidth Sync="TRUE">2</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>structgrade</attrlabl>
+        <attrdef>The distinctness of the peds described in terms of ease of separation into discrete units.</attrdef>
+        <attalias Sync="TRUE">Grade</attalias>
+        <attrtype Sync="TRUE">String</attrtype>
+        <attwidth Sync="TRUE">254</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>structsize</attrlabl>
+        <attrdef>Measurement of the smallest dimension of the selected secondary particles, units, or peds.</attrdef>
+        <attalias Sync="TRUE">Size</attalias>
+        <attrtype Sync="TRUE">String</attrtype>
+        <attwidth Sync="TRUE">254</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>structtype</attrlabl>
+        <attrdef>The multiaxial shape of secondary particles, units, or peds.</attrdef>
+        <attalias Sync="TRUE">Type</attalias>
+        <attrtype Sync="TRUE">String</attrtype>
+        <attwidth Sync="TRUE">254</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+    </detailed>
+  </eainfo>
+  <distInfo>
+    <distFormat>
+      <formatName Sync="TRUE">File Geodatabase Table</formatName>
+    </distFormat>
+  </distInfo>
+  <mdHrLvName Sync="TRUE">dataset</mdHrLvName>
+</metadata>

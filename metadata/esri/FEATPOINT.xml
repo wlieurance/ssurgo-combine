@@ -1,0 +1,651 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<metadata>
+  <Esri>
+    <CreaDate>20140930</CreaDate>
+    <CreaTime>15592700</CreaTime>
+    <ArcGISFormat>1.0</ArcGISFormat>
+    <ModDate>20180124</ModDate>
+    <ModTime>14352300</ModTime>
+    <ArcGISProfile>NAP</ArcGISProfile>
+    <DataProperties>
+      <itemProps>
+        <itemName Sync="TRUE">FEATPOINT</itemName>
+        <nativeExtBox>
+          <westBL Sync="TRUE">-2053511.495600</westBL>
+          <eastBL Sync="TRUE">-1480459.076800</eastBL>
+          <southBL Sync="TRUE">1510152.659600</southBL>
+          <northBL Sync="TRUE">2358156.538100</northBL>
+          <exTypeCode Sync="TRUE">1</exTypeCode>
+        </nativeExtBox>
+        <relatedItems>
+          <item>
+            <itemName Sync="TRUE">zFeatdesc_FEATPOINT</itemName>
+            <itemType Sync="TRUE">Relationship</itemType>
+          </item>
+        </relatedItems>
+        <itemLocation>
+          <linkage Sync="TRUE">file://\\ARCTXFTW5000145\F$\FY2018gSSURGODatabases\gSSURGO_NV.gdb</linkage>
+          <protocol Sync="TRUE">Local Area Network</protocol>
+        </itemLocation>
+        <imsContentType Sync="TRUE">002</imsContentType>
+      </itemProps>
+      <coordRef>
+        <type Sync="TRUE">Projected</type>
+        <geogcsn Sync="TRUE">GCS_North_American_1983</geogcsn>
+        <csUnits Sync="TRUE">Linear Unit: Meter (1.000000)</csUnits>
+        <projcsn Sync="TRUE">USA_Contiguous_Albers_Equal_Area_Conic_USGS_version</projcsn>
+        <peXml Sync="TRUE">&lt;ProjectedCoordinateSystem xsi:type='typens:ProjectedCoordinateSystem' xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xmlns:xs='http://www.w3.org/2001/XMLSchema' xmlns:typens='http://www.esri.com/schemas/ArcGIS/10.5'&gt;&lt;WKT&gt;PROJCS[&amp;quot;USA_Contiguous_Albers_Equal_Area_Conic_USGS_version&amp;quot;,GEOGCS[&amp;quot;GCS_North_American_1983&amp;quot;,DATUM[&amp;quot;D_North_American_1983&amp;quot;,SPHEROID[&amp;quot;GRS_1980&amp;quot;,6378137.0,298.257222101]],PRIMEM[&amp;quot;Greenwich&amp;quot;,0.0],UNIT[&amp;quot;Degree&amp;quot;,0.0174532925199433]],PROJECTION[&amp;quot;Albers&amp;quot;],PARAMETER[&amp;quot;False_Easting&amp;quot;,0.0],PARAMETER[&amp;quot;False_Northing&amp;quot;,0.0],PARAMETER[&amp;quot;Central_Meridian&amp;quot;,-96.0],PARAMETER[&amp;quot;Standard_Parallel_1&amp;quot;,29.5],PARAMETER[&amp;quot;Standard_Parallel_2&amp;quot;,45.5],PARAMETER[&amp;quot;Latitude_Of_Origin&amp;quot;,23.0],UNIT[&amp;quot;Meter&amp;quot;,1.0],AUTHORITY[&amp;quot;Esri&amp;quot;,102039]]&lt;/WKT&gt;&lt;XOrigin&gt;-16901100&lt;/XOrigin&gt;&lt;YOrigin&gt;-6972200&lt;/YOrigin&gt;&lt;XYScale&gt;10000&lt;/XYScale&gt;&lt;ZOrigin&gt;-100000&lt;/ZOrigin&gt;&lt;ZScale&gt;10000&lt;/ZScale&gt;&lt;MOrigin&gt;-100000&lt;/MOrigin&gt;&lt;MScale&gt;10000&lt;/MScale&gt;&lt;XYTolerance&gt;0.001&lt;/XYTolerance&gt;&lt;ZTolerance&gt;0.001&lt;/ZTolerance&gt;&lt;MTolerance&gt;0.001&lt;/MTolerance&gt;&lt;HighPrecision&gt;true&lt;/HighPrecision&gt;&lt;WKID&gt;102039&lt;/WKID&gt;&lt;LatestWKID&gt;102039&lt;/LatestWKID&gt;&lt;/ProjectedCoordinateSystem&gt;</peXml>
+      </coordRef>
+    </DataProperties>
+    <SyncDate>20180124</SyncDate>
+    <SyncTime>14351100</SyncTime>
+    <scaleRange>
+      <minScale>150000000</minScale>
+      <maxScale>5000</maxScale>
+    </scaleRange>
+  </Esri>
+  <Binary>
+    <Enclosure>
+      <Descript>original metadata</Descript>
+      <Data SourceMetadata="yes" OriginalFileName="source_metadata.xml" SourceMetadataDigest="c2b661433da05046ab5b1c1b82c84416" EsriPropertyType="Base64" SourceMetadataSchema="fgdc">PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjxtZXRhZGF0YT4NCiAgPGlk
+aW5mbz4NCiAgICA8Y2l0YXRpb24+DQogICAgICA8Y2l0ZWluZm8+DQogICAgICAgIDx0aXRsZT5G
+RUFUUE9JTlQgLSBXZXN0IFZpcmdpbmlhPC90aXRsZT4NCiAgICAgICAgPGdlb2Zvcm0+dmVjdG9y
+IGRpZ2l0YWwgZGF0YTwvZ2VvZm9ybT4NCiAgICAgIDwvY2l0ZWluZm8+DQogICAgPC9jaXRhdGlv
+bj4NCiAgICA8ZGVzY3JpcHQ+DQogICAgICA8YWJzdHJhY3Q+VGhpcyB0YWJsZSByZWNvcmRzIGFs
+bCBvZiB0aGUgc3BvdCBmZWF0dXJlcyBvZiBhIHNvaWwgc3VydmV5IGFyZWEgdGhhdCBhcmUgcmVw
+cmVzZW50ZWQgYXMgb25lIG9yIG1vcmUgcG9pbnRzLiBUaGlzIHRhYmxlIGlzIG5vdCBsaWtlIG90
+aGVyIHRhYnVsYXIgZGF0YSB0YWJsZXMgdGhhdCBhcmUgZGVsaXZlcmVkIGFzIEFTQ0lJIGRlbGlt
+aXRlZCBmaWxlcy4gSG93IHRoZSBpbmZvcm1hdGlvbiBpcyBkZWxpdmVyZWQgZGVwZW5kcyBvbiB0
+aGUgc3BhdGlhbCBmb3JtYXQgdGhhdCB3YXMgcmVxdWVzdGVkIGF0IHRoZSB0aW1lIHRoZSBjb3Jy
+ZXNwb25kaW5nIHNvaWwgc3VydmV5IGFyZWEgd2FzIGV4cG9ydGVkLiBTcGF0aWFsIGluZm9ybWF0
+aW9uIGlzIHR5cGljYWxseSBkZWxpdmVyZWQgaW4gR0lTIHZlbmRvciBzcGVjaWZpYyBmb3JtYXQs
+IGFuZCBtb3JlIHRoYW4gb25lIG91dHB1dCBmaWxlIG1heSBiZSBwcm9kdWNlZCB3aGVuIHRoZSBp
+bmZvcm1hdGlvbiBmb3IgdGhpcyBzcGF0aWFsIGVudGl0eSBpcyBleHBvcnRlZC4gQ29uc2VxdWVu
+dGx5LCBubyBzcGF0aWFsbHkgb3JpZW50ZWQgY29sdW1ucyBhcmUgc2hvd24sIGJlY2F1c2UgdGhl
+IG5hbWUgYW5kIG51bWJlciBvZiBjb2x1bW5zIG5lY2Vzc2FyeSB0byBwb3J0cmF5IHNwYXRpYWwg
+Y2hhcmFjdGVyaXN0aWNzIHZhcnkgZGVwZW5kaW5nIG9uIHNwYXRpYWwgZm9ybWF0LiBUaGlzIHRh
+YmxlIGlzIGRvY3VtZW50ZWQgaW4gb3JkZXIgdG8gc2hvdyBhdHRyaWJ1dGVzIHRoYXQgd2lsbCBh
+bHdheXMgYmUgYXZhaWxhYmxlIHdoZW4gd29ya2luZyB3aXRoIHRoZSBjb3JyZXNwb25kaW5nIHNw
+YXRpYWwgZW50aXR5IGluIGEgR0lTLiBUaGVzZSBhdHRyaWJ1dGVzIGhhdmUgdHdvIHB1cnBvc2Vz
+LiBPbmUgcHVycG9zZSBpcyB0byBpZGVudGlmeSBlYWNoIGluc3RhbmNlIG9mIHRoZSBjb3JyZXNw
+b25kaW5nIHNwYXRpYWwgZW50aXR5LiBUaGUgb3RoZXIgcHVycG9zZSBpcyB0byBpZGVudGlmeSBl
+YWNoIGluc3RhbmNlIG9mIHRoZSBjb3JyZXNwb25kaW5nIHRhYnVsYXIgZW50aXR5LiBUaGUgdGFi
+dWxhciBlbnRpdHkgY29ycmVzcG9uZGluZyB0byBhIHNwb3QgZmVhdHVyZSBwb2ludCBpcyByZXBy
+ZXNlbnRlZCBieSBhIHJlY29yZCBpbiB0aGUgRmVhdHVyZSBEZXNjcmlwdGlvbiB0YWJsZS48L2Fi
+c3RyYWN0Pg0KICAgICAgPHB1cnBvc2U+RmVhdHVyZSBQb2ludCBGZWF0dXJlY2xhc3M8L3B1cnBv
+c2U+DQogICAgPC9kZXNjcmlwdD4NCiAgICA8c3Bkb20+DQogICAgICA8Ym91bmRpbmc+DQogICAg
+ICAgIDx3ZXN0YmM+LTgyLjc3MTEzNDwvd2VzdGJjPg0KICAgICAgICA8ZWFzdGJjPi03Ny41MjY4
+MzM8L2Vhc3RiYz4NCiAgICAgICAgPG5vcnRoYmM+NDAuODAzMzA0PC9ub3J0aGJjPg0KICAgICAg
+ICA8c291dGhiYz4zNi44NTU4NTA8L3NvdXRoYmM+DQogICAgICA8L2JvdW5kaW5nPg0KICAgIDwv
+c3Bkb20+DQogICAgPGtleXdvcmRzPg0KICAgICAgPHBsYWNlPg0KICAgICAgICA8cGxhY2VrdD5O
+b25lPC9wbGFjZWt0Pg0KICAgICAgICA8cGxhY2VrZXk+VW5pdGVkIFN0YXRlcyBvZiBBbWVyaWNh
+PC9wbGFjZWtleT4NCiAgICAgICAgPHBsYWNla2V5PldWNjA0ICgyMDEzLTEyLTMxKSwgV1YwNTEg
+KDIwMTMtMTItMjApLCBXVjEwMyAoMjAxMy0xMi0yNiksIFdWNjExICgyMDEzLTEyLTI2KSwgV1Yw
+NzcgKDIwMTMtMTItMjYpLCBXVjA2NSAoMjAxMy0xMi0yNiksIFdWNjEyICgyMDEzLTEyLTI2KSwg
+V1Y2MDggKDIwMTMtMTItMjYpLCBXVjAwMyAoMjAxMy0xMi0yNiksIFdWMDE3ICgyMDEzLTEyLTE5
+KSwgV1Y2MTAgKDIwMTMtMTItMjYpLCBXVjAzNyAoMjAxMy0xMi0xOSksIFdWNjAxICgyMDEzLTEy
+LTMxKSwgV1YwODUgKDIwMTMtMTItMjYpLCBXVjAwMSAoMjAxMy0xMi0yNiksIFdWNjAyICgyMDEz
+LTEyLTI2KSwgV1Y2MjggKDIwMTMtMTItMjYpLCBXVjAyMSAoMjAxMy0xMi0xOSksIFdWMDQxICgy
+MDEzLTEyLTE5KSwgV1YwOTcgKDIwMTMtMTItMjYpLCBXVjYwMCAoMjAxMy0xMi0zMCksIFdWNjI0
+ICgyMDEzLTEyLTMxKSwgV1Y2MDMgKDIwMTMtMTItMjYpLCBXVjAwNyAoMjAxMy0xMi0yNiksIFdW
+MDcxICgyMDEzLTEyLTI2KSwgV1YwNzkgKDIwMTMtMTItMjYpLCBXVjAxNSAoMjAxMy0xMi0xOSks
+IFdWMTAxICgyMDEzLTEyLTMwKSwgV1YwMTEgKDIwMTMtMTItMjYpLCBXVjA3NSAoMjAxMy0xMi0y
+NiksIFdWMDM5ICgyMDEzLTEyLTE5KSwgV1Y3NjcgKDIwMTMtMTItMjYpLCBXVjA0MyAoMjAxMy0x
+Mi0xOSksIFdWNjIxICgyMDE0LTAxLTAzKSwgV1YwOTkgKDIwMTMtMTItMjYpLCBXVjAwNSAoMjAx
+My0xMi0yNiksIFdWMDI1ICgyMDEzLTEyLTE5KSwgV1Y3MDUgKDIwMTMtMTItMjYpLCBXVjYyMiAo
+MjAxNC0wMS0wMiksIFdWNjIwICgyMDEzLTEyLTI2KSwgV1YxMDkgKDIwMTMtMTItMjYpLCBXVjcx
+MyAoMjAxMy0xMi0yNiksIFdWNjIzICgyMDE0LTAxLTAyKSwgV1YwNjMgKDIwMTMtMTItMjYpLCBX
+VjA0NyAoMjAxMy0xMi0yMCk8L3BsYWNla2V5Pg0KICAgICAgICA8cGxhY2VrZXk+V2VzdCBWaXJn
+aW5pYTwvcGxhY2VrZXk+DQogICAgICAgIDxwbGFjZWtleT5VU0E8L3BsYWNla2V5Pg0KICAgICAg
+PC9wbGFjZT4NCiAgICA8L2tleXdvcmRzPg0KICAgIDxhY2Njb25zdD5Ob25lPC9hY2Njb25zdD4N
+CiAgICA8dXNlY29uc3Q+Tm9uZTwvdXNlY29uc3Q+DQogICAgPGRhdGFjcmVkPlNvaWwgU3VydmV5
+IFN0YWZmLiBHcmlkZGVkIFNvaWwgU3VydmV5IEdlb2dyYXBoaWMgKGdTU1VSR08pIERhdGFiYXNl
+IGZvciBXZXN0IFZpcmdpbmlhLiBVbml0ZWQgU3RhdGVzIERlcGFydG1lbnQgb2YgQWdyaWN1bHR1
+cmUsIE5hdHVyYWwgUmVzb3VyY2VzIENvbnNlcnZhdGlvbiBTZXJ2aWNlLiBBdmFpbGFibGUgb25s
+aW5lIGF0IGh0dHA6Ly9kYXRhZ2F0ZXdheS5ucmNzLnVzZGEuZ292Ly4gbW9udGggZGF5LCB5ZWFy
+IChGWTIwMTQgb2ZmaWNpYWwgcmVsZWFzZSkuPC9kYXRhY3JlZD4NCiAgICA8bmF0aXZlPk1pY3Jv
+c29mdCBXaW5kb3dzIDcgVmVyc2lvbiA2LjEgKEJ1aWxkIDc2MDEpIFNlcnZpY2UgUGFjayAxOyBF
+c3JpIEFyY0dJUyAxMC4xLjEuMzE0MzwvbmF0aXZlPg0KICA8L2lkaW5mbz4NCiAgPHNwZG9pbmZv
+Pg0KICAgIDxkaXJlY3Q+VmVjdG9yPC9kaXJlY3Q+DQogICAgPHB0dmN0aW5mPg0KICAgICAgPHNk
+dHN0ZXJtPg0KICAgICAgICA8c2R0c3R5cGU+RW50aXR5IHBvaW50PC9zZHRzdHlwZT4NCiAgICAg
+ICAgPHB0dmN0Y250PjE0MjI3PC9wdHZjdGNudD4NCiAgICAgIDwvc2R0c3Rlcm0+DQogICAgPC9w
+dHZjdGluZj4NCiAgPC9zcGRvaW5mbz4NCiAgPHNwcmVmPg0KICAgIDxob3JpenN5cz4NCiAgICAg
+IDxwbGFuYXI+DQogICAgICAgIDxtYXBwcm9qPg0KICAgICAgICAgIDxtYXBwcm9qbj5VU0EgQ29u
+dGlndW91cyBBbGJlcnMgRXF1YWwgQXJlYSBDb25pYyBVU0dTIHZlcnNpb248L21hcHByb2puPg0K
+ICAgICAgICAgIDxhbGJlcnM+DQogICAgICAgICAgICA8c3RkcGFybGw+MjkuNTwvc3RkcGFybGw+
+DQogICAgICAgICAgICA8c3RkcGFybGw+NDUuNTwvc3RkcGFybGw+DQogICAgICAgICAgICA8bG9u
+Z2NtPi05Ni4wPC9sb25nY20+DQogICAgICAgICAgICA8bGF0cHJqbz4yMy4wPC9sYXRwcmpvPg0K
+ICAgICAgICAgICAgPGZlYXN0PjAuMDwvZmVhc3Q+DQogICAgICAgICAgICA8Zm5vcnRoPjAuMDwv
+Zm5vcnRoPg0KICAgICAgICAgIDwvYWxiZXJzPg0KICAgICAgICA8L21hcHByb2o+DQogICAgICAg
+IDxwbGFuY2k+DQogICAgICAgICAgPHBsYW5jZT5jb29yZGluYXRlIHBhaXI8L3BsYW5jZT4NCiAg
+ICAgICAgICA8Y29vcmRyZXA+DQogICAgICAgICAgICA8YWJzcmVzPjAuMDAwMTwvYWJzcmVzPg0K
+ICAgICAgICAgICAgPG9yZHJlcz4wLjAwMDE8L29yZHJlcz4NCiAgICAgICAgICA8L2Nvb3JkcmVw
+Pg0KICAgICAgICAgIDxwbGFuZHU+bWV0ZXI8L3BsYW5kdT4NCiAgICAgICAgPC9wbGFuY2k+DQog
+ICAgICA8L3BsYW5hcj4NCiAgICAgIDxnZW9kZXRpYz4NCiAgICAgICAgPGhvcml6ZG4+RCBOb3J0
+aCBBbWVyaWNhbiAxOTgzPC9ob3JpemRuPg0KICAgICAgICA8ZWxsaXBzPkdSUyAxOTgwPC9lbGxp
+cHM+DQogICAgICAgIDxzZW1pYXhpcz42Mzc4MTM3LjA8L3NlbWlheGlzPg0KICAgICAgICA8ZGVu
+ZmxhdD4yOTguMjU3MjIyMTAxPC9kZW5mbGF0Pg0KICAgICAgPC9nZW9kZXRpYz4NCiAgICA8L2hv
+cml6c3lzPg0KICA8L3NwcmVmPg0KICA8ZWFpbmZvPg0KICAgIDxkZXRhaWxlZD4NCiAgICAgIDxl
+bnR0eXA+DQogICAgICAgIDxlbnR0eXBsPmZlYXRwb2ludDwvZW50dHlwbD4NCiAgICAgIDwvZW50
+dHlwPg0KICAgICAgPGF0dHI+DQogICAgICAgIDxhdHRybGFibD5TaGFwZTwvYXR0cmxhYmw+DQog
+ICAgICAgIDxhdHRyZGVmPkZlYXR1cmUgZ2VvbWV0cnkuPC9hdHRyZGVmPg0KICAgICAgICA8YXR0
+cmRlZnM+RXNyaTwvYXR0cmRlZnM+DQogICAgICAgIDxhdHRyZG9tdj4NCiAgICAgICAgICA8dWRv
+bT5Db29yZGluYXRlcyBkZWZpbmluZyB0aGUgZmVhdHVyZXMuPC91ZG9tPg0KICAgICAgICA8L2F0
+dHJkb212Pg0KICAgICAgPC9hdHRyPg0KICAgICAgPGF0dHI+DQogICAgICAgIDxhdHRybGFibD5B
+UkVBU1lNQk9MPC9hdHRybGFibD4NCiAgICAgICAgPGF0dHJkZWY+QSBzeW1ib2wgdGhhdCB1bmlx
+dWVseSBpZGVudGlmaWVzIGEgc2luZ2xlIG9jY3VycmVuY2Ugb2YgYSBwYXJ0aWN1bGFyIHR5cGUg
+b2YgYXJlYSAoZS5nLiBMYW5jYXN0ZXIgQ28uLCBOZWJyYXNrYSBpcyBORTEwOSkuPC9hdHRyZGVm
+Pg0KICAgICAgPC9hdHRyPg0KICAgICAgPGF0dHI+DQogICAgICAgIDxhdHRybGFibD5PQkpFQ1RJ
+RDwvYXR0cmxhYmw+DQogICAgICAgIDxhdHRyZGVmPkludGVybmFsIGZlYXR1cmUgbnVtYmVyLjwv
+YXR0cmRlZj4NCiAgICAgICAgPGF0dHJkZWZzPkVzcmk8L2F0dHJkZWZzPg0KICAgICAgICA8YXR0
+cmRvbXY+DQogICAgICAgICAgPHVkb20+U2VxdWVudGlhbCB1bmlxdWUgd2hvbGUgbnVtYmVycyB0
+aGF0IGFyZSBhdXRvbWF0aWNhbGx5IGdlbmVyYXRlZC48L3Vkb20+DQogICAgICAgIDwvYXR0cmRv
+bXY+DQogICAgICA8L2F0dHI+DQogICAgICA8YXR0cj4NCiAgICAgICAgPGF0dHJsYWJsPkZFQVRT
+WU08L2F0dHJsYWJsPg0KICAgICAgICA8YXR0cmRlZj5BIHN5bWJvbCB0aGF0LCB3aXRoaW4gdGhl
+IGNvbnRleHQgb2YgYSBwYXJ0aWN1bGFyIHNvaWwgc3VydmV5IGFyZWEsIHVuaXF1ZWx5IGlkZW50
+aWZpZXMgYSBwb2ludCBvciBsaW5lIHNwb3QgZmVhdHVyZS48L2F0dHJkZWY+DQogICAgICA8L2F0
+dHI+DQogICAgICA8YXR0cj4NCiAgICAgICAgPGF0dHJsYWJsPkZFQVRLRVk8L2F0dHJsYWJsPg0K
+ICAgICAgICA8YXR0cmRlZj5BIG5vbi1jb25ub3RhdGl2ZSBzdHJpbmcgb2YgY2hhcmFjdGVycyB1
+c2VkIHRvIHVuaXF1ZWx5IGlkZW50aWZ5IGEgcmVjb3JkIGluIHRoZSBGZWF0dXJlIERlc2NyaXB0
+aW9uIHRhYmxlLjwvYXR0cmRlZj4NCiAgICAgIDwvYXR0cj4NCiAgICAgIDxhdHRyPg0KICAgICAg
+ICA8YXR0cmxhYmw+U1BBVElBTFZFUjwvYXR0cmxhYmw+DQogICAgICA8L2F0dHI+DQogICAgPC9k
+ZXRhaWxlZD4NCiAgPC9lYWluZm8+DQogIDxtZXRhaW5mbz4NCiAgICA8bWV0ZD4yMDEzMTIzMDwv
+bWV0ZD4NCiAgICA8bWV0c3Rkbj5GR0RDIENvbnRlbnQgU3RhbmRhcmQgZm9yIERpZ2l0YWwgR2Vv
+c3BhdGlhbCBNZXRhZGF0YTwvbWV0c3Rkbj4NCiAgICA8bWV0c3Rkdj5GR0RDLVNURC0wMDEtMTk5
+ODwvbWV0c3Rkdj4NCiAgICA8bWV0dGM+bG9jYWwgdGltZTwvbWV0dGM+DQogIDwvbWV0YWluZm8+
+DQo8L21ldGFkYXRhPg==</Data>
+    </Enclosure>
+    <Thumbnail>
+      <Data EsriPropertyType="PictureX">/9j/4AAQSkZJRgABAQEALQAtAAD/2wBDAAMCAgMCAgMDAwMEAwMEBQgFBQQEBQoHBwYIDAoMDAsK
+CwsNDhIQDQ4RDgsLEBYQERMUFRUVDA8XGBYUGBIUFRT/2wBDAQMEBAUEBQkFBQkUDQsNFBQUFBQU
+FBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBT/wAARCACHAMcDASIA
+AhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQA
+AAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3
+ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWm
+p6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEA
+AwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSEx
+BhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElK
+U1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3
+uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwD7Dooo
+r70/HwooooAKKKKACiiigAooooAKKK5KT4u+BY7fUp38aeHkg0yZbe+kbVYAtrIzMqpKd/yMSrAB
+sElT6UnJR3ZpGnKp8KudbRVex1C11S1S5s7mG7tn+7NBIHRvoRwasUzMKKKKACiiigAooooAKKKK
+ACiiigAooooAKKKKACiiigAooooAKKKKACiiigDzT9oX40f8KF+HUnin+wp9f23UVr5UcvkQw78/
+vJ5treVHxtDbWy7xrxvyMbTvgvaeM/B5mk8ReM9MsdZs7OW10nUhaLJoiJmSOKKF7dlhmTeFMjb5
+QY1/ebl3V7JRWEqXNK8nodscQqdJQpxtK+r79lY5rwd4Lk8Gi4hXxBqurWkmDHb6m0DiFuS7LIsS
+yOzklmMjvz0xXS0UVucjlzO7KmqapZaHptzqGpXlvp+n2yGWe6upViiiQclmdiAoHqawIfix4IuE
+014vGPh+VdTV2sWTVID9rCEq5i+f5wpUg7c4IOeled/GbxT4+b4meDvB+ieDZtR8I6xtfUPENuf3
+llIsu7zFcgxQNb7EnAnV1nJ8pRkNnYm/Z9tbz+yWvPGfiq+udPa5LXlxc2xublZ2LPFLMIA4hyRi
+FCkeETKnaK5vaTc2orRHofV6cKcZ1Zay1VnfTXftqeqghsEHINLWb4f0qfRNKhs7rVrzXJo85vb9
+IFmcEkgEQxxpwOBhRwOcnmtKuk87bQKKKKBBRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUU
+UAFFFZ/iHQbDxVoOpaJqlv8AatM1K1lsru33snmQyIUddykMMqxGQQRng0PyKjbmXNseX6h8Yrq4
+1+O80G9h1rwqwV4H0fw5faul7GDiaSPULV2gUowlXyihfdFjneorSt/HHjDUPiZpkFrpEsfgS6Vc
+3l1o0sc25oDIAWacSRnfgESWwQYIMm8ha0/g18GtA+BvhGTw/wCH3vJ4Zrp725u9QlWSe4mZVXc2
+1VQYSONAFVRhASCxYnu6whGdk5PU7q1ShGTjSV1sm9PnbuFFFFbnnhRRRQAUUUUAFFFFABRRRQAU
+UUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRR
+RQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFF
+AGR4u8XaP4E8N3+v6/fxaZpFjH5k9zNnCjIAAABLMzEKqqCzMwUAkgV4tZ+LvHfjxdY1bwhe6zqH
+h3UtOuZtJ1uybSZLOKTeggW3tZVjneZQHWVbqWNUkSRcfd2+0+LvCWj+O/Dd/oGvWEWp6RfR+XPb
+TZwwyCCCCCrKwDKykMrKGBBANHhHwjo/gTw3YaBoFhFpmkWMflwW0OcKMkkkkkszMSzMxLMzFiSS
+TWE6cpy3srHfRrUqVJ+7ed+u1v8AM5L4V6v40ks4bLxfoGqW100CzG/ubrT5o0baoMTm3KEyE7m+
+WHYAcBjivRKKK2irI5KklJ3SsFc18SPiFpHwr8Ear4p11phpunopdbePzJZHd1jjjQZA3O7ooJIU
+FssVAJHS1X1DT7TWNPurC+tYb2xuomguLW4jEkU0bAqyOpBDKQSCDwQaJXtpuOm4qac1ddTxLRdU
+1f4u/wBnfEHwUBe6PfRrJaHUPEuoaabd4mKS2stjFFLbyHzY5FabJ++Su8IhbqLfwL4uuviZpniu
+81aK2skVUudCtdTvXhTMBViMssEoEhyAbZHPDGQYEdei6fp9po+n2thYWsNlY2sSwW9rbxiOKGNQ
+FVEUABVAAAA4AFWKyjTtbmep01MQm2qastu7sFFFFbHCFFFFABRRRQAUUUUAFFFFABRRRQAUUUUA
+FFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAU
+UUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRR
+RQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAf//Z</Data>
+    </Thumbnail>
+  </Binary>
+  <mdLang>
+    <languageCode value="eng" />
+    <countryCode value="USA" Sync="TRUE" />
+  </mdLang>
+  <mdChar>
+    <CharSetCd value="004" />
+  </mdChar>
+  <mdHrLv>
+    <ScopeCd value="005" />
+  </mdHrLv>
+  <mdContact>
+    <rpOrgName>U.S. Department of Agriculture, Natural Resources Conservation Service, National Soil Survey Center</rpOrgName>
+    <rpCntInfo>
+      <cntAddress addressType="postal">
+        <delPoint>Federal Building, Room 152</delPoint>
+        <delPoint>100 Centennial Mall North</delPoint>
+        <city>Lincoln</city>
+        <adminArea>NE</adminArea>
+        <postCode>68508-3866</postCode>
+        <country>US</country>
+        <eMailAdd>SoilsHotline@lin.usda.gov</eMailAdd>
+      </cntAddress>
+    </rpCntInfo>
+    <role>
+      <RoleCd value="007" />
+    </role>
+  </mdContact>
+  <mdDateSt>20171204</mdDateSt>
+  <mdStanName>ArcGIS Metadata</mdStanName>
+  <mdStanVer>1.0</mdStanVer>
+  <distInfo>
+    <distributor>
+      <distorCont>
+        <rpOrgName>U.S. Department of Agriculture, Natural Resources Conservation Service, National Geospatial Center of Excellence</rpOrgName>
+        <rpCntInfo>
+          <cntPhone>
+            <voiceNum>800 672 5559</voiceNum>
+            <faxNum>817 509 3469</faxNum>
+          </cntPhone>
+          <cntAddress addressType="postal">
+            <delPoint>501 West Felix Street</delPoint>
+            <city>Fort Worth</city>
+            <adminArea>TX</adminArea>
+            <postCode>76115</postCode>
+            <country>US</country>
+          </cntAddress>
+        </rpCntInfo>
+        <role>
+          <RoleCd value="005" />
+        </role>
+      </distorCont>
+      <distorOrdPrc>
+        <resFees>The charge is $250 for an external hard drive that contains one or more datasets. A dataset is one state that includes both spatial and attribute data.</resFees>
+      </distorOrdPrc>
+      <distorFormat>
+        <formatName>ESRI File Geodatabase</formatName>
+        <formatVer>10.0</formatVer>
+      </distorFormat>
+      <distorTran>
+        <onLineSrc>
+          <linkage>http://datagateway.nrcs.usda.gov</linkage>
+        </onLineSrc>
+      </distorTran>
+      <distorTran>
+        <offLineMed>
+          <medName>
+            <MedNameCd value="002" />
+          </medName>
+          <medNote>Recording Format UDF 2.5</medNote>
+        </offLineMed>
+      </distorTran>
+    </distributor>
+    <distFormat>
+      <formatName Sync="TRUE">File Geodatabase Feature Class</formatName>
+    </distFormat>
+  </distInfo>
+  <dataIdInfo>
+    <idCitation>
+      <resTitle>FEATPOINT - Nevada</resTitle>
+      <presForm>
+        <PresFormCd value="005" />
+      </presForm>
+      <presForm>
+        <fgdcGeoform>vector digital data</fgdcGeoform>
+      </presForm>
+    </idCitation>
+    <idAbs>&lt;DIV STYLE="text-align:Left;"&gt;&lt;DIV&gt;&lt;P&gt;&lt;SPAN&gt;This feature class represents the special soil features that are delineated as one or more points. It is generally the most detailed level of soil geographic data developed by the National Cooperative Soil Survey. The information was prepared by digitizing maps, by compiling information onto a planimetric correct base and digitizing, or by revising digitized maps using remotely sensed and other information. This layer displays the location of features too small to delineate at the mapping scale, but they are large enough and contrasting enough to significantly influence use and management. The features are linked to attributes in the featdesc attribute table. The map data are in a state-wide extent format.&lt;/SPAN&gt;&lt;/P&gt;&lt;/DIV&gt;&lt;/DIV&gt;</idAbs>
+    <idPurp>The dataset was created for use in national, regional, and state-wide resource planning and analysis of soils data. The Soil Survey Geographic (SSURGO) Database depicts information about the kinds and distribution of soils on the landscape. The soil map and data used in the SSURGO product were prepared by soil scientists as part of the National Cooperative Soil Survey.</idPurp>
+    <idCredit>Soil Survey Staff. Gridded Soil Survey Geographic (gSSURGO) Database for Nevada. United States Department of Agriculture, Natural Resources Conservation Service. Available online at http://datagateway.nrcs.usda.gov/. 20171127 (FY2018 official release).</idCredit>
+    <idPoC>
+      <rpOrgName>U.S. Department of Agriculture, Natural Resources Conservation Service, National Geospatial Center of Excellence</rpOrgName>
+      <rpCntInfo>
+        <cntPhone>
+          <voiceNum>800 672 5559</voiceNum>
+          <faxNum>817 509 3469</faxNum>
+        </cntPhone>
+        <cntAddress addressType="postal">
+          <delPoint>501 West Felix Street</delPoint>
+          <city>Fort Worth</city>
+          <adminArea>TX</adminArea>
+          <postCode>76115</postCode>
+          <country>US</country>
+        </cntAddress>
+      </rpCntInfo>
+      <role>
+        <RoleCd value="007" />
+      </role>
+    </idPoC>
+    <idPoC>
+      <rpOrgName>U.S. Department of Agriculture, Natural Resources Conservation Service, National Soil Survey Center</rpOrgName>
+      <rpCntInfo>
+        <cntAddress addressType="postal">
+          <delPoint>Federal Building, Room 152</delPoint>
+          <delPoint>100 Centennial Mall North</delPoint>
+          <city>Lincoln</city>
+          <adminArea>NE</adminArea>
+          <postCode>68508-3866</postCode>
+          <country>US</country>
+          <eMailAdd>SoilsHotline@lin.usda.gov</eMailAdd>
+        </cntAddress>
+      </rpCntInfo>
+      <role>
+        <RoleCd value="007" />
+      </role>
+    </idPoC>
+    <idPoC>
+      <rpOrgName>U.S. Department of Agriculture, Natural Resources Conservation Service, National Soil Survey Center</rpOrgName>
+      <rpCntInfo>
+        <cntAddress addressType="postal">
+          <delPoint>100 Centennial Mall North</delPoint>
+          <delPoint>Federal Building, Room 152</delPoint>
+          <city>Lincoln</city>
+          <adminArea>NE</adminArea>
+          <postCode>68508-3866</postCode>
+          <country>US</country>
+          <eMailAdd>SoilsHotline@lin.usda.gov</eMailAdd>
+        </cntAddress>
+      </rpCntInfo>
+      <role>
+        <RoleCd value="007" />
+      </role>
+    </idPoC>
+    <resMaint>
+      <maintFreq>
+        <MaintFreqCd value="008" />
+      </maintFreq>
+    </resMaint>
+    <placeKeys>
+      <thesaName>
+        <resTitle>Counties and County Equivalents of the States of the United States and the District of Columbia (FIPS Pub 6-3)</resTitle>
+      </thesaName>
+      <keyword>Nevada</keyword>
+      <keyword>United States of America</keyword>
+      <keyword>ID677 (2017-09-12), CA685 (2017-09-11), NV759 (2017-10-05), NV792 (2013-12-06), NV760 (2017-10-05), NV777 (2017-10-05), NV763 (2017-10-05), NV764 (2017-10-06), NV767 (2017-10-09), NV765 (2017-10-05), UT611 (2017-09-06), NV771 (2017-10-05), NV612 (2017-10-05), NV766 (2017-10-09), NV761 (2017-10-05), NV775 (2017-10-09), NV769 (2017-10-05), NV776 (2017-10-11), NV602 (2017-10-05), NV621 (2017-10-05), NV780 (2017-10-09), NV779 (2017-09-15), NV628 (2017-10-12), NV770 (2017-10-09), NV768 (2017-10-11), NV603 (2017-10-05), NV778 (2017-10-09), NV772 (2017-10-05), NV782 (2013-12-04), NV625 (2017-10-05), CA693 (2017-09-11), NV629 (2017-10-06), NV781 (2017-10-11), NV622 (2017-10-12), NV783 (2017-10-05), NV773 (2017-10-09), NV774 (2017-10-12), NV708 (2017-09-08), NV709 (2017-09-15), NV799 (2017-10-05), NV784 (2017-10-09), NV796 (2017-10-05), NV713 (2017-10-05), NV785 (2017-09-15), NV786 (2013-12-04), NV611 (2017-10-05), NV754 (2017-10-05), NV757 (2017-09-19), NV608 (2017-09-08), NV755 (2017-09-19), NV788 (2017-09-15)</keyword>
+      <keyword>USA</keyword>
+    </placeKeys>
+    <themeKeys>
+      <thesaName>
+        <resTitle>ISO 19115 Topic Categories</resTitle>
+      </thesaName>
+      <keyword>geoscientificInformation</keyword>
+      <keyword>farming</keyword>
+      <keyword>environment</keyword>
+    </themeKeys>
+    <themeKeys>
+      <keyword>soils, Geospatial Data Gateway, Soil Survey, gSSURGO, SSURGO</keyword>
+    </themeKeys>
+    <searchKeys>
+      <keyword>Nevada</keyword>
+      <keyword>geoscientificInformation</keyword>
+      <keyword>farming</keyword>
+      <keyword>soils</keyword>
+      <keyword>Geospatial Data Gateway</keyword>
+      <keyword>Soil Survey</keyword>
+      <keyword>gSSURGO</keyword>
+      <keyword>SSURGO</keyword>
+      <keyword>United States of America</keyword>
+      <keyword>environment</keyword>
+      <keyword>ID677 (2017-09-12)</keyword>
+      <keyword>CA685 (2017-09-11)</keyword>
+      <keyword>NV759 (2017-10-05)</keyword>
+      <keyword>NV792 (2013-12-06)</keyword>
+      <keyword>NV760 (2017-10-05)</keyword>
+      <keyword>NV777 (2017-10-05)</keyword>
+      <keyword>NV763 (2017-10-05)</keyword>
+      <keyword>NV764 (2017-10-06)</keyword>
+      <keyword>NV767 (2017-10-09)</keyword>
+      <keyword>NV765 (2017-10-05)</keyword>
+      <keyword>UT611 (2017-09-06)</keyword>
+      <keyword>NV771 (2017-10-05)</keyword>
+      <keyword>NV612 (2017-10-05)</keyword>
+      <keyword>NV766 (2017-10-09)</keyword>
+      <keyword>NV761 (2017-10-05)</keyword>
+      <keyword>NV775 (2017-10-09)</keyword>
+      <keyword>NV769 (2017-10-05)</keyword>
+      <keyword>NV776 (2017-10-11)</keyword>
+      <keyword>NV602 (2017-10-05)</keyword>
+      <keyword>NV621 (2017-10-05)</keyword>
+      <keyword>NV780 (2017-10-09)</keyword>
+      <keyword>NV779 (2017-09-15)</keyword>
+      <keyword>NV628 (2017-10-12)</keyword>
+      <keyword>NV770 (2017-10-09)</keyword>
+      <keyword>NV768 (2017-10-11)</keyword>
+      <keyword>NV603 (2017-10-05)</keyword>
+      <keyword>NV778 (2017-10-09)</keyword>
+      <keyword>NV772 (2017-10-05)</keyword>
+      <keyword>NV782 (2013-12-04)</keyword>
+      <keyword>NV625 (2017-10-05)</keyword>
+      <keyword>CA693 (2017-09-11)</keyword>
+      <keyword>NV629 (2017-10-06)</keyword>
+      <keyword>NV781 (2017-10-11)</keyword>
+      <keyword>NV622 (2017-10-12)</keyword>
+      <keyword>NV783 (2017-10-05)</keyword>
+      <keyword>NV773 (2017-10-09)</keyword>
+      <keyword>NV774 (2017-10-12)</keyword>
+      <keyword>NV708 (2017-09-08)</keyword>
+      <keyword>NV709 (2017-09-15)</keyword>
+      <keyword>NV799 (2017-10-05)</keyword>
+      <keyword>NV784 (2017-10-09)</keyword>
+      <keyword>NV796 (2017-10-05)</keyword>
+      <keyword>NV713 (2017-10-05)</keyword>
+      <keyword>NV785 (2017-09-15)</keyword>
+      <keyword>NV786 (2013-12-04)</keyword>
+      <keyword>NV611 (2017-10-05)</keyword>
+      <keyword>NV754 (2017-10-05)</keyword>
+      <keyword>NV757 (2017-09-19)</keyword>
+      <keyword>NV608 (2017-09-08)</keyword>
+      <keyword>NV755 (2017-09-19)</keyword>
+      <keyword>NV788 (2017-09-15)</keyword>
+      <keyword>USA</keyword>
+    </searchKeys>
+    <resConst>
+      <LegConsts>
+        <useLimit>See access and use constraints information.</useLimit>
+        <othConsts>The U.S. Department of Agriculture (USDA) prohibits discrimination against its customers, employees, and applicants for employment on the bases of race, color, national origin, age, disability, sex, gender identity, religion, reprisal, and where applicable, political beliefs, marital status, familial or parental status, sexual orientation, or all or part of an individual's income is derived from any public assistance program, or protected genetic information in employment or in any program or activity conducted or funded by the Department. (Not all prohibited bases will apply to all programs and/or employment activities.) To file a complaint of discrimination, complete, sign and mail the USDA Program Discrimination Complaint Form (PDF), found online at http://www.ascr.usda.gov/complaint_filing_cust.html, or at any USDA office, or call (866) 632-9992 to request the form. Send your completed complaint form or letter to us by mail at: USDA Office of the Assistant Secretary for Civil Rights 1400 Independence Avenue, S.W. Washington, D.C. 20250-9410 Or by email at program.intake@usda.gov. Individuals who are deaf, hard of hearing or have speech disabilities and you wish to file either an EEO or program complaint please contact USDA through the Federal Relay Service at (800) 877-8339 or (800) 845-6136 (in Spanish). Persons with disabilities who wish to file a program complaint, please see information above on how to contact us by mail directly or by email. If you require alternative means of communication for program information (e.g., Braille, large print, audiotape, etc.) please contact USDA's TARGET Center at (202) 720-2600 (voice and TDD).</othConsts>
+      </LegConsts>
+    </resConst>
+    <resConst>
+      <Consts>
+        <useLimit>&lt;DIV STYLE="text-align:Left;"&gt;&lt;DIV&gt;&lt;P&gt;&lt;SPAN&gt;The U.S. Department of Agriculture, Natural Resources Conservation Service, should be acknowledged as the data source in products derived from these data.This dataset is not designed for use as a primary regulatory tool in permitting or siting decisions, but may be used as a reference source. This is public information and may be interpreted by organizations, agencies, units of government, or others based on needs; however, they are responsible for the appropriate application. Federal, State, or local regulatory bodies are not to reassign to the Natural Resources Conservation Service any authority for the decisions that they make. The Natural Resources Conservation Service will not perform any evaluations of these maps for purposes related solely to State or local regulatory programs. Digital data files are periodically updated. Files are dated, and users are responsible for obtaining the latest version of the data.&lt;/SPAN&gt;&lt;/P&gt;&lt;/DIV&gt;&lt;/DIV&gt;</useLimit>
+      </Consts>
+    </resConst>
+    <spatRpType>
+      <SpatRepTypCd value="001" />
+    </spatRpType>
+    <dataLang>
+      <languageCode value="eng" />
+      <countryCode value="USA" Sync="TRUE" />
+    </dataLang>
+    <envirDesc>Microsoft Windows 7 Version 6.1 (Build 7601) Service Pack 1; Esri ArcGIS 10.1.1.3143</envirDesc>
+    <dataExt>
+      <geoEle>
+        <GeoBndBox>
+          <westBL>-121.171332</westBL>
+          <eastBL>-112.54263</eastBL>
+          <southBL>34.432498</southBL>
+          <northBL>42.928935</northBL>
+        </GeoBndBox>
+      </geoEle>
+    </dataExt>
+    <dataExt>
+      <geoEle>
+        <GeoBndBox esriExtentType="search">
+          <exTypeCode Sync="TRUE">1</exTypeCode>
+          <westBL Sync="TRUE">-121.171332</westBL>
+          <eastBL Sync="TRUE">-112.542630</eastBL>
+          <northBL Sync="TRUE">42.928935</northBL>
+          <southBL Sync="TRUE">34.432498</southBL>
+        </GeoBndBox>
+      </geoEle>
+    </dataExt>
+    <tpCat>
+      <TopicCatCd value="001" />
+    </tpCat>
+    <tpCat>
+      <TopicCatCd value="007" />
+    </tpCat>
+    <tpCat>
+      <TopicCatCd value="008" />
+    </tpCat>
+  </dataIdInfo>
+  <dqInfo>
+    <dqScope>
+      <scpLvl>
+        <ScopeCd value="005" />
+      </scpLvl>
+    </dqScope>
+    <dataLineage>
+      <prcStep>
+        <stepDesc>All available SSURGO data were downloaded from Web Soil Survey to a local cache. As part of the download process, the tabular data for each survey were imported into individual SSURGO template databases (MS Access format) using a custom set of ‘SSURGO Download Tools’ for ArcGIS 10.x. For each state or territory, intersecting SSURGO datasets were identified using the 'laoverlap' table (Legend Area Overlap). The selected datasets were merged and converted from shapefile and MS Access tables into a single ESRI file geodatabase for that state or territory. The data were not clipped to a state boundary, thus in some instances feature classes may extend beyond a state's boundary. All datasets were projected from the original Geographic WGS 1984 coordinate system to the appropriate Albers Equal Area Conic coordinate system. Relationship classes between tables and feature classes were created in the geodatabase.</stepDesc>
+        <stepProc>
+          <rpOrgName>U.S. Department of Agriculture, Natural Resources Conservation Service, National Geospatial Center of Excellence</rpOrgName>
+          <rpCntInfo>
+            <cntPhone>
+              <voiceNum>800 672 5559</voiceNum>
+              <faxNum>817 509 3469</faxNum>
+            </cntPhone>
+            <cntAddress addressType="postal">
+              <delPoint>501 West Felix Street</delPoint>
+              <city>Fort Worth</city>
+              <adminArea>TX</adminArea>
+              <postCode>76115</postCode>
+              <country>US</country>
+            </cntAddress>
+          </rpCntInfo>
+          <role>
+            <RoleCd value="009" />
+          </role>
+        </stepProc>
+        <stepSrc type="used">
+          <srcCitatn>
+            <resAltTitle>Soil Survey Geographic (SSURGO) Database for Soil Survey Areas</resAltTitle>
+          </srcCitatn>
+        </stepSrc>
+      </prcStep>
+      <prcStep>
+        <stepDesc>The SSURGO dataset is a digital soil survey and generally is the most detailed level of soil geographic data developed by the National Cooperative Soil Survey. The information was prepared by digitizing maps, by compiling information onto a planimetric correct base and digitizing, or by revising digitized maps using remotely sensed and other information. This dataset consists of georeferenced digital map data and computerized attribute data. The map data are in a soil survey area extent format and include a detailed, field verified inventory of soils and miscellaneous areas that normally occur in a repeatable pattern on the landscape and that can be cartographically shown at the scale mapped. The soil map units are linked to attributes in the National Soil Information System (NASIS) relational database, which gives the proportionate extent of the component soils and their properties.</stepDesc>
+        <stepProc>
+          <rpOrgName>U.S. Department of Agriculture, Natural Resources Conservation Service, National Soil Survey Center</rpOrgName>
+          <rpCntInfo>
+            <cntAddress addressType="postal">
+              <delPoint>100 Centennial Mall North</delPoint>
+              <delPoint>Federal Building, Room 152</delPoint>
+              <city>Lincoln</city>
+              <adminArea>NE</adminArea>
+              <postCode>68508-3866</postCode>
+              <country>US</country>
+              <eMailAdd>SoilsHotline@lin.usda.gov</eMailAdd>
+            </cntAddress>
+          </rpCntInfo>
+          <role>
+            <RoleCd value="009" />
+          </role>
+        </stepProc>
+        <stepSrc type="produced">
+          <srcCitatn>
+            <resAltTitle>Soil Survey Geographic (SSURGO) Database for Soil Survey Areas</resAltTitle>
+          </srcCitatn>
+        </stepSrc>
+      </prcStep>
+    </dataLineage>
+  </dqInfo>
+  <spatRepInfo>
+    <VectSpatRep>
+      <geometObjs Name="FEATPOINT">
+        <geoObjTyp>
+          <GeoObjTypCd value="004" Sync="TRUE" />
+        </geoObjTyp>
+        <geoObjCnt Sync="TRUE">10179</geoObjCnt>
+      </geometObjs>
+      <topLvl>
+        <TopoLevCd value="001" Sync="TRUE" />
+      </topLvl>
+    </VectSpatRep>
+  </spatRepInfo>
+  <eainfo>
+    <detailed Name="FEATPOINT">
+      <enttyp>
+        <enttypl>featpoint</enttypl>
+        <enttypt Sync="TRUE">Feature Class</enttypt>
+        <enttypc Sync="TRUE">10179</enttypc>
+      </enttyp>
+      <attr>
+        <attrlabl>OBJECTID</attrlabl>
+        <attrdef>Internal feature number.</attrdef>
+        <attrdefs>Esri</attrdefs>
+        <attrdomv>
+          <udom>Sequential unique whole numbers that are automatically generated.</udom>
+        </attrdomv>
+        <attalias Sync="TRUE">OBJECTID</attalias>
+        <attrtype Sync="TRUE">OID</attrtype>
+        <attwidth Sync="TRUE">4</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>FEATKEY</attrlabl>
+        <attrdef>A non-connotative string of characters used to uniquely identify a record in the Feature Description table.</attrdef>
+        <attalias Sync="TRUE">FEATKEY</attalias>
+        <attrtype Sync="TRUE">String</attrtype>
+        <attwidth Sync="TRUE">30</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>AREASYMBOL</attrlabl>
+        <attrdef>A symbol that uniquely identifies a single occurrence of a particular type of area (e.g. Lancaster Co., Nebraska is NE109).</attrdef>
+        <attalias Sync="TRUE">AREASYMBOL</attalias>
+        <attrtype Sync="TRUE">String</attrtype>
+        <attwidth Sync="TRUE">20</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>FEATSYM</attrlabl>
+        <attrdef>A symbol that, within the context of a particular soil survey area, uniquely identifies a point or line spot feature.</attrdef>
+        <attalias Sync="TRUE">FEATSYM</attalias>
+        <attrtype Sync="TRUE">String</attrtype>
+        <attwidth Sync="TRUE">3</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>Shape</attrlabl>
+        <attrdef>Feature geometry.</attrdef>
+        <attrdefs>Esri</attrdefs>
+        <attrdomv>
+          <udom>Coordinates defining the features.</udom>
+        </attrdomv>
+        <attalias Sync="TRUE">Shape</attalias>
+        <attrtype Sync="TRUE">Geometry</attrtype>
+        <attwidth Sync="TRUE">0</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>SPATIALVER</attrlabl>
+        <attrdef>A sequential integer number used to denote the serial version of the spatial data for a soil survey area.</attrdef>
+        <attalias Sync="TRUE">SPATIALVER</attalias>
+        <attrtype Sync="TRUE">Double</attrtype>
+        <attwidth Sync="TRUE">8</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+    </detailed>
+    <overview>
+      <eaover>Special soil features are described in the featdesc table. It includes an area symbol, feature label, feature name, feature description, and feature key for each special and ad hoc feature in the survey area.</eaover>
+    </overview>
+  </eainfo>
+  <mdHrLvName Sync="TRUE">dataset</mdHrLvName>
+  <refSysInfo>
+    <RefSystem>
+      <refSysID>
+        <identCode code="102039" Sync="TRUE" />
+        <idCodeSpace Sync="TRUE">Esri</idCodeSpace>
+        <idVersion Sync="TRUE">8.1.2</idVersion>
+      </refSysID>
+    </RefSystem>
+  </refSysInfo>
+  <spdoinfo>
+    <ptvctinf>
+      <esriterm Name="FEATPOINT">
+        <efeatyp Sync="TRUE">Simple</efeatyp>
+        <efeageom code="1" Sync="TRUE" />
+        <esritopo Sync="TRUE">FALSE</esritopo>
+        <efeacnt Sync="TRUE">10179</efeacnt>
+        <spindex Sync="TRUE">TRUE</spindex>
+        <linrefer Sync="TRUE">FALSE</linrefer>
+      </esriterm>
+    </ptvctinf>
+  </spdoinfo>
+</metadata>

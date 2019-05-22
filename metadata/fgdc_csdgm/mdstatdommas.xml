@@ -1,0 +1,46 @@
+﻿<metadata>
+  <idinfo>
+    <citation>
+      <citeinfo>
+        <title>MDSTATDOMMAS</title>
+        <geoform>tabular digital data</geoform>
+      </citeinfo>
+    </citation>
+    <descript>
+      <abstract>The Domain Master Static Metadata table records the metadata that pertains to a domain as a whole, for all domains associated with the tabular data set. A domain is a fixed set of choices to which a column's value is restricted. Each column in the Table Column Static Metadata table whose logical data type is "choice", has a corresponding domain. Each record in this table represents a particular domain. A particular domain may serve as the domain for more than one column. Information about the members that make up a particular domain is found in the Domain Detail Static Metadata table.</abstract>
+      <purpose>Domain Master Static Metadata Table</purpose>
+    </descript>
+    <accconst>None</accconst>
+    <useconst>None</useconst>
+    <native>Microsoft Windows 7 Version 6.1 (Build 7601) Service Pack 1; Esri ArcGIS 10.1.1.3143</native>
+  </idinfo>
+  <eainfo>
+    <detailed>
+      <enttyp>
+        <enttypl>mdstatdommas</enttypl>
+      </enttyp>
+      <attr>
+        <attrlabl>domainmaxlen</attrlabl>
+        <attrdef>The number of characters in the longest member of a domain. Each member of a domain is an ASCII character string consisting of at least 1 but no more than 254 characters.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>OBJECTID</attrlabl>
+        <attrdef>Internal feature number.</attrdef>
+        <attrdefs>Esri</attrdefs>
+        <attrdomv>
+          <udom>Sequential unique whole numbers that are automatically generated.</udom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>domainname</attrlabl>
+        <attrdef>The name of the domain to which a column's values are restricted. A domain is a finite list of character strings that a column's value may assume.</attrdef>
+      </attr>
+    </detailed>
+  </eainfo>
+  <metainfo>
+    <metd>20131230</metd>
+    <metstdn>FGDC Content Standard for Digital Geospatial Metadata</metstdn>
+    <metstdv>FGDC-STD-001-1998</metstdv>
+    <mettc>local time</mettc>
+  </metainfo>
+</metadata>

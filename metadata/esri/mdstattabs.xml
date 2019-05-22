@@ -1,0 +1,131 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<metadata xml:lang="en">
+  <Esri>
+    <CreaDate>20141001</CreaDate>
+    <CreaTime>21102500</CreaTime>
+    <ArcGISFormat>1.0</ArcGISFormat>
+    <ArcGISstyle>FGDC CSDGM Metadata</ArcGISstyle>
+    <SyncOnce>FALSE</SyncOnce>
+    <DataProperties>
+      <itemProps>
+        <itemName Sync="TRUE">mdstattabs</itemName>
+        <itemLocation>
+          <linkage Sync="TRUE">file://\\ARCNELI95L00052\E$\Geodata\2015\SSURGO_DownloadTools_2015\Conus.gdb</linkage>
+          <protocol Sync="TRUE">Local Area Network</protocol>
+        </itemLocation>
+        <imsContentType Sync="TRUE">002</imsContentType>
+      </itemProps>
+    </DataProperties>
+    <SyncDate>20131230</SyncDate>
+    <SyncTime>19290400</SyncTime>
+    <ModDate>20131230</ModDate>
+    <ModTime>19290400</ModTime>
+  </Esri>
+  <mdLang>
+    <languageCode value="eng" />
+    <countryCode value="USA" Sync="TRUE" />
+  </mdLang>
+  <mdChar>
+    <CharSetCd value="004" />
+  </mdChar>
+  <mdHrLv>
+    <ScopeCd value="005" />
+  </mdHrLv>
+  <mdDateSt>20131230</mdDateSt>
+  <mdStanName>ArcGIS Metadata</mdStanName>
+  <mdStanVer>1.0</mdStanVer>
+  <dataIdInfo>
+    <idCitation>
+      <resTitle>MDSTATTABS</resTitle>
+      <presForm>
+        <PresFormCd value="001" />
+      </presForm>
+      <presForm>
+        <fgdcGeoform>tabular digital data</fgdcGeoform>
+      </presForm>
+    </idCitation>
+    <idAbs>The Table Static Metadata table records metadata about the tables that make up the tabular data set. Each record in this table represents one table.</idAbs>
+    <idPurp>Table Static Metadata Table</idPurp>
+    <dataLang>
+      <languageCode value="eng" />
+      <countryCode value="USA" Sync="TRUE" />
+    </dataLang>
+    <envirDesc>Microsoft Windows 7 Version 6.1 (Build 7601) Service Pack 1; Esri ArcGIS 10.1.1.3143</envirDesc>
+    <spatRpType>
+      <SpatRepTypCd value="003" Sync="TRUE" />
+    </spatRpType>
+  </dataIdInfo>
+  <eainfo>
+    <detailed Name="mdstattabs">
+      <enttyp>
+        <enttypl>mdstattabs</enttypl>
+        <enttypt Sync="TRUE">Table</enttypt>
+        <enttypc Sync="TRUE">75</enttypc>
+      </enttyp>
+      <attr>
+        <attrlabl>iefilename</attrlabl>
+        <attrdef>The base part of the file name of a table's associated ASCII pipe delimited import/export file. The complete name of a table's associated import/export file is the base name followed by the characters ".txt". For example, if the base name is "alpha", the name of the associated import/export file is "alpha.txt".</attrdef>
+        <attalias Sync="TRUE">Import/Export File Name</attalias>
+        <attrtype Sync="TRUE">String</attrtype>
+        <attwidth Sync="TRUE">30</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>tablabel</attrlabl>
+        <attrdef>A descriptive label associated with a database table. For SSURGO, every table's label must be unique, making a table's label a suitable alias for identifying a table. For SSURGO, table labels are typically mixed case character strings with embedded blanks.</attrdef>
+        <attalias Sync="TRUE">Table Label</attalias>
+        <attrtype Sync="TRUE">String</attrtype>
+        <attwidth Sync="TRUE">80</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>tabdesc</attrlabl>
+        <attrdef>A narrative text description of what a database table represents or records.</attrdef>
+        <attalias Sync="TRUE">Table Description</attalias>
+        <attrtype Sync="TRUE">String</attrtype>
+        <attwidth Sync="TRUE">2147483647</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>tablogname</attrlabl>
+        <attrdef>A name associated with a database table that is more connotative than the table's corresponding physical name. For SSURGO, every table's logical name must be unique, making a table's logical name a suitable alias for identifying a table. For SSURGO, table logical names are lower case character strings with no embedded blanks, where individual parts of the logical name may be separated using the underscore character.</attrdef>
+        <attalias Sync="TRUE">Table Logical Name</attalias>
+        <attrtype Sync="TRUE">String</attrtype>
+        <attwidth Sync="TRUE">30</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>OBJECTID</attrlabl>
+        <attrdef>Internal feature number.</attrdef>
+        <attrdefs>Esri</attrdefs>
+        <attrdomv>
+          <udom>Sequential unique whole numbers that are automatically generated.</udom>
+        </attrdomv>
+        <attalias Sync="TRUE">OBJECTID</attalias>
+        <attrtype Sync="TRUE">OID</attrtype>
+        <attwidth Sync="TRUE">4</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>tabphyname</attrlabl>
+        <attrdef>The name that is used to physically implement a table in a database management system. In a database, each table's physical name must be unique.</attrdef>
+        <attalias Sync="TRUE">Table Physical Name</attalias>
+        <attrtype Sync="TRUE">String</attrtype>
+        <attwidth Sync="TRUE">30</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+    </detailed>
+  </eainfo>
+  <distInfo>
+    <distFormat>
+      <formatName Sync="TRUE">File Geodatabase Table</formatName>
+    </distFormat>
+  </distInfo>
+  <mdHrLvName Sync="TRUE">dataset</mdHrLvName>
+</metadata>

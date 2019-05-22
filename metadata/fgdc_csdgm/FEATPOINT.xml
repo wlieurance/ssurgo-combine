@@ -1,0 +1,292 @@
+﻿<metadata>
+  <idinfo>
+    <citation>
+      <citeinfo>
+        <title>FEATPOINT - Nevada</title>
+        <geoform>vector digital data</geoform>
+      </citeinfo>
+    </citation>
+    <descript>
+      <abstract>This feature class represents the special soil features that are delineated as one or more points. It is generally the most detailed level of soil geographic data developed by the National Cooperative Soil Survey. The information was prepared by digitizing maps, by compiling information onto a planimetric correct base and digitizing, or by revising digitized maps using remotely sensed and other information. This layer displays the location of features too small to delineate at the mapping scale, but they are large enough and contrasting enough to significantly influence use and management. The features are linked to attributes in the featdesc attribute table. The map data are in a state-wide extent format.</abstract>
+      <purpose>The dataset was created for use in national, regional, and state-wide resource planning and analysis of soils data. The Soil Survey Geographic (SSURGO) Database depicts information about the kinds and distribution of soils on the landscape. The soil map and data used in the SSURGO product were prepared by soil scientists as part of the National Cooperative Soil Survey.</purpose>
+    </descript>
+    <status>
+      <update>Annually</update>
+    </status>
+    <spdom>
+      <bounding>
+        <westbc>-121.171332</westbc>
+        <eastbc>-112.542630</eastbc>
+        <northbc>42.928935</northbc>
+        <southbc>34.432498</southbc>
+      </bounding>
+    </spdom>
+    <keywords>
+      <theme>
+        <themekt>ISO 19115 Topic Categories</themekt>
+        <themekey>geoscientificInformation</themekey>
+        <themekey>farming</themekey>
+        <themekey>environment</themekey>
+      </theme>
+      <theme>
+        <themekt>None</themekt>
+        <themekey>soils, Geospatial Data Gateway, Soil Survey, gSSURGO, SSURGO</themekey>
+      </theme>
+      <place>
+        <placekt>Counties and County Equivalents of the States of the United States and the District of Columbia (FIPS Pub 6-3)</placekt>
+        <placekey>Nevada</placekey>
+        <placekey>United States of America</placekey>
+        <placekey>ID677 (2017-09-12), CA685 (2017-09-11), NV759 (2017-10-05), NV792 (2013-12-06), NV760 (2017-10-05), NV777 (2017-10-05), NV763 (2017-10-05), NV764 (2017-10-06), NV767 (2017-10-09), NV765 (2017-10-05), UT611 (2017-09-06), NV771 (2017-10-05), NV612 (2017-10-05), NV766 (2017-10-09), NV761 (2017-10-05), NV775 (2017-10-09), NV769 (2017-10-05), NV776 (2017-10-11), NV602 (2017-10-05), NV621 (2017-10-05), NV780 (2017-10-09), NV779 (2017-09-15), NV628 (2017-10-12), NV770 (2017-10-09), NV768 (2017-10-11), NV603 (2017-10-05), NV778 (2017-10-09), NV772 (2017-10-05), NV782 (2013-12-04), NV625 (2017-10-05), CA693 (2017-09-11), NV629 (2017-10-06), NV781 (2017-10-11), NV622 (2017-10-12), NV783 (2017-10-05), NV773 (2017-10-09), NV774 (2017-10-12), NV708 (2017-09-08), NV709 (2017-09-15), NV799 (2017-10-05), NV784 (2017-10-09), NV796 (2017-10-05), NV713 (2017-10-05), NV785 (2017-09-15), NV786 (2013-12-04), NV611 (2017-10-05), NV754 (2017-10-05), NV757 (2017-09-19), NV608 (2017-09-08), NV755 (2017-09-19), NV788 (2017-09-15)</placekey>
+        <placekey>USA</placekey>
+      </place>
+    </keywords>
+    <accconst>The U.S. Department of Agriculture (USDA) prohibits discrimination against its customers, employees, and applicants for employment on the bases of race, color, national origin, age, disability, sex, gender identity, religion, reprisal, and where applicable, political beliefs, marital status, familial or parental status, sexual orientation, or all or part of an individual's income is derived from any public assistance program, or protected genetic information in employment or in any program or activity conducted or funded by the Department. (Not all prohibited bases will apply to all programs and/or employment activities.) To file a complaint of discrimination, complete, sign and mail the USDA Program Discrimination Complaint Form (PDF), found online at http://www.ascr.usda.gov/complaint_filing_cust.html, or at any USDA office, or call (866) 632-9992 to request the form. Send your completed complaint form or letter to us by mail at: USDA Office of the Assistant Secretary for Civil Rights 1400 Independence Avenue, S.W. Washington, D.C. 20250-9410 Or by email at program.intake@usda.gov. Individuals who are deaf, hard of hearing or have speech disabilities and you wish to file either an EEO or program complaint please contact USDA through the Federal Relay Service at (800) 877-8339 or (800) 845-6136 (in Spanish). Persons with disabilities who wish to file a program complaint, please see information above on how to contact us by mail directly or by email. If you require alternative means of communication for program information (e.g., Braille, large print, audiotape, etc.) please contact USDA's TARGET Center at (202) 720-2600 (voice and TDD).</accconst>
+    <useconst>The U.S. Department of Agriculture, Natural Resources Conservation Service, should be acknowledged as the data source in products derived from these data.This dataset is not designed for use as a primary regulatory tool in permitting or siting decisions, but may be used as a reference source. This is public information and may be interpreted by organizations, agencies, units of government, or others based on needs; however, they are responsible for the appropriate application. Federal, State, or local regulatory bodies are not to reassign to the Natural Resources Conservation Service any authority for the decisions that they make. The Natural Resources Conservation Service will not perform any evaluations of these maps for purposes related solely to State or local regulatory programs. Digital data files are periodically updated. Files are dated, and users are responsible for obtaining the latest version of the data.</useconst>
+    <ptcontac>
+      <cntinfo>
+        <cntorgp>
+          <cntorg>U.S. Department of Agriculture, Natural Resources Conservation Service, National Geospatial Center of Excellence</cntorg>
+        </cntorgp>
+        <cntaddr>
+          <addrtype>mailing</addrtype>
+          <address>501 West Felix Street</address>
+          <city>Fort Worth</city>
+          <state>TX</state>
+          <postal>76115</postal>
+          <country>US</country>
+        </cntaddr>
+        <cntvoice>800 672 5559</cntvoice>
+        <cntfax>817 509 3469</cntfax>
+      </cntinfo>
+    </ptcontac>
+    <ptcontac>
+      <cntinfo>
+        <cntorgp>
+          <cntorg>U.S. Department of Agriculture, Natural Resources Conservation Service, National Soil Survey Center</cntorg>
+        </cntorgp>
+        <cntaddr>
+          <addrtype>mailing</addrtype>
+          <address>Federal Building, Room 152</address>
+          <address>100 Centennial Mall North</address>
+          <city>Lincoln</city>
+          <state>NE</state>
+          <postal>68508-3866</postal>
+          <country>US</country>
+        </cntaddr>
+        <cntemail>SoilsHotline@lin.usda.gov</cntemail>
+      </cntinfo>
+    </ptcontac>
+    <ptcontac>
+      <cntinfo>
+        <cntorgp>
+          <cntorg>U.S. Department of Agriculture, Natural Resources Conservation Service, National Soil Survey Center</cntorg>
+        </cntorgp>
+        <cntaddr>
+          <addrtype>mailing</addrtype>
+          <address>100 Centennial Mall North</address>
+          <address>Federal Building, Room 152</address>
+          <city>Lincoln</city>
+          <state>NE</state>
+          <postal>68508-3866</postal>
+          <country>US</country>
+        </cntaddr>
+        <cntemail>SoilsHotline@lin.usda.gov</cntemail>
+      </cntinfo>
+    </ptcontac>
+    <datacred>Soil Survey Staff. Gridded Soil Survey Geographic (gSSURGO) Database for Nevada. United States Department of Agriculture, Natural Resources Conservation Service. Available online at http://datagateway.nrcs.usda.gov/. 20171127 (FY2018 official release).</datacred>
+    <native>Microsoft Windows 7 Version 6.1 (Build 7601) Service Pack 1; Esri ArcGIS 10.1.1.3143</native>
+  </idinfo>
+  <dataqual>
+    <lineage>
+      <procstep>
+        <procdesc>All available SSURGO data were downloaded from Web Soil Survey to a local cache. As part of the download process, the tabular data for each survey were imported into individual SSURGO template databases (MS Access format) using a custom set of ‘SSURGO Download Tools’ for ArcGIS 10.x. For each state or territory, intersecting SSURGO datasets were identified using the 'laoverlap' table (Legend Area Overlap). The selected datasets were merged and converted from shapefile and MS Access tables into a single ESRI file geodatabase for that state or territory. The data were not clipped to a state boundary, thus in some instances feature classes may extend beyond a state's boundary. All datasets were projected from the original Geographic WGS 1984 coordinate system to the appropriate Albers Equal Area Conic coordinate system. Relationship classes between tables and feature classes were created in the geodatabase.</procdesc>
+        <srcused>Soil Survey Geographic (SSURGO) Database for Soil Survey Areas</srcused>
+        <proccont>
+          <cntinfo>
+            <cntorgp>
+              <cntorg>U.S. Department of Agriculture, Natural Resources Conservation Service, National Geospatial Center of Excellence</cntorg>
+            </cntorgp>
+            <cntaddr>
+              <addrtype>mailing</addrtype>
+              <address>501 West Felix Street</address>
+              <city>Fort Worth</city>
+              <state>TX</state>
+              <postal>76115</postal>
+              <country>US</country>
+            </cntaddr>
+            <cntvoice>800 672 5559</cntvoice>
+            <cntfax>817 509 3469</cntfax>
+          </cntinfo>
+        </proccont>
+      </procstep>
+      <procstep>
+        <procdesc>The SSURGO dataset is a digital soil survey and generally is the most detailed level of soil geographic data developed by the National Cooperative Soil Survey. The information was prepared by digitizing maps, by compiling information onto a planimetric correct base and digitizing, or by revising digitized maps using remotely sensed and other information. This dataset consists of georeferenced digital map data and computerized attribute data. The map data are in a soil survey area extent format and include a detailed, field verified inventory of soils and miscellaneous areas that normally occur in a repeatable pattern on the landscape and that can be cartographically shown at the scale mapped. The soil map units are linked to attributes in the National Soil Information System (NASIS) relational database, which gives the proportionate extent of the component soils and their properties.</procdesc>
+        <srcprod>Soil Survey Geographic (SSURGO) Database for Soil Survey Areas</srcprod>
+        <proccont>
+          <cntinfo>
+            <cntorgp>
+              <cntorg>U.S. Department of Agriculture, Natural Resources Conservation Service, National Soil Survey Center</cntorg>
+            </cntorgp>
+            <cntaddr>
+              <addrtype>mailing</addrtype>
+              <address>100 Centennial Mall North</address>
+              <address>Federal Building, Room 152</address>
+              <city>Lincoln</city>
+              <state>NE</state>
+              <postal>68508-3866</postal>
+              <country>US</country>
+            </cntaddr>
+            <cntemail>SoilsHotline@lin.usda.gov</cntemail>
+          </cntinfo>
+        </proccont>
+      </procstep>
+    </lineage>
+  </dataqual>
+  <spdoinfo>
+    <direct>Vector</direct>
+    <ptvctinf>
+      <sdtsterm>
+        <sdtstype>Entity point</sdtstype>
+        <ptvctcnt>10179</ptvctcnt>
+      </sdtsterm>
+    </ptvctinf>
+  </spdoinfo>
+  <spref>
+    <horizsys>
+      <planar>
+        <mapproj>
+          <mapprojn>USA Contiguous Albers Equal Area Conic USGS version</mapprojn>
+          <albers>
+            <stdparll>29.5</stdparll>
+            <stdparll>45.5</stdparll>
+            <longcm>-96.0</longcm>
+            <latprjo>23.0</latprjo>
+            <feast>0.0</feast>
+            <fnorth>0.0</fnorth>
+          </albers>
+        </mapproj>
+        <planci>
+          <plance>coordinate pair</plance>
+          <coordrep>
+            <absres>0.0001</absres>
+            <ordres>0.0001</ordres>
+          </coordrep>
+          <plandu>meter</plandu>
+        </planci>
+      </planar>
+      <geodetic>
+        <horizdn>D North American 1983</horizdn>
+        <ellips>GRS 1980</ellips>
+        <semiaxis>6378137.0</semiaxis>
+        <denflat>298.257222101</denflat>
+      </geodetic>
+    </horizsys>
+  </spref>
+  <eainfo>
+    <detailed>
+      <enttyp>
+        <enttypl>featpoint</enttypl>
+      </enttyp>
+      <attr>
+        <attrlabl>OBJECTID</attrlabl>
+        <attrdef>Internal feature number.</attrdef>
+        <attrdefs>Esri</attrdefs>
+        <attrdomv>
+          <udom>Sequential unique whole numbers that are automatically generated.</udom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>FEATKEY</attrlabl>
+        <attrdef>A non-connotative string of characters used to uniquely identify a record in the Feature Description table.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>AREASYMBOL</attrlabl>
+        <attrdef>A symbol that uniquely identifies a single occurrence of a particular type of area (e.g. Lancaster Co., Nebraska is NE109).</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>FEATSYM</attrlabl>
+        <attrdef>A symbol that, within the context of a particular soil survey area, uniquely identifies a point or line spot feature.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>Shape</attrlabl>
+        <attrdef>Feature geometry.</attrdef>
+        <attrdefs>Esri</attrdefs>
+        <attrdomv>
+          <udom>Coordinates defining the features.</udom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>SPATIALVER</attrlabl>
+        <attrdef>A sequential integer number used to denote the serial version of the spatial data for a soil survey area.</attrdef>
+      </attr>
+    </detailed>
+    <overview>
+      <eaover>Special soil features are described in the featdesc table. It includes an area symbol, feature label, feature name, feature description, and feature key for each special and ad hoc feature in the survey area.</eaover>
+    </overview>
+  </eainfo>
+  <distinfo>
+    <distrib>
+      <cntinfo>
+        <cntorgp>
+          <cntorg>U.S. Department of Agriculture, Natural Resources Conservation Service, National Geospatial Center of Excellence</cntorg>
+        </cntorgp>
+        <cntaddr>
+          <addrtype>mailing</addrtype>
+          <address>501 West Felix Street</address>
+          <city>Fort Worth</city>
+          <state>TX</state>
+          <postal>76115</postal>
+          <country>US</country>
+        </cntaddr>
+        <cntvoice>800 672 5559</cntvoice>
+        <cntfax>817 509 3469</cntfax>
+      </cntinfo>
+    </distrib>
+    <distliab>See access and use constraints information.</distliab>
+    <stdorder>
+      <digform>
+        <digtinfo>
+          <formname>ESRI File Geodatabase</formname>
+          <formvern>10.0</formvern>
+        </digtinfo>
+        <digtopt>
+          <onlinopt>
+            <computer>
+              <networka>
+                <networkr>http://datagateway.nrcs.usda.gov</networkr>
+              </networka>
+            </computer>
+          </onlinopt>
+          <offoptn>
+            <offmedia>dvd</offmedia>
+            <compat>Recording Format UDF 2.5</compat>
+          </offoptn>
+        </digtopt>
+      </digform>
+      <fees>The charge is $250 for an external hard drive that contains one or more datasets. A dataset is one state that includes both spatial and attribute data.</fees>
+    </stdorder>
+  </distinfo>
+  <metainfo>
+    <metd>20171204</metd>
+    <metc>
+      <cntinfo>
+        <cntorgp>
+          <cntorg>U.S. Department of Agriculture, Natural Resources Conservation Service, National Soil Survey Center</cntorg>
+        </cntorgp>
+        <cntaddr>
+          <addrtype>mailing</addrtype>
+          <address>Federal Building, Room 152</address>
+          <address>100 Centennial Mall North</address>
+          <city>Lincoln</city>
+          <state>NE</state>
+          <postal>68508-3866</postal>
+          <country>US</country>
+        </cntaddr>
+        <cntemail>SoilsHotline@lin.usda.gov</cntemail>
+      </cntinfo>
+    </metc>
+    <metstdn>FGDC Content Standard for Digital Geospatial Metadata</metstdn>
+    <metstdv>FGDC-STD-001-1998</metstdv>
+    <mettc>local time</mettc>
+  </metainfo>
+</metadata>

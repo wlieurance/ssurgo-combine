@@ -1,0 +1,131 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<metadata xml:lang="en">
+  <Esri>
+    <CreaDate>20141001</CreaDate>
+    <CreaTime>21102400</CreaTime>
+    <ArcGISFormat>1.0</ArcGISFormat>
+    <ArcGISstyle>FGDC CSDGM Metadata</ArcGISstyle>
+    <SyncOnce>FALSE</SyncOnce>
+    <DataProperties>
+      <itemProps>
+        <itemName Sync="TRUE">mdstatrshipdet</itemName>
+        <itemLocation>
+          <linkage Sync="TRUE">file://\\ARCNELI95L00052\E$\Geodata\2015\SSURGO_DownloadTools_2015\Conus.gdb</linkage>
+          <protocol Sync="TRUE">Local Area Network</protocol>
+        </itemLocation>
+        <imsContentType Sync="TRUE">002</imsContentType>
+      </itemProps>
+    </DataProperties>
+    <SyncDate>20131230</SyncDate>
+    <SyncTime>19254200</SyncTime>
+    <ModDate>20131230</ModDate>
+    <ModTime>19254200</ModTime>
+  </Esri>
+  <mdLang>
+    <languageCode value="eng" />
+    <countryCode value="USA" Sync="TRUE" />
+  </mdLang>
+  <mdChar>
+    <CharSetCd value="004" />
+  </mdChar>
+  <mdHrLv>
+    <ScopeCd value="005" />
+  </mdHrLv>
+  <mdDateSt>20131230</mdDateSt>
+  <mdStanName>ArcGIS Metadata</mdStanName>
+  <mdStanVer>1.0</mdStanVer>
+  <dataIdInfo>
+    <idCitation>
+      <resTitle>MDSTATRSHIPDET</resTitle>
+      <presForm>
+        <PresFormCd value="001" />
+      </presForm>
+      <presForm>
+        <fgdcGeoform>tabular digital data</fgdcGeoform>
+      </presForm>
+    </idCitation>
+    <idAbs>The Relationship Detail Static Metadata table records the pairs of join columns that define a particular relationship. Each record in this table represents one pair of join columns for a particular relationship.</idAbs>
+    <idPurp>Relationship Detail Static Metadata Table</idPurp>
+    <dataLang>
+      <languageCode value="eng" />
+      <countryCode value="USA" Sync="TRUE" />
+    </dataLang>
+    <envirDesc>Microsoft Windows 7 Version 6.1 (Build 7601) Service Pack 1; Esri ArcGIS 10.1.1.3143</envirDesc>
+    <spatRpType>
+      <SpatRepTypCd value="003" Sync="TRUE" />
+    </spatRpType>
+  </dataIdInfo>
+  <eainfo>
+    <detailed Name="mdstatrshipdet">
+      <enttyp>
+        <enttypl>mdstatrshipdet</enttypl>
+        <enttypt Sync="TRUE">Table</enttypt>
+        <enttypc Sync="TRUE">66</enttypc>
+      </enttyp>
+      <attr>
+        <attrlabl>rtabcolphyname</attrlabl>
+        <attrdef>The physical name of a column of a table on the right side of a relationship between two tables. This column is one of several potential columns used to create a join between the two tables involved in a relationship. The right table column joins to its corresponding left table column.</attrdef>
+        <attalias Sync="TRUE">Right Table Column Physical Name</attalias>
+        <attrtype Sync="TRUE">String</attrtype>
+        <attwidth Sync="TRUE">30</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>relationshipname</attrlabl>
+        <attrdef>A name given to a relationship between two tables. If there is more than one relationship between the same two tables, the name of each of those relationships must be unique.</attrdef>
+        <attalias Sync="TRUE">Relationship Name</attalias>
+        <attrtype Sync="TRUE">String</attrtype>
+        <attwidth Sync="TRUE">30</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>ltabcolphyname</attrlabl>
+        <attrdef>The physical name of a column of a table on the left side of a relationship between two tables. This column is one of several potential columns used to create a join between the two tables involved in a relationship. The left table column joins to its corresponding right table column.</attrdef>
+        <attalias Sync="TRUE">Left Table Column Physical Name</attalias>
+        <attrtype Sync="TRUE">String</attrtype>
+        <attwidth Sync="TRUE">30</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>rtabphyname</attrlabl>
+        <attrdef>The physical name of a table on the right side of a relationship between two tables.</attrdef>
+        <attalias Sync="TRUE">Right Table Physical Name</attalias>
+        <attrtype Sync="TRUE">String</attrtype>
+        <attwidth Sync="TRUE">30</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>OBJECTID</attrlabl>
+        <attrdef>Internal feature number.</attrdef>
+        <attrdefs>Esri</attrdefs>
+        <attrdomv>
+          <udom>Sequential unique whole numbers that are automatically generated.</udom>
+        </attrdomv>
+        <attalias Sync="TRUE">OBJECTID</attalias>
+        <attrtype Sync="TRUE">OID</attrtype>
+        <attwidth Sync="TRUE">4</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>ltabphyname</attrlabl>
+        <attrdef>The physical name of a table on the left side of a relationship between two tables.</attrdef>
+        <attalias Sync="TRUE">Left Table Physical Name</attalias>
+        <attrtype Sync="TRUE">String</attrtype>
+        <attwidth Sync="TRUE">30</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+    </detailed>
+  </eainfo>
+  <distInfo>
+    <distFormat>
+      <formatName Sync="TRUE">File Geodatabase Table</formatName>
+    </distFormat>
+  </distInfo>
+  <mdHrLvName Sync="TRUE">dataset</mdHrLvName>
+</metadata>

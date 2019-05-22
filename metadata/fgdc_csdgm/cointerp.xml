@@ -1,0 +1,114 @@
+﻿<metadata>
+  <idinfo>
+    <citation>
+      <citeinfo>
+        <title>COINTERP</title>
+        <geoform>tabular digital data</geoform>
+      </citeinfo>
+    </citation>
+    <descript>
+      <abstract>The Component Interpretation table lists the predictions of behavior and limiting features for specified uses made for the referenced map unit component.</abstract>
+      <purpose>Component Interpretation Table</purpose>
+    </descript>
+    <accconst>None</accconst>
+    <useconst>None</useconst>
+    <native>Microsoft Windows 7 Version 6.1 (Build 7601) Service Pack 1; Esri ArcGIS 10.1.1.3143</native>
+  </idinfo>
+  <eainfo>
+    <detailed>
+      <enttyp>
+        <enttypl>cointerp</enttypl>
+      </enttyp>
+      <attr>
+        <attrlabl>mrulekey</attrlabl>
+        <attrdef>The unique identifier of the rule at the top of the interpretation rule hierarchy (the main rule). Use this key to find the mail rule in the Component Interpretation table.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>OBJECTID</attrlabl>
+        <attrdef>Internal feature number.</attrdef>
+        <attrdefs>Esri</attrdefs>
+        <attrdomv>
+          <udom>Sequential unique whole numbers that are automatically generated.</udom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>interplrc</attrlabl>
+        <attrdef>The rating class term for the minimum of the representative values of the interpretation rating.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>interphr</attrlabl>
+        <attrdef>The maximum numeric rating of the representative values of the interpretation rating.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>interpllc</attrlabl>
+        <attrdef>The rating class term for the minimum extreme of the interpretation rating.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>interpll</attrlabl>
+        <attrdef>The minimum extreme numeric rating for the interpretation rating.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>rulename</attrlabl>
+        <attrdef>A user assigned name (typically connotative) for a particular interpretation rule.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>cointerpkey</attrlabl>
+        <attrdef>A non-connotative string of characters used to uniquely identify a record in the Component Interpretation table.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>defpropdatabool</attrlabl>
+        <attrdef>The value of this attribute is set to true whenever any property used in an interpretation returns a default value in place of any null value.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>incpropdatabool</attrlabl>
+        <attrdef>The value of this attribute is set to true whenever any property used in an interpretation that is based on multiple observations returns inconsistent results for the low low value, the low representative value, the high representative value and the high high value. A property always returns either a representative value or a low, high and representative value. Values for low low, low representative, high representative and high high are only derived in the case where the values of a property used in an interpretation are based on multiple observations.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>nullpropdatabool</attrlabl>
+        <attrdef>The value of this attribute is set to true whenever any property used in an interpretation returns any null value.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>interphrc</attrlabl>
+        <attrdef>The rating class term for the maximum of the representative values for the interpretation rating.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>interphh</attrlabl>
+        <attrdef>The maximum extreme numeric rating for the interpretation rating.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>seqnum</attrlabl>
+        <attrdef>Sequential number of the feature being described.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>interplr</attrlabl>
+        <attrdef>The minimum numeric rating of the representative values for the interpretation rating.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>mrulename</attrlabl>
+        <attrdef>The name of an interpretation, such as ENG - Dwellings with Basements. A main rule (interpretation) may contain subordinate rules, which in turn may have other subordinate rules. The main rule entry in this column is the user assigned name (typically connotative) for the interpretation rule at the top of the hierarchy.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>cokey</attrlabl>
+        <attrdef>The unique identifier of a record in the Component table. Use this column to join the Component Interpretation table to the Component table.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>ruledepth</attrlabl>
+        <attrdef>An interpretation rule may contain subordinate rules, which in turn may have subordinate rules. This is an indicator of the depth within the interpretation hierarchy that a particular rule exists, where zero is the top level.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>rulekey</attrlabl>
+        <attrdef>The unique identifier of a record in the Rule table in NASIS.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>interphhc</attrlabl>
+        <attrdef>A rating class term for the maximum extreme of the interpretation rating.</attrdef>
+      </attr>
+    </detailed>
+  </eainfo>
+  <metainfo>
+    <metd>20131230</metd>
+    <metstdn>FGDC Content Standard for Digital Geospatial Metadata</metstdn>
+    <metstdv>FGDC-STD-001-1998</metstdv>
+    <mettc>local time</mettc>
+  </metainfo>
+</metadata>

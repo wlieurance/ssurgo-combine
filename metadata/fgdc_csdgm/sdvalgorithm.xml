@@ -1,0 +1,54 @@
+﻿<metadata>
+  <idinfo>
+    <citation>
+      <citeinfo>
+        <title>SDVALGORITHM</title>
+        <geoform>tabular digital data</geoform>
+      </citeinfo>
+    </citation>
+    <descript>
+      <abstract>This lookup table records the valid algorithms for aggregating soil property values or soil interpretation results to the map unit level.</abstract>
+      <purpose>Sdv Algorithm Table</purpose>
+    </descript>
+    <accconst>None</accconst>
+    <useconst>None</useconst>
+    <native>Microsoft Windows 7 Version 6.1 (Build 7601) Service Pack 1; Esri ArcGIS 10.1.1.3143</native>
+  </idinfo>
+  <eainfo>
+    <detailed>
+      <enttyp>
+        <enttypl>sdvalgorithm</enttypl>
+      </enttyp>
+      <attr>
+        <attrlabl>algorithmdescription</attrlabl>
+        <attrdef>A narrative description of an aggregation method.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>algorithmname</attrlabl>
+        <attrdef>The name of a method by which a soil property or interpretation may be aggregated. In some table contexts, the default aggregation method for the corresponding soil attribute.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>algorithminitials</attrlabl>
+        <attrdef>Initials that identify an aggregation method.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>algorithmsequence</attrlabl>
+        <attrdef>An integer number used to order the list of valid aggregation methods.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>OBJECTID</attrlabl>
+        <attrdef>Internal feature number.</attrdef>
+        <attrdefs>Esri</attrdefs>
+        <attrdomv>
+          <udom>Sequential unique whole numbers that are automatically generated.</udom>
+        </attrdomv>
+      </attr>
+    </detailed>
+  </eainfo>
+  <metainfo>
+    <metd>20131230</metd>
+    <metstdn>FGDC Content Standard for Digital Geospatial Metadata</metstdn>
+    <metstdv>FGDC-STD-001-1998</metstdv>
+    <mettc>local time</mettc>
+  </metainfo>
+</metadata>

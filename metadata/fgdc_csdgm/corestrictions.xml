@@ -1,0 +1,90 @@
+﻿<metadata>
+  <idinfo>
+    <citation>
+      <citeinfo>
+        <title>CORESTRICTIONS</title>
+        <geoform>tabular digital data</geoform>
+      </citeinfo>
+    </citation>
+    <descript>
+      <abstract>The Component Restrictions table lists the root restrictive feature(s) or layer(s) for the referenced map unit component. If the thickness of the restrictive layer is greater than zero (low=5, RV=8, high=10), the restrictive layer exists in all delineations of the map unit where the component occurs. If the thickness of the restrictive layer includes zero (low=0, RV=2, high=5), the restrictive layer may exist in some delineations, but not in others. This table will be empty if the component does not have restrictive features, but could have several rows if several restrictive features occur in the soil.</abstract>
+      <purpose>Component Restrictions Table</purpose>
+    </descript>
+    <accconst>None</accconst>
+    <useconst>None</useconst>
+    <native>Microsoft Windows 7 Version 6.1 (Build 7601) Service Pack 1; Esri ArcGIS 10.1.1.3143</native>
+  </idinfo>
+  <eainfo>
+    <detailed>
+      <enttyp>
+        <enttypl>corestrictions</enttypl>
+      </enttyp>
+      <attr>
+        <attrlabl>resdept_h</attrlabl>
+        <attrdef>The distance from the soil surface to the upper boundary of the restrictive layer.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>resdepb_l</attrlabl>
+        <attrdef>The distance from the soil surface to the lower boundary of the restrictive layer.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>resdept_l</attrlabl>
+        <attrdef>The distance from the soil surface to the upper boundary of the restrictive layer.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>reshard</attrlabl>
+        <attrdef>The rupture resistance class of block-like specimens from the restrictive feature that have been air dried and then submerged in water.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>OBJECTID</attrlabl>
+        <attrdef>Internal feature number.</attrdef>
+        <attrdefs>Esri</attrdefs>
+        <attrdomv>
+          <udom>Sequential unique whole numbers that are automatically generated.</udom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>corestrictkey</attrlabl>
+        <attrdef>A non-connotative string of characters used to uniquely identify a record in the Component Restrictions table.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>resthk_h</attrlabl>
+        <attrdef>The distance from the top to bottom of a restrictive layer.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>cokey</attrlabl>
+        <attrdef>The unique identifier of a record in the Component table. Use this column to join the Component Restrictions table to the Component table.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>resthk_r</attrlabl>
+        <attrdef>The distance from the top to bottom of a restrictive layer.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>resdepb_r</attrlabl>
+        <attrdef>The distance from the soil surface to the lower boundary of the restrictive layer.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>resdepb_h</attrlabl>
+        <attrdef>The distance from the soil surface to the lower boundary of the restrictive layer.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>resdept_r</attrlabl>
+        <attrdef>The distance from the soil surface to the upper boundary of the restrictive layer.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>reskind</attrlabl>
+        <attrdef>Type of nearly continuous layer that has one or more physical, chemical, or thermal property(ies) that significantly reduce the movement of water and air through the soil or that otherwise provides an unfavorable root environment.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>resthk_l</attrlabl>
+        <attrdef>The distance from the top to bottom of a restrictive layer.</attrdef>
+      </attr>
+    </detailed>
+  </eainfo>
+  <metainfo>
+    <metd>20131230</metd>
+    <metstdn>FGDC Content Standard for Digital Geospatial Metadata</metstdn>
+    <metstdv>FGDC-STD-001-1998</metstdv>
+    <mettc>local time</mettc>
+  </metainfo>
+</metadata>

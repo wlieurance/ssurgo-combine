@@ -1,0 +1,131 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<metadata xml:lang="en">
+  <Esri>
+    <CreaDate>20131230</CreaDate>
+    <CreaTime>17583700</CreaTime>
+    <ArcGISFormat>1.0</ArcGISFormat>
+    <ArcGISstyle>FGDC CSDGM Metadata</ArcGISstyle>
+    <SyncOnce>FALSE</SyncOnce>
+    <DataProperties>
+      <itemProps>
+        <itemName Sync="TRUE">chaashto</itemName>
+        <relatedItems>
+          <item>
+            <itemName />
+          </item>
+          <item>
+            <itemName Sync="TRUE">zChorizon_Chaashto</itemName>
+            <itemType Sync="TRUE">Relationship</itemType>
+          </item>
+        </relatedItems>
+        <itemLocation>
+          <linkage Sync="TRUE">file://\\134.197.80.8\faculty\Stringham\GIS\BackgroundData\Soil\gSSURGO_NV_2018.gdb\gSSURGO_NV.gdb</linkage>
+          <protocol Sync="TRUE">Local Area Network</protocol>
+        </itemLocation>
+        <imsContentType Sync="TRUE">002</imsContentType>
+      </itemProps>
+    </DataProperties>
+    <SyncDate>20190426</SyncDate>
+    <SyncTime>14214600</SyncTime>
+    <ModDate>20190426</ModDate>
+    <ModTime>14214600</ModTime>
+  </Esri>
+  <mdLang>
+    <languageCode value="eng" />
+    <countryCode value="USA" Sync="TRUE" />
+  </mdLang>
+  <mdChar>
+    <CharSetCd value="004" />
+  </mdChar>
+  <mdHrLv>
+    <ScopeCd value="005" />
+  </mdHrLv>
+  <mdDateSt>20131230</mdDateSt>
+  <mdStanName>ArcGIS Metadata</mdStanName>
+  <mdStanVer>1.0</mdStanVer>
+  <dataIdInfo>
+    <idCitation>
+      <resTitle>CHAASHTO</resTitle>
+      <presForm>
+        <PresFormCd value="001" />
+      </presForm>
+      <presForm>
+        <fgdcGeoform>tabular digital data</fgdcGeoform>
+      </presForm>
+    </idCitation>
+    <idAbs>The Horizon AASHTO table contains the American Association of State Highway Transportation Officials classification(s) for the referenced horizon. One row in this table is marked as the representative AASHTO classification for the horizon.</idAbs>
+    <idPurp>Horizon Aashto Table</idPurp>
+    <dataLang>
+      <languageCode value="eng" />
+      <countryCode value="USA" Sync="TRUE" />
+    </dataLang>
+    <envirDesc>Microsoft Windows 7 Version 6.1 (Build 7601) Service Pack 1; Esri ArcGIS 10.1.1.3143</envirDesc>
+    <spatRpType>
+      <SpatRepTypCd value="003" Sync="TRUE" />
+    </spatRpType>
+  </dataIdInfo>
+  <eainfo>
+    <detailed Name="chaashto">
+      <enttyp>
+        <enttypl>chaashto</enttypl>
+        <enttypt Sync="TRUE">Table</enttypt>
+        <enttypc Sync="TRUE">162629</enttypc>
+      </enttyp>
+      <attr>
+        <attrlabl>OBJECTID</attrlabl>
+        <attrdef>Internal feature number.</attrdef>
+        <attrdefs>Esri</attrdefs>
+        <attrdomv>
+          <udom>Sequential unique whole numbers that are automatically generated.</udom>
+        </attrdomv>
+        <attalias Sync="TRUE">OBJECTID</attalias>
+        <attrtype Sync="TRUE">OID</attrtype>
+        <attwidth Sync="TRUE">4</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>chkey</attrlabl>
+        <attrdef>The unique identifier of a record in the Horizon table. Use this column to join the Horizon AASHTO table to the Horizon table.</attrdef>
+        <attalias Sync="TRUE">Chorizon Key</attalias>
+        <attrtype Sync="TRUE">String</attrtype>
+        <attwidth Sync="TRUE">30</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>aashtocl</attrlabl>
+        <attrdef>A rating based on a system that classifies soils according to those properties that affect roadway construction and maintenance. Soils are classified into seven basic groups plus eight subgroups, for a total of fifteen for mineral soils. Another class for organic soils is used. The groups are based on determinations of particle-size distribution, liquid limit, and plasticity index. The group classification, including group index, is useful in determining the relative quality of the soil material for use in earthwork structures, particularly embankments, subgrades, subbases, and bases. (American Association fo State Highway and Transportation Officials)</attrdef>
+        <attalias Sync="TRUE">AASHTO</attalias>
+        <attrtype Sync="TRUE">String</attrtype>
+        <attwidth Sync="TRUE">254</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>rvindicator</attrlabl>
+        <attrdef>A yes/no field that indicates if a listed AASHTO classification is representative for the horizon.</attrdef>
+        <attalias Sync="TRUE">RV?</attalias>
+        <attrtype Sync="TRUE">String</attrtype>
+        <attwidth Sync="TRUE">3</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>chaashtokey</attrlabl>
+        <attrdef>A non-connotative string of characters used to uniquely identify a record in the Horizon AASHTO table.</attrdef>
+        <attalias Sync="TRUE">Chorizon AASHTO Key</attalias>
+        <attrtype Sync="TRUE">String</attrtype>
+        <attwidth Sync="TRUE">30</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+    </detailed>
+  </eainfo>
+  <distInfo>
+    <distFormat>
+      <formatName Sync="TRUE">File Geodatabase Table</formatName>
+    </distFormat>
+  </distInfo>
+  <mdHrLvName Sync="TRUE">dataset</mdHrLvName>
+</metadata>

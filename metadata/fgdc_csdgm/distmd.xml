@@ -1,0 +1,54 @@
+﻿<metadata>
+  <idinfo>
+    <citation>
+      <citeinfo>
+        <title>DISTMD</title>
+        <geoform>tabular digital data</geoform>
+      </citeinfo>
+    </citation>
+    <descript>
+      <abstract>The Distribution Metadata table records information associated with the selection of a set of data for distribution to some entity or information system external to NASIS. A set of distribution data may include only selected map units from a legend or legends, and only selected components of those map units. This table records the criteria used for selecting map units and components for inclusion in the set of distributed data. Other recorded information includes the name of the NASIS user who initiated a distribution request, and the times when that request was made, and when that request was ultimately processed.</abstract>
+      <purpose>Distribution Metadata Table</purpose>
+    </descript>
+    <accconst>None</accconst>
+    <useconst>None</useconst>
+    <native>Microsoft Windows 7 Version 6.1 (Build 7601) Service Pack 1; Esri ArcGIS 10.1.1.3143</native>
+  </idinfo>
+  <eainfo>
+    <detailed>
+      <enttyp>
+        <enttypl>distmd</enttypl>
+      </enttyp>
+      <attr>
+        <attrlabl>distmdkey</attrlabl>
+        <attrdef>A non-connotative string of characters used to uniquely identify a record in the Distribution Metadata table.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>diststatus</attrlabl>
+        <attrdef>The current status of a NASIS export request. This status may reflect either a pending request status or a processed request status.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>interpmaxreasons</attrlabl>
+        <attrdef>The maximum number of reasons recorded for the corresponding soil interpretation.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>distgendate</attrlabl>
+        <attrdef>The date and time that a request to export data, which was submitted by a NASIS user, was actually processed.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>OBJECTID</attrlabl>
+        <attrdef>Internal feature number.</attrdef>
+        <attrdefs>Esri</attrdefs>
+        <attrdomv>
+          <udom>Sequential unique whole numbers that are automatically generated.</udom>
+        </attrdomv>
+      </attr>
+    </detailed>
+  </eainfo>
+  <metainfo>
+    <metd>20131230</metd>
+    <metstdn>FGDC Content Standard for Digital Geospatial Metadata</metstdn>
+    <metstdv>FGDC-STD-001-1998</metstdv>
+    <mettc>local time</mettc>
+  </metainfo>
+</metadata>

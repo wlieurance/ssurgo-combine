@@ -1,0 +1,50 @@
+﻿<metadata>
+  <idinfo>
+    <citation>
+      <citeinfo>
+        <title>COTXFMOTHER</title>
+        <geoform>tabular digital data</geoform>
+      </citeinfo>
+    </citation>
+    <descript>
+      <abstract>The Component Taxonomic Family Other Criteria table lists the other taxonomic characteristics, such as classes of coatings or permanent cracks, as defined in Soil Taxonomy, that apply to the referenced map unit component. The characteristics listed in this table describe the representative situation for the component.</abstract>
+      <purpose>Component Taxonomic Family Other Criteria Table</purpose>
+    </descript>
+    <accconst>None</accconst>
+    <useconst>None</useconst>
+    <native>Microsoft Windows 7 Version 6.1 (Build 7601) Service Pack 1; Esri ArcGIS 10.1.1.3143</native>
+  </idinfo>
+  <eainfo>
+    <detailed>
+      <enttyp>
+        <enttypl>cotxfmother</enttypl>
+      </enttyp>
+      <attr>
+        <attrlabl>cotaxfokey</attrlabl>
+        <attrdef>A non-connotative string of characters used to uniquely identify a record in the Component Taxonomic Family Other Criteria table.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>taxfamother</attrlabl>
+        <attrdef>Soil characteristics other than the defined family characteristics of particle-size classes, mineralogy classes, calcareous and reaction classes, and soil temperature classes. These characteristics include depth of soil, consistence, moisture equivalent, slope of soil, and permanent cracks. (Soil Taxonomy)</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>cokey</attrlabl>
+        <attrdef>The unique identifier of a record in the Component table. Use this column to join the Component Taxonomic Family Other Criteria table to the Component table.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>OBJECTID</attrlabl>
+        <attrdef>Internal feature number.</attrdef>
+        <attrdefs>Esri</attrdefs>
+        <attrdomv>
+          <udom>Sequential unique whole numbers that are automatically generated.</udom>
+        </attrdomv>
+      </attr>
+    </detailed>
+  </eainfo>
+  <metainfo>
+    <metd>20131230</metd>
+    <metstdn>FGDC Content Standard for Digital Geospatial Metadata</metstdn>
+    <metstdv>FGDC-STD-001-1998</metstdv>
+    <mettc>local time</mettc>
+  </metainfo>
+</metadata>

@@ -1,0 +1,66 @@
+﻿<metadata>
+  <idinfo>
+    <citation>
+      <citeinfo>
+        <title>CHSTRUCT</title>
+        <geoform>tabular digital data</geoform>
+      </citeinfo>
+    </citation>
+    <descript>
+      <abstract>The Horizon Structure table lists the individual soil structure size, grade, and shape terms for the referenced horizon. Terms in this table are assembled into a structure group string which is recorded in the Horizon Structure Group table.</abstract>
+      <purpose>Horizon Structure Table</purpose>
+    </descript>
+    <accconst>None</accconst>
+    <useconst>None</useconst>
+    <native>Microsoft Windows 7 Version 6.1 (Build 7601) Service Pack 1; Esri ArcGIS 10.1.1.3143</native>
+  </idinfo>
+  <eainfo>
+    <detailed>
+      <enttyp>
+        <enttypl>chstruct</enttypl>
+      </enttyp>
+      <attr>
+        <attrlabl>OBJECTID</attrlabl>
+        <attrdef>Internal feature number.</attrdef>
+        <attrdefs>Esri</attrdefs>
+        <attrdomv>
+          <udom>Sequential unique whole numbers that are automatically generated.</udom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>chstructkey</attrlabl>
+        <attrdef>A non-connotative string of characters used to uniquely identify a record in the Horizon Structure table.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>structpartsto</attrlabl>
+        <attrdef>An integer referring to the Structure ID in another row in the same table, intended to indicate if the soil structure described on the current row parts or separates to the structure described on the other row.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>chstructgrpkey</attrlabl>
+        <attrdef>The unique identifier of a record in the Horizon Structure Group table. Use this column to join the Horizon Structure table to the Horizon Structure Group table.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>structid</attrlabl>
+        <attrdef>An integer number assigned by the user to identify a particular row in the table.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>structgrade</attrlabl>
+        <attrdef>The distinctness of the peds described in terms of ease of separation into discrete units.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>structsize</attrlabl>
+        <attrdef>Measurement of the smallest dimension of the selected secondary particles, units, or peds.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>structtype</attrlabl>
+        <attrdef>The multiaxial shape of secondary particles, units, or peds.</attrdef>
+      </attr>
+    </detailed>
+  </eainfo>
+  <metainfo>
+    <metd>20131230</metd>
+    <metstdn>FGDC Content Standard for Digital Geospatial Metadata</metstdn>
+    <metstdv>FGDC-STD-001-1998</metstdv>
+    <mettc>local time</mettc>
+  </metainfo>
+</metadata>

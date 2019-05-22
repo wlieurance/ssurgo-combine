@@ -1,0 +1,54 @@
+﻿<metadata>
+  <idinfo>
+    <citation>
+      <citeinfo>
+        <title>MUAOVERLAP</title>
+        <geoform>tabular digital data</geoform>
+      </citeinfo>
+    </citation>
+    <descript>
+      <abstract>The Mapunit Area Overlap table lists the map units that exist in the overlap between the entire soil survey area and the referenced geographic area in the Legend Area Overlap table.</abstract>
+      <purpose>Mapunit Area Overlap Table</purpose>
+    </descript>
+    <accconst>None</accconst>
+    <useconst>None</useconst>
+    <native>Microsoft Windows 7 Version 6.1 (Build 7601) Service Pack 1; Esri ArcGIS 10.1.1.3143</native>
+  </idinfo>
+  <eainfo>
+    <detailed>
+      <enttyp>
+        <enttypl>muaoverlap</enttypl>
+      </enttyp>
+      <attr>
+        <attrlabl>muareaovkey</attrlabl>
+        <attrdef>A non-connotative string of characters used to uniquely identify a record in the Mapunit Area Overlap table.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>lareaovkey</attrlabl>
+        <attrdef>The unique identifier of a record in the Legend Area Overlap Table. Use this column to join the Mapunit Area Overlap table to the Legend Area Overlap table.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>mukey</attrlabl>
+        <attrdef>The unique identifier of a record in the Mapunit table. Use this column to join the Mapunit Area Overlap table to the Mapunit table.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>areaovacres</attrlabl>
+        <attrdef>The extent, in acres, of the map unit within the geographic area referenced in the Legend Area Overlap table.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>OBJECTID</attrlabl>
+        <attrdef>Internal feature number.</attrdef>
+        <attrdefs>Esri</attrdefs>
+        <attrdomv>
+          <udom>Sequential unique whole numbers that are automatically generated.</udom>
+        </attrdomv>
+      </attr>
+    </detailed>
+  </eainfo>
+  <metainfo>
+    <metd>20131230</metd>
+    <metstdn>FGDC Content Standard for Digital Geospatial Metadata</metstdn>
+    <metstdv>FGDC-STD-001-1998</metstdv>
+    <mettc>local time</mettc>
+  </metainfo>
+</metadata>

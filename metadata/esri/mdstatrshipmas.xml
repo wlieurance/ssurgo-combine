@@ -1,0 +1,131 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<metadata xml:lang="en">
+  <Esri>
+    <CreaDate>20141001</CreaDate>
+    <CreaTime>21102400</CreaTime>
+    <ArcGISFormat>1.0</ArcGISFormat>
+    <ArcGISstyle>FGDC CSDGM Metadata</ArcGISstyle>
+    <SyncOnce>FALSE</SyncOnce>
+    <DataProperties>
+      <itemProps>
+        <itemName Sync="TRUE">mdstatrshipmas</itemName>
+        <itemLocation>
+          <linkage Sync="TRUE">file://\\ARCNELI95L00052\E$\Geodata\2015\SSURGO_DownloadTools_2015\Conus.gdb</linkage>
+          <protocol Sync="TRUE">Local Area Network</protocol>
+        </itemLocation>
+        <imsContentType Sync="TRUE">002</imsContentType>
+      </itemProps>
+    </DataProperties>
+    <SyncDate>20131230</SyncDate>
+    <SyncTime>19264900</SyncTime>
+    <ModDate>20131230</ModDate>
+    <ModTime>19264900</ModTime>
+  </Esri>
+  <mdLang>
+    <languageCode value="eng" />
+    <countryCode value="USA" Sync="TRUE" />
+  </mdLang>
+  <mdChar>
+    <CharSetCd value="004" />
+  </mdChar>
+  <mdHrLv>
+    <ScopeCd value="005" />
+  </mdHrLv>
+  <mdDateSt>20131230</mdDateSt>
+  <mdStanName>ArcGIS Metadata</mdStanName>
+  <mdStanVer>1.0</mdStanVer>
+  <dataIdInfo>
+    <idCitation>
+      <resTitle>MDSTATRSHIPMAS</resTitle>
+      <presForm>
+        <PresFormCd value="001" />
+      </presForm>
+      <presForm>
+        <fgdcGeoform>tabular digital data</fgdcGeoform>
+      </presForm>
+    </idCitation>
+    <idAbs>The Relationship Master Static Metadata table records the metadata that pertains to a relationship, as a whole, for all relationships defined for the tabular data set. Each record in this table represents one particular relationship between two related tables. A relationship involves one or more pairs of join columns, and more than one relationship may exist between the same two tables. Information about the join columns involved in a relationship is found in the Relationship Detail Static Metadata table.</idAbs>
+    <idPurp>Relationship Master Static Metadata Table</idPurp>
+    <dataLang>
+      <languageCode value="eng" />
+      <countryCode value="USA" Sync="TRUE" />
+    </dataLang>
+    <envirDesc>Microsoft Windows 7 Version 6.1 (Build 7601) Service Pack 1; Esri ArcGIS 10.1.1.3143</envirDesc>
+    <spatRpType>
+      <SpatRepTypCd value="003" Sync="TRUE" />
+    </spatRpType>
+  </dataIdInfo>
+  <eainfo>
+    <detailed Name="mdstatrshipmas">
+      <enttyp>
+        <enttypl>mdstatrshipmas</enttypl>
+        <enttypt Sync="TRUE">Table</enttypt>
+        <enttypc Sync="TRUE">63</enttypc>
+      </enttyp>
+      <attr>
+        <attrlabl>mandatory</attrlabl>
+        <attrdef>Indicates if in order for a record to exist in the right table of a relationship, a corresponding record must exist in the left table of that relationship, i.e. mandatory = "yes". In other words, when mandatory is "no", a record may exist in the right table of a relationship without having a corresponding record in the left table of that relationship.</attrdef>
+        <attalias Sync="TRUE">Mandatory?</attalias>
+        <attrtype Sync="TRUE">String</attrtype>
+        <attwidth Sync="TRUE">3</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>relationshipname</attrlabl>
+        <attrdef>A name given to a relationship between two tables. If there is more than one relationship between the same two tables, the name of each of those relationships must be unique.</attrdef>
+        <attalias Sync="TRUE">Relationship Name</attalias>
+        <attrtype Sync="TRUE">String</attrtype>
+        <attwidth Sync="TRUE">30</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>cardinality</attrlabl>
+        <attrdef>Indicates whether the relationship between the left table and right table is one to one (left is one, right is one) or one to many (left is one, right is many). For a one to one relationship, a record in the left table is related to no more than one record in the right table. For a one to many relationship, a record in the left table may be related to more than one record in the right table. Neither cardinality implies that a record in the left table necessarily has a corresponding record in the right table.</attrdef>
+        <attalias Sync="TRUE">Cardinality</attalias>
+        <attrtype Sync="TRUE">String</attrtype>
+        <attwidth Sync="TRUE">254</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>rtabphyname</attrlabl>
+        <attrdef>The physical name of a table on the right side of a relationship between two tables.</attrdef>
+        <attalias Sync="TRUE">Right Table Physical Name</attalias>
+        <attrtype Sync="TRUE">String</attrtype>
+        <attwidth Sync="TRUE">30</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>OBJECTID</attrlabl>
+        <attrdef>Internal feature number.</attrdef>
+        <attrdefs>Esri</attrdefs>
+        <attrdomv>
+          <udom>Sequential unique whole numbers that are automatically generated.</udom>
+        </attrdomv>
+        <attalias Sync="TRUE">OBJECTID</attalias>
+        <attrtype Sync="TRUE">OID</attrtype>
+        <attwidth Sync="TRUE">4</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>ltabphyname</attrlabl>
+        <attrdef>The physical name of a table on the left side of a relationship between two tables.</attrdef>
+        <attalias Sync="TRUE">Left Table Physical Name</attalias>
+        <attrtype Sync="TRUE">String</attrtype>
+        <attwidth Sync="TRUE">30</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+    </detailed>
+  </eainfo>
+  <distInfo>
+    <distFormat>
+      <formatName Sync="TRUE">File Geodatabase Table</formatName>
+    </distFormat>
+  </distInfo>
+  <mdHrLvName Sync="TRUE">dataset</mdHrLvName>
+</metadata>

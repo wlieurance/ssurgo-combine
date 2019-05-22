@@ -1,0 +1,54 @@
+﻿<metadata>
+  <idinfo>
+    <citation>
+      <citeinfo>
+        <title>COSURFMORPHSS</title>
+        <geoform>tabular digital data</geoform>
+      </citeinfo>
+    </citation>
+    <descript>
+      <abstract>The Component Slope Shape Surface Morphometry table lists the geomorphic shape(s) of the referenced map unit component, in slope shape terms. The slope shape terms listed in this table apply to the referenced geomorphic feature shown in the Component Geomorphic Description table.</abstract>
+      <purpose>Component Slope Shape Surface Morphometry Table</purpose>
+    </descript>
+    <accconst>None</accconst>
+    <useconst>None</useconst>
+    <native>Microsoft Windows 7 Version 6.1 (Build 7601) Service Pack 1; Esri ArcGIS 10.1.1.3143</native>
+  </idinfo>
+  <eainfo>
+    <detailed>
+      <enttyp>
+        <enttypl>cosurfmorphss</enttypl>
+      </enttyp>
+      <attr>
+        <attrlabl>cosurfmorsskey</attrlabl>
+        <attrdef>A non-connotative string of characters used to uniquely identify a record in the Component Slope Shape Surface Morphometry table.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>shapedown</attrlabl>
+        <attrdef>The longitudinal shape of the slope.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>cogeomdkey</attrlabl>
+        <attrdef>The unique identifier of a record in the Component Geomorphic Description table. Use this column to join the Component Geomorphic Description table to the Component Slope Shape Surface Morphometry table.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>shapeacross</attrlabl>
+        <attrdef>The geometric, two dimensional profile (shape) of the slope parallel to elevation contours.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>OBJECTID</attrlabl>
+        <attrdef>Internal feature number.</attrdef>
+        <attrdefs>Esri</attrdefs>
+        <attrdomv>
+          <udom>Sequential unique whole numbers that are automatically generated.</udom>
+        </attrdomv>
+      </attr>
+    </detailed>
+  </eainfo>
+  <metainfo>
+    <metd>20131230</metd>
+    <metstdn>FGDC Content Standard for Digital Geospatial Metadata</metstdn>
+    <metstdv>FGDC-STD-001-1998</metstdv>
+    <mettc>local time</mettc>
+  </metainfo>
+</metadata>

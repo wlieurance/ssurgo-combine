@@ -1,0 +1,474 @@
+﻿<metadata>
+  <idinfo>
+    <citation>
+      <citeinfo>
+        <title>COMPONENT</title>
+        <geoform>tabular digital data</geoform>
+      </citeinfo>
+    </citation>
+    <descript>
+      <abstract>The Component table lists the map unit components identified in the referenced map unit, and selected properties of each component. If the Component % is greater than zero (low=65, RV=75, high=90) for a component, that component exists in every delineation of that mapunit. If the Component % includes zero (low=0, RV=50, high=90), the component may exist in some delineations, but not in others.</abstract>
+      <purpose>Component Table</purpose>
+    </descript>
+    <accconst>None</accconst>
+    <useconst>None</useconst>
+    <native>Microsoft Windows 7 Version 6.1 (Build 7601) Service Pack 1; Esri ArcGIS 10.1.1.3143</native>
+  </idinfo>
+  <eainfo>
+    <detailed>
+      <enttyp>
+        <enttypl>component</enttypl>
+      </enttyp>
+      <attr>
+        <attrlabl>slopelenusle_h</attrlabl>
+        <attrdef>The distance from the point of origin of overland flow to the point where either the slope gradient decreases enough that deposition begins, or the runoff water enters a well-defined channel that may be part of a drainage network or a constructed channel. (Predicting Rainfall Erosion Losses a Guide to Conservation Planning, Agr. Handbook #537, USDA, 1978).</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>wlshrub</attrlabl>
+        <attrdef>Suitability of the soil to produce the wildlife element shrub.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>comppct_h</attrlabl>
+        <attrdef>The percentage of the component of the mapunit.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>rsprod_l</attrlabl>
+        <attrdef>The estimated annual potential production of range forage per year.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>foragesuitgrpid</attrlabl>
+        <attrdef>The identifier of the Forage Suitability Group to which the map unit component is assigned.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>taxclname</attrlabl>
+        <attrdef>A concatenation of the Soil Taxonomy subgroup and family for a soil (long name).</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>corcon</attrlabl>
+        <attrdef>Susceptibility of concrete to corrosion when in contact with the soil.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>hydgrp</attrlabl>
+        <attrdef>A group of soils having similar runoff potential under similar storm and cover conditions. Examples are A and A/D. (NSSH)</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>totalsub_r</attrlabl>
+        <attrdef>The potential decrease of surface elevation as a result of the drainage of wet soils having organic layers or semifluid mineral layers. (NSSH)</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>majcompflag</attrlabl>
+        <attrdef>Indicates whether or not a component is a major component in the mapunit.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>rsprod_r</attrlabl>
+        <attrdef>The estimated annual potential production of range forage per year.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>map_l</attrlabl>
+        <attrdef>The arithmetic average of the total annual (liquid) precipitation taken over the standard "normal" period, 1961-1990.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>ffd_r</attrlabl>
+        <attrdef>The expected number of days between the last freezing temperature (0 degrees Celsius) in spring (Jan-Jul) and the first freezing temperature (0 degrees Celsius) in the fall (Aug-Dec). The number of days is based on the probability that the values for the standard "normal" period of 1961 to 1990 will be exceeded in 5 years out of 10.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>wlhardwood</attrlabl>
+        <attrdef>Suitability of the soil to produce the wildlife element hardwood trees.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>wlgrain</attrlabl>
+        <attrdef>Suitability of the soil to produce the wildlife element grain.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>reannualprecip_l</attrlabl>
+        <attrdef>An estimate of the amount of moisture available for plant use and/or soil forming processes at a given site. It may vary, plus or minus, from "actual" precipitation amounts as a function of runon, runoff, temperature, aspect, etc.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>wei</attrlabl>
+        <attrdef>A value in tons/acre/year that is a factor in calculating soil loss by wind. The values are acquired from WEG.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>nirrcapscl</attrlabl>
+        <attrdef>The second category in the land capability classification system for nonirrigated soils.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>compkind</attrlabl>
+        <attrdef>Identifies the kind of component of the mapunit. Examples are series and miscellaneous areas.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>elev_l</attrlabl>
+        <attrdef>The vertical distance from mean sea level to a point on the earth's surface.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>slopelenusle_l</attrlabl>
+        <attrdef>The distance from the point of origin of overland flow to the point where either the slope gradient decreases enough that deposition begins, or the runoff water enters a well-defined channel that may be part of a drainage network or a constructed channel. (Predicting Rainfall Erosion Losses a Guide to Conservation Planning, Agr. Handbook #537, USDA, 1978).</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>initsub_h</attrlabl>
+        <attrdef>The decrease of surface elevation that occurs within the first 3 years of drainage of wet soils having organic layers or semifluid mineral layers. (NSSH)</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>taxtempcl</attrlabl>
+        <attrdef>The taxonomic family temperature class used to construct the official classification name. It may be null when the taxonomic family temperature class is embedded in the classification name. The actual taxonomic temperature regime is recorded in another place.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>taxpartsizemod</attrlabl>
+        <attrdef>Taxonomic family criteria that is used to indicate the presence of more than two strongly contrasting classes in the particle size control section. (Soil Taxonomy)</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>taxceactcl</attrlabl>
+        <attrdef>Cation exchange activity classes are used as family criteria differentiae. It is the relative cation exchange (CEC) activity level of the soil based on the CEC to clay ratio. (Soil Taxonomy)</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>taxpartsize</attrlabl>
+        <attrdef>Particle-size classes are used as family differentiae. Particle-size refers to grain-size distribution of the whole soil and is not the same as texture. (Soil Taxonomy).</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>flsoirunoffpot</attrlabl>
+        <attrdef>The potential of the soil to allow chemicals to leave the application site with runoff water and/or detached soil particles, as defined for use in Florida. Soils with a rating of High or Medium are considered to pose a potential runoff hazard.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>fltemik2use</attrlabl>
+        <attrdef>The following soil related use restrictions for Temik 10G (aldicarb) exits if the pesticide is to be applied to citrus in Florida. Temik cannot be used within 1000 feet of a drinking water well unless it is known that the well is cased to 100 feet below ground level or to a minimum of 30 feet below the water table in soils that have: 1. A permeability of twenty inches/hour or more (very rapid permeability) and 2. A water holding capacity of less than 0.06 inch/inch of soil (very low water holding capacity)-- in all horizons to a depth of 80 inches or to bedrock if bedrock is within 80 inches of the surface. The choice indicates that if a component has soil properties, according to state labeling, favorable for the application of the pesticide Temik 10G, the entry is Yes. If the component does not have favorable properties the entry is No.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>flphe</attrlabl>
+        <attrdef>A data element with a yes/no entry, assigned by soil component, used in Florida. The basis for identifying highly erodible land is the erodibility index of a soil survey map unit. The erodibility index of a soil is determined by dividing the potential erodibility for each soil survey map unit by the soil loss tolerance (T) value established for the soil. The potential erodibility for a map unit differs according to the erosion type (water or wind erosion). The T value represents the maximum annual rate of soil erosion that could take place without causing a decline in long-term productivity. A soil map unit with an erodibility index of 8 or more is a highly erodible soil map unit. For water erosion, a soil survey map unit is potentially highly erodible if: (1) the RKLS/T value using the minimum LS factor is less than 8 and (2) the RKLS/T value using the maximum LS factor is equal to or greater than 8. (Predicting Rainfall Erosion Losses; A Guide to Conservation Planning, Field Office Technical Guide, Nat. FSA Handbook Sec. 511.23, and Florida Erosion Control Handbook)</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>flhe</attrlabl>
+        <attrdef>A data element with a yes/no entry, assigned by soil component, used in Florida. It is used to identify highly erodible land.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>castorieindex</attrlabl>
+        <attrdef>The California Storie Index expresses numerically the relative degree of suitability of a soil for general intensive agricultural uses at the time of evaluation. The rating is based on soil characteristics only and is obtained by evaluating such factors as soil depth, texture of the surface soil, subsoil characteristics, and surface relief. Storie, R. Earl and Walter W. Weir. 1948. Manual for identifying and classifying California soil series. With 1958 Supplement, revised 1978. Associated Students Store, University of California, Berkley, California.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>cokey</attrlabl>
+        <attrdef>A non-connotative string of characters used to uniquely identify a record in the Component table.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>mukey</attrlabl>
+        <attrdef>The unique identifier of a record in the Mapunit table. Use this column to join the Component table to the Mapunit table.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>misoimgmtgrp</attrlabl>
+        <attrdef>A system for ranking soils for major uses, developed by Michigan State University. Soils are assigned to a group according to the dominant profile texture, the natural drainage class, and the management groups are listed in the same order as the series named in the complex. (Mokma, D.L., E.P. Whiteside, and J.F. Schneider. 1978. Soil Management Units in Land Use Planning. Mich. State Univ., Ext. Bull. E-1262, 12 pp.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>fltriumph2use</attrlabl>
+        <attrdef>Soil related use restrictions for Triumph 4E Insecticide are applicable in certain conditions in Florida. Please note the label for the conditions. The soil related conditions are as follows: 1. A permeability of six inches/hour or more (rapid or very rapid permeability) and 2. A water holding capacity of 0.10 inch/inch of soil or less (low or very low water holding capacity)-- in all horizons to a depth of 80 inches or to bedrock if bedrock is within 80 inches of the surface. The choice indicates that if a component has soil properties, according to state labeling, favorable for the application of the pesticide Triumph 4E Insecticide (trademark), the entry is Yes. If the component does not have favorable properties the entry is No.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>taxorder</attrlabl>
+        <attrdef>The highest level in Soil Taxonomy.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>comppct_r</attrlabl>
+        <attrdef>The percentage of the component of the mapunit.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>cropprodindex</attrlabl>
+        <attrdef>An index of the capacity of a soil to produce a specific plant under a defined management system.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>nirrcapcl</attrlabl>
+        <attrdef>The broadest category in the land capability classification system for nonirrigated soils.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>albedodry_h</attrlabl>
+        <attrdef>The estimated ratio of the incident short-wave (solar) radiation that is reflected by the air dry, less than 2 mm fraction of the soil surface.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>OBJECTID</attrlabl>
+        <attrdef>Internal feature number.</attrdef>
+        <attrdefs>Esri</attrdefs>
+        <attrdomv>
+          <udom>Sequential unique whole numbers that are automatically generated.</udom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>otherph</attrlabl>
+        <attrdef>Phase criterion other than slope, texture, and flooding used to identify soil components.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>wlwetplant</attrlabl>
+        <attrdef>Suitability of the soil to produce the wildlife habitat element wetland plant.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>albedodry_r</attrlabl>
+        <attrdef>The estimated ratio of the incident short-wave (solar) radiation that is reflected by the air dry, less than 2 mm fraction of the soil surface.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>comppct_l</attrlabl>
+        <attrdef>The percentage of the component of the mapunit.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>airtempa_l</attrlabl>
+        <attrdef>The arithmetic average of the daily maximum and minimum temperatures for a calendar year taken over the standard "normal" period, 1961 to 1990.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>indraingrp</attrlabl>
+        <attrdef>A group of soils that share similar recommendations for drainage whether the drainage is subsurface or surface. (Agronomy Guide, ID-160 - Purdue University)</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>elev_h</attrlabl>
+        <attrdef>The vertical distance from mean sea level to a point on the earth's surface.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>hydricrating</attrlabl>
+        <attrdef>A yes/no field that indicates whether or not a map unit component is classified as a "hydric soil". If rated as hydric, the specific criteria met are listed in the Component Hydric Criteria table.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>wndbrksuitgrp</attrlabl>
+        <attrdef>A grouping for selecting plant species best suited for different kinds of soils and for predicting height growth and effectiveness. (National Forestry Manual)</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>ffd_l</attrlabl>
+        <attrdef>The expected number of days between the last freezing temperature (0 degrees Celsius) in spring (Jan-Jul) and the first freezing temperature (0 degrees Celsius) in the fall (Aug-Dec). The number of days is based on the probability that the values for the standard "normal" period of 1961 to 1990 will be exceeded in 5 years out of 10.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>runoff</attrlabl>
+        <attrdef>Runoff potential class for the soil.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>corsteel</attrlabl>
+        <attrdef>Susceptibility of uncoated steel to corrosion when in contact with the soil.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>initsub_l</attrlabl>
+        <attrdef>The decrease of surface elevation that occurs within the first 3 years of drainage of wet soils having organic layers or semifluid mineral layers. (NSSH)</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>localphase</attrlabl>
+        <attrdef>Phase criterion to be used at a local level, in conjunction with "component name" to help identify a soil component.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>airtempa_h</attrlabl>
+        <attrdef>The arithmetic average of the daily maximum and minimum temperatures for a calendar year taken over the standard "normal" period, 1961 to 1990.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>aspectcwise</attrlabl>
+        <attrdef>One end of the range in characteristics for the slope aspect of a component. This end of the range is expressed in degrees measured clockwise from true north, and is the end of the range that is clockwise from the representative slope aspect.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>slopelenusle_r</attrlabl>
+        <attrdef>The distance from the point of origin of overland flow to the point where either the slope gradient decreases enough that deposition begins, or the runoff water enters a well-defined channel that may be part of a drainage network or a constructed channel. (Predicting Rainfall Erosion Losses a Guide to Conservation Planning, Agr. Handbook #537, USDA, 1978).</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>drainagecl</attrlabl>
+        <attrdef>Identifies the natural drainage conditions of the soil and refers to the frequency and duration of wet periods. An example of a drainage class is well drained.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>ffd_h</attrlabl>
+        <attrdef>The expected number of days between the last freezing temperature (0 degrees Celsius) in spring (Jan-Jul) and the first freezing temperature (0 degrees Celsius) in the fall (Aug-Dec). The number of days is based on the probability that the values for the standard "normal" period of 1961 to 1990 will be exceeded in 5 years out of 10.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>earthcovkind2</attrlabl>
+        <attrdef>The description of ground cover based on a set of vegetal and non-vegetal classes. It is determined (at least conceptually) as a vertical projection downward. Level two of a hierarchical system.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>initsub_r</attrlabl>
+        <attrdef>The decrease of surface elevation that occurs within the first 3 years of drainage of wet soils having organic layers or semifluid mineral layers. (NSSH)</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>airtempa_r</attrlabl>
+        <attrdef>The arithmetic average of the daily maximum and minimum temperatures for a calendar year taken over the standard "normal" period, 1961 to 1990.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>reannualprecip_h</attrlabl>
+        <attrdef>An estimate of the amount of moisture available for plant use and/or soil forming processes at a given site. It may vary, plus or minus, from "actual" precipitation amounts as a function of runon, runoff, temperature, aspect, etc.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>soilslippot</attrlabl>
+        <attrdef>The possibility that a mass of soil will slip when these conditions are met: 1) vegetation is removed, 2) soil water is at or near saturation, and 3) other normal practices are applied. Increasing the hazard of slippage but not considered in this rating are: 1) the undercutting lower portions or loading the upper parts of a slope or 2) altering the drainage or offsite water contribution to the site such as through irrigation.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>taxgrtgroup</attrlabl>
+        <attrdef>The third level of Soil Taxonomy. The category is below the suborder and above the subgroup.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>totalsub_l</attrlabl>
+        <attrdef>The potential decrease of surface elevation as a result of the drainage of wet soils having organic layers or semifluid mineral layers. (NSSH)</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>wlrangeland</attrlabl>
+        <attrdef>Suitability of the soil to support the habitat requirements for rangeland wildlife.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>rsprod_h</attrlabl>
+        <attrdef>The estimated annual potential production of range forage per year.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>wlopenland</attrlabl>
+        <attrdef>Suitability of the soil to support the habitat requirements for openland wildlife.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>weg</attrlabl>
+        <attrdef>Grouping of soils that have similar properties affecting their resistance to soil blowing in cultivated areas. The groups indicate the susceptibility to soil blowing.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>aspectccwise</attrlabl>
+        <attrdef>One end of the range in characteristics for the slope aspect of a component. This end of the range is expressed in degrees measured clockwise from true north, and is the end of the range that is counter-clockwise from the representative slope aspect.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>taxtempregime</attrlabl>
+        <attrdef>Soil temperature regime as defined in Soil Taxonomy.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>irrcapcl</attrlabl>
+        <attrdef>The broadest category in the land capability classification system for irrigated soils.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>flsoilleachpot</attrlabl>
+        <attrdef>The potential of the soil to allow chemicals to leave the application site by leaching through the soil, as used in Florida state law. Soils with a rating of High or Medium are considered to pose a potential leaching hazard.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>taxsuborder</attrlabl>
+        <attrdef>The second level of Soil Taxonomy. The suborder is below the order and above the great group.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>geomdesc</attrlabl>
+        <attrdef>A narrative description of the geomorphic setting of a component. The description may incorporate multiple geomorphic features as well as their relationship to each other. The individual parts of the description are recorded in the Component Geomorphic Description table.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>aspectrep</attrlabl>
+        <attrdef>The common, typical, or expected direction toward which the surface of the soil faces, expressed as an angle between 0 and 360 degrees measured clockwise from true north.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>tfact</attrlabl>
+        <attrdef>Soil loss tolerance factor. The maximum amount of erosion at which the quality of a soil as a medium for plant growth can be maintained.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>nirrcapunit</attrlabl>
+        <attrdef>The third category in the land capability classification system for nonirrigated soils.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>elev_r</attrlabl>
+        <attrdef>The vertical distance from mean sea level to a point on the earth's surface.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>slope_r</attrlabl>
+        <attrdef>The difference in elevation between two points, expressed as a percentage of the distance between those points. (SSM)</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>reannualprecip_r</attrlabl>
+        <attrdef>An estimate of the amount of moisture available for plant use and/or soil forming processes at a given site. It may vary, plus or minus, from "actual" precipitation amounts as a function of runon, runoff, temperature, aspect, etc.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>totalsub_h</attrlabl>
+        <attrdef>The potential decrease of surface elevation as a result of the drainage of wet soils having organic layers or semifluid mineral layers. (NSSH)</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>map_r</attrlabl>
+        <attrdef>The arithmetic average of the total annual (liquid) precipitation taken over the standard "normal" period, 1961-1990.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>hydricon</attrlabl>
+        <attrdef>Natural condition of the soil component.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>constreeshrubgrp</attrlabl>
+        <attrdef>The identifier for a particular Conservation Tree Shrub Group (CTSG) which that is associated with a soil map unit component. A CTSG is a physiographic unit or area having similar climatic and edaphic characteristics that control the selection and height of growth of trees and shrubs (National Forestry Manual).</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>irrcapunit</attrlabl>
+        <attrdef>The third category in the land capability classification system for irrigated soils.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>slope_l</attrlabl>
+        <attrdef>The difference in elevation between two points, expressed as a percentage of the distance between those points. (SSM)</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>map_h</attrlabl>
+        <attrdef>The arithmetic average of the total annual (liquid) precipitation taken over the standard "normal" period, 1961-1990.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>wlherbaceous</attrlabl>
+        <attrdef>Suitability of the soil to produce the wildlife element herbaceous plants.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>wlshallowwat</attrlabl>
+        <attrdef>Suitability of the soil to support the wildlife habitat element shallow water.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>erocl</attrlabl>
+        <attrdef>Class of accelerated erosion. (SSM)</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>irrcapscl</attrlabl>
+        <attrdef>The second category in the land capability classification system for irrigated soils.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>wlwetland</attrlabl>
+        <attrdef>Suitability of the soil to support the habitat elements for wetland wildlife.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>compname</attrlabl>
+        <attrdef>Name assigned to a component based on its range of properties.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>slope_h</attrlabl>
+        <attrdef>The difference in elevation between two points, expressed as a percentage of the distance between those points. (SSM)</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>albedodry_l</attrlabl>
+        <attrdef>The estimated ratio of the incident short-wave (solar) radiation that is reflected by the air dry, less than 2 mm fraction of the soil surface.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>frostact</attrlabl>
+        <attrdef>An interpretation rating of the susceptibility of the soil to frost heaving.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>taxmoistscl</attrlabl>
+        <attrdef>Soil moisture subclasses are taxonomic subgroup criteria, whether included or not in the name of the subgroup. The definition of each subclass is dependent upon the specific taxonomic great group to which it is attached.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>taxreaction</attrlabl>
+        <attrdef>Indicates the presence or absence of carbonates and the reaction. They are treated together because of their intimate relationship, and are used to indicate family differentiae. (Soil Taxonomy)</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>earthcovkind1</attrlabl>
+        <attrdef>The natural or artificial material that is observed to cover a portion of the earth's surface. It is determined (at least conceptually) as a vertical projection downward. Level one of a hierarchical system. (1992 NRI Instructions)</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>taxsubgrp</attrlabl>
+        <attrdef>The fourth level of Soil Taxonomy. The subgroup is below great group and above family.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>flecolcomnum</attrlabl>
+        <attrdef>Numbers correspond to the NRCS printed publication "26 Ecological Communities of Florida" 1995. This publication is based on the awareness that a soil type commonly supports a specific vegetative community, which in turn provides the habitat needed by specific wildlife species.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>soiltaxedition</attrlabl>
+        <attrdef>The edition of Keys to Soil Taxonomy used to classify the soil.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>vasoimgtgrp</attrlabl>
+        <attrdef>A system for ranking soils in Virginia for productivity estimates. Developed by VPI&amp;SU. See Virginia Agronomic Land Use Evaluation System (VALUES) 1993.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>innitrateleachi</attrlabl>
+        <attrdef>A number which reflects annual precipitation, rainfall distribution, and hydrologic group. The system allows comparison of the amount of nitrate which could be leached in percolating water. The numbers were obtained from the Midwest National Technical Center and are used in Indiana.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>wlconiferous</attrlabl>
+        <attrdef>Suitability of the soil to produce the wildlife element coniferous trees.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>wlgrass</attrlabl>
+        <attrdef>Suitability of the soil to produce the wildlife element grass.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>wlwoodland</attrlabl>
+        <attrdef>Suitability of the soil to produce the habitat elements for woodland wildlife.</attrdef>
+      </attr>
+    </detailed>
+  </eainfo>
+  <metainfo>
+    <metd>20131230</metd>
+    <metstdn>FGDC Content Standard for Digital Geospatial Metadata</metstdn>
+    <metstdv>FGDC-STD-001-1998</metstdv>
+    <mettc>local time</mettc>
+  </metainfo>
+</metadata>

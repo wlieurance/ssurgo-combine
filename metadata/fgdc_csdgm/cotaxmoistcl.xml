@@ -1,0 +1,50 @@
+﻿<metadata>
+  <idinfo>
+    <citation>
+      <citeinfo>
+        <title>COTAXMOISTCL</title>
+        <geoform>tabular digital data</geoform>
+      </citeinfo>
+    </citation>
+    <descript>
+      <abstract>The Component Taxonomic Moisture Class table provides clear identification of the intended taxonomic moisture class, as defined in Soil Taxonomy, that apply to the referenced map unit component, even though moisture class is implied at a higher taxonomic level. The class or classes listed in this table describe the representative situation for the component.</abstract>
+      <purpose>Component Taxonomic Moisture Class Table</purpose>
+    </descript>
+    <accconst>None</accconst>
+    <useconst>None</useconst>
+    <native>Microsoft Windows 7 Version 6.1 (Build 7601) Service Pack 1; Esri ArcGIS 10.1.1.3143</native>
+  </idinfo>
+  <eainfo>
+    <detailed>
+      <enttyp>
+        <enttypl>cotaxmoistcl</enttypl>
+      </enttyp>
+      <attr>
+        <attrlabl>cotaxmckey</attrlabl>
+        <attrdef>A non-connotative string of characters used to uniquely identify a record in the Component Taxonomic Moisture Class table.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>taxmoistcl</attrlabl>
+        <attrdef>Soil moisture classes are unique to the family classification, though not included specifically in the name, this is a mechanism to provide clear identification of the actual moisture regime.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>cokey</attrlabl>
+        <attrdef>The unique identifier of a record in the Component table. Use this column to join the Component Taxonomic Moisture Class table to the Component table.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>OBJECTID</attrlabl>
+        <attrdef>Internal feature number.</attrdef>
+        <attrdefs>Esri</attrdefs>
+        <attrdomv>
+          <udom>Sequential unique whole numbers that are automatically generated.</udom>
+        </attrdomv>
+      </attr>
+    </detailed>
+  </eainfo>
+  <metainfo>
+    <metd>20131230</metd>
+    <metstdn>FGDC Content Standard for Digital Geospatial Metadata</metstdn>
+    <metstdv>FGDC-STD-001-1998</metstdv>
+    <mettc>local time</mettc>
+  </metainfo>
+</metadata>

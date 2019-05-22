@@ -1,0 +1,66 @@
+﻿<metadata>
+  <idinfo>
+    <citation>
+      <citeinfo>
+        <title>COEPLANTS</title>
+        <geoform>tabular digital data</geoform>
+      </citeinfo>
+    </citation>
+    <descript>
+      <abstract>The Component Existing Plants table lists the plants, either rangeland or forestland plants, that typically occur on the referenced map unit component.</abstract>
+      <purpose>Component Existing Plants Table</purpose>
+    </descript>
+    <accconst>None</accconst>
+    <useconst>None</useconst>
+    <native>Microsoft Windows 7 Version 6.1 (Build 7601) Service Pack 1; Esri ArcGIS 10.1.1.3143</native>
+  </idinfo>
+  <eainfo>
+    <detailed>
+      <enttyp>
+        <enttypl>coeplants</enttypl>
+      </enttyp>
+      <attr>
+        <attrlabl>OBJECTID</attrlabl>
+        <attrdef>Internal feature number.</attrdef>
+        <attrdefs>Esri</attrdefs>
+        <attrdomv>
+          <udom>Sequential unique whole numbers that are automatically generated.</udom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>coeplantskey</attrlabl>
+        <attrdef>A non-connotative string of characters used to uniquely identify a record in the Component Existing Plants table.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>rangeprod</attrlabl>
+        <attrdef>The percentage of total annual site production attributed to the specific rangeland plant, expressed as percent of total air dry plant material by weight.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>cokey</attrlabl>
+        <attrdef>The unique identifier of a record in the Component table. Use this column to join the Component Existing Plants table to the Component table.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>forestunprod</attrlabl>
+        <attrdef>The percentage of total annual site production attributed to the specific forest understory plant, expressed as percent of total air dry plant material by weight.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>plantsym</attrlabl>
+        <attrdef>A unique symbol used to identify a plant genus or a plant species. (The PLANTS Database, USDA-NRCS, National Plant Data Center.)</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>plantsciname</attrlabl>
+        <attrdef>The full genus and species name as listed in the PLANTS Database, USDA-NRCS, National Plant Data Center.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>plantcomname</attrlabl>
+        <attrdef>A generally accepted common name used for a plant in a geographic region, usually a state.</attrdef>
+      </attr>
+    </detailed>
+  </eainfo>
+  <metainfo>
+    <metd>20131230</metd>
+    <metstdn>FGDC Content Standard for Digital Geospatial Metadata</metstdn>
+    <metstdv>FGDC-STD-001-1998</metstdv>
+    <mettc>local time</mettc>
+  </metainfo>
+</metadata>

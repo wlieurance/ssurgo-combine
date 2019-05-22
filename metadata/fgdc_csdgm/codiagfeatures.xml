@@ -1,0 +1,86 @@
+﻿<metadata>
+  <idinfo>
+    <citation>
+      <citeinfo>
+        <title>CODIAGFEATURES</title>
+        <geoform>tabular digital data</geoform>
+      </citeinfo>
+    </citation>
+    <descript>
+      <abstract>The Component Diagnostic Features table lists the typical soil features, such as ochric epipedon or cambic horizon, for the referenced map unit component.</abstract>
+      <purpose>Component Diagnostic Features Table</purpose>
+    </descript>
+    <accconst>None</accconst>
+    <useconst>None</useconst>
+    <native>Microsoft Windows 7 Version 6.1 (Build 7601) Service Pack 1; Esri ArcGIS 10.1.1.3143</native>
+  </idinfo>
+  <eainfo>
+    <detailed>
+      <enttyp>
+        <enttypl>codiagfeatures</enttypl>
+      </enttyp>
+      <attr>
+        <attrlabl>featdept_h</attrlabl>
+        <attrdef>The distance from the top of the soil to the upper boundary of the identified diagnostic horizon or to the upper limit of the occurrence of the diagnostic feature.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>featdepb_l</attrlabl>
+        <attrdef>The distance from the top of the soil to the base of the identified diagnostic horizon or to the lower limit of the occurrence of the diagnostic feature.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>featdept_l</attrlabl>
+        <attrdef>The distance from the top of the soil to the upper boundary of the identified diagnostic horizon or to the upper limit of the occurrence of the diagnostic feature.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>featkind</attrlabl>
+        <attrdef>Kind of diagnostic horizon or diagnostic feature in the soil.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>codiagfeatkey</attrlabl>
+        <attrdef>A non-connotative string of characters used to uniquely identify a record in the Component Diagnostic Features table.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>featthick_h</attrlabl>
+        <attrdef>The distance from the upper to lower boundary of the identified diagnostic horizon or feature.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>cokey</attrlabl>
+        <attrdef>The unique identifier of a record in the Component table. Use this column to join the Component Diagnostic Features table to the Component table.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>featthick_r</attrlabl>
+        <attrdef>The distance from the upper to lower boundary of the identified diagnostic horizon or feature.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>featdepb_r</attrlabl>
+        <attrdef>The distance from the top of the soil to the base of the identified diagnostic horizon or to the lower limit of the occurrence of the diagnostic feature.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>featdepb_h</attrlabl>
+        <attrdef>The distance from the top of the soil to the base of the identified diagnostic horizon or to the lower limit of the occurrence of the diagnostic feature.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>featdept_r</attrlabl>
+        <attrdef>The distance from the top of the soil to the upper boundary of the identified diagnostic horizon or to the upper limit of the occurrence of the diagnostic feature.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>OBJECTID</attrlabl>
+        <attrdef>Internal feature number.</attrdef>
+        <attrdefs>Esri</attrdefs>
+        <attrdomv>
+          <udom>Sequential unique whole numbers that are automatically generated.</udom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>featthick_l</attrlabl>
+        <attrdef>The distance from the upper to lower boundary of the identified diagnostic horizon or feature.</attrdef>
+      </attr>
+    </detailed>
+  </eainfo>
+  <metainfo>
+    <metd>20131230</metd>
+    <metstdn>FGDC Content Standard for Digital Geospatial Metadata</metstdn>
+    <metstdv>FGDC-STD-001-1998</metstdv>
+    <mettc>local time</mettc>
+  </metainfo>
+</metadata>

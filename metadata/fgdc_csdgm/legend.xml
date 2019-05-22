@@ -1,0 +1,94 @@
+﻿<metadata>
+  <idinfo>
+    <citation>
+      <citeinfo>
+        <title>LEGEND</title>
+        <geoform>tabular digital data</geoform>
+      </citeinfo>
+    </citation>
+    <descript>
+      <abstract>The Legend table identifies the soil survey area that the legend is related to, and related information about that legend.</abstract>
+      <purpose>Legend Table</purpose>
+    </descript>
+    <accconst>None</accconst>
+    <useconst>None</useconst>
+    <native>Microsoft Windows 7 Version 6.1 (Build 7601) Service Pack 1; Esri ArcGIS 10.1.1.3143</native>
+  </idinfo>
+  <eainfo>
+    <detailed>
+      <enttyp>
+        <enttypl>legend</enttypl>
+      </enttyp>
+      <attr>
+        <attrlabl>legenddesc</attrlabl>
+        <attrdef>A short text field used to describe a particular soil survey area legend.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>ssastatus</attrlabl>
+        <attrdef>Identifies the operational activity of a soil survey area and currency of published soil information. Examples are Non-Project, Update and Published. As of SSURGO version 2.1, values for this attribute are no longer provided. This attribute will be dropped from the next major SSURGO version.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>areaacres</attrlabl>
+        <attrdef>The acreage total of all land and water areas in the specified geographic area to which the legend applies. The number listed here is used for administrative purposes and may differ from that measured using GIS software, or other techniques, due to fact that it was assigned to agree with the acreage listed in the NRCS Natural Resource Inventory for the geographic area.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>areaname</attrlabl>
+        <attrdef>The name given to the specified geographic area to which the legend applies.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>areatypename</attrlabl>
+        <attrdef>The name of a particular type of geographic area to which the legend applies. Examples include "Non-MLRA Soil Survey Area" and "MLRA Soil Survey Area".</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>lkey</attrlabl>
+        <attrdef>A non-connotative string of characters used to uniquely identify a record in the Legend table.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>legendsuituse</attrlabl>
+        <attrdef>Identifies the relative geographic extent over which a legend has the most up-to-date soil survey data. As of SSURGO version 2.1, values for this attribute are no longer provided. This attribute will be dropped from the next major SSURGO version.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>legendcertstat</attrlabl>
+        <attrdef>The level of certification assigned to a legend. Intended to indicate whether or not the legend should be used and the degree of confidence with which it may be used. As of SSURGO version 2.1, values for this attribute are no longer provided. This attribute will be dropped from the next major SSURGO version.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>ssurgoarchived</attrlabl>
+        <attrdef>The date on which the SSURGO product for a particular soil survey is actually archived, expressed as month, day, year -- xx/xx/xxxx.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>mouagncyresp</attrlabl>
+        <attrdef>The lead agency designated as responsible for a particular soil survey.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>projectscale</attrlabl>
+        <attrdef>The map scale in which the final map products will be published, expressed as the denominator of the scale, i.e. 24000 = 1:24000.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>mlraoffice</attrlabl>
+        <attrdef>An NRCS business unit responsible for oversight of soil survey production activities of a particular soil survey area.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>areasymbol</attrlabl>
+        <attrdef>The identifying symbol given to the specified geographic area to which the legend applies.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>OBJECTID</attrlabl>
+        <attrdef>Internal feature number.</attrdef>
+        <attrdefs>Esri</attrdefs>
+        <attrdomv>
+          <udom>Sequential unique whole numbers that are automatically generated.</udom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>cordate</attrlabl>
+        <attrdef>The date the final correlation document for a soil survey is signed, expressed as month, year (e.g. 07/1999).</attrdef>
+      </attr>
+    </detailed>
+  </eainfo>
+  <metainfo>
+    <metd>20131230</metd>
+    <metstdn>FGDC Content Standard for Digital Geospatial Metadata</metstdn>
+    <metstdv>FGDC-STD-001-1998</metstdv>
+    <mettc>local time</mettc>
+  </metainfo>
+</metadata>

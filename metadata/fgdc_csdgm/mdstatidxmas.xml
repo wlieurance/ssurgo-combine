@@ -1,0 +1,50 @@
+﻿<metadata>
+  <idinfo>
+    <citation>
+      <citeinfo>
+        <title>MDSTATIDXMAS</title>
+        <geoform>tabular digital data</geoform>
+      </citeinfo>
+    </citation>
+    <descript>
+      <abstract>The Index Master Static Metadata table records the metadata that pertains to an index, as a whole, for all indexes defined for the tabular data set. Each record in this table represents one index for a particular table. An index is based on one or more columns from a particular table. Information about the columns that make up an index is found in the Index Detail Static Metadata table.</abstract>
+      <purpose>Index Master Static Metadata Table</purpose>
+    </descript>
+    <accconst>None</accconst>
+    <useconst>None</useconst>
+    <native>Microsoft Windows 7 Version 6.1 (Build 7601) Service Pack 1; Esri ArcGIS 10.1.1.3143</native>
+  </idinfo>
+  <eainfo>
+    <detailed>
+      <enttyp>
+        <enttypl>mdstatidxmas</enttypl>
+      </enttyp>
+      <attr>
+        <attrlabl>uniqueindex</attrlabl>
+        <attrdef>Indicates whether or not all values of an index must be unique, or whether duplicate values may exist.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>tabphyname</attrlabl>
+        <attrdef>The name that is used to physically implement a table in a database management system. In a database, each table's physical name must be unique.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>idxphyname</attrlabl>
+        <attrdef>The name that is used to physically implement an index in a database management system.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>OBJECTID</attrlabl>
+        <attrdef>Internal feature number.</attrdef>
+        <attrdefs>Esri</attrdefs>
+        <attrdomv>
+          <udom>Sequential unique whole numbers that are automatically generated.</udom>
+        </attrdomv>
+      </attr>
+    </detailed>
+  </eainfo>
+  <metainfo>
+    <metd>20131230</metd>
+    <metstdn>FGDC Content Standard for Digital Geospatial Metadata</metstdn>
+    <metstdv>FGDC-STD-001-1998</metstdv>
+    <mettc>local time</mettc>
+  </metainfo>
+</metadata>

@@ -1,0 +1,58 @@
+﻿<metadata>
+  <idinfo>
+    <citation>
+      <citeinfo>
+        <title>MDSTATRSHIPDET</title>
+        <geoform>tabular digital data</geoform>
+      </citeinfo>
+    </citation>
+    <descript>
+      <abstract>The Relationship Detail Static Metadata table records the pairs of join columns that define a particular relationship. Each record in this table represents one pair of join columns for a particular relationship.</abstract>
+      <purpose>Relationship Detail Static Metadata Table</purpose>
+    </descript>
+    <accconst>None</accconst>
+    <useconst>None</useconst>
+    <native>Microsoft Windows 7 Version 6.1 (Build 7601) Service Pack 1; Esri ArcGIS 10.1.1.3143</native>
+  </idinfo>
+  <eainfo>
+    <detailed>
+      <enttyp>
+        <enttypl>mdstatrshipdet</enttypl>
+      </enttyp>
+      <attr>
+        <attrlabl>rtabcolphyname</attrlabl>
+        <attrdef>The physical name of a column of a table on the right side of a relationship between two tables. This column is one of several potential columns used to create a join between the two tables involved in a relationship. The right table column joins to its corresponding left table column.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>relationshipname</attrlabl>
+        <attrdef>A name given to a relationship between two tables. If there is more than one relationship between the same two tables, the name of each of those relationships must be unique.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>ltabcolphyname</attrlabl>
+        <attrdef>The physical name of a column of a table on the left side of a relationship between two tables. This column is one of several potential columns used to create a join between the two tables involved in a relationship. The left table column joins to its corresponding right table column.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>rtabphyname</attrlabl>
+        <attrdef>The physical name of a table on the right side of a relationship between two tables.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>OBJECTID</attrlabl>
+        <attrdef>Internal feature number.</attrdef>
+        <attrdefs>Esri</attrdefs>
+        <attrdomv>
+          <udom>Sequential unique whole numbers that are automatically generated.</udom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>ltabphyname</attrlabl>
+        <attrdef>The physical name of a table on the left side of a relationship between two tables.</attrdef>
+      </attr>
+    </detailed>
+  </eainfo>
+  <metainfo>
+    <metd>20131230</metd>
+    <metstdn>FGDC Content Standard for Digital Geospatial Metadata</metstdn>
+    <metstdv>FGDC-STD-001-1998</metstdv>
+    <mettc>local time</mettc>
+  </metainfo>
+</metadata>

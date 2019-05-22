@@ -1,0 +1,50 @@
+﻿<metadata>
+  <idinfo>
+    <citation>
+      <citeinfo>
+        <title>COSURFMORPHMR</title>
+        <geoform>tabular digital data</geoform>
+      </citeinfo>
+    </citation>
+    <descript>
+      <abstract>The Component Microrelief Surface Morphometry table lists microrelief features associated with the referenced geomorphic (microfeature) feature shown in the Component Geomorphic Description table.</abstract>
+      <purpose>Component Microrelief Surface Morphometry Table</purpose>
+    </descript>
+    <accconst>None</accconst>
+    <useconst>None</useconst>
+    <native>Microsoft Windows 7 Version 6.1 (Build 7601) Service Pack 1; Esri ArcGIS 10.1.1.3143</native>
+  </idinfo>
+  <eainfo>
+    <detailed>
+      <enttyp>
+        <enttypl>cosurfmorphmr</enttypl>
+      </enttyp>
+      <attr>
+        <attrlabl>cosurfmormrkey</attrlabl>
+        <attrdef>A non-connotative string of characters used to uniquely identify a record in the Component Microrelief Surface Morphometry table.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>geomicrorelief</attrlabl>
+        <attrdef>The kind of slight variations in the height of a land surface that are too small or intricate to delineate on a topographic or soils map at commonly used scales (1:24000, and 1:10000).</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>cogeomdkey</attrlabl>
+        <attrdef>The unique identifier of a record in the Component Geomorphic Description table. Use this column to join the Component Geomorphic Description table to the Component Microrelief Surface Morphometry table.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>OBJECTID</attrlabl>
+        <attrdef>Internal feature number.</attrdef>
+        <attrdefs>Esri</attrdefs>
+        <attrdomv>
+          <udom>Sequential unique whole numbers that are automatically generated.</udom>
+        </attrdomv>
+      </attr>
+    </detailed>
+  </eainfo>
+  <metainfo>
+    <metd>20131230</metd>
+    <metstdn>FGDC Content Standard for Digital Geospatial Metadata</metstdn>
+    <metstdv>FGDC-STD-001-1998</metstdv>
+    <mettc>local time</mettc>
+  </metainfo>
+</metadata>

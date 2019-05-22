@@ -1,0 +1,82 @@
+﻿<metadata>
+  <idinfo>
+    <citation>
+      <citeinfo>
+        <title>DISTLEGENDMD</title>
+        <geoform>tabular digital data</geoform>
+      </citeinfo>
+    </citation>
+    <descript>
+      <abstract>The Distribution Legend Metadata table records information about the legends or soil survey areas selected for inclusion in a set of distributed data. The presence of a legend in this table does not imply that all of the available data for that legend was included in the set of data that was distributed. Only certain map units and components for that legend may have been selected. The record of the criteria used for selecting map units and components may be found in the Distribution Metadata table.</abstract>
+      <purpose>Distribution Legend Metadata Table</purpose>
+    </descript>
+    <accconst>None</accconst>
+    <useconst>None</useconst>
+    <native>Microsoft Windows 7 Version 6.1 (Build 7601) Service Pack 1; Esri ArcGIS 10.1.1.3143</native>
+  </idinfo>
+  <eainfo>
+    <detailed>
+      <enttyp>
+        <enttypl>distlegendmd</enttypl>
+      </enttyp>
+      <attr>
+        <attrlabl>areaname</attrlabl>
+        <attrdef>The name given to the specified geographic area.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>ssastatus</attrlabl>
+        <attrdef>Identifies the operational activity of a soil survey area and currency of published soil information. Examples are Non-Project, Update and Published. As of SSURGO version 2.1, values for this attribute are no longer provided. This attribute will be dropped from the next major SSURGO version.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>areatypename</attrlabl>
+        <attrdef>The name of a particular type of area. Area type names include "state", "county", "mlra", etc.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>OBJECTID</attrlabl>
+        <attrdef>Internal feature number.</attrdef>
+        <attrdefs>Esri</attrdefs>
+        <attrdomv>
+          <udom>Sequential unique whole numbers that are automatically generated.</udom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>distlegendmdkey</attrlabl>
+        <attrdef>A non-connotative string of characters used to uniquely identify a record in the Distribution Legend Metadata table.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>lkey</attrlabl>
+        <attrdef>The unique identifier of a record in the Legend table. Use this column to join the Distribution Legend Metadata table to the Legend table.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>distmdkey</attrlabl>
+        <attrdef>The unique identifier of a record in the Distribution Metadata table. Use this column to join the Distribution Legend Metadata table to the Distribution Metadata table.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>exportmetadata</attrlabl>
+        <attrdef>Narrative text notes (metadata) associated with the assignment of the tabular data certification status for a particular soil survey area.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>cordate</attrlabl>
+        <attrdef>The date the final correlation document for a soil survey is signed, expressed as month, year (e.g. 07/1999).</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>exportcertstatus</attrlabl>
+        <attrdef>The level of certification assigned to a tabular data package for a particular soil survey area.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>areasymbol</attrlabl>
+        <attrdef>A symbol that uniquely identifies a single occurrence of a particular type of area (e.g. Lancaster Co., Nebraska is NE109).</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>exportcertdate</attrlabl>
+        <attrdef>The date and time that soil survey area tabular data was exported from NASIS.</attrdef>
+      </attr>
+    </detailed>
+  </eainfo>
+  <metainfo>
+    <metd>20131230</metd>
+    <metstdn>FGDC Content Standard for Digital Geospatial Metadata</metstdn>
+    <metstdv>FGDC-STD-001-1998</metstdv>
+    <mettc>local time</mettc>
+  </metainfo>
+</metadata>

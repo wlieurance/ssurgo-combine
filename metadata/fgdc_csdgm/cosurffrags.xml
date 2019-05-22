@@ -1,0 +1,98 @@
+﻿<metadata>
+  <idinfo>
+    <citation>
+      <citeinfo>
+        <title>COSURFFRAGS</title>
+        <geoform>tabular digital data</geoform>
+      </citeinfo>
+    </citation>
+    <descript>
+      <abstract>The Component Surface Fragments table lists the organic or mineral fragments that generally occur on the surface of the referenced map unit component. If the cover percent is greater than zero (low=0.1, RV=1, high=3) for a row in this table, the fragment is in every delineation of the map unit where the referenced component occurs. If the Cover % includes zero (low=0, RV=0.01, high=1) for a row in this table, the fragment may exist in some delineations and not in others.</abstract>
+      <purpose>Component Surface Fragments Table</purpose>
+    </descript>
+    <accconst>None</accconst>
+    <useconst>None</useconst>
+    <native>Microsoft Windows 7 Version 6.1 (Build 7601) Service Pack 1; Esri ArcGIS 10.1.1.3143</native>
+  </idinfo>
+  <eainfo>
+    <detailed>
+      <enttyp>
+        <enttypl>cosurffrags</enttypl>
+      </enttyp>
+      <attr>
+        <attrlabl>sfragkind</attrlabl>
+        <attrdef>The lithology/composition of the surface fragments 2 mm or larger (20 mm or larger for wood fragments).</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>sfragsize_l</attrlabl>
+        <attrdef>Size based on the multiaxial dimensions of the surface fragment.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>distrocks_r</attrlabl>
+        <attrdef>Average distance between surface stones and/or boulders, measured between edges.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>distrocks_l</attrlabl>
+        <attrdef>Average distance between surface stones and/or boulders, measured between edges.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>sfragcov_r</attrlabl>
+        <attrdef>Percent of the ground covered by fragments 2 mm or larger (20 mm or larger for wood fragments).</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>cosurffragskey</attrlabl>
+        <attrdef>A non-connotative string of characters used to uniquely identify a record in the Component Surface Fragments table.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>sfraghard</attrlabl>
+        <attrdef>The hardness of the fragment.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>cokey</attrlabl>
+        <attrdef>The unique identifier of a record in the Component table. Use this column to join the Component Surface Fragments table to the Component table.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>sfraground</attrlabl>
+        <attrdef>An expression of the sharpness of edges and corners of surface fragments.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>sfragsize_r</attrlabl>
+        <attrdef>Size based on the multiaxial dimensions of the surface fragment.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>sfragsize_h</attrlabl>
+        <attrdef>Size based on the multiaxial dimensions of the surface fragment.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>OBJECTID</attrlabl>
+        <attrdef>Internal feature number.</attrdef>
+        <attrdefs>Esri</attrdefs>
+        <attrdomv>
+          <udom>Sequential unique whole numbers that are automatically generated.</udom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>distrocks_h</attrlabl>
+        <attrdef>Average distance between surface stones and/or boulders, measured between edges.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>sfragcov_h</attrlabl>
+        <attrdef>Percent of the ground covered by fragments 2 mm or larger (20 mm or larger for wood fragments).</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>sfragcov_l</attrlabl>
+        <attrdef>Percent of the ground covered by fragments 2 mm or larger (20 mm or larger for wood fragments).</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>sfragshp</attrlabl>
+        <attrdef>A description of the overall shape of the surface fragment.</attrdef>
+      </attr>
+    </detailed>
+  </eainfo>
+  <metainfo>
+    <metd>20131230</metd>
+    <metstdn>FGDC Content Standard for Digital Geospatial Metadata</metstdn>
+    <metstdv>FGDC-STD-001-1998</metstdv>
+    <mettc>local time</mettc>
+  </metainfo>
+</metadata>

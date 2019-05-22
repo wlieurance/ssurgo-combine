@@ -1,0 +1,62 @@
+﻿<metadata>
+  <idinfo>
+    <citation>
+      <citeinfo>
+        <title>LAOVERLAP</title>
+        <geoform>tabular digital data</geoform>
+      </citeinfo>
+    </citation>
+    <descript>
+      <abstract>The Legend Area Overlap table lists the geographic areas that are coincident with the soil survey area identified in the Legend table. For example, a survey area that covers two counties would have two rows in this table, one for each county. Other types of geographic areas listed might include state, MLRA, rainfall (R) factor area, climate (C) factor area, etc.</abstract>
+      <purpose>Legend Area Overlap Table</purpose>
+    </descript>
+    <accconst>None</accconst>
+    <useconst>None</useconst>
+    <native>Microsoft Windows 7 Version 6.1 (Build 7601) Service Pack 1; Esri ArcGIS 10.1.1.3143</native>
+  </idinfo>
+  <eainfo>
+    <detailed>
+      <enttyp>
+        <enttypl>laoverlap</enttypl>
+      </enttyp>
+      <attr>
+        <attrlabl>lareaovkey</attrlabl>
+        <attrdef>A non-connotative string of characters used to uniquely identify a record in the Legend Area Overlap table.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>areaovacres</attrlabl>
+        <attrdef>The area overlap of two geographic regions, in acres.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>lkey</attrlabl>
+        <attrdef>The unique identifier of a record in the Legend table. Use this column to join the Legend Area Overlap table to the Legend table.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>areaname</attrlabl>
+        <attrdef>The name of a geographic area with which the soil survey area overlaps or coincides. Examples include the name of a particular state or county.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>OBJECTID</attrlabl>
+        <attrdef>Internal feature number.</attrdef>
+        <attrdefs>Esri</attrdefs>
+        <attrdomv>
+          <udom>Sequential unique whole numbers that are automatically generated.</udom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>areatypename</attrlabl>
+        <attrdef>The name of a particular type of geographic area with which the soil survey area overlaps or coincides. Examples include "state or territory" and "county or parish".</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>areasymbol</attrlabl>
+        <attrdef>The identifying symbol given to the specified geographic area with which the soil survey area overlaps or coincides.</attrdef>
+      </attr>
+    </detailed>
+  </eainfo>
+  <metainfo>
+    <metd>20131230</metd>
+    <metstdn>FGDC Content Standard for Digital Geospatial Metadata</metstdn>
+    <metstdv>FGDC-STD-001-1998</metstdv>
+    <mettc>local time</mettc>
+  </metainfo>
+</metadata>

@@ -1,0 +1,566 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<metadata xml:lang="en">
+  <Esri>
+    <CreaDate>20131230</CreaDate>
+    <CreaTime>19423800</CreaTime>
+    <ArcGISFormat>1.0</ArcGISFormat>
+    <ArcGISstyle>FGDC CSDGM Metadata</ArcGISstyle>
+    <SyncOnce>FALSE</SyncOnce>
+    <DataProperties>
+      <itemProps>
+        <itemName Sync="TRUE">sdvattribute</itemName>
+        <itemLocation>
+          <linkage Sync="TRUE">file://\\ARCNELI95L00052\E$\Geodata\2013\TemplateDB\Template_FGDB_CONUS_AlbersNAD1983.gdb</linkage>
+          <protocol Sync="TRUE">Local Area Network</protocol>
+        </itemLocation>
+        <imsContentType Sync="TRUE">002</imsContentType>
+      </itemProps>
+      <lineage>
+        <Process ToolSource="c:\program files (x86)\arcgis\desktop10.5\ArcToolbox\Toolboxes\Data Management Tools.tbx\AddIndex" Date="20171204" Time="033125">AddIndex E:\FY2018gSSURGODatabases\gSSURGO_NV.gdb\sdvattribute attributekey Indx_sdvattribute NON_UNIQUE NON_ASCENDING</Process>
+      </lineage>
+    </DataProperties>
+    <SyncDate>20131230</SyncDate>
+    <SyncTime>19435000</SyncTime>
+    <ModDate>20131230</ModDate>
+    <ModTime>19435000</ModTime>
+  </Esri>
+  <mdLang>
+    <languageCode value="eng" />
+    <countryCode value="USA" Sync="TRUE" />
+  </mdLang>
+  <mdChar>
+    <CharSetCd value="004" />
+  </mdChar>
+  <mdHrLv>
+    <ScopeCd value="005" />
+  </mdHrLv>
+  <mdDateSt>20131230</mdDateSt>
+  <mdStanName>ArcGIS Metadata</mdStanName>
+  <mdStanVer>1.0</mdStanVer>
+  <dataIdInfo>
+    <idCitation>
+      <resTitle>SDVATTRIBUTE</resTitle>
+      <presForm>
+        <PresFormCd value="001" />
+      </presForm>
+      <presForm>
+        <fgdcGeoform>tabular digital data</fgdcGeoform>
+      </presForm>
+    </idCitation>
+    <idAbs>Each record in this table corresponds to either an intrinsic soil property or a soil interpretation that is available in the Soil Data Viewer application. A record in this table is also referred to as an "SDV rule". A rule provides most of the information necessary for the Soil Data Viewer application to be able to create a thematic map for the corresponding soil attribute. Some additional information needed in order to be able to create a thematic map may be collected at run time.</idAbs>
+    <idPurp>Sdv Attribute Table</idPurp>
+    <dataLang>
+      <languageCode value="eng" />
+      <countryCode value="USA" Sync="TRUE" />
+    </dataLang>
+    <envirDesc>Microsoft Windows 7 Version 6.1 (Build 7601) Service Pack 1; Esri ArcGIS 10.1.1.3143</envirDesc>
+    <spatRpType>
+      <SpatRepTypCd value="003" Sync="TRUE" />
+    </spatRpType>
+  </dataIdInfo>
+  <eainfo>
+    <detailed Name="sdvattribute">
+      <enttyp>
+        <enttypl>sdvattribute</enttypl>
+        <enttypt Sync="TRUE">Table</enttypt>
+        <enttypc Sync="TRUE">0</enttypc>
+      </enttyp>
+      <attr>
+        <attrlabl>attributeprecision</attrlabl>
+        <attrdef>The decimal precision of the corresponding soil attribute.</attrdef>
+        <attalias Sync="TRUE">Attribute Precision</attalias>
+        <attrtype Sync="TRUE">SmallInteger</attrtype>
+        <attwidth Sync="TRUE">2</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>OBJECTID</attrlabl>
+        <attrdef>Internal feature number.</attrdef>
+        <attrdefs>Esri</attrdefs>
+        <attrdomv>
+          <udom>Sequential unique whole numbers that are automatically generated.</udom>
+        </attrdomv>
+        <attalias Sync="TRUE">OBJECTID</attalias>
+        <attrtype Sync="TRUE">OID</attrtype>
+        <attwidth Sync="TRUE">4</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>attributetablename</attrlabl>
+        <attrdef>The name of the SSURGO table that contains the corresponding soil attribute.</attrdef>
+        <attalias Sync="TRUE">Attribute Table Name</attalias>
+        <attrtype Sync="TRUE">String</attrtype>
+        <attwidth Sync="TRUE">30</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>pcclogicaldatatype</attrlabl>
+        <attrdef>The logical data type of the corresponding primary constraint column.</attrdef>
+        <attalias Sync="TRUE">Primary Constraint Column Logical Data Type</attalias>
+        <attrtype Sync="TRUE">String</attrtype>
+        <attwidth Sync="TRUE">20</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>sqlwhereclause</attrlabl>
+        <attrdef>Explicit constraints used to restrict which records in a table are subject to being aggregated. One of several possible mechanisms for specifying constraints as to which records are subject to being aggregated. Multiple constraint mechanisms may be concurrently specified.</attrdef>
+        <attalias Sync="TRUE">SQL Where Clause</attalias>
+        <attrtype Sync="TRUE">String</attrtype>
+        <attwidth Sync="TRUE">255</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>resultcolumnname</attrlabl>
+        <attrdef>The name of the column in which the results of the aggreation process are ultimately stored.</attrdef>
+        <attalias Sync="TRUE">Result Column Name</attalias>
+        <attrtype Sync="TRUE">String</attrtype>
+        <attwidth Sync="TRUE">10</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>tiebreakhighlabel</attrlabl>
+        <attrdef>The term to be displayed for the option to break ties by selecting the highest value.</attrdef>
+        <attalias Sync="TRUE">Tie Break High Label</attalias>
+        <attrtype Sync="TRUE">String</attrtype>
+        <attwidth Sync="TRUE">20</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>attributekey</attrlabl>
+        <attrdef>A integer value that uniquely identifies a soil attribute available in the Soil Data Viewer application.</attrdef>
+        <attalias Sync="TRUE">Attribute Key</attalias>
+        <attrtype Sync="TRUE">Integer</attrtype>
+        <attwidth Sync="TRUE">4</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>attributeuom</attrlabl>
+        <attrdef>The units of measure in which the corresponding soil attribute is recorded.</attrdef>
+        <attalias Sync="TRUE">Attribute Units of Measure</attalias>
+        <attrtype Sync="TRUE">String</attrtype>
+        <attwidth Sync="TRUE">60</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>attributecolumnname</attrlabl>
+        <attrdef>The name of the SSURGO table column that contains the corresponding soil attribute.</attrdef>
+        <attalias Sync="TRUE">Attribute Column Name</attalias>
+        <attrtype Sync="TRUE">String</attrtype>
+        <attwidth Sync="TRUE">30</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>tiebreakruleoptionflag</attrlabl>
+        <attrdef>For intrinsic soil properties, whether ties should select the lowest or highest value may be an arbitrary decision. In such a case, this flag can be set, and in advanced mode the user can then specify at run time whether the lowest or highest value should be selected in case of a tie.</attrdef>
+        <attalias Sync="TRUE">Tie Break Rule Option Flag</attalias>
+        <attrtype Sync="TRUE">SmallInteger</attrtype>
+        <attwidth Sync="TRUE">2</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>layerdepthuom</attrlabl>
+        <attrdef>The units of measure in which layer depth range is specified (centimeters or inches), when layer depths are qualified by "Depth Range".</attrdef>
+        <attalias Sync="TRUE">Layer Depth UOM</attalias>
+        <attrtype Sync="TRUE">String</attrtype>
+        <attwidth Sync="TRUE">20</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>depthqualifiermode</attrlabl>
+        <attrdef>Indicates the means by which layer depths are qualified: "Surface Layer", "All Layers" or "Depth Range". Pertains to properties of a soil horizon or layer.</attrdef>
+        <attalias Sync="TRUE">Depth Qualifier Mode</attalias>
+        <attrtype Sync="TRUE">String</attrtype>
+        <attwidth Sync="TRUE">20</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>layerdepthtotop</attrlabl>
+        <attrdef>Layer depth to top, when layer depths are qualified by "Depth Range".</attrdef>
+        <attalias Sync="TRUE">Layer Depth to Top</attalias>
+        <attrtype Sync="TRUE">Single</attrtype>
+        <attwidth Sync="TRUE">4</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>dqmodeoptionflag</attrlabl>
+        <attrdef>Indicates if the depth qualifier for the corresponding soil attribute can be changed at run time.</attrdef>
+        <attalias Sync="TRUE">Depth Qualifier Mode Option Flag</attalias>
+        <attrtype Sync="TRUE">SmallInteger</attrtype>
+        <attwidth Sync="TRUE">2</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>maplegendkey</attrlabl>
+        <attrdef>An integer number that unique identifies a map legend. A map legend identifies some of the attributes needed to create the legend for a corresponding thematic map.</attrdef>
+        <attalias Sync="TRUE">Map Legend Key</attalias>
+        <attrtype Sync="TRUE">Integer</attrtype>
+        <attwidth Sync="TRUE">4</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>maplegendclasses</attrlabl>
+        <attrdef>The desired number of classes in a thematic map legend. At the current time this value is only required when map legend type is "Natural Break Classes".</attrdef>
+        <attalias Sync="TRUE">Map Legend Classes</attalias>
+        <attrtype Sync="TRUE">SmallInteger</attrtype>
+        <attwidth Sync="TRUE">2</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>nullratingreplacementvalue</attrlabl>
+        <attrdef>The value that should be substituted in lieu of a null value in the aggregation results for the corresponding soil attribute. This value is populated when a null result should be interpreted as something other than null. Examples include flooding and ponding frequency class, where a null value should be interpreted as "None", and depth to soil restrictive layer or depth to water table, where a null value should be interpreted as signifying that no restrictive layer or water table exists within a certain depth.</attrdef>
+        <attalias Sync="TRUE">Null Rating Replacement Value</attalias>
+        <attrtype Sync="TRUE">String</attrtype>
+        <attwidth Sync="TRUE">254</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>interpnullsaszeroflag</attrlabl>
+        <attrdef>Indicates if null values for the corresponding soil attribute should be conditionally converted to zero at run time.</attrdef>
+        <attalias Sync="TRUE">Interpret Nulls as Zero Flag</attalias>
+        <attrtype Sync="TRUE">SmallInteger</attrtype>
+        <attwidth Sync="TRUE">2</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>horzaggmeth</attrlabl>
+        <attrdef>The method by which horizon level attribute values are aggregated in order to derive a value to represent the corresponding component. There are only two options, weighted average and weight sum. For the vast majority of horizon level attributes, weighted average is used. Weighted sum may be appropriate for a horizon level attribute whose corresponding unit of measure is something/(linear unit of measure). At the time this was written, the only horizon level attribute for which weighted sum is used is available water capacity, whose unit of measure is cm/cm.</attrdef>
+        <attalias Sync="TRUE">horzaggmeth</attalias>
+        <attrtype Sync="TRUE">String</attrtype>
+        <attwidth Sync="TRUE">30</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>effectivelogicaldatatype</attrlabl>
+        <attrdef>The logical data type of the output rating value. For most aggregation methods, this is the same as the logical data type of the column that is the subject of the SDV Rule in question. For aggregation method "Percent Present", the effective logical data type will always be "Integer". For aggregation method "Weighted Average", for a class soil interpretation, the effective logical data will always be "Float".</attrdef>
+        <attalias Sync="TRUE">effectivelogicaldatatype</attalias>
+        <attrtype Sync="TRUE">String</attrtype>
+        <attwidth Sync="TRUE">20</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>componentpercentcutoff</attrlabl>
+        <attrdef>The component percent composition value below which components should not be included in the aggregation process.</attrdef>
+        <attalias Sync="TRUE">Component Percent Cutoff</attalias>
+        <attrtype Sync="TRUE">SmallInteger</attrtype>
+        <attwidth Sync="TRUE">2</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>readytodistribute</attrlabl>
+        <attrdef>Indicates if the corresponding soil attribute or Soil Data Viewer rule is ready to distribute publicly.</attrdef>
+        <attalias Sync="TRUE">Ready to Distribute</attalias>
+        <attrtype Sync="TRUE">SmallInteger</attrtype>
+        <attwidth Sync="TRUE">2</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>algorithmname</attrlabl>
+        <attrdef>The name of a method by which a soil property or interpretation may be aggregated. In some table contexts, the default aggregation method for the corresponding soil attribute.</attrdef>
+        <attalias Sync="TRUE">Algorithm Name</attalias>
+        <attrtype Sync="TRUE">String</attrtype>
+        <attwidth Sync="TRUE">50</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>maplegendxml</attrlabl>
+        <attrdef>Information that is ultimately used to convey how the map legend for the corresponding soil attribute should be rendered.</attrdef>
+        <attalias Sync="TRUE">Map Legend XML</attalias>
+        <attrtype Sync="TRUE">String</attrtype>
+        <attwidth Sync="TRUE">2147483647</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>primaryconstraintlabel</attrlabl>
+        <attrdef>A connotative label associated with a column used to constrain which records in a table are subject to being aggregated. This label is displayed in the Soil Data Viewer interface to indicate to the user what kind of constraining value is being requested.</attrdef>
+        <attalias Sync="TRUE">Primary Constraint Label</attalias>
+        <attrtype Sync="TRUE">String</attrtype>
+        <attwidth Sync="TRUE">30</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>attributeuomabbrev</attrlabl>
+        <attrdef>The abbreviated form of the units of measure in which the corresponding soil attribute is recorded.</attrdef>
+        <attalias Sync="TRUE">Attribute Units of Measure Abbreviation</attalias>
+        <attrtype Sync="TRUE">String</attrtype>
+        <attwidth Sync="TRUE">30</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>nasissiteid</attrlabl>
+        <attrdef>An integer number that uniquely identifies a NASIS site.</attrdef>
+        <attalias Sync="TRUE">NASIS Site ID</attalias>
+        <attrtype Sync="TRUE">Integer</attrtype>
+        <attwidth Sync="TRUE">4</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>primaryconcolname</attrlabl>
+        <attrdef>The name of a column used to constrain which records in a table are subject to being aggregated. One of several possible mechanisms for specifying constraints as to which records are subject to being aggregated. Multiple constraint mechanisms may be concurrently specified.</attrdef>
+        <attalias Sync="TRUE">Primary Constraint Column Name</attalias>
+        <attrtype Sync="TRUE">String</attrtype>
+        <attwidth Sync="TRUE">30</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>horzlevelattribflag</attrlabl>
+        <attrdef>Indicates if the corresponding attribute is considered to be "at the horizon level", in the map unit table hierarchy.</attrdef>
+        <attalias Sync="TRUE">Horizon Level Attribute Flag</attalias>
+        <attrtype Sync="TRUE">SmallInteger</attrtype>
+        <attwidth Sync="TRUE">2</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>tiebreakdomainname</attrlabl>
+        <attrdef>In some cases the column that is being aggregated to the map unit level corresponds to an attribute whose values are restricted to a ranked domain. In this case, this rank value is used to resolve ties. In order to be able to retrieve this rank value, the corresonding domain name must be provided.</attrdef>
+        <attalias Sync="TRUE">Tie Break Domain Name</attalias>
+        <attrtype Sync="TRUE">String</attrtype>
+        <attwidth Sync="TRUE">40</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>complevelattribflag</attrlabl>
+        <attrdef>Indicates if the corresponding attribute is considered to be "at the component level", in the map unit table hierarchy.</attrdef>
+        <attalias Sync="TRUE">Component Level Attribute Flag</attalias>
+        <attrtype Sync="TRUE">SmallInteger</attrtype>
+        <attwidth Sync="TRUE">2</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>scclogicaldatatype</attrlabl>
+        <attrdef>The logical data type of the corresponding secondary constraint column.</attrdef>
+        <attalias Sync="TRUE">Secondary Constraint Column Logical Data Type</attalias>
+        <attrtype Sync="TRUE">String</attrtype>
+        <attwidth Sync="TRUE">20</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>tiebreaklowlabel</attrlabl>
+        <attrdef>The term to be displayed for the option to break ties by selecting the lowest value.</attrdef>
+        <attalias Sync="TRUE">Tie Break Low Label</attalias>
+        <attrtype Sync="TRUE">String</attrtype>
+        <attwidth Sync="TRUE">20</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>nasisrulename</attrlabl>
+        <attrdef>A name that uniquely identifies a particular NASIS rule (interpretation).</attrdef>
+        <attalias Sync="TRUE">NASIS Rule Name</attalias>
+        <attrtype Sync="TRUE">String</attrtype>
+        <attwidth Sync="TRUE">60</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>attributename</attrlabl>
+        <attrdef>The connotative name of the corresponding soil attribute.</attrdef>
+        <attalias Sync="TRUE">Attribute Name</attalias>
+        <attrtype Sync="TRUE">String</attrtype>
+        <attwidth Sync="TRUE">60</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>ruledesign</attrlabl>
+        <attrdef>An indicator of the design scheme of the rule. 1 = limitation 2 = suitability 3 = class When rule design is either "limitation" or "suitability", this entry provides an indication of which end of the fuzzy value range, 0 or 1, represents the most limiting features. When rule design is "class", the rating values are not considered to be logically ordered. Most non-class interpretive rules are designed such that the most limiting features are those with a fuzzy value closest to 1. However, non-class interpretive rules that are designed to evaluate the favorable features of a soil, such as the suitability as a gravel source, may be written such that the most limiting features are those with a fuzzy value closest to 0.</attrdef>
+        <attalias Sync="TRUE">Rule Design</attalias>
+        <attrtype Sync="TRUE">SmallInteger</attrtype>
+        <attwidth Sync="TRUE">2</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>beginningmonth</attrlabl>
+        <attrdef>Beginning month qualifier (full month name) for soil properties at the component month level or below.</attrdef>
+        <attalias Sync="TRUE">Beginning Month</attalias>
+        <attrtype Sync="TRUE">String</attrtype>
+        <attwidth Sync="TRUE">9</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>basicmodeflag</attrlabl>
+        <attrdef>Indicates if the corresponding soil attribute is available in the basic mode of the Soil Data Viewer application.</attrdef>
+        <attalias Sync="TRUE">Basic Mode Flag</attalias>
+        <attrtype Sync="TRUE">SmallInteger</attrtype>
+        <attwidth Sync="TRUE">2</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>secondaryconcolname</attrlabl>
+        <attrdef>The name of a column used to constrain which records in a table are subject to being aggregated. One of several possible mechanisms for specifying constraints as to which records are subject to being aggregated. Multiple contraint mechanisms may be concurrently specified. The choice list for the secondary constraint column is constrained to data found in records that match the value specified for the primary constraint column.</attrdef>
+        <attalias Sync="TRUE">Secondary Constraint Column Name</attalias>
+        <attrtype Sync="TRUE">String</attrtype>
+        <attwidth Sync="TRUE">30</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>tiebreakrule</attrlabl>
+        <attrdef>Indicates if ties should be broken by selecting the lowest value (-1) or the highest value (1).</attrdef>
+        <attalias Sync="TRUE">Tie Break Rule</attalias>
+        <attrtype Sync="TRUE">SmallInteger</attrtype>
+        <attwidth Sync="TRUE">2</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>attributefieldsize</attrlabl>
+        <attrdef>The maximum allowable number of characters in a string attribute.</attrdef>
+        <attalias Sync="TRUE">Attribute Field Size</attalias>
+        <attrtype Sync="TRUE">SmallInteger</attrtype>
+        <attwidth Sync="TRUE">2</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>attributetype</attrlabl>
+        <attrdef>A string that indicates if the corresponding Soil Data Viewer rule pertains to an intrinsic soil property or a soil interpretation.</attrdef>
+        <attalias Sync="TRUE">Attribute Type</attalias>
+        <attrtype Sync="TRUE">String</attrtype>
+        <attwidth Sync="TRUE">20</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>mapunitlevelattribflag</attrlabl>
+        <attrdef>Indicates if the corresponding attribute is considered to be "at the map unit level", in the map unit table hierarchy.</attrdef>
+        <attalias Sync="TRUE">Map Unit Level Attribute Flag</attalias>
+        <attrtype Sync="TRUE">SmallInteger</attrtype>
+        <attwidth Sync="TRUE">2</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>cmonthlevelattribflag</attrlabl>
+        <attrdef>Indicates if the corresponding attribute is considered to be "at the component month level", in the map unit table hierarchy.</attrdef>
+        <attalias Sync="TRUE">Component Month Level Attribute Flag</attalias>
+        <attrtype Sync="TRUE">SmallInteger</attrtype>
+        <attwidth Sync="TRUE">2</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>monthrangeoptionflag</attrlabl>
+        <attrdef>Indicates if the month range qualifiers for the corresponding soil attribute can be changed at run time.</attrdef>
+        <attalias Sync="TRUE">Month Range Option Flag</attalias>
+        <attrtype Sync="TRUE">SmallInteger</attrtype>
+        <attwidth Sync="TRUE">2</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>layerdepthtobottom</attrlabl>
+        <attrdef>Layer depth to bottom, when layer depths are qualified by "Depth Range".</attrdef>
+        <attalias Sync="TRUE">Layer Depth to Bottom</attalias>
+        <attrtype Sync="TRUE">Single</attrtype>
+        <attwidth Sync="TRUE">4</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>secondaryconstraintlabel</attrlabl>
+        <attrdef>A connotative label associated with a column used to constrain which records in a table are subject to being aggregated. This label is displayed in the Soil Data Viewer interface to indicate to the user what kind of constraining value is being requested.</attrdef>
+        <attalias Sync="TRUE">Secondary Constraint Label</attalias>
+        <attrtype Sync="TRUE">String</attrtype>
+        <attwidth Sync="TRUE">30</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>interpnullsaszerooptionflag</attrlabl>
+        <attrdef>Indicates if the option to interpret nulls as zero for the corresponding soil attribute should be able to be changed at run time.</attrdef>
+        <attalias Sync="TRUE">Interpret Nulls as Zero Option Flag</attalias>
+        <attrtype Sync="TRUE">SmallInteger</attrtype>
+        <attwidth Sync="TRUE">2</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>endingmonth</attrlabl>
+        <attrdef>Ending month qualifier (full month name) for soil properties at the component month level or below.</attrdef>
+        <attalias Sync="TRUE">Ending Month</attalias>
+        <attrtype Sync="TRUE">String</attrtype>
+        <attwidth Sync="TRUE">9</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>wlupdated</attrlabl>
+        <attrdef>The last date in which any data element of a particular NASIS object (area, data mapunit, etc.) was modified.</attrdef>
+        <attalias Sync="TRUE">Last Updated</attalias>
+        <attrtype Sync="TRUE">Date</attrtype>
+        <attwidth Sync="TRUE">8</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>attributedescription</attrlabl>
+        <attrdef>A narrative description of the corresponding soil attribute.</attrdef>
+        <attalias Sync="TRUE">Attribute Description</attalias>
+        <attrtype Sync="TRUE">String</attrtype>
+        <attwidth Sync="TRUE">2147483647</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>attributelogicaldatatype</attrlabl>
+        <attrdef>The logical data type of the corresponding soil attribute.</attrdef>
+        <attalias Sync="TRUE">Attribute Logical Data Type</attalias>
+        <attrtype Sync="TRUE">String</attrtype>
+        <attwidth Sync="TRUE">20</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>notratedphrase</attrlabl>
+        <attrdef>For a soil interpretation, the phrase to be used when a rating cannot be determined. The default value for this string is "Not rated", but NASIS permits the designer of an interpretation to change this default.</attrdef>
+        <attalias Sync="TRUE">Not Rated Phrase</attalias>
+        <attrtype Sync="TRUE">String</attrtype>
+        <attwidth Sync="TRUE">254</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+    </detailed>
+  </eainfo>
+  <distInfo>
+    <distFormat>
+      <formatName Sync="TRUE">File Geodatabase Table</formatName>
+    </distFormat>
+  </distInfo>
+  <mdHrLvName Sync="TRUE">dataset</mdHrLvName>
+</metadata>

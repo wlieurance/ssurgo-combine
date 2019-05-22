@@ -1,0 +1,70 @@
+﻿<metadata>
+  <idinfo>
+    <citation>
+      <citeinfo>
+        <title>COGEOMORDESC</title>
+        <geoform>tabular digital data</geoform>
+      </citeinfo>
+    </citation>
+    <descript>
+      <abstract>The Component Geomorphic Description table lists the geomorphic features on which the referenced map unit component typically occurs.</abstract>
+      <purpose>Component Geomorphic Description Table</purpose>
+    </descript>
+    <accconst>None</accconst>
+    <useconst>None</useconst>
+    <native>Microsoft Windows 7 Version 6.1 (Build 7601) Service Pack 1; Esri ArcGIS 10.1.1.3143</native>
+  </idinfo>
+  <eainfo>
+    <detailed>
+      <enttyp>
+        <enttypl>cogeomordesc</enttypl>
+      </enttyp>
+      <attr>
+        <attrlabl>OBJECTID</attrlabl>
+        <attrdef>Internal feature number.</attrdef>
+        <attrdefs>Esri</attrdefs>
+        <attrdomv>
+          <udom>Sequential unique whole numbers that are automatically generated.</udom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>geomftname</attrlabl>
+        <attrdef>One of several pseudo-hierarchical terms used to describe relative levels of scale for geomorphic terms.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>cogeomdkey</attrlabl>
+        <attrdef>A non-connotative string of characters used to uniquely identify a record in the Component Geomorphic Description table.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>rvindicator</attrlabl>
+        <attrdef>A yes/no field that indicates if a particular geomorphic feature is representative for the component.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>cokey</attrlabl>
+        <attrdef>The unique identifier of a record in the Component table. Use this column to join the Component Geomorphic Description table to the Component table.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>existsonfeat</attrlabl>
+        <attrdef>An integer referring to the Feature ID in another row in the same table, intended to indicate a relationship between two or more rows in a table.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>geomfname</attrlabl>
+        <attrdef>A word or group of words used to name a feature on the earth's surface, expressed in the plural form.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>geomfmod</attrlabl>
+        <attrdef>A user specified term(s) used in association with geomorphic features to further define, clarify, and describe the setting of a soil in the the landscape. The terms may, for example, describe relative position, mode of formation, degree of degradation, slope, or geologic time of origin.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>geomfeatid</attrlabl>
+        <attrdef>An integer number assigned by a user to identify a particular row in the table.</attrdef>
+      </attr>
+    </detailed>
+  </eainfo>
+  <metainfo>
+    <metd>20131230</metd>
+    <metstdn>FGDC Content Standard for Digital Geospatial Metadata</metstdn>
+    <metstdv>FGDC-STD-001-1998</metstdv>
+    <mettc>local time</mettc>
+  </metainfo>
+</metadata>

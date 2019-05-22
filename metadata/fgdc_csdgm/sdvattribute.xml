@@ -1,0 +1,250 @@
+﻿<metadata>
+  <idinfo>
+    <citation>
+      <citeinfo>
+        <title>SDVATTRIBUTE</title>
+        <geoform>tabular digital data</geoform>
+      </citeinfo>
+    </citation>
+    <descript>
+      <abstract>Each record in this table corresponds to either an intrinsic soil property or a soil interpretation that is available in the Soil Data Viewer application. A record in this table is also referred to as an "SDV rule". A rule provides most of the information necessary for the Soil Data Viewer application to be able to create a thematic map for the corresponding soil attribute. Some additional information needed in order to be able to create a thematic map may be collected at run time.</abstract>
+      <purpose>Sdv Attribute Table</purpose>
+    </descript>
+    <accconst>None</accconst>
+    <useconst>None</useconst>
+    <native>Microsoft Windows 7 Version 6.1 (Build 7601) Service Pack 1; Esri ArcGIS 10.1.1.3143</native>
+  </idinfo>
+  <eainfo>
+    <detailed>
+      <enttyp>
+        <enttypl>sdvattribute</enttypl>
+      </enttyp>
+      <attr>
+        <attrlabl>attributeprecision</attrlabl>
+        <attrdef>The decimal precision of the corresponding soil attribute.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>OBJECTID</attrlabl>
+        <attrdef>Internal feature number.</attrdef>
+        <attrdefs>Esri</attrdefs>
+        <attrdomv>
+          <udom>Sequential unique whole numbers that are automatically generated.</udom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>attributetablename</attrlabl>
+        <attrdef>The name of the SSURGO table that contains the corresponding soil attribute.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>pcclogicaldatatype</attrlabl>
+        <attrdef>The logical data type of the corresponding primary constraint column.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>sqlwhereclause</attrlabl>
+        <attrdef>Explicit constraints used to restrict which records in a table are subject to being aggregated. One of several possible mechanisms for specifying constraints as to which records are subject to being aggregated. Multiple constraint mechanisms may be concurrently specified.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>resultcolumnname</attrlabl>
+        <attrdef>The name of the column in which the results of the aggreation process are ultimately stored.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>tiebreakhighlabel</attrlabl>
+        <attrdef>The term to be displayed for the option to break ties by selecting the highest value.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>attributekey</attrlabl>
+        <attrdef>A integer value that uniquely identifies a soil attribute available in the Soil Data Viewer application.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>attributeuom</attrlabl>
+        <attrdef>The units of measure in which the corresponding soil attribute is recorded.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>attributecolumnname</attrlabl>
+        <attrdef>The name of the SSURGO table column that contains the corresponding soil attribute.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>tiebreakruleoptionflag</attrlabl>
+        <attrdef>For intrinsic soil properties, whether ties should select the lowest or highest value may be an arbitrary decision. In such a case, this flag can be set, and in advanced mode the user can then specify at run time whether the lowest or highest value should be selected in case of a tie.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>layerdepthuom</attrlabl>
+        <attrdef>The units of measure in which layer depth range is specified (centimeters or inches), when layer depths are qualified by "Depth Range".</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>depthqualifiermode</attrlabl>
+        <attrdef>Indicates the means by which layer depths are qualified: "Surface Layer", "All Layers" or "Depth Range". Pertains to properties of a soil horizon or layer.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>layerdepthtotop</attrlabl>
+        <attrdef>Layer depth to top, when layer depths are qualified by "Depth Range".</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>dqmodeoptionflag</attrlabl>
+        <attrdef>Indicates if the depth qualifier for the corresponding soil attribute can be changed at run time.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>maplegendkey</attrlabl>
+        <attrdef>An integer number that unique identifies a map legend. A map legend identifies some of the attributes needed to create the legend for a corresponding thematic map.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>maplegendclasses</attrlabl>
+        <attrdef>The desired number of classes in a thematic map legend. At the current time this value is only required when map legend type is "Natural Break Classes".</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>nullratingreplacementvalue</attrlabl>
+        <attrdef>The value that should be substituted in lieu of a null value in the aggregation results for the corresponding soil attribute. This value is populated when a null result should be interpreted as something other than null. Examples include flooding and ponding frequency class, where a null value should be interpreted as "None", and depth to soil restrictive layer or depth to water table, where a null value should be interpreted as signifying that no restrictive layer or water table exists within a certain depth.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>interpnullsaszeroflag</attrlabl>
+        <attrdef>Indicates if null values for the corresponding soil attribute should be conditionally converted to zero at run time.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>horzaggmeth</attrlabl>
+        <attrdef>The method by which horizon level attribute values are aggregated in order to derive a value to represent the corresponding component. There are only two options, weighted average and weight sum. For the vast majority of horizon level attributes, weighted average is used. Weighted sum may be appropriate for a horizon level attribute whose corresponding unit of measure is something/(linear unit of measure). At the time this was written, the only horizon level attribute for which weighted sum is used is available water capacity, whose unit of measure is cm/cm.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>effectivelogicaldatatype</attrlabl>
+        <attrdef>The logical data type of the output rating value. For most aggregation methods, this is the same as the logical data type of the column that is the subject of the SDV Rule in question. For aggregation method "Percent Present", the effective logical data type will always be "Integer". For aggregation method "Weighted Average", for a class soil interpretation, the effective logical data will always be "Float".</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>componentpercentcutoff</attrlabl>
+        <attrdef>The component percent composition value below which components should not be included in the aggregation process.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>readytodistribute</attrlabl>
+        <attrdef>Indicates if the corresponding soil attribute or Soil Data Viewer rule is ready to distribute publicly.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>algorithmname</attrlabl>
+        <attrdef>The name of a method by which a soil property or interpretation may be aggregated. In some table contexts, the default aggregation method for the corresponding soil attribute.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>maplegendxml</attrlabl>
+        <attrdef>Information that is ultimately used to convey how the map legend for the corresponding soil attribute should be rendered.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>primaryconstraintlabel</attrlabl>
+        <attrdef>A connotative label associated with a column used to constrain which records in a table are subject to being aggregated. This label is displayed in the Soil Data Viewer interface to indicate to the user what kind of constraining value is being requested.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>attributeuomabbrev</attrlabl>
+        <attrdef>The abbreviated form of the units of measure in which the corresponding soil attribute is recorded.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>nasissiteid</attrlabl>
+        <attrdef>An integer number that uniquely identifies a NASIS site.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>primaryconcolname</attrlabl>
+        <attrdef>The name of a column used to constrain which records in a table are subject to being aggregated. One of several possible mechanisms for specifying constraints as to which records are subject to being aggregated. Multiple constraint mechanisms may be concurrently specified.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>horzlevelattribflag</attrlabl>
+        <attrdef>Indicates if the corresponding attribute is considered to be "at the horizon level", in the map unit table hierarchy.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>tiebreakdomainname</attrlabl>
+        <attrdef>In some cases the column that is being aggregated to the map unit level corresponds to an attribute whose values are restricted to a ranked domain. In this case, this rank value is used to resolve ties. In order to be able to retrieve this rank value, the corresonding domain name must be provided.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>complevelattribflag</attrlabl>
+        <attrdef>Indicates if the corresponding attribute is considered to be "at the component level", in the map unit table hierarchy.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>scclogicaldatatype</attrlabl>
+        <attrdef>The logical data type of the corresponding secondary constraint column.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>tiebreaklowlabel</attrlabl>
+        <attrdef>The term to be displayed for the option to break ties by selecting the lowest value.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>nasisrulename</attrlabl>
+        <attrdef>A name that uniquely identifies a particular NASIS rule (interpretation).</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>attributename</attrlabl>
+        <attrdef>The connotative name of the corresponding soil attribute.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>ruledesign</attrlabl>
+        <attrdef>An indicator of the design scheme of the rule. 1 = limitation 2 = suitability 3 = class When rule design is either "limitation" or "suitability", this entry provides an indication of which end of the fuzzy value range, 0 or 1, represents the most limiting features. When rule design is "class", the rating values are not considered to be logically ordered. Most non-class interpretive rules are designed such that the most limiting features are those with a fuzzy value closest to 1. However, non-class interpretive rules that are designed to evaluate the favorable features of a soil, such as the suitability as a gravel source, may be written such that the most limiting features are those with a fuzzy value closest to 0.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>beginningmonth</attrlabl>
+        <attrdef>Beginning month qualifier (full month name) for soil properties at the component month level or below.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>basicmodeflag</attrlabl>
+        <attrdef>Indicates if the corresponding soil attribute is available in the basic mode of the Soil Data Viewer application.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>secondaryconcolname</attrlabl>
+        <attrdef>The name of a column used to constrain which records in a table are subject to being aggregated. One of several possible mechanisms for specifying constraints as to which records are subject to being aggregated. Multiple contraint mechanisms may be concurrently specified. The choice list for the secondary constraint column is constrained to data found in records that match the value specified for the primary constraint column.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>tiebreakrule</attrlabl>
+        <attrdef>Indicates if ties should be broken by selecting the lowest value (-1) or the highest value (1).</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>attributefieldsize</attrlabl>
+        <attrdef>The maximum allowable number of characters in a string attribute.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>attributetype</attrlabl>
+        <attrdef>A string that indicates if the corresponding Soil Data Viewer rule pertains to an intrinsic soil property or a soil interpretation.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>mapunitlevelattribflag</attrlabl>
+        <attrdef>Indicates if the corresponding attribute is considered to be "at the map unit level", in the map unit table hierarchy.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>cmonthlevelattribflag</attrlabl>
+        <attrdef>Indicates if the corresponding attribute is considered to be "at the component month level", in the map unit table hierarchy.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>monthrangeoptionflag</attrlabl>
+        <attrdef>Indicates if the month range qualifiers for the corresponding soil attribute can be changed at run time.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>layerdepthtobottom</attrlabl>
+        <attrdef>Layer depth to bottom, when layer depths are qualified by "Depth Range".</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>secondaryconstraintlabel</attrlabl>
+        <attrdef>A connotative label associated with a column used to constrain which records in a table are subject to being aggregated. This label is displayed in the Soil Data Viewer interface to indicate to the user what kind of constraining value is being requested.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>interpnullsaszerooptionflag</attrlabl>
+        <attrdef>Indicates if the option to interpret nulls as zero for the corresponding soil attribute should be able to be changed at run time.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>endingmonth</attrlabl>
+        <attrdef>Ending month qualifier (full month name) for soil properties at the component month level or below.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>wlupdated</attrlabl>
+        <attrdef>The last date in which any data element of a particular NASIS object (area, data mapunit, etc.) was modified.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>attributedescription</attrlabl>
+        <attrdef>A narrative description of the corresponding soil attribute.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>attributelogicaldatatype</attrlabl>
+        <attrdef>The logical data type of the corresponding soil attribute.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>notratedphrase</attrlabl>
+        <attrdef>For a soil interpretation, the phrase to be used when a rating cannot be determined. The default value for this string is "Not rated", but NASIS permits the designer of an interpretation to change this default.</attrdef>
+      </attr>
+    </detailed>
+  </eainfo>
+  <metainfo>
+    <metd>20131230</metd>
+    <metstdn>FGDC Content Standard for Digital Geospatial Metadata</metstdn>
+    <metstdv>FGDC-STD-001-1998</metstdv>
+    <mettc>local time</mettc>
+  </metainfo>
+</metadata>

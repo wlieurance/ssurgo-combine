@@ -1,0 +1,1160 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<metadata xml:lang="en">
+  <Esri>
+    <CreaDate>20131230</CreaDate>
+    <CreaTime>18494600</CreaTime>
+    <ArcGISFormat>1.0</ArcGISFormat>
+    <ArcGISstyle>FGDC CSDGM Metadata</ArcGISstyle>
+    <SyncOnce>FALSE</SyncOnce>
+    <DataProperties>
+      <itemProps>
+        <itemName Sync="TRUE">component</itemName>
+        <relatedItems>
+          <item>
+            <itemName />
+          </item>
+          <item>
+            <itemName />
+            <itemType Sync="TRUE">Relationship</itemType>
+          </item>
+          <item>
+            <itemName />
+            <itemType Sync="TRUE">Relationship</itemType>
+          </item>
+          <item>
+            <itemName />
+            <itemType Sync="TRUE">Relationship</itemType>
+          </item>
+          <item>
+            <itemName />
+            <itemType Sync="TRUE">Relationship</itemType>
+          </item>
+          <item>
+            <itemName />
+            <itemType Sync="TRUE">Relationship</itemType>
+          </item>
+          <item>
+            <itemName />
+            <itemType Sync="TRUE">Relationship</itemType>
+          </item>
+          <item>
+            <itemName />
+            <itemType Sync="TRUE">Relationship</itemType>
+          </item>
+          <item>
+            <itemName />
+            <itemType Sync="TRUE">Relationship</itemType>
+          </item>
+          <item>
+            <itemName />
+            <itemType Sync="TRUE">Relationship</itemType>
+          </item>
+          <item>
+            <itemName />
+            <itemType Sync="TRUE">Relationship</itemType>
+          </item>
+          <item>
+            <itemName />
+            <itemType Sync="TRUE">Relationship</itemType>
+          </item>
+          <item>
+            <itemName />
+            <itemType Sync="TRUE">Relationship</itemType>
+          </item>
+          <item>
+            <itemName />
+            <itemType Sync="TRUE">Relationship</itemType>
+          </item>
+          <item>
+            <itemName />
+            <itemType Sync="TRUE">Relationship</itemType>
+          </item>
+          <item>
+            <itemName />
+            <itemType Sync="TRUE">Relationship</itemType>
+          </item>
+          <item>
+            <itemName />
+            <itemType Sync="TRUE">Relationship</itemType>
+          </item>
+          <item>
+            <itemName />
+            <itemType Sync="TRUE">Relationship</itemType>
+          </item>
+          <item>
+            <itemName />
+            <itemType Sync="TRUE">Relationship</itemType>
+          </item>
+          <item>
+            <itemName />
+            <itemType Sync="TRUE">Relationship</itemType>
+          </item>
+          <item>
+            <itemName />
+            <itemType Sync="TRUE">Relationship</itemType>
+          </item>
+          <item>
+            <itemName />
+            <itemType Sync="TRUE">Relationship</itemType>
+          </item>
+          <item>
+            <itemName Sync="TRUE">zMapunit_Component</itemName>
+            <itemType Sync="TRUE">Relationship</itemType>
+          </item>
+        </relatedItems>
+        <itemLocation>
+          <linkage Sync="TRUE">file://\\ARCNELI95L00052\E$\Geodata\2013\TemplateDB\Template_FGDB_CONUS_AlbersNAD1983.gdb</linkage>
+          <protocol Sync="TRUE">Local Area Network</protocol>
+        </itemLocation>
+        <imsContentType Sync="TRUE">002</imsContentType>
+      </itemProps>
+    </DataProperties>
+    <SyncDate>20131230</SyncDate>
+    <SyncTime>18510300</SyncTime>
+    <ModDate>20131230</ModDate>
+    <ModTime>18510300</ModTime>
+  </Esri>
+  <mdLang>
+    <languageCode value="eng" />
+    <countryCode value="USA" Sync="TRUE" />
+  </mdLang>
+  <mdChar>
+    <CharSetCd value="004" />
+  </mdChar>
+  <mdHrLv>
+    <ScopeCd value="005" />
+  </mdHrLv>
+  <mdDateSt>20131230</mdDateSt>
+  <mdStanName>ArcGIS Metadata</mdStanName>
+  <mdStanVer>1.0</mdStanVer>
+  <dataIdInfo>
+    <idCitation>
+      <resTitle>COMPONENT</resTitle>
+      <presForm>
+        <PresFormCd value="001" />
+      </presForm>
+      <presForm>
+        <fgdcGeoform>tabular digital data</fgdcGeoform>
+      </presForm>
+    </idCitation>
+    <idAbs>The Component table lists the map unit components identified in the referenced map unit, and selected properties of each component. If the Component % is greater than zero (low=65, RV=75, high=90) for a component, that component exists in every delineation of that mapunit. If the Component % includes zero (low=0, RV=50, high=90), the component may exist in some delineations, but not in others.</idAbs>
+    <idPurp>Component Table</idPurp>
+    <dataLang>
+      <languageCode value="eng" />
+      <countryCode value="USA" Sync="TRUE" />
+    </dataLang>
+    <envirDesc>Microsoft Windows 7 Version 6.1 (Build 7601) Service Pack 1; Esri ArcGIS 10.1.1.3143</envirDesc>
+    <spatRpType>
+      <SpatRepTypCd value="003" Sync="TRUE" />
+    </spatRpType>
+  </dataIdInfo>
+  <eainfo>
+    <detailed Name="component">
+      <enttyp>
+        <enttypl>component</enttypl>
+        <enttypt Sync="TRUE">Table</enttypt>
+        <enttypc Sync="TRUE">0</enttypc>
+      </enttyp>
+      <attr>
+        <attrlabl>slopelenusle_h</attrlabl>
+        <attrdef>The distance from the point of origin of overland flow to the point where either the slope gradient decreases enough that deposition begins, or the runoff water enters a well-defined channel that may be part of a drainage network or a constructed channel. (Predicting Rainfall Erosion Losses a Guide to Conservation Planning, Agr. Handbook #537, USDA, 1978).</attrdef>
+        <attalias Sync="TRUE">Slope Length USLE - High Value</attalias>
+        <attrtype Sync="TRUE">SmallInteger</attrtype>
+        <attwidth Sync="TRUE">2</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>wlshrub</attrlabl>
+        <attrdef>Suitability of the soil to produce the wildlife element shrub.</attrdef>
+        <attalias Sync="TRUE">Shrub Habitat</attalias>
+        <attrtype Sync="TRUE">String</attrtype>
+        <attwidth Sync="TRUE">254</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>comppct_h</attrlabl>
+        <attrdef>The percentage of the component of the mapunit.</attrdef>
+        <attalias Sync="TRUE">Comp % - High Value</attalias>
+        <attrtype Sync="TRUE">SmallInteger</attrtype>
+        <attwidth Sync="TRUE">2</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>rsprod_l</attrlabl>
+        <attrdef>The estimated annual potential production of range forage per year.</attrdef>
+        <attalias Sync="TRUE">Range Prod - Low Value</attalias>
+        <attrtype Sync="TRUE">Integer</attrtype>
+        <attwidth Sync="TRUE">4</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>foragesuitgrpid</attrlabl>
+        <attrdef>The identifier of the Forage Suitability Group to which the map unit component is assigned.</attrdef>
+        <attalias Sync="TRUE">Forage Suitability Group ID</attalias>
+        <attrtype Sync="TRUE">String</attrtype>
+        <attwidth Sync="TRUE">11</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>taxclname</attrlabl>
+        <attrdef>A concatenation of the Soil Taxonomy subgroup and family for a soil (long name).</attrdef>
+        <attalias Sync="TRUE">Taxonomic Class</attalias>
+        <attrtype Sync="TRUE">String</attrtype>
+        <attwidth Sync="TRUE">120</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>corcon</attrlabl>
+        <attrdef>Susceptibility of concrete to corrosion when in contact with the soil.</attrdef>
+        <attalias Sync="TRUE">Corrosion Concrete</attalias>
+        <attrtype Sync="TRUE">String</attrtype>
+        <attwidth Sync="TRUE">254</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>hydgrp</attrlabl>
+        <attrdef>A group of soils having similar runoff potential under similar storm and cover conditions. Examples are A and A/D. (NSSH)</attrdef>
+        <attalias Sync="TRUE">Hydrologic Group</attalias>
+        <attrtype Sync="TRUE">String</attrtype>
+        <attwidth Sync="TRUE">254</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>totalsub_r</attrlabl>
+        <attrdef>The potential decrease of surface elevation as a result of the drainage of wet soils having organic layers or semifluid mineral layers. (NSSH)</attrdef>
+        <attalias Sync="TRUE">Total Subsidence - Representative Value</attalias>
+        <attrtype Sync="TRUE">SmallInteger</attrtype>
+        <attwidth Sync="TRUE">2</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>majcompflag</attrlabl>
+        <attrdef>Indicates whether or not a component is a major component in the mapunit.</attrdef>
+        <attalias Sync="TRUE">Major Component</attalias>
+        <attrtype Sync="TRUE">String</attrtype>
+        <attwidth Sync="TRUE">3</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>rsprod_r</attrlabl>
+        <attrdef>The estimated annual potential production of range forage per year.</attrdef>
+        <attalias Sync="TRUE">Range Prod - Representative Value</attalias>
+        <attrtype Sync="TRUE">Integer</attrtype>
+        <attwidth Sync="TRUE">4</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>map_l</attrlabl>
+        <attrdef>The arithmetic average of the total annual (liquid) precipitation taken over the standard "normal" period, 1961-1990.</attrdef>
+        <attalias Sync="TRUE">MAP - Low Value</attalias>
+        <attrtype Sync="TRUE">SmallInteger</attrtype>
+        <attwidth Sync="TRUE">2</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>ffd_r</attrlabl>
+        <attrdef>The expected number of days between the last freezing temperature (0 degrees Celsius) in spring (Jan-Jul) and the first freezing temperature (0 degrees Celsius) in the fall (Aug-Dec). The number of days is based on the probability that the values for the standard "normal" period of 1961 to 1990 will be exceeded in 5 years out of 10.</attrdef>
+        <attalias Sync="TRUE">Frost Free Days - Representative Value</attalias>
+        <attrtype Sync="TRUE">SmallInteger</attrtype>
+        <attwidth Sync="TRUE">2</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>wlhardwood</attrlabl>
+        <attrdef>Suitability of the soil to produce the wildlife element hardwood trees.</attrdef>
+        <attalias Sync="TRUE">Hardwood Habitat</attalias>
+        <attrtype Sync="TRUE">String</attrtype>
+        <attwidth Sync="TRUE">254</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>wlgrain</attrlabl>
+        <attrdef>Suitability of the soil to produce the wildlife element grain.</attrdef>
+        <attalias Sync="TRUE">Grain Habitat</attalias>
+        <attrtype Sync="TRUE">String</attrtype>
+        <attwidth Sync="TRUE">254</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>reannualprecip_l</attrlabl>
+        <attrdef>An estimate of the amount of moisture available for plant use and/or soil forming processes at a given site. It may vary, plus or minus, from "actual" precipitation amounts as a function of runon, runoff, temperature, aspect, etc.</attrdef>
+        <attalias Sync="TRUE">REAP - Low Value</attalias>
+        <attrtype Sync="TRUE">SmallInteger</attrtype>
+        <attwidth Sync="TRUE">2</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>wei</attrlabl>
+        <attrdef>A value in tons/acre/year that is a factor in calculating soil loss by wind. The values are acquired from WEG.</attrdef>
+        <attalias Sync="TRUE">WEI</attalias>
+        <attrtype Sync="TRUE">String</attrtype>
+        <attwidth Sync="TRUE">254</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>nirrcapscl</attrlabl>
+        <attrdef>The second category in the land capability classification system for nonirrigated soils.</attrdef>
+        <attalias Sync="TRUE">Nirr Land Capability Subclass</attalias>
+        <attrtype Sync="TRUE">String</attrtype>
+        <attwidth Sync="TRUE">254</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>compkind</attrlabl>
+        <attrdef>Identifies the kind of component of the mapunit. Examples are series and miscellaneous areas.</attrdef>
+        <attalias Sync="TRUE">Component Kind</attalias>
+        <attrtype Sync="TRUE">String</attrtype>
+        <attwidth Sync="TRUE">254</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>elev_l</attrlabl>
+        <attrdef>The vertical distance from mean sea level to a point on the earth's surface.</attrdef>
+        <attalias Sync="TRUE">Elevation - Low Value</attalias>
+        <attrtype Sync="TRUE">Single</attrtype>
+        <attwidth Sync="TRUE">4</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>slopelenusle_l</attrlabl>
+        <attrdef>The distance from the point of origin of overland flow to the point where either the slope gradient decreases enough that deposition begins, or the runoff water enters a well-defined channel that may be part of a drainage network or a constructed channel. (Predicting Rainfall Erosion Losses a Guide to Conservation Planning, Agr. Handbook #537, USDA, 1978).</attrdef>
+        <attalias Sync="TRUE">Slope Length USLE - Low Value</attalias>
+        <attrtype Sync="TRUE">SmallInteger</attrtype>
+        <attwidth Sync="TRUE">2</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>initsub_h</attrlabl>
+        <attrdef>The decrease of surface elevation that occurs within the first 3 years of drainage of wet soils having organic layers or semifluid mineral layers. (NSSH)</attrdef>
+        <attalias Sync="TRUE">Init Subsidence - High Value</attalias>
+        <attrtype Sync="TRUE">SmallInteger</attrtype>
+        <attwidth Sync="TRUE">2</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>taxtempcl</attrlabl>
+        <attrdef>The taxonomic family temperature class used to construct the official classification name. It may be null when the taxonomic family temperature class is embedded in the classification name. The actual taxonomic temperature regime is recorded in another place.</attrdef>
+        <attalias Sync="TRUE">Temperature Class</attalias>
+        <attrtype Sync="TRUE">String</attrtype>
+        <attwidth Sync="TRUE">254</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>taxpartsizemod</attrlabl>
+        <attrdef>Taxonomic family criteria that is used to indicate the presence of more than two strongly contrasting classes in the particle size control section. (Soil Taxonomy)</attrdef>
+        <attalias Sync="TRUE">Particle Size Mod</attalias>
+        <attrtype Sync="TRUE">String</attrtype>
+        <attwidth Sync="TRUE">254</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>taxceactcl</attrlabl>
+        <attrdef>Cation exchange activity classes are used as family criteria differentiae. It is the relative cation exchange (CEC) activity level of the soil based on the CEC to clay ratio. (Soil Taxonomy)</attrdef>
+        <attalias Sync="TRUE">CEC Activity Class</attalias>
+        <attrtype Sync="TRUE">String</attrtype>
+        <attwidth Sync="TRUE">254</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>taxpartsize</attrlabl>
+        <attrdef>Particle-size classes are used as family differentiae. Particle-size refers to grain-size distribution of the whole soil and is not the same as texture. (Soil Taxonomy).</attrdef>
+        <attalias Sync="TRUE">Particle Size</attalias>
+        <attrtype Sync="TRUE">String</attrtype>
+        <attwidth Sync="TRUE">254</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>flsoirunoffpot</attrlabl>
+        <attrdef>The potential of the soil to allow chemicals to leave the application site with runoff water and/or detached soil particles, as defined for use in Florida. Soils with a rating of High or Medium are considered to pose a potential runoff hazard.</attrdef>
+        <attalias Sync="TRUE">FL Runoff Potential</attalias>
+        <attrtype Sync="TRUE">String</attrtype>
+        <attwidth Sync="TRUE">254</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>fltemik2use</attrlabl>
+        <attrdef>The following soil related use restrictions for Temik 10G (aldicarb) exits if the pesticide is to be applied to citrus in Florida. Temik cannot be used within 1000 feet of a drinking water well unless it is known that the well is cased to 100 feet below ground level or to a minimum of 30 feet below the water table in soils that have: 1. A permeability of twenty inches/hour or more (very rapid permeability) and 2. A water holding capacity of less than 0.06 inch/inch of soil (very low water holding capacity)-- in all horizons to a depth of 80 inches or to bedrock if bedrock is within 80 inches of the surface. The choice indicates that if a component has soil properties, according to state labeling, favorable for the application of the pesticide Temik 10G, the entry is Yes. If the component does not have favorable properties the entry is No.</attrdef>
+        <attalias Sync="TRUE">FL Temik</attalias>
+        <attrtype Sync="TRUE">String</attrtype>
+        <attwidth Sync="TRUE">3</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>flphe</attrlabl>
+        <attrdef>A data element with a yes/no entry, assigned by soil component, used in Florida. The basis for identifying highly erodible land is the erodibility index of a soil survey map unit. The erodibility index of a soil is determined by dividing the potential erodibility for each soil survey map unit by the soil loss tolerance (T) value established for the soil. The potential erodibility for a map unit differs according to the erosion type (water or wind erosion). The T value represents the maximum annual rate of soil erosion that could take place without causing a decline in long-term productivity. A soil map unit with an erodibility index of 8 or more is a highly erodible soil map unit. For water erosion, a soil survey map unit is potentially highly erodible if: (1) the RKLS/T value using the minimum LS factor is less than 8 and (2) the RKLS/T value using the maximum LS factor is equal to or greater than 8. (Predicting Rainfall Erosion Losses; A Guide to Conservation Planning, Field Office Technical Guide, Nat. FSA Handbook Sec. 511.23, and Florida Erosion Control Handbook)</attrdef>
+        <attalias Sync="TRUE">FL PHE</attalias>
+        <attrtype Sync="TRUE">String</attrtype>
+        <attwidth Sync="TRUE">3</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>flhe</attrlabl>
+        <attrdef>A data element with a yes/no entry, assigned by soil component, used in Florida. It is used to identify highly erodible land.</attrdef>
+        <attalias Sync="TRUE">FL HE</attalias>
+        <attrtype Sync="TRUE">String</attrtype>
+        <attwidth Sync="TRUE">3</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>castorieindex</attrlabl>
+        <attrdef>The California Storie Index expresses numerically the relative degree of suitability of a soil for general intensive agricultural uses at the time of evaluation. The rating is based on soil characteristics only and is obtained by evaluating such factors as soil depth, texture of the surface soil, subsoil characteristics, and surface relief. Storie, R. Earl and Walter W. Weir. 1948. Manual for identifying and classifying California soil series. With 1958 Supplement, revised 1978. Associated Students Store, University of California, Berkley, California.</attrdef>
+        <attalias Sync="TRUE">CA Storie Index</attalias>
+        <attrtype Sync="TRUE">SmallInteger</attrtype>
+        <attwidth Sync="TRUE">2</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>cokey</attrlabl>
+        <attrdef>A non-connotative string of characters used to uniquely identify a record in the Component table.</attrdef>
+        <attalias Sync="TRUE">Component Key</attalias>
+        <attrtype Sync="TRUE">String</attrtype>
+        <attwidth Sync="TRUE">30</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>mukey</attrlabl>
+        <attrdef>The unique identifier of a record in the Mapunit table. Use this column to join the Component table to the Mapunit table.</attrdef>
+        <attalias Sync="TRUE">Mapunit Key</attalias>
+        <attrtype Sync="TRUE">String</attrtype>
+        <attwidth Sync="TRUE">30</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>misoimgmtgrp</attrlabl>
+        <attrdef>A system for ranking soils for major uses, developed by Michigan State University. Soils are assigned to a group according to the dominant profile texture, the natural drainage class, and the management groups are listed in the same order as the series named in the complex. (Mokma, D.L., E.P. Whiteside, and J.F. Schneider. 1978. Soil Management Units in Land Use Planning. Mich. State Univ., Ext. Bull. E-1262, 12 pp.</attrdef>
+        <attalias Sync="TRUE">MI Soil Mgmt Group</attalias>
+        <attrtype Sync="TRUE">String</attrtype>
+        <attwidth Sync="TRUE">254</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>fltriumph2use</attrlabl>
+        <attrdef>Soil related use restrictions for Triumph 4E Insecticide are applicable in certain conditions in Florida. Please note the label for the conditions. The soil related conditions are as follows: 1. A permeability of six inches/hour or more (rapid or very rapid permeability) and 2. A water holding capacity of 0.10 inch/inch of soil or less (low or very low water holding capacity)-- in all horizons to a depth of 80 inches or to bedrock if bedrock is within 80 inches of the surface. The choice indicates that if a component has soil properties, according to state labeling, favorable for the application of the pesticide Triumph 4E Insecticide (trademark), the entry is Yes. If the component does not have favorable properties the entry is No.</attrdef>
+        <attalias Sync="TRUE">FL Triumph</attalias>
+        <attrtype Sync="TRUE">String</attrtype>
+        <attwidth Sync="TRUE">3</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>taxorder</attrlabl>
+        <attrdef>The highest level in Soil Taxonomy.</attrdef>
+        <attalias Sync="TRUE">Taxonomic Order</attalias>
+        <attrtype Sync="TRUE">String</attrtype>
+        <attwidth Sync="TRUE">254</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>comppct_r</attrlabl>
+        <attrdef>The percentage of the component of the mapunit.</attrdef>
+        <attalias Sync="TRUE">Comp % - Representative Value</attalias>
+        <attrtype Sync="TRUE">SmallInteger</attrtype>
+        <attwidth Sync="TRUE">2</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>cropprodindex</attrlabl>
+        <attrdef>An index of the capacity of a soil to produce a specific plant under a defined management system.</attrdef>
+        <attalias Sync="TRUE">Crop Productivity Index</attalias>
+        <attrtype Sync="TRUE">SmallInteger</attrtype>
+        <attwidth Sync="TRUE">2</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>nirrcapcl</attrlabl>
+        <attrdef>The broadest category in the land capability classification system for nonirrigated soils.</attrdef>
+        <attalias Sync="TRUE">Nirr Land Capability Class</attalias>
+        <attrtype Sync="TRUE">String</attrtype>
+        <attwidth Sync="TRUE">254</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>albedodry_h</attrlabl>
+        <attrdef>The estimated ratio of the incident short-wave (solar) radiation that is reflected by the air dry, less than 2 mm fraction of the soil surface.</attrdef>
+        <attalias Sync="TRUE">Albedo Dry - High Value</attalias>
+        <attrtype Sync="TRUE">Single</attrtype>
+        <attwidth Sync="TRUE">4</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>OBJECTID</attrlabl>
+        <attrdef>Internal feature number.</attrdef>
+        <attrdefs>Esri</attrdefs>
+        <attrdomv>
+          <udom>Sequential unique whole numbers that are automatically generated.</udom>
+        </attrdomv>
+        <attalias Sync="TRUE">OBJECTID</attalias>
+        <attrtype Sync="TRUE">OID</attrtype>
+        <attwidth Sync="TRUE">4</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>otherph</attrlabl>
+        <attrdef>Phase criterion other than slope, texture, and flooding used to identify soil components.</attrdef>
+        <attalias Sync="TRUE">SIR phase</attalias>
+        <attrtype Sync="TRUE">String</attrtype>
+        <attwidth Sync="TRUE">40</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>wlwetplant</attrlabl>
+        <attrdef>Suitability of the soil to produce the wildlife habitat element wetland plant.</attrdef>
+        <attalias Sync="TRUE">Wetland Habitat</attalias>
+        <attrtype Sync="TRUE">String</attrtype>
+        <attwidth Sync="TRUE">254</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>albedodry_r</attrlabl>
+        <attrdef>The estimated ratio of the incident short-wave (solar) radiation that is reflected by the air dry, less than 2 mm fraction of the soil surface.</attrdef>
+        <attalias Sync="TRUE">Albedo Dry - Representative Value</attalias>
+        <attrtype Sync="TRUE">Single</attrtype>
+        <attwidth Sync="TRUE">4</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>comppct_l</attrlabl>
+        <attrdef>The percentage of the component of the mapunit.</attrdef>
+        <attalias Sync="TRUE">Comp % - Low Value</attalias>
+        <attrtype Sync="TRUE">SmallInteger</attrtype>
+        <attwidth Sync="TRUE">2</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>airtempa_l</attrlabl>
+        <attrdef>The arithmetic average of the daily maximum and minimum temperatures for a calendar year taken over the standard "normal" period, 1961 to 1990.</attrdef>
+        <attalias Sync="TRUE">MAAT - Low Value</attalias>
+        <attrtype Sync="TRUE">Single</attrtype>
+        <attwidth Sync="TRUE">4</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>indraingrp</attrlabl>
+        <attrdef>A group of soils that share similar recommendations for drainage whether the drainage is subsurface or surface. (Agronomy Guide, ID-160 - Purdue University)</attrdef>
+        <attalias Sync="TRUE">IN Drainage Group</attalias>
+        <attrtype Sync="TRUE">String</attrtype>
+        <attwidth Sync="TRUE">3</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>elev_h</attrlabl>
+        <attrdef>The vertical distance from mean sea level to a point on the earth's surface.</attrdef>
+        <attalias Sync="TRUE">Elevation - High Value</attalias>
+        <attrtype Sync="TRUE">Single</attrtype>
+        <attwidth Sync="TRUE">4</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>hydricrating</attrlabl>
+        <attrdef>A yes/no field that indicates whether or not a map unit component is classified as a "hydric soil". If rated as hydric, the specific criteria met are listed in the Component Hydric Criteria table.</attrdef>
+        <attalias Sync="TRUE">Hydric Rating</attalias>
+        <attrtype Sync="TRUE">String</attrtype>
+        <attwidth Sync="TRUE">254</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>wndbrksuitgrp</attrlabl>
+        <attrdef>A grouping for selecting plant species best suited for different kinds of soils and for predicting height growth and effectiveness. (National Forestry Manual)</attrdef>
+        <attalias Sync="TRUE">Windbreak Suitability (Obsolete)</attalias>
+        <attrtype Sync="TRUE">String</attrtype>
+        <attwidth Sync="TRUE">254</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>ffd_l</attrlabl>
+        <attrdef>The expected number of days between the last freezing temperature (0 degrees Celsius) in spring (Jan-Jul) and the first freezing temperature (0 degrees Celsius) in the fall (Aug-Dec). The number of days is based on the probability that the values for the standard "normal" period of 1961 to 1990 will be exceeded in 5 years out of 10.</attrdef>
+        <attalias Sync="TRUE">Frost Free Days - Low Value</attalias>
+        <attrtype Sync="TRUE">SmallInteger</attrtype>
+        <attwidth Sync="TRUE">2</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>runoff</attrlabl>
+        <attrdef>Runoff potential class for the soil.</attrdef>
+        <attalias Sync="TRUE">Runoff Class</attalias>
+        <attrtype Sync="TRUE">String</attrtype>
+        <attwidth Sync="TRUE">254</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>corsteel</attrlabl>
+        <attrdef>Susceptibility of uncoated steel to corrosion when in contact with the soil.</attrdef>
+        <attalias Sync="TRUE">Corrosion Steel</attalias>
+        <attrtype Sync="TRUE">String</attrtype>
+        <attwidth Sync="TRUE">254</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>initsub_l</attrlabl>
+        <attrdef>The decrease of surface elevation that occurs within the first 3 years of drainage of wet soils having organic layers or semifluid mineral layers. (NSSH)</attrdef>
+        <attalias Sync="TRUE">Init Subsidence - Low Value</attalias>
+        <attrtype Sync="TRUE">SmallInteger</attrtype>
+        <attwidth Sync="TRUE">2</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>localphase</attrlabl>
+        <attrdef>Phase criterion to be used at a local level, in conjunction with "component name" to help identify a soil component.</attrdef>
+        <attalias Sync="TRUE">Local Phase</attalias>
+        <attrtype Sync="TRUE">String</attrtype>
+        <attwidth Sync="TRUE">40</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>airtempa_h</attrlabl>
+        <attrdef>The arithmetic average of the daily maximum and minimum temperatures for a calendar year taken over the standard "normal" period, 1961 to 1990.</attrdef>
+        <attalias Sync="TRUE">MAAT - High Value</attalias>
+        <attrtype Sync="TRUE">Single</attrtype>
+        <attwidth Sync="TRUE">4</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>aspectcwise</attrlabl>
+        <attrdef>One end of the range in characteristics for the slope aspect of a component. This end of the range is expressed in degrees measured clockwise from true north, and is the end of the range that is clockwise from the representative slope aspect.</attrdef>
+        <attalias Sync="TRUE">Aspect Clockwise</attalias>
+        <attrtype Sync="TRUE">SmallInteger</attrtype>
+        <attwidth Sync="TRUE">2</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>slopelenusle_r</attrlabl>
+        <attrdef>The distance from the point of origin of overland flow to the point where either the slope gradient decreases enough that deposition begins, or the runoff water enters a well-defined channel that may be part of a drainage network or a constructed channel. (Predicting Rainfall Erosion Losses a Guide to Conservation Planning, Agr. Handbook #537, USDA, 1978).</attrdef>
+        <attalias Sync="TRUE">Slope Length USLE - Representative Value</attalias>
+        <attrtype Sync="TRUE">SmallInteger</attrtype>
+        <attwidth Sync="TRUE">2</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>drainagecl</attrlabl>
+        <attrdef>Identifies the natural drainage conditions of the soil and refers to the frequency and duration of wet periods. An example of a drainage class is well drained.</attrdef>
+        <attalias Sync="TRUE">Drainage Class</attalias>
+        <attrtype Sync="TRUE">String</attrtype>
+        <attwidth Sync="TRUE">254</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>ffd_h</attrlabl>
+        <attrdef>The expected number of days between the last freezing temperature (0 degrees Celsius) in spring (Jan-Jul) and the first freezing temperature (0 degrees Celsius) in the fall (Aug-Dec). The number of days is based on the probability that the values for the standard "normal" period of 1961 to 1990 will be exceeded in 5 years out of 10.</attrdef>
+        <attalias Sync="TRUE">Frost Free Days - High Value</attalias>
+        <attrtype Sync="TRUE">SmallInteger</attrtype>
+        <attwidth Sync="TRUE">2</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>earthcovkind2</attrlabl>
+        <attrdef>The description of ground cover based on a set of vegetal and non-vegetal classes. It is determined (at least conceptually) as a vertical projection downward. Level two of a hierarchical system.</attrdef>
+        <attalias Sync="TRUE">Cover Kind 2</attalias>
+        <attrtype Sync="TRUE">String</attrtype>
+        <attwidth Sync="TRUE">254</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>initsub_r</attrlabl>
+        <attrdef>The decrease of surface elevation that occurs within the first 3 years of drainage of wet soils having organic layers or semifluid mineral layers. (NSSH)</attrdef>
+        <attalias Sync="TRUE">Init Subsidence - Representative Value</attalias>
+        <attrtype Sync="TRUE">SmallInteger</attrtype>
+        <attwidth Sync="TRUE">2</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>airtempa_r</attrlabl>
+        <attrdef>The arithmetic average of the daily maximum and minimum temperatures for a calendar year taken over the standard "normal" period, 1961 to 1990.</attrdef>
+        <attalias Sync="TRUE">MAAT - Representative Value</attalias>
+        <attrtype Sync="TRUE">Single</attrtype>
+        <attwidth Sync="TRUE">4</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>reannualprecip_h</attrlabl>
+        <attrdef>An estimate of the amount of moisture available for plant use and/or soil forming processes at a given site. It may vary, plus or minus, from "actual" precipitation amounts as a function of runon, runoff, temperature, aspect, etc.</attrdef>
+        <attalias Sync="TRUE">REAP - High Value</attalias>
+        <attrtype Sync="TRUE">SmallInteger</attrtype>
+        <attwidth Sync="TRUE">2</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>soilslippot</attrlabl>
+        <attrdef>The possibility that a mass of soil will slip when these conditions are met: 1) vegetation is removed, 2) soil water is at or near saturation, and 3) other normal practices are applied. Increasing the hazard of slippage but not considered in this rating are: 1) the undercutting lower portions or loading the upper parts of a slope or 2) altering the drainage or offsite water contribution to the site such as through irrigation.</attrdef>
+        <attalias Sync="TRUE">Soil Slip Potential</attalias>
+        <attrtype Sync="TRUE">String</attrtype>
+        <attwidth Sync="TRUE">254</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>taxgrtgroup</attrlabl>
+        <attrdef>The third level of Soil Taxonomy. The category is below the suborder and above the subgroup.</attrdef>
+        <attalias Sync="TRUE">Great Group</attalias>
+        <attrtype Sync="TRUE">String</attrtype>
+        <attwidth Sync="TRUE">254</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>totalsub_l</attrlabl>
+        <attrdef>The potential decrease of surface elevation as a result of the drainage of wet soils having organic layers or semifluid mineral layers. (NSSH)</attrdef>
+        <attalias Sync="TRUE">Total Subsidence - Low Value</attalias>
+        <attrtype Sync="TRUE">SmallInteger</attrtype>
+        <attwidth Sync="TRUE">2</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>wlrangeland</attrlabl>
+        <attrdef>Suitability of the soil to support the habitat requirements for rangeland wildlife.</attrdef>
+        <attalias Sync="TRUE">Rangeland Wildlife</attalias>
+        <attrtype Sync="TRUE">String</attrtype>
+        <attwidth Sync="TRUE">254</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>rsprod_h</attrlabl>
+        <attrdef>The estimated annual potential production of range forage per year.</attrdef>
+        <attalias Sync="TRUE">Range Prod - High Value</attalias>
+        <attrtype Sync="TRUE">Integer</attrtype>
+        <attwidth Sync="TRUE">4</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>wlopenland</attrlabl>
+        <attrdef>Suitability of the soil to support the habitat requirements for openland wildlife.</attrdef>
+        <attalias Sync="TRUE">Openland Wildlife</attalias>
+        <attrtype Sync="TRUE">String</attrtype>
+        <attwidth Sync="TRUE">254</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>weg</attrlabl>
+        <attrdef>Grouping of soils that have similar properties affecting their resistance to soil blowing in cultivated areas. The groups indicate the susceptibility to soil blowing.</attrdef>
+        <attalias Sync="TRUE">WEG</attalias>
+        <attrtype Sync="TRUE">String</attrtype>
+        <attwidth Sync="TRUE">254</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>aspectccwise</attrlabl>
+        <attrdef>One end of the range in characteristics for the slope aspect of a component. This end of the range is expressed in degrees measured clockwise from true north, and is the end of the range that is counter-clockwise from the representative slope aspect.</attrdef>
+        <attalias Sync="TRUE">Aspect Counter Clockwise</attalias>
+        <attrtype Sync="TRUE">SmallInteger</attrtype>
+        <attwidth Sync="TRUE">2</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>taxtempregime</attrlabl>
+        <attrdef>Soil temperature regime as defined in Soil Taxonomy.</attrdef>
+        <attalias Sync="TRUE">Temperature Regime</attalias>
+        <attrtype Sync="TRUE">String</attrtype>
+        <attwidth Sync="TRUE">254</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>irrcapcl</attrlabl>
+        <attrdef>The broadest category in the land capability classification system for irrigated soils.</attrdef>
+        <attalias Sync="TRUE">Irr Land Capability Class</attalias>
+        <attrtype Sync="TRUE">String</attrtype>
+        <attwidth Sync="TRUE">254</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>flsoilleachpot</attrlabl>
+        <attrdef>The potential of the soil to allow chemicals to leave the application site by leaching through the soil, as used in Florida state law. Soils with a rating of High or Medium are considered to pose a potential leaching hazard.</attrdef>
+        <attalias Sync="TRUE">FL Leach Potential</attalias>
+        <attrtype Sync="TRUE">String</attrtype>
+        <attwidth Sync="TRUE">254</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>taxsuborder</attrlabl>
+        <attrdef>The second level of Soil Taxonomy. The suborder is below the order and above the great group.</attrdef>
+        <attalias Sync="TRUE">Taxonomic Suborder</attalias>
+        <attrtype Sync="TRUE">String</attrtype>
+        <attwidth Sync="TRUE">254</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>geomdesc</attrlabl>
+        <attrdef>A narrative description of the geomorphic setting of a component. The description may incorporate multiple geomorphic features as well as their relationship to each other. The individual parts of the description are recorded in the Component Geomorphic Description table.</attrdef>
+        <attalias Sync="TRUE">Geomorphic Description</attalias>
+        <attrtype Sync="TRUE">String</attrtype>
+        <attwidth Sync="TRUE">2147483647</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>aspectrep</attrlabl>
+        <attrdef>The common, typical, or expected direction toward which the surface of the soil faces, expressed as an angle between 0 and 360 degrees measured clockwise from true north.</attrdef>
+        <attalias Sync="TRUE">Aspect Representative</attalias>
+        <attrtype Sync="TRUE">SmallInteger</attrtype>
+        <attwidth Sync="TRUE">2</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>tfact</attrlabl>
+        <attrdef>Soil loss tolerance factor. The maximum amount of erosion at which the quality of a soil as a medium for plant growth can be maintained.</attrdef>
+        <attalias Sync="TRUE">T Factor</attalias>
+        <attrtype Sync="TRUE">SmallInteger</attrtype>
+        <attwidth Sync="TRUE">2</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>nirrcapunit</attrlabl>
+        <attrdef>The third category in the land capability classification system for nonirrigated soils.</attrdef>
+        <attalias Sync="TRUE">Nirr Land Capability Unit</attalias>
+        <attrtype Sync="TRUE">SmallInteger</attrtype>
+        <attwidth Sync="TRUE">2</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>elev_r</attrlabl>
+        <attrdef>The vertical distance from mean sea level to a point on the earth's surface.</attrdef>
+        <attalias Sync="TRUE">Elevation - Representative Value</attalias>
+        <attrtype Sync="TRUE">Single</attrtype>
+        <attwidth Sync="TRUE">4</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>slope_r</attrlabl>
+        <attrdef>The difference in elevation between two points, expressed as a percentage of the distance between those points. (SSM)</attrdef>
+        <attalias Sync="TRUE">Slope Gradient - Representative Value</attalias>
+        <attrtype Sync="TRUE">Single</attrtype>
+        <attwidth Sync="TRUE">4</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>reannualprecip_r</attrlabl>
+        <attrdef>An estimate of the amount of moisture available for plant use and/or soil forming processes at a given site. It may vary, plus or minus, from "actual" precipitation amounts as a function of runon, runoff, temperature, aspect, etc.</attrdef>
+        <attalias Sync="TRUE">REAP - Representative Value</attalias>
+        <attrtype Sync="TRUE">SmallInteger</attrtype>
+        <attwidth Sync="TRUE">2</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>totalsub_h</attrlabl>
+        <attrdef>The potential decrease of surface elevation as a result of the drainage of wet soils having organic layers or semifluid mineral layers. (NSSH)</attrdef>
+        <attalias Sync="TRUE">Total Subsidence - High Value</attalias>
+        <attrtype Sync="TRUE">SmallInteger</attrtype>
+        <attwidth Sync="TRUE">2</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>map_r</attrlabl>
+        <attrdef>The arithmetic average of the total annual (liquid) precipitation taken over the standard "normal" period, 1961-1990.</attrdef>
+        <attalias Sync="TRUE">MAP - Representative Value</attalias>
+        <attrtype Sync="TRUE">SmallInteger</attrtype>
+        <attwidth Sync="TRUE">2</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>hydricon</attrlabl>
+        <attrdef>Natural condition of the soil component.</attrdef>
+        <attalias Sync="TRUE">Hydric Condition</attalias>
+        <attrtype Sync="TRUE">String</attrtype>
+        <attwidth Sync="TRUE">254</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>constreeshrubgrp</attrlabl>
+        <attrdef>The identifier for a particular Conservation Tree Shrub Group (CTSG) which that is associated with a soil map unit component. A CTSG is a physiographic unit or area having similar climatic and edaphic characteristics that control the selection and height of growth of trees and shrubs (National Forestry Manual).</attrdef>
+        <attalias Sync="TRUE">Cons Tree Shrub Group</attalias>
+        <attrtype Sync="TRUE">String</attrtype>
+        <attwidth Sync="TRUE">254</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>irrcapunit</attrlabl>
+        <attrdef>The third category in the land capability classification system for irrigated soils.</attrdef>
+        <attalias Sync="TRUE">Irr Land Capability Unit</attalias>
+        <attrtype Sync="TRUE">SmallInteger</attrtype>
+        <attwidth Sync="TRUE">2</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>slope_l</attrlabl>
+        <attrdef>The difference in elevation between two points, expressed as a percentage of the distance between those points. (SSM)</attrdef>
+        <attalias Sync="TRUE">Slope Gradient - Low Value</attalias>
+        <attrtype Sync="TRUE">Single</attrtype>
+        <attwidth Sync="TRUE">4</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>map_h</attrlabl>
+        <attrdef>The arithmetic average of the total annual (liquid) precipitation taken over the standard "normal" period, 1961-1990.</attrdef>
+        <attalias Sync="TRUE">MAP - High Value</attalias>
+        <attrtype Sync="TRUE">SmallInteger</attrtype>
+        <attwidth Sync="TRUE">2</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>wlherbaceous</attrlabl>
+        <attrdef>Suitability of the soil to produce the wildlife element herbaceous plants.</attrdef>
+        <attalias Sync="TRUE">Herbaceous Habitat</attalias>
+        <attrtype Sync="TRUE">String</attrtype>
+        <attwidth Sync="TRUE">254</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>wlshallowwat</attrlabl>
+        <attrdef>Suitability of the soil to support the wildlife habitat element shallow water.</attrdef>
+        <attalias Sync="TRUE">Water Habitat</attalias>
+        <attrtype Sync="TRUE">String</attrtype>
+        <attwidth Sync="TRUE">254</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>erocl</attrlabl>
+        <attrdef>Class of accelerated erosion. (SSM)</attrdef>
+        <attalias Sync="TRUE">Erosion Class</attalias>
+        <attrtype Sync="TRUE">String</attrtype>
+        <attwidth Sync="TRUE">254</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>irrcapscl</attrlabl>
+        <attrdef>The second category in the land capability classification system for irrigated soils.</attrdef>
+        <attalias Sync="TRUE">Irr Land Capability Subclass</attalias>
+        <attrtype Sync="TRUE">String</attrtype>
+        <attwidth Sync="TRUE">254</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>wlwetland</attrlabl>
+        <attrdef>Suitability of the soil to support the habitat elements for wetland wildlife.</attrdef>
+        <attalias Sync="TRUE">Wetland Wildlife</attalias>
+        <attrtype Sync="TRUE">String</attrtype>
+        <attwidth Sync="TRUE">254</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>compname</attrlabl>
+        <attrdef>Name assigned to a component based on its range of properties.</attrdef>
+        <attalias Sync="TRUE">Component Name</attalias>
+        <attrtype Sync="TRUE">String</attrtype>
+        <attwidth Sync="TRUE">60</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>slope_h</attrlabl>
+        <attrdef>The difference in elevation between two points, expressed as a percentage of the distance between those points. (SSM)</attrdef>
+        <attalias Sync="TRUE">Slope Gradient - High Value</attalias>
+        <attrtype Sync="TRUE">Single</attrtype>
+        <attwidth Sync="TRUE">4</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>albedodry_l</attrlabl>
+        <attrdef>The estimated ratio of the incident short-wave (solar) radiation that is reflected by the air dry, less than 2 mm fraction of the soil surface.</attrdef>
+        <attalias Sync="TRUE">Albedo Dry - Low Value</attalias>
+        <attrtype Sync="TRUE">Single</attrtype>
+        <attwidth Sync="TRUE">4</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>frostact</attrlabl>
+        <attrdef>An interpretation rating of the susceptibility of the soil to frost heaving.</attrdef>
+        <attalias Sync="TRUE">Frost Action</attalias>
+        <attrtype Sync="TRUE">String</attrtype>
+        <attwidth Sync="TRUE">254</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>taxmoistscl</attrlabl>
+        <attrdef>Soil moisture subclasses are taxonomic subgroup criteria, whether included or not in the name of the subgroup. The definition of each subclass is dependent upon the specific taxonomic great group to which it is attached.</attrdef>
+        <attalias Sync="TRUE">Moist Subclass</attalias>
+        <attrtype Sync="TRUE">String</attrtype>
+        <attwidth Sync="TRUE">254</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>taxreaction</attrlabl>
+        <attrdef>Indicates the presence or absence of carbonates and the reaction. They are treated together because of their intimate relationship, and are used to indicate family differentiae. (Soil Taxonomy)</attrdef>
+        <attalias Sync="TRUE">Reaction</attalias>
+        <attrtype Sync="TRUE">String</attrtype>
+        <attwidth Sync="TRUE">254</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>earthcovkind1</attrlabl>
+        <attrdef>The natural or artificial material that is observed to cover a portion of the earth's surface. It is determined (at least conceptually) as a vertical projection downward. Level one of a hierarchical system. (1992 NRI Instructions)</attrdef>
+        <attalias Sync="TRUE">Cover Kind 1</attalias>
+        <attrtype Sync="TRUE">String</attrtype>
+        <attwidth Sync="TRUE">254</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>taxsubgrp</attrlabl>
+        <attrdef>The fourth level of Soil Taxonomy. The subgroup is below great group and above family.</attrdef>
+        <attalias Sync="TRUE">Subgroup</attalias>
+        <attrtype Sync="TRUE">String</attrtype>
+        <attwidth Sync="TRUE">254</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>flecolcomnum</attrlabl>
+        <attrdef>Numbers correspond to the NRCS printed publication "26 Ecological Communities of Florida" 1995. This publication is based on the awareness that a soil type commonly supports a specific vegetative community, which in turn provides the habitat needed by specific wildlife species.</attrdef>
+        <attalias Sync="TRUE">FL Ecol Comm #</attalias>
+        <attrtype Sync="TRUE">String</attrtype>
+        <attwidth Sync="TRUE">5</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>soiltaxedition</attrlabl>
+        <attrdef>The edition of Keys to Soil Taxonomy used to classify the soil.</attrdef>
+        <attalias Sync="TRUE">Keys to Taxonomy Edition Used</attalias>
+        <attrtype Sync="TRUE">String</attrtype>
+        <attwidth Sync="TRUE">254</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>vasoimgtgrp</attrlabl>
+        <attrdef>A system for ranking soils in Virginia for productivity estimates. Developed by VPI&amp;SU. See Virginia Agronomic Land Use Evaluation System (VALUES) 1993.</attrdef>
+        <attalias Sync="TRUE">VA Soil Mgmt Group</attalias>
+        <attrtype Sync="TRUE">String</attrtype>
+        <attwidth Sync="TRUE">254</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>innitrateleachi</attrlabl>
+        <attrdef>A number which reflects annual precipitation, rainfall distribution, and hydrologic group. The system allows comparison of the amount of nitrate which could be leached in percolating water. The numbers were obtained from the Midwest National Technical Center and are used in Indiana.</attrdef>
+        <attalias Sync="TRUE">IN NO3 Leach Index</attalias>
+        <attrtype Sync="TRUE">SmallInteger</attrtype>
+        <attwidth Sync="TRUE">2</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>wlconiferous</attrlabl>
+        <attrdef>Suitability of the soil to produce the wildlife element coniferous trees.</attrdef>
+        <attalias Sync="TRUE">Conifer Habitat</attalias>
+        <attrtype Sync="TRUE">String</attrtype>
+        <attwidth Sync="TRUE">254</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>wlgrass</attrlabl>
+        <attrdef>Suitability of the soil to produce the wildlife element grass.</attrdef>
+        <attalias Sync="TRUE">Grass Habitat</attalias>
+        <attrtype Sync="TRUE">String</attrtype>
+        <attwidth Sync="TRUE">254</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>wlwoodland</attrlabl>
+        <attrdef>Suitability of the soil to produce the habitat elements for woodland wildlife.</attrdef>
+        <attalias Sync="TRUE">Woodland Wildlife</attalias>
+        <attrtype Sync="TRUE">String</attrtype>
+        <attwidth Sync="TRUE">254</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+    </detailed>
+  </eainfo>
+  <distInfo>
+    <distFormat>
+      <formatName Sync="TRUE">File Geodatabase Table</formatName>
+    </distFormat>
+  </distInfo>
+  <mdHrLvName Sync="TRUE">dataset</mdHrLvName>
+</metadata>

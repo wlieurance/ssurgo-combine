@@ -1,0 +1,78 @@
+﻿<metadata>
+  <idinfo>
+    <citation>
+      <citeinfo>
+        <title>COFORPRODO</title>
+        <geoform>tabular digital data</geoform>
+      </citeinfo>
+    </citation>
+    <descript>
+      <abstract>The Component Forest Productivity - Other table lists the site index and annual productivity of forest overstory tree species in units other than cubic feet per acre per year for trees that typically occur on the referenced map unit component.</abstract>
+      <purpose>Component Forest Productivity - Other Table</purpose>
+    </descript>
+    <accconst>None</accconst>
+    <useconst>None</useconst>
+    <native>Microsoft Windows 7 Version 6.1 (Build 7601) Service Pack 1; Esri ArcGIS 10.1.1.3143</native>
+  </idinfo>
+  <eainfo>
+    <detailed>
+      <enttyp>
+        <enttypl>coforprodo</enttypl>
+      </enttyp>
+      <attr>
+        <attrlabl>siteindex_l</attrlabl>
+        <attrdef>The height in feet of the dominant or dominant and co-dominant trees at some index age, except for the pinyon-juniper forest type, for which site index is determined by basal area.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>siteindex_r</attrlabl>
+        <attrdef>The height in feet of the dominant or dominant and co-dominant trees at some index age, except for the pinyon-juniper forest type, for which site index is determined by basal area.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>OBJECTID</attrlabl>
+        <attrdef>Internal feature number.</attrdef>
+        <attrdefs>Esri</attrdefs>
+        <attrdomv>
+          <udom>Sequential unique whole numbers that are automatically generated.</udom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>cofprodokey</attrlabl>
+        <attrdef>A non-connotative string of characters used to uniquely identify a record in the Component Forest Productivity - Other table.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>fprodunits</attrlabl>
+        <attrdef>The unit of measure in which the annual productivity of forest overstory tree species is expressed.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>cofprodkey</attrlabl>
+        <attrdef>The unique identifier of a record in the Component Forest Productivity table. Use this column to join the Component Forest Productivity table to the Component Forest Productivity - Other table.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>fprod_h</attrlabl>
+        <attrdef>The annual growth of forest overstory tree species.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>siteindex_h</attrlabl>
+        <attrdef>The height in feet of the dominant or dominant and co-dominant trees at some index age, except for the pinyon-juniper forest type, for which site index is determined by basal area.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>fprod_l</attrlabl>
+        <attrdef>The annual growth of forest overstory tree species.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>siteindexbase</attrlabl>
+        <attrdef>The number in the National Register of Site Index Curves corresponding to the site index curve used to determine the site index and the annual productivity of forest overstory tree species.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>fprod_r</attrlabl>
+        <attrdef>The annual growth of forest overstory tree species.</attrdef>
+      </attr>
+    </detailed>
+  </eainfo>
+  <metainfo>
+    <metd>20131230</metd>
+    <metstdn>FGDC Content Standard for Digital Geospatial Metadata</metstdn>
+    <metstdv>FGDC-STD-001-1998</metstdv>
+    <mettc>local time</mettc>
+  </metainfo>
+</metadata>

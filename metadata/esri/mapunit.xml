@@ -1,0 +1,343 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<metadata xml:lang="en">
+  <Esri>
+    <CreaDate>20131230</CreaDate>
+    <CreaTime>19185900</CreaTime>
+    <ArcGISFormat>1.0</ArcGISFormat>
+    <ArcGISstyle>FGDC CSDGM Metadata</ArcGISstyle>
+    <SyncOnce>FALSE</SyncOnce>
+    <DataProperties>
+      <itemProps>
+        <itemName Sync="TRUE">mapunit</itemName>
+        <relatedItems>
+          <item>
+            <itemName />
+          </item>
+          <item>
+            <itemName />
+            <itemType Sync="TRUE">Relationship</itemType>
+          </item>
+          <item>
+            <itemName />
+            <itemType Sync="TRUE">Relationship</itemType>
+          </item>
+          <item>
+            <itemName />
+            <itemType Sync="TRUE">Relationship</itemType>
+          </item>
+          <item>
+            <itemName />
+            <itemType Sync="TRUE">Relationship</itemType>
+          </item>
+          <item>
+            <itemName />
+            <itemType Sync="TRUE">Relationship</itemType>
+          </item>
+          <item>
+            <itemName />
+            <itemType Sync="TRUE">Relationship</itemType>
+          </item>
+          <item>
+            <itemName />
+            <itemType Sync="TRUE">Relationship</itemType>
+          </item>
+          <item>
+            <itemName />
+            <itemType Sync="TRUE">Relationship</itemType>
+          </item>
+          <item>
+            <itemName Sync="TRUE">zLegend_Mapunit</itemName>
+            <itemType Sync="TRUE">Relationship</itemType>
+          </item>
+        </relatedItems>
+        <itemLocation>
+          <linkage Sync="TRUE">file://\\ARCNELI95L00052\E$\Geodata\2013\TemplateDB\Template_FGDB_CONUS_AlbersNAD1983.gdb</linkage>
+          <protocol Sync="TRUE">Local Area Network</protocol>
+        </itemLocation>
+        <imsContentType Sync="TRUE">002</imsContentType>
+      </itemProps>
+    </DataProperties>
+    <SyncDate>20131230</SyncDate>
+    <SyncTime>19200800</SyncTime>
+    <ModDate>20131230</ModDate>
+    <ModTime>19200800</ModTime>
+  </Esri>
+  <mdLang>
+    <languageCode value="eng" />
+    <countryCode value="USA" Sync="TRUE" />
+  </mdLang>
+  <mdChar>
+    <CharSetCd value="004" />
+  </mdChar>
+  <mdHrLv>
+    <ScopeCd value="005" />
+  </mdHrLv>
+  <mdDateSt>20131230</mdDateSt>
+  <mdStanName>ArcGIS Metadata</mdStanName>
+  <mdStanVer>1.0</mdStanVer>
+  <dataIdInfo>
+    <idCitation>
+      <resTitle>MAPUNIT</resTitle>
+      <presForm>
+        <PresFormCd value="001" />
+      </presForm>
+      <presForm>
+        <fgdcGeoform>tabular digital data</fgdcGeoform>
+      </presForm>
+    </idCitation>
+    <idAbs>The Mapunit table identifies the map units included in the referenced legend. Data related the map unit as a whole are also given.</idAbs>
+    <idPurp>Mapunit Table</idPurp>
+    <dataLang>
+      <languageCode value="eng" />
+      <countryCode value="USA" Sync="TRUE" />
+    </dataLang>
+    <envirDesc>Microsoft Windows 7 Version 6.1 (Build 7601) Service Pack 1; Esri ArcGIS 10.1.1.3143</envirDesc>
+    <spatRpType>
+      <SpatRepTypCd value="003" Sync="TRUE" />
+    </spatRpType>
+  </dataIdInfo>
+  <eainfo>
+    <detailed Name="mapunit">
+      <enttyp>
+        <enttypl>mapunit</enttypl>
+        <enttypt Sync="TRUE">Table</enttypt>
+        <enttypc Sync="TRUE">0</enttypc>
+      </enttyp>
+      <attr>
+        <attrlabl>mapunitlfw_r</attrlabl>
+        <attrdef>The approximate width of a particular map unit delineation represented by a linear soil feature on a soil map.</attrdef>
+        <attalias Sync="TRUE">Linear Feature Width - Representative Value</attalias>
+        <attrtype Sync="TRUE">SmallInteger</attrtype>
+        <attwidth Sync="TRUE">2</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>mustatus</attrlabl>
+        <attrdef>Identifies the current status of the map unit. As of SSURGO version 2.1, values for this attribute are no longer provided. This attribute will be dropped from the next major SSURGO version.</attrdef>
+        <attalias Sync="TRUE">Status</attalias>
+        <attrtype Sync="TRUE">String</attrtype>
+        <attwidth Sync="TRUE">254</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>muacres</attrlabl>
+        <attrdef>The number of acres of a particular map unit within the geographic area to which the legend applies. The number listed here may differ from that measured using GIS software due to different measuring techniques and rounding practices, or due to the fact that the value has been adjusted so that the sum total of all map units in the legend equals that listed for soil survey area.</attrdef>
+        <attalias Sync="TRUE">Total Acres</attalias>
+        <attrtype Sync="TRUE">Integer</attrtype>
+        <attwidth Sync="TRUE">4</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>mukind</attrlabl>
+        <attrdef>Code identifying the kind of mapunit. Example: C - consociation.</attrdef>
+        <attalias Sync="TRUE">Kind</attalias>
+        <attrtype Sync="TRUE">String</attrtype>
+        <attwidth Sync="TRUE">254</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>interpfocus</attrlabl>
+        <attrdef>The targeted landuse for which the Map Unit was developed. The properties of included mapunit components are tailored towards this landuse.</attrdef>
+        <attalias Sync="TRUE">Interpretive Focus</attalias>
+        <attrtype Sync="TRUE">String</attrtype>
+        <attwidth Sync="TRUE">30</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>invesintens</attrlabl>
+        <attrdef>The level of detail and relative intensity of field observation under which the map unit was developed. Order 1 indicates the highest intensity, and order 5 the lowest.</attrdef>
+        <attalias Sync="TRUE">Order of Mapping</attalias>
+        <attrtype Sync="TRUE">String</attrtype>
+        <attwidth Sync="TRUE">254</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>muwathelcl</attrlabl>
+        <attrdef>The Highly Erodible Lands (HEL) classification for the mapunit based on the rating of its components for water HEL classification.</attrdef>
+        <attalias Sync="TRUE">HEL Water</attalias>
+        <attrtype Sync="TRUE">String</attrtype>
+        <attwidth Sync="TRUE">254</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>muhelcl</attrlabl>
+        <attrdef>The overall Highly Erodible Lands (HEL) classification for the mapunit based on the rating of its components for wind and water HEL classification.</attrdef>
+        <attalias Sync="TRUE">HEL</attalias>
+        <attrtype Sync="TRUE">String</attrtype>
+        <attwidth Sync="TRUE">254</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>mapunitpfa_h</attrlabl>
+        <attrdef>The approximate area of a particular map unit delineation represented by a point feature on a soil map.</attrdef>
+        <attalias Sync="TRUE">Point Feature Area - High Value</attalias>
+        <attrtype Sync="TRUE">Single</attrtype>
+        <attwidth Sync="TRUE">4</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>mukey</attrlabl>
+        <attrdef>A non-connotative string of characters used to uniquely identify a record in the Mapunit table.</attrdef>
+        <attalias Sync="TRUE">Mapunit Key</attalias>
+        <attrtype Sync="TRUE">String</attrtype>
+        <attwidth Sync="TRUE">30</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>mucertstat</attrlabl>
+        <attrdef>The level of certification assigned to a map unit. Intended to indicate whether or not the map unit should be used and the degree of confidence with which it may be used. As of SSURGO version 2.1, values for this attribute are no longer provided. This attribute will be dropped from the next major SSURGO version.</attrdef>
+        <attalias Sync="TRUE">Map Unit Certification Status</attalias>
+        <attrtype Sync="TRUE">String</attrtype>
+        <attwidth Sync="TRUE">254</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>lkey</attrlabl>
+        <attrdef>The unique identifier of a record in the Legend table. Use this column to join the Mapunit table to the Legend table.</attrdef>
+        <attalias Sync="TRUE">Legend Key</attalias>
+        <attrtype Sync="TRUE">String</attrtype>
+        <attwidth Sync="TRUE">30</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>vtsepticsyscl</attrlabl>
+        <attrdef>The interpretive separations, or class, based on the ability of the map unit to support an onsite septic system. (Ancillary Soil Interpretation Ratings For On-site Sewerage Disposal in Vermont)</attrdef>
+        <attalias Sync="TRUE">VT Septic System</attalias>
+        <attrtype Sync="TRUE">String</attrtype>
+        <attwidth Sync="TRUE">254</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>iacornsr</attrlabl>
+        <attrdef>Corn Suitability Rating (CSR) is an index procedure developed in Iowa to rate each different kind of soil for its row-crop productivity.</attrdef>
+        <attalias Sync="TRUE">IA CSR</attalias>
+        <attrtype Sync="TRUE">SmallInteger</attrtype>
+        <attwidth Sync="TRUE">2</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>nhiforsoigrp</attrlabl>
+        <attrdef>Interpretative class for the map unit, based on NH developed interpretations.</attrdef>
+        <attalias Sync="TRUE">NH Forest Soil Group</attalias>
+        <attrtype Sync="TRUE">String</attrtype>
+        <attwidth Sync="TRUE">254</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>musym</attrlabl>
+        <attrdef>The symbol used to uniquely identify the soil mapunit in the soil survey.</attrdef>
+        <attalias Sync="TRUE">Mapunit Symbol</attalias>
+        <attrtype Sync="TRUE">String</attrtype>
+        <attwidth Sync="TRUE">6</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>mapunitpfa_l</attrlabl>
+        <attrdef>The approximate area of a particular map unit delineation represented by a point feature on a soil map.</attrdef>
+        <attalias Sync="TRUE">Point Feature Area - Low Value</attalias>
+        <attrtype Sync="TRUE">Single</attrtype>
+        <attwidth Sync="TRUE">4</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>muwndhelcl</attrlabl>
+        <attrdef>The Highly Erodible Lands (HEL) classification for the mapunit based on the rating of its components for wind HEL classification.</attrdef>
+        <attalias Sync="TRUE">HEL Wind</attalias>
+        <attrtype Sync="TRUE">String</attrtype>
+        <attwidth Sync="TRUE">254</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>OBJECTID</attrlabl>
+        <attrdef>Internal feature number.</attrdef>
+        <attrdefs>Esri</attrdefs>
+        <attrdomv>
+          <udom>Sequential unique whole numbers that are automatically generated.</udom>
+        </attrdomv>
+        <attalias Sync="TRUE">OBJECTID</attalias>
+        <attrtype Sync="TRUE">OID</attrtype>
+        <attwidth Sync="TRUE">4</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>mapunitlfw_h</attrlabl>
+        <attrdef>The approximate width of a particular map unit delineation represented by a linear soil feature on a soil map.</attrdef>
+        <attalias Sync="TRUE">Linear Feature Width - High Value</attalias>
+        <attrtype Sync="TRUE">SmallInteger</attrtype>
+        <attwidth Sync="TRUE">2</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>mapunitlfw_l</attrlabl>
+        <attrdef>The approximate width of a particular map unit delineation represented by a linear soil feature on a soil map.</attrdef>
+        <attalias Sync="TRUE">Linear Feature Width - Low Value</attalias>
+        <attrtype Sync="TRUE">SmallInteger</attrtype>
+        <attwidth Sync="TRUE">2</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>muname</attrlabl>
+        <attrdef>Correlated name of the mapunit (recommended name or field name for surveys in progress).</attrdef>
+        <attalias Sync="TRUE">Mapunit Name</attalias>
+        <attrtype Sync="TRUE">String</attrtype>
+        <attwidth Sync="TRUE">175</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>farmlndcl</attrlabl>
+        <attrdef>Identification of map units as prime farmland, farmland of statewide importance, or farmland of local importance.</attrdef>
+        <attalias Sync="TRUE">Farm Class</attalias>
+        <attrtype Sync="TRUE">String</attrtype>
+        <attwidth Sync="TRUE">254</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>mapunitpfa_r</attrlabl>
+        <attrdef>The approximate area of a particular map unit delineation represented by a point feature on a soil map.</attrdef>
+        <attalias Sync="TRUE">Point Feature Area - Representative Value</attalias>
+        <attrtype Sync="TRUE">Single</attrtype>
+        <attwidth Sync="TRUE">4</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>nhspiagr</attrlabl>
+        <attrdef>New Hampshire Soil Potential Index for Agriculture, 1992 revision. Used for computation of weighted average SPI on a parcel of land for adjustment of current use land assessment.</attrdef>
+        <attalias Sync="TRUE">NH SPI Agr</attalias>
+        <attrtype Sync="TRUE">Double</attrtype>
+        <attwidth Sync="TRUE">8</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+    </detailed>
+  </eainfo>
+  <distInfo>
+    <distFormat>
+      <formatName Sync="TRUE">File Geodatabase Table</formatName>
+    </distFormat>
+  </distInfo>
+  <mdHrLvName Sync="TRUE">dataset</mdHrLvName>
+</metadata>

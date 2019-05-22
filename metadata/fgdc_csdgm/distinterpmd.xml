@@ -1,0 +1,70 @@
+﻿<metadata>
+  <idinfo>
+    <citation>
+      <citeinfo>
+        <title>DISTINTERPMD</title>
+        <geoform>tabular digital data</geoform>
+      </citeinfo>
+    </citation>
+    <descript>
+      <abstract>The Distribution Interp Metadata table records the set of NASIS fuzzy logic interpretations which were generated for the map unit components included in a set of distribution data.</abstract>
+      <purpose>Distribution Interp Metadata Table</purpose>
+    </descript>
+    <accconst>None</accconst>
+    <useconst>None</useconst>
+    <native>Microsoft Windows 7 Version 6.1 (Build 7601) Service Pack 1; Esri ArcGIS 10.1.1.3143</native>
+  </idinfo>
+  <eainfo>
+    <detailed>
+      <enttyp>
+        <enttypl>distinterpmd</enttypl>
+      </enttyp>
+      <attr>
+        <attrlabl>OBJECTID</attrlabl>
+        <attrdef>Internal feature number.</attrdef>
+        <attrdefs>Esri</attrdefs>
+        <attrdomv>
+          <udom>Sequential unique whole numbers that are automatically generated.</udom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>rulename</attrlabl>
+        <attrdef>A user assigned name (typically connotative) for a particular interpretation rule.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>distinterpmdkey</attrlabl>
+        <attrdef>A non-connotative string of characters used to uniquely identify a record in the Distribution Interp Metadata table.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>rulekey</attrlabl>
+        <attrdef>The unique identifier of a record in the Rule table in NASIS.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>distmdkey</attrlabl>
+        <attrdef>The unique identifier of a record in the Distribution Metadata table. Use this column to join the Distribution Interp Metadata table to the Distribution Metadata table.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>mrecentrulecwlu</attrlabl>
+        <attrdef>The date of the most recently updated component of an interpretation. This date is not necessarily the when last updated date of the interpretation itself. An interpretation may have a subrule, evaluation or property that was updated more recently than the master interpretation (rule) itself. The time of update of an interpretation component (subrule, evaluation, property) in NASIS is not explicitly reflected in other components that may reference the updated component.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>ruledesign</attrlabl>
+        <attrdef>An indicator of the design scheme of the rule. The entry provides an indication of which end of the fuzzy value range, 0 or 1, represents the most limiting features. Most interpretive rules are designed such that the most limiting features are those with a fuzzy value closest to 1. However, interpretive rules that are designed to evaluate the favorable features of a soil, such as the suitability as a gravel source, may be written such that the most limiting features are those with a fuzzy value closest to 0.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>ruledesc</attrlabl>
+        <attrdef>A narrative text definition of a rule.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>dataafuse</attrlabl>
+        <attrdef>Indicates whether or not an object is approved for use.</attrdef>
+      </attr>
+    </detailed>
+  </eainfo>
+  <metainfo>
+    <metd>20131230</metd>
+    <metstdn>FGDC Content Standard for Digital Geospatial Metadata</metstdn>
+    <metstdv>FGDC-STD-001-1998</metstdv>
+    <mettc>local time</mettc>
+  </metainfo>
+</metadata>

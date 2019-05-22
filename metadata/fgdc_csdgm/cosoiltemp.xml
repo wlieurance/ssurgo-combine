@@ -1,0 +1,74 @@
+﻿<metadata>
+  <idinfo>
+    <citation>
+      <citeinfo>
+        <title>COSOILTEMP</title>
+        <geoform>tabular digital data</geoform>
+      </citeinfo>
+    </citation>
+    <descript>
+      <abstract>The Component Soil Temperature table describes the typical soil temperature profile for the referenced map unit component during the month referenced in the Component Month table. The soil temperature profiles for each month, taken as a group of twelve months, describe the representative situation for the component throughout the year.</abstract>
+      <purpose>Component Soil Temperature Table</purpose>
+    </descript>
+    <accconst>None</accconst>
+    <useconst>None</useconst>
+    <native>Microsoft Windows 7 Version 6.1 (Build 7601) Service Pack 1; Esri ArcGIS 10.1.1.3143</native>
+  </idinfo>
+  <eainfo>
+    <detailed>
+      <enttyp>
+        <enttypl>cosoiltemp</enttypl>
+      </enttyp>
+      <attr>
+        <attrlabl>soitempmm</attrlabl>
+        <attrdef>The long-term monthly average of the mean daily soil temperature of the layer for the month in question. Long-term is generally considered to be a 30-year average.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>soitempdept_l</attrlabl>
+        <attrdef>The distance from the top of the soil to the upper boundary of the soil temperature layer.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>cosoiltempkey</attrlabl>
+        <attrdef>A non-connotative string of characters used to uniquely identify a record in the Component Soil Temperature table.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>soitempdepb_h</attrlabl>
+        <attrdef>The distance from the top of the soil to the lower boundary of the soil temperature layer.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>soitempdepb_r</attrlabl>
+        <attrdef>The distance from the top of the soil to the lower boundary of the soil temperature layer.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>soitempdept_r</attrlabl>
+        <attrdef>The distance from the top of the soil to the upper boundary of the soil temperature layer.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>soitempdept_h</attrlabl>
+        <attrdef>The distance from the top of the soil to the upper boundary of the soil temperature layer.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>OBJECTID</attrlabl>
+        <attrdef>Internal feature number.</attrdef>
+        <attrdefs>Esri</attrdefs>
+        <attrdomv>
+          <udom>Sequential unique whole numbers that are automatically generated.</udom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>comonthkey</attrlabl>
+        <attrdef>The unique identifier of a record in the Component Month table. Use this column to join the Component Soil Temperature table to the Component Month table.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>soitempdepb_l</attrlabl>
+        <attrdef>The distance from the top of the soil to the lower boundary of the soil temperature layer.</attrdef>
+      </attr>
+    </detailed>
+  </eainfo>
+  <metainfo>
+    <metd>20131230</metd>
+    <metstdn>FGDC Content Standard for Digital Geospatial Metadata</metstdn>
+    <metstdv>FGDC-STD-001-1998</metstdv>
+    <mettc>local time</mettc>
+  </metainfo>
+</metadata>

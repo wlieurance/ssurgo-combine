@@ -1,0 +1,106 @@
+﻿<metadata>
+  <idinfo>
+    <citation>
+      <citeinfo>
+        <title>COMONTH</title>
+        <geoform>tabular digital data</geoform>
+      </citeinfo>
+    </citation>
+    <descript>
+      <abstract>The Component Month table lists the monthly flooding and ponding characteristics for the referenced map unit component. This table has one row for each month of the year.</abstract>
+      <purpose>Component Month Table</purpose>
+    </descript>
+    <accconst>None</accconst>
+    <useconst>None</useconst>
+    <native>Microsoft Windows 7 Version 6.1 (Build 7601) Service Pack 1; Esri ArcGIS 10.1.1.3143</native>
+  </idinfo>
+  <eainfo>
+    <detailed>
+      <enttyp>
+        <enttypl>comonth</enttypl>
+      </enttyp>
+      <attr>
+        <attrlabl>OBJECTID</attrlabl>
+        <attrdef>Internal feature number.</attrdef>
+        <attrdefs>Esri</attrdefs>
+        <attrdomv>
+          <udom>Sequential unique whole numbers that are automatically generated.</udom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>ponddep_h</attrlabl>
+        <attrdef>The depth of surface water that is ponding on the soil.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>dlyavgprecip_l</attrlabl>
+        <attrdef>The daily average precipitation for the referenced month. Commonly calculated as the total precipitation for the month divided by the number of days in the month. (February nominally has 28 days).</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>ponddep_l</attrlabl>
+        <attrdef>The depth of surface water that is ponding on the soil.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>ponddurcl</attrlabl>
+        <attrdef>The average duration, or length of time, of the ponding occurrence. (NSSH)</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>floddurcl</attrlabl>
+        <attrdef>Average duration of inundation per flood occurrence and expressed as a class. (NSSH)</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>comonthkey</attrlabl>
+        <attrdef>A non-connotative string of characters used to uniquely identify a record in the Component Month table.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>dlyavgpotet_h</attrlabl>
+        <attrdef>Daily average potential evapotranspiration for the referenced month.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>cokey</attrlabl>
+        <attrdef>The unique identifier of a record in the Component table. Use this column to join the Component Month table to the Component table.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>dlyavgpotet_r</attrlabl>
+        <attrdef>Daily average potential evapotranspiration for the referenced month.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>dlyavgprecip_r</attrlabl>
+        <attrdef>The daily average precipitation for the referenced month. Commonly calculated as the total precipitation for the month divided by the number of days in the month. (February nominally has 28 days).</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>dlyavgprecip_h</attrlabl>
+        <attrdef>The daily average precipitation for the referenced month. Commonly calculated as the total precipitation for the month divided by the number of days in the month. (February nominally has 28 days).</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>month</attrlabl>
+        <attrdef>One of the twelve months of the year.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>ponddep_r</attrlabl>
+        <attrdef>The depth of surface water that is ponding on the soil.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>monthseq</attrlabl>
+        <attrdef>An interger number used to sequence the months of the year in their proper order.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>pondfreqcl</attrlabl>
+        <attrdef>The number of times ponding occurs over a period of time. (SSM)</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>flodfreqcl</attrlabl>
+        <attrdef>The annual probability of a flood event expressed as a class. (SSM).</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>dlyavgpotet_l</attrlabl>
+        <attrdef>Daily average potential evapotranspiration for the referenced month.</attrdef>
+      </attr>
+    </detailed>
+  </eainfo>
+  <metainfo>
+    <metd>20131230</metd>
+    <metstdn>FGDC Content Standard for Digital Geospatial Metadata</metstdn>
+    <metstdv>FGDC-STD-001-1998</metstdv>
+    <mettc>local time</mettc>
+  </metainfo>
+</metadata>

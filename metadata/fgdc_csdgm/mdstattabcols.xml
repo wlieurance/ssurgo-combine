@@ -1,0 +1,94 @@
+﻿<metadata>
+  <idinfo>
+    <citation>
+      <citeinfo>
+        <title>MDSTATTABCOLS</title>
+        <geoform>tabular digital data</geoform>
+      </citeinfo>
+    </citation>
+    <descript>
+      <abstract>The Table Column Static Metadata table records the metadata for all columns of all tables that make up the tabular data set. Each record in this table represents one column of a particular table.</abstract>
+      <purpose>Table Column Static Metadata Table</purpose>
+    </descript>
+    <accconst>None</accconst>
+    <useconst>None</useconst>
+    <native>Microsoft Windows 7 Version 6.1 (Build 7601) Service Pack 1; Esri ArcGIS 10.1.1.3143</native>
+  </idinfo>
+  <eainfo>
+    <detailed>
+      <enttyp>
+        <enttypl>mdstattabcols</enttypl>
+      </enttyp>
+      <attr>
+        <attrlabl>logicaldatatype</attrlabl>
+        <attrdef>A column's logical data type is its generic, software independent data type. Since the SSURGO standard does not correspond to any specific database management system (DBMS), the SSURGO metadata records only logical data types. How a logical data type can be physically implemented varies from DBMS to DBMS.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>notnull</attrlabl>
+        <attrdef>Indicates whether or not the value of a column in a database table may be null.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>collogname</attrlabl>
+        <attrdef>A name associated with a column that is more connotative than the column's corresponding physical name. For a SSURGO table, every column's logical name must be unique, making a column's logical name a suitable alias for identifying a column. For SSURGO, column logical names are lower case character strings with no embedded blanks, where individual parts of the logical name may be separated using the underscore character.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>colphyname</attrlabl>
+        <attrdef>The name that is used to physically implement a table column in a database management system. In a database table, each column's physical name must be unique.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>tabphyname</attrlabl>
+        <attrdef>The name that is used to physically implement a table in a database management system. In a database, each table's physical name must be unique.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>coldesc</attrlabl>
+        <attrdef>The narrative text description or definition of a column.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>uom</attrlabl>
+        <attrdef>The units of measure in which a column is recorded.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>domainname</attrlabl>
+        <attrdef>The name of the domain to which a column's values are restricted. A domain is a finite list of character strings that a column's value may assume.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>maximum</attrlabl>
+        <attrdef>The maximum allowable value of a column.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>fieldsize</attrlabl>
+        <attrdef>The maximum allowable length of a column whose logical data type is "string".</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>precision</attrlabl>
+        <attrdef>The number of decimal digits that should be displayed for a column whose logical data type is "float".</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>collabel</attrlabl>
+        <attrdef>A descriptive label associated with a column. For a SSURGO table, every column's label must be unique, making a column's label a suitable alias for identifying a column. For SSURGO, column labels are typically mixed case character strings with embedded blanks.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>colsequence</attrlabl>
+        <attrdef>Specifies the sequence of the columns in a database table.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>OBJECTID</attrlabl>
+        <attrdef>Internal feature number.</attrdef>
+        <attrdefs>Esri</attrdefs>
+        <attrdomv>
+          <udom>Sequential unique whole numbers that are automatically generated.</udom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>minimum</attrlabl>
+        <attrdef>The minimum allowable value of a column.</attrdef>
+      </attr>
+    </detailed>
+  </eainfo>
+  <metainfo>
+    <metd>20131230</metd>
+    <metstdn>FGDC Content Standard for Digital Geospatial Metadata</metstdn>
+    <metstdv>FGDC-STD-001-1998</metstdv>
+    <mettc>local time</mettc>
+  </metainfo>
+</metadata>

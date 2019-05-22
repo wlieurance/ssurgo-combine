@@ -1,0 +1,62 @@
+﻿<metadata>
+  <idinfo>
+    <citation>
+      <citeinfo>
+        <title>FEATDESC</title>
+        <geoform>tabular digital data</geoform>
+      </citeinfo>
+    </citation>
+    <descript>
+      <abstract>This table records the description of all spot features that occur in a soil survey area.</abstract>
+      <purpose>Feature Description Table</purpose>
+    </descript>
+    <accconst>None</accconst>
+    <useconst>None</useconst>
+    <native>Microsoft Windows 7 Version 6.1 (Build 7601) Service Pack 1; Esri ArcGIS 10.1.1.3143</native>
+  </idinfo>
+  <eainfo>
+    <detailed>
+      <enttyp>
+        <enttypl>featdesc</enttypl>
+      </enttyp>
+      <attr>
+        <attrlabl>featkey</attrlabl>
+        <attrdef>A non-connotative string of characters used to uniquely identify a record in the Feature Description table.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>featname</attrlabl>
+        <attrdef>A short descriptive name of a point or line spot feature.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>featdesc</attrlabl>
+        <attrdef>A narrative description of a point or line spot feature.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>featsym</attrlabl>
+        <attrdef>A symbol that, within the context of a particular soil survey area, uniquely identifies a point or line spot feature.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>OBJECTID</attrlabl>
+        <attrdef>Internal feature number.</attrdef>
+        <attrdefs>Esri</attrdefs>
+        <attrdomv>
+          <udom>Sequential unique whole numbers that are automatically generated.</udom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>areasymbol</attrlabl>
+        <attrdef>A symbol that uniquely identifies a single occurrence of a particular type of area (e.g. Lancaster Co., Nebraska is NE109).</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>spatialversion</attrlabl>
+        <attrdef>A sequential integer number used to denote the serial version of the spatial data for a soil survey area.</attrdef>
+      </attr>
+    </detailed>
+  </eainfo>
+  <metainfo>
+    <metd>20131230</metd>
+    <metstdn>FGDC Content Standard for Digital Geospatial Metadata</metstdn>
+    <metstdv>FGDC-STD-001-1998</metstdv>
+    <mettc>local time</mettc>
+  </metainfo>
+</metadata>

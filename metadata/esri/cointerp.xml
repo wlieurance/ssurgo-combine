@@ -1,0 +1,270 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<metadata xml:lang="en">
+  <Esri>
+    <CreaDate>20131230</CreaDate>
+    <CreaTime>18473000</CreaTime>
+    <ArcGISFormat>1.0</ArcGISFormat>
+    <ArcGISstyle>FGDC CSDGM Metadata</ArcGISstyle>
+    <SyncOnce>FALSE</SyncOnce>
+    <DataProperties>
+      <itemProps>
+        <itemName Sync="TRUE">cointerp</itemName>
+        <relatedItems>
+          <item>
+            <itemName />
+          </item>
+          <item>
+            <itemName Sync="TRUE">zComponent_Cointerp</itemName>
+            <itemType Sync="TRUE">Relationship</itemType>
+          </item>
+        </relatedItems>
+        <itemLocation>
+          <linkage Sync="TRUE">file://\\ARCNELI95L00052\E$\Geodata\2013\TemplateDB\Template_FGDB_CONUS_AlbersNAD1983.gdb</linkage>
+          <protocol Sync="TRUE">Local Area Network</protocol>
+        </itemLocation>
+        <imsContentType Sync="TRUE">002</imsContentType>
+      </itemProps>
+      <lineage>
+        <Process ToolSource="c:\program files (x86)\arcgis\desktop10.5\ArcToolbox\Toolboxes\Data Management Tools.tbx\AddIndex" Date="20171204" Time="033507">AddIndex E:\FY2018gSSURGODatabases\gSSURGO_NV.gdb\COINTERP RULEDEPTH Indx_CointerpRuleDepth NON_UNIQUE NON_ASCENDING</Process>
+        <Process ToolSource="c:\program files (x86)\arcgis\desktop10.5\ArcToolbox\Toolboxes\Data Management Tools.tbx\AddIndex" Date="20171204" Time="034026">AddIndex E:\FY2018gSSURGODatabases\gSSURGO_NV.gdb\COINTERP MRULENAME Indx_CointerpMRuleName NON_UNIQUE NON_ASCENDING</Process>
+      </lineage>
+    </DataProperties>
+    <SyncDate>20131230</SyncDate>
+    <SyncTime>18483700</SyncTime>
+    <ModDate>20131230</ModDate>
+    <ModTime>18483700</ModTime>
+  </Esri>
+  <mdLang>
+    <languageCode value="eng" />
+    <countryCode value="USA" Sync="TRUE" />
+  </mdLang>
+  <mdChar>
+    <CharSetCd value="004" />
+  </mdChar>
+  <mdHrLv>
+    <ScopeCd value="005" />
+  </mdHrLv>
+  <mdDateSt>20131230</mdDateSt>
+  <mdStanName>ArcGIS Metadata</mdStanName>
+  <mdStanVer>1.0</mdStanVer>
+  <dataIdInfo>
+    <idCitation>
+      <resTitle>COINTERP</resTitle>
+      <presForm>
+        <PresFormCd value="001" />
+      </presForm>
+      <presForm>
+        <fgdcGeoform>tabular digital data</fgdcGeoform>
+      </presForm>
+    </idCitation>
+    <idAbs>The Component Interpretation table lists the predictions of behavior and limiting features for specified uses made for the referenced map unit component.</idAbs>
+    <idPurp>Component Interpretation Table</idPurp>
+    <dataLang>
+      <languageCode value="eng" />
+      <countryCode value="USA" Sync="TRUE" />
+    </dataLang>
+    <envirDesc>Microsoft Windows 7 Version 6.1 (Build 7601) Service Pack 1; Esri ArcGIS 10.1.1.3143</envirDesc>
+    <spatRpType>
+      <SpatRepTypCd value="003" Sync="TRUE" />
+    </spatRpType>
+  </dataIdInfo>
+  <eainfo>
+    <detailed Name="cointerp">
+      <enttyp>
+        <enttypl>cointerp</enttypl>
+        <enttypt Sync="TRUE">Table</enttypt>
+        <enttypc Sync="TRUE">0</enttypc>
+      </enttyp>
+      <attr>
+        <attrlabl>mrulekey</attrlabl>
+        <attrdef>The unique identifier of the rule at the top of the interpretation rule hierarchy (the main rule). Use this key to find the mail rule in the Component Interpretation table.</attrdef>
+        <attalias Sync="TRUE">Main Rule Key</attalias>
+        <attrtype Sync="TRUE">String</attrtype>
+        <attwidth Sync="TRUE">30</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>OBJECTID</attrlabl>
+        <attrdef>Internal feature number.</attrdef>
+        <attrdefs>Esri</attrdefs>
+        <attrdomv>
+          <udom>Sequential unique whole numbers that are automatically generated.</udom>
+        </attrdomv>
+        <attalias Sync="TRUE">OBJECTID</attalias>
+        <attrtype Sync="TRUE">OID</attrtype>
+        <attwidth Sync="TRUE">4</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>interplrc</attrlabl>
+        <attrdef>The rating class term for the minimum of the representative values of the interpretation rating.</attrdef>
+        <attalias Sync="TRUE">Interp Low Representative Value Class</attalias>
+        <attrtype Sync="TRUE">String</attrtype>
+        <attwidth Sync="TRUE">254</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>interphr</attrlabl>
+        <attrdef>The maximum numeric rating of the representative values of the interpretation rating.</attrdef>
+        <attalias Sync="TRUE">Interp High Representative Value</attalias>
+        <attrtype Sync="TRUE">Double</attrtype>
+        <attwidth Sync="TRUE">8</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>interpllc</attrlabl>
+        <attrdef>The rating class term for the minimum extreme of the interpretation rating.</attrdef>
+        <attalias Sync="TRUE">Interp Low Low Class</attalias>
+        <attrtype Sync="TRUE">String</attrtype>
+        <attwidth Sync="TRUE">254</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>interpll</attrlabl>
+        <attrdef>The minimum extreme numeric rating for the interpretation rating.</attrdef>
+        <attalias Sync="TRUE">Interp Low Low</attalias>
+        <attrtype Sync="TRUE">Double</attrtype>
+        <attwidth Sync="TRUE">8</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>rulename</attrlabl>
+        <attrdef>A user assigned name (typically connotative) for a particular interpretation rule.</attrdef>
+        <attalias Sync="TRUE">Rule Name</attalias>
+        <attrtype Sync="TRUE">String</attrtype>
+        <attwidth Sync="TRUE">60</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>cointerpkey</attrlabl>
+        <attrdef>A non-connotative string of characters used to uniquely identify a record in the Component Interpretation table.</attrdef>
+        <attalias Sync="TRUE">Component Interpretation Key</attalias>
+        <attrtype Sync="TRUE">String</attrtype>
+        <attwidth Sync="TRUE">30</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>defpropdatabool</attrlabl>
+        <attrdef>The value of this attribute is set to true whenever any property used in an interpretation returns a default value in place of any null value.</attrdef>
+        <attalias Sync="TRUE">Default Property Data Boolean</attalias>
+        <attrtype Sync="TRUE">String</attrtype>
+        <attwidth Sync="TRUE">3</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>incpropdatabool</attrlabl>
+        <attrdef>The value of this attribute is set to true whenever any property used in an interpretation that is based on multiple observations returns inconsistent results for the low low value, the low representative value, the high representative value and the high high value. A property always returns either a representative value or a low, high and representative value. Values for low low, low representative, high representative and high high are only derived in the case where the values of a property used in an interpretation are based on multiple observations.</attrdef>
+        <attalias Sync="TRUE">Inconsistent Property Data Boolean</attalias>
+        <attrtype Sync="TRUE">String</attrtype>
+        <attwidth Sync="TRUE">3</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>nullpropdatabool</attrlabl>
+        <attrdef>The value of this attribute is set to true whenever any property used in an interpretation returns any null value.</attrdef>
+        <attalias Sync="TRUE">Null Property Data Boolean</attalias>
+        <attrtype Sync="TRUE">String</attrtype>
+        <attwidth Sync="TRUE">3</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>interphrc</attrlabl>
+        <attrdef>The rating class term for the maximum of the representative values for the interpretation rating.</attrdef>
+        <attalias Sync="TRUE">Interp High Representative Value Class</attalias>
+        <attrtype Sync="TRUE">String</attrtype>
+        <attwidth Sync="TRUE">254</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>interphh</attrlabl>
+        <attrdef>The maximum extreme numeric rating for the interpretation rating.</attrdef>
+        <attalias Sync="TRUE">Interp High High</attalias>
+        <attrtype Sync="TRUE">Double</attrtype>
+        <attwidth Sync="TRUE">8</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>seqnum</attrlabl>
+        <attrdef>Sequential number of the feature being described.</attrdef>
+        <attalias Sync="TRUE">Sequence Number</attalias>
+        <attrtype Sync="TRUE">SmallInteger</attrtype>
+        <attwidth Sync="TRUE">2</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>interplr</attrlabl>
+        <attrdef>The minimum numeric rating of the representative values for the interpretation rating.</attrdef>
+        <attalias Sync="TRUE">Interp Low Representative Value</attalias>
+        <attrtype Sync="TRUE">Double</attrtype>
+        <attwidth Sync="TRUE">8</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>mrulename</attrlabl>
+        <attrdef>The name of an interpretation, such as ENG - Dwellings with Basements. A main rule (interpretation) may contain subordinate rules, which in turn may have other subordinate rules. The main rule entry in this column is the user assigned name (typically connotative) for the interpretation rule at the top of the hierarchy.</attrdef>
+        <attalias Sync="TRUE">Main Rule Name</attalias>
+        <attrtype Sync="TRUE">String</attrtype>
+        <attwidth Sync="TRUE">60</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>cokey</attrlabl>
+        <attrdef>The unique identifier of a record in the Component table. Use this column to join the Component Interpretation table to the Component table.</attrdef>
+        <attalias Sync="TRUE">Component Key</attalias>
+        <attrtype Sync="TRUE">String</attrtype>
+        <attwidth Sync="TRUE">30</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>ruledepth</attrlabl>
+        <attrdef>An interpretation rule may contain subordinate rules, which in turn may have subordinate rules. This is an indicator of the depth within the interpretation hierarchy that a particular rule exists, where zero is the top level.</attrdef>
+        <attalias Sync="TRUE">Rule Depth</attalias>
+        <attrtype Sync="TRUE">SmallInteger</attrtype>
+        <attwidth Sync="TRUE">2</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>rulekey</attrlabl>
+        <attrdef>The unique identifier of a record in the Rule table in NASIS.</attrdef>
+        <attalias Sync="TRUE">Rule Key</attalias>
+        <attrtype Sync="TRUE">String</attrtype>
+        <attwidth Sync="TRUE">30</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>interphhc</attrlabl>
+        <attrdef>A rating class term for the maximum extreme of the interpretation rating.</attrdef>
+        <attalias Sync="TRUE">Interp High High Class</attalias>
+        <attrtype Sync="TRUE">String</attrtype>
+        <attwidth Sync="TRUE">254</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+    </detailed>
+  </eainfo>
+  <distInfo>
+    <distFormat>
+      <formatName Sync="TRUE">File Geodatabase Table</formatName>
+    </distFormat>
+  </distInfo>
+  <mdHrLvName Sync="TRUE">dataset</mdHrLvName>
+</metadata>

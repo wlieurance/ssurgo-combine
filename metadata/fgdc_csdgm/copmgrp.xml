@@ -1,0 +1,54 @@
+﻿<metadata>
+  <idinfo>
+    <citation>
+      <citeinfo>
+        <title>COPMGRP</title>
+        <geoform>tabular digital data</geoform>
+      </citeinfo>
+    </citation>
+    <descript>
+      <abstract>The Component Parent Material Group table lists the concatenated string of parent material(s) in which the referenced map unit component formed based on entries in the Component Parent Material table. For example, a component formed in one parent material, such as loess, or one vertical sequence of parent materials, such as loamy glacial drift over silty residuum weathered from shale, has one row in this table. A component formed in one parent material in some locations, but another parent material (or sequence of parent materials) in other locations has two rows in this table, one for each parent material (or sequence of parent materials). One row is identified as the representative parent material.</abstract>
+      <purpose>Component Parent Material Group Table</purpose>
+    </descript>
+    <accconst>None</accconst>
+    <useconst>None</useconst>
+    <native>Microsoft Windows 7 Version 6.1 (Build 7601) Service Pack 1; Esri ArcGIS 10.1.1.3143</native>
+  </idinfo>
+  <eainfo>
+    <detailed>
+      <enttyp>
+        <enttypl>copmgrp</enttypl>
+      </enttyp>
+      <attr>
+        <attrlabl>copmgrpkey</attrlabl>
+        <attrdef>A non-connotative string of characters used to uniquely identify a record in the Component Parent Material Group table.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>rvindicator</attrlabl>
+        <attrdef>A yes/no field that indicates if a listed parent material is representative for the component.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>cokey</attrlabl>
+        <attrdef>The unique identifier of a record in the Component table. Use this column to join the Component Parent Material Group table to the Component table.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>pmgroupname</attrlabl>
+        <attrdef>Name for the concatenation of PARENT_MATERIAL_MODIFIER, PARENT_MATERIAL_KIND, and PARENT_MATERIAL_ORIGIN for each of the parent materials that may occur in a vertical cross section of a soil.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>OBJECTID</attrlabl>
+        <attrdef>Internal feature number.</attrdef>
+        <attrdefs>Esri</attrdefs>
+        <attrdomv>
+          <udom>Sequential unique whole numbers that are automatically generated.</udom>
+        </attrdomv>
+      </attr>
+    </detailed>
+  </eainfo>
+  <metainfo>
+    <metd>20131230</metd>
+    <metstdn>FGDC Content Standard for Digital Geospatial Metadata</metstdn>
+    <metstdv>FGDC-STD-001-1998</metstdv>
+    <mettc>local time</mettc>
+  </metainfo>
+</metadata>

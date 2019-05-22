@@ -1,0 +1,1670 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<metadata xml:lang="en">
+  <Esri>
+    <CreaDate>20131230</CreaDate>
+    <CreaTime>18260200</CreaTime>
+    <ArcGISFormat>1.0</ArcGISFormat>
+    <ArcGISstyle>FGDC CSDGM Metadata</ArcGISstyle>
+    <SyncOnce>FALSE</SyncOnce>
+    <DataProperties>
+      <itemProps>
+        <itemName Sync="TRUE">chorizon</itemName>
+        <relatedItems>
+          <item>
+            <itemName />
+          </item>
+          <item>
+            <itemName />
+            <itemType Sync="TRUE">Relationship</itemType>
+          </item>
+          <item>
+            <itemName />
+            <itemType Sync="TRUE">Relationship</itemType>
+          </item>
+          <item>
+            <itemName />
+            <itemType Sync="TRUE">Relationship</itemType>
+          </item>
+          <item>
+            <itemName />
+            <itemType Sync="TRUE">Relationship</itemType>
+          </item>
+          <item>
+            <itemName />
+            <itemType Sync="TRUE">Relationship</itemType>
+          </item>
+          <item>
+            <itemName />
+            <itemType Sync="TRUE">Relationship</itemType>
+          </item>
+          <item>
+            <itemName />
+            <itemType Sync="TRUE">Relationship</itemType>
+          </item>
+          <item>
+            <itemName />
+            <itemType Sync="TRUE">Relationship</itemType>
+          </item>
+          <item>
+            <itemName />
+            <itemType Sync="TRUE">Relationship</itemType>
+          </item>
+          <item>
+            <itemName Sync="TRUE">zComponent_Chorizon</itemName>
+            <itemType Sync="TRUE">Relationship</itemType>
+          </item>
+        </relatedItems>
+        <itemLocation>
+          <linkage Sync="TRUE">file://\\ARCNELI95L00052\E$\Geodata\2013\TemplateDB\Template_FGDB_CONUS_AlbersNAD1983.gdb</linkage>
+          <protocol Sync="TRUE">Local Area Network</protocol>
+        </itemLocation>
+        <imsContentType Sync="TRUE">002</imsContentType>
+      </itemProps>
+    </DataProperties>
+    <SyncDate>20140110</SyncDate>
+    <SyncTime>15555500</SyncTime>
+    <ModDate>20140110</ModDate>
+    <ModTime>15555500</ModTime>
+  </Esri>
+  <mdLang>
+    <languageCode value="eng" />
+    <countryCode value="USA" Sync="TRUE" />
+  </mdLang>
+  <mdChar>
+    <CharSetCd value="004" />
+  </mdChar>
+  <mdHrLv>
+    <ScopeCd value="005" />
+  </mdHrLv>
+  <mdDateSt>20131230</mdDateSt>
+  <mdStanName>ArcGIS Metadata</mdStanName>
+  <mdStanVer>1.0</mdStanVer>
+  <dataIdInfo>
+    <idCitation>
+      <resTitle>CHORIZON</resTitle>
+      <presForm>
+        <PresFormCd value="001" />
+      </presForm>
+      <presForm>
+        <fgdcGeoform>tabular digital data</fgdcGeoform>
+      </presForm>
+    </idCitation>
+    <idAbs>The Horizon table lists the horizon(s) and related data for the referenced map unit component. If the horizon thickness is greater than zero (low=5, RV=8, high=12), the horizon exists everywhere this component occurs. If the horizon thickness includes zero (low=0, RV=1, high=3), the horizon may exist in some places, but not in other places. Horizons that have two distinct parts, such as E/B or E&amp;Bt horizons, are recorded twice. Once for the characteristics of the first part; and again on another row, using the same depths and thicknesses, for the characteristics of the other part.</idAbs>
+    <idPurp>Horizon Table</idPurp>
+    <dataLang>
+      <languageCode value="eng" />
+      <countryCode value="USA" Sync="TRUE" />
+    </dataLang>
+    <envirDesc>Microsoft Windows 7 Version 6.1 (Build 7601) Service Pack 1; Esri ArcGIS 10.1.1.3143</envirDesc>
+    <spatRpType>
+      <SpatRepTypCd value="003" Sync="TRUE" />
+    </spatRpType>
+  </dataIdInfo>
+  <eainfo>
+    <detailed Name="chorizon">
+      <enttyp>
+        <enttypl>chorizon</enttypl>
+        <enttypt Sync="TRUE">Table</enttypt>
+        <enttypc Sync="TRUE">0</enttypc>
+      </enttyp>
+      <attr>
+        <attrlabl>dbfifteenbar_r</attrlabl>
+        <attrdef>The oven dry weight of the less than 2 mm soil material per unit volume of soil at a water tension of 15 bar.</attrdef>
+        <attalias Sync="TRUE">Db 15 bar H2O - Representative Value</attalias>
+        <attrtype Sync="TRUE">Single</attrtype>
+        <attwidth Sync="TRUE">4</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>ec_h</attrlabl>
+        <attrdef>The electrical conductivity of an extract from saturated soil paste.</attrdef>
+        <attalias Sync="TRUE">EC - High Value</attalias>
+        <attrtype Sync="TRUE">Single</attrtype>
+        <attwidth Sync="TRUE">4</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>claysizedcarb_h</attrlabl>
+        <attrdef>Carbonate particles less than 0.002mm in equivalent diameter as a weight percentage of the less than 2.0mm fraction.</attrdef>
+        <attalias Sync="TRUE">CaCO3 Clay - High Value</attalias>
+        <attrtype Sync="TRUE">Single</attrtype>
+        <attwidth Sync="TRUE">4</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>fraggt10_r</attrlabl>
+        <attrdef>The percent by weight of the horizon occupied by rock fragments greater than 10 inches in size.</attrdef>
+        <attalias Sync="TRUE">Rock &gt;10 - Representative Value</attalias>
+        <attrtype Sync="TRUE">SmallInteger</attrtype>
+        <attwidth Sync="TRUE">2</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>gypsum_r</attrlabl>
+        <attrdef>The percent by weight of hydrated calcium sulfate in the less than 20 mm fraction of soil.</attrdef>
+        <attalias Sync="TRUE">Gypsum - Representative Value</attalias>
+        <attrtype Sync="TRUE">SmallInteger</attrtype>
+        <attwidth Sync="TRUE">2</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>sieveno10_h</attrlabl>
+        <attrdef>Soil fraction passing a number 10 sieve (2.00mm square opening) as a weight percentage of the less than 3 inch (76.4mm) fraction.</attrdef>
+        <attalias Sync="TRUE">Sieve #10 - High Value</attalias>
+        <attrtype Sync="TRUE">Single</attrtype>
+        <attwidth Sync="TRUE">4</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>sar_r</attrlabl>
+        <attrdef>A measure of the amount of Sodium (Na) relative to Calcium (Ca) and Magnesium (Mg) in the water extract from saturated soil paste.</attrdef>
+        <attalias Sync="TRUE">SAR - Representative Value</attalias>
+        <attrtype Sync="TRUE">Single</attrtype>
+        <attwidth Sync="TRUE">4</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>feoxalate_r</attrlabl>
+        <attrdef>The amount of ammonium oxalate extractable iron in the less than 2mm fraction. It is considered a measure of noncrystalline iron in the soil.</attrdef>
+        <attalias Sync="TRUE">Oxalate Fe - Representative Value</attalias>
+        <attrtype Sync="TRUE">Single</attrtype>
+        <attwidth Sync="TRUE">4</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>freeiron_h</attrlabl>
+        <attrdef>The secondary iron oxides such as geothite, hematite, ferrihydrite, lepidocrocite and maghemite. This form of iron may occur as discrete particles, as coatings on other particles, or as cementing agents between soil mineral grains. It is iron extracted by dithionite-citrate.</attrdef>
+        <attalias Sync="TRUE">Free Iron - High Value</attalias>
+        <attrtype Sync="TRUE">Single</attrtype>
+        <attwidth Sync="TRUE">4</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>freeiron_r</attrlabl>
+        <attrdef>The secondary iron oxides such as geothite, hematite, ferrihydrite, lepidocrocite and maghemite. This form of iron may occur as discrete particles, as coatings on other particles, or as cementing agents between soil mineral grains. It is iron extracted by dithionite-citrate.</attrdef>
+        <attalias Sync="TRUE">Free Iron - Representative Value</attalias>
+        <attrtype Sync="TRUE">Single</attrtype>
+        <attwidth Sync="TRUE">4</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>ph01mcacl2_h</attrlabl>
+        <attrdef>The negative logarithm to base of 10 or the hydrogen ion activity in the soil, using the 0.01M CaCl2 method, in a 1:2 soil:solution ratio. A numerical expression of the relative acidity or alkalinity of a soil sample. (SSM)</attrdef>
+        <attalias Sync="TRUE">pH CaCl2 - High Value</attalias>
+        <attrtype Sync="TRUE">Single</attrtype>
+        <attwidth Sync="TRUE">4</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>siltco_l</attrlabl>
+        <attrdef>Mineral particles ranging in size from 0.02mm to 0.05mm in equivalent diameter as a weight percentage of the less than 2.0mm fraction.</attrdef>
+        <attalias Sync="TRUE">Coarse Silt - Low Value</attalias>
+        <attrtype Sync="TRUE">Single</attrtype>
+        <attwidth Sync="TRUE">4</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>sieveno40_r</attrlabl>
+        <attrdef>Soil fraction passing a number 40 sieve (0.42mm square opening) as a weight percentage of the less than 3 inch (76.4mm) fraction.</attrdef>
+        <attalias Sync="TRUE">Sieve #40 - Representative Value</attalias>
+        <attrtype Sync="TRUE">Single</attrtype>
+        <attwidth Sync="TRUE">4</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>om_h</attrlabl>
+        <attrdef>The amount by weight of decomposed plant and animal residue expressed as a weight percentage of the less than 2 mm soil material.</attrdef>
+        <attalias Sync="TRUE">OM - High Value</attalias>
+        <attrtype Sync="TRUE">Single</attrtype>
+        <attwidth Sync="TRUE">4</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>gypsum_h</attrlabl>
+        <attrdef>The percent by weight of hydrated calcium sulfate in the less than 20 mm fraction of soil.</attrdef>
+        <attalias Sync="TRUE">Gypsum - High Value</attalias>
+        <attrtype Sync="TRUE">SmallInteger</attrtype>
+        <attwidth Sync="TRUE">2</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>lep_l</attrlabl>
+        <attrdef>The linear expression of the volume difference of natural soil fabric at 1/3 or 1/10 bar water content and oven dryness. The volume change is reported as percent change for the whole soil.</attrdef>
+        <attalias Sync="TRUE">LEP - Low Value</attalias>
+        <attrtype Sync="TRUE">Single</attrtype>
+        <attwidth Sync="TRUE">4</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>pi_r</attrlabl>
+        <attrdef>The numerical difference between the liquid limit and plastic limit.</attrdef>
+        <attalias Sync="TRUE">PI - Representative Value</attalias>
+        <attrtype Sync="TRUE">Single</attrtype>
+        <attwidth Sync="TRUE">4</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>ecec_l</attrlabl>
+        <attrdef>The sum of NH4OAc extractable bases plus KCl extractable aluminum.</attrdef>
+        <attalias Sync="TRUE">ECEC - Low Value</attalias>
+        <attrtype Sync="TRUE">Single</attrtype>
+        <attwidth Sync="TRUE">4</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>cec7_r</attrlabl>
+        <attrdef>The amount of readily exchangeable cations that can be electrically adsorbed to negative charges in the soil, soil constituent, or other material, at pH 7.0, as estimated by the ammonium acetate method.</attrdef>
+        <attalias Sync="TRUE">CEC-7 - Representative Value</attalias>
+        <attrtype Sync="TRUE">Single</attrtype>
+        <attwidth Sync="TRUE">4</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>sar_h</attrlabl>
+        <attrdef>A measure of the amount of Sodium (Na) relative to Calcium (Ca) and Magnesium (Mg) in the water extract from saturated soil paste.</attrdef>
+        <attalias Sync="TRUE">SAR - High Value</attalias>
+        <attrtype Sync="TRUE">Single</attrtype>
+        <attwidth Sync="TRUE">4</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>ll_l</attrlabl>
+        <attrdef>The water content of the soil at the change between the liquid and plastic states.</attrdef>
+        <attalias Sync="TRUE">LL - Low Value</attalias>
+        <attrtype Sync="TRUE">Single</attrtype>
+        <attwidth Sync="TRUE">4</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>dbovendry_r</attrlabl>
+        <attrdef>The oven dry weight of the less than 2 mm soil material per unit volume of soil exclusive of the desication cracks, measured on a coated clod.</attrdef>
+        <attalias Sync="TRUE">Db oven dry - Representative Value</attalias>
+        <attrtype Sync="TRUE">Double</attrtype>
+        <attwidth Sync="TRUE">8</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>sieveno200_r</attrlabl>
+        <attrdef>Soil fraction passing a number 200 sieve (0.074mm square opening) as a weight percentage of the less than 3 inch (76.4mm) fraction.</attrdef>
+        <attalias Sync="TRUE">Sieve #200 - Representative Value</attalias>
+        <attrtype Sync="TRUE">Single</attrtype>
+        <attwidth Sync="TRUE">4</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>aashind_r</attrlabl>
+        <attrdef>The empirical group index formula devised for approximately within-group evaluation of the "clayey granular materials" and the "silty-clay materials".</attrdef>
+        <attalias Sync="TRUE">AASHTO Group Index - Representative Value</attalias>
+        <attrtype Sync="TRUE">SmallInteger</attrtype>
+        <attwidth Sync="TRUE">2</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>sandvc_l</attrlabl>
+        <attrdef>Mineral particles 1.0mm to 2.0mm in equivalent diameter as a weight percentage of the less than 2 mm fraction.</attrdef>
+        <attalias Sync="TRUE">Very Course Sand - Low Value</attalias>
+        <attrtype Sync="TRUE">Single</attrtype>
+        <attwidth Sync="TRUE">4</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>om_r</attrlabl>
+        <attrdef>The amount by weight of decomposed plant and animal residue expressed as a weight percentage of the less than 2 mm soil material.</attrdef>
+        <attalias Sync="TRUE">OM - Representative Value</attalias>
+        <attrtype Sync="TRUE">Single</attrtype>
+        <attwidth Sync="TRUE">4</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>desgnvert</attrlabl>
+        <attrdef>One of the four kinds of symbols, when concatenated, are used to distinguish different kinds of layers in soils. Vertical subdivisions are used to subdivide a horizon or layer designated by a single letter or combination of letters.</attrdef>
+        <attalias Sync="TRUE">Sub</attalias>
+        <attrtype Sync="TRUE">SmallInteger</attrtype>
+        <attwidth Sync="TRUE">2</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>awc_h</attrlabl>
+        <attrdef>The amount of water that an increment of soil depth, inclusive of fragments, can store that is available to plants. AWC is expressed as a volume fraction, and is commonly estimated as the difference between the water contents at 1/10 or 1/3 bar (field capacity) and 15 bars (permanent wilting point) tension and adjusted for salinity, and fragments.</attrdef>
+        <attalias Sync="TRUE">AWC - High Value</attalias>
+        <attrtype Sync="TRUE">Single</attrtype>
+        <attwidth Sync="TRUE">4</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>sieveno10_r</attrlabl>
+        <attrdef>Soil fraction passing a number 10 sieve (2.00mm square opening) as a weight percentage of the less than 3 inch (76.4mm) fraction.</attrdef>
+        <attalias Sync="TRUE">Sieve #10 - Representative Value</attalias>
+        <attrtype Sync="TRUE">Single</attrtype>
+        <attwidth Sync="TRUE">4</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>dbthirdbar_h</attrlabl>
+        <attrdef>The oven dry weight of the less than 2 mm soil material per unit volume of soil at a water tension of 1/3 bar.</attrdef>
+        <attalias Sync="TRUE">Db 0.33 bar H2O - High Value</attalias>
+        <attrtype Sync="TRUE">Single</attrtype>
+        <attwidth Sync="TRUE">4</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>ph01mcacl2_l</attrlabl>
+        <attrdef>The negative logarithm to base of 10 or the hydrogen ion activity in the soil, using the 0.01M CaCl2 method, in a 1:2 soil:solution ratio. A numerical expression of the relative acidity or alkalinity of a soil sample. (SSM)</attrdef>
+        <attalias Sync="TRUE">pH CaCl2 - Low Value</attalias>
+        <attrtype Sync="TRUE">Single</attrtype>
+        <attwidth Sync="TRUE">4</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>hzdept_h</attrlabl>
+        <attrdef>The distance from the top of the soil to the upper boundary of the soil horizon.</attrdef>
+        <attalias Sync="TRUE">Top Depth - High Value</attalias>
+        <attrtype Sync="TRUE">SmallInteger</attrtype>
+        <attwidth Sync="TRUE">2</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>siltco_r</attrlabl>
+        <attrdef>Mineral particles ranging in size from 0.02mm to 0.05mm in equivalent diameter as a weight percentage of the less than 2.0mm fraction.</attrdef>
+        <attalias Sync="TRUE">Coarse Silt - Representative Value</attalias>
+        <attrtype Sync="TRUE">Single</attrtype>
+        <attwidth Sync="TRUE">4</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>aloxalate_r</attrlabl>
+        <attrdef>The amount of ammonium oxalate extractable aluminum in the less than 2mm fraction. This is an estimate of the total pedogenic aluminum, much of which may be in noncrystalline material, or complexed by organic matter.</attrdef>
+        <attalias Sync="TRUE">Oxalate Al - Representative Value</attalias>
+        <attrtype Sync="TRUE">Single</attrtype>
+        <attwidth Sync="TRUE">4</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>extral_r</attrlabl>
+        <attrdef>The amount of aluminum extracted in 1 normal potassium chloride. The following laboratory method is applied: 55 ml of 1 normal potassium chloride is extracted through 2.5 g of soil sample. The extract is analyzed by use of an atomic adsorption spectrometer or similar instrument (SSIR #1, method 6G9a and NSSH).</attrdef>
+        <attalias Sync="TRUE">Extract Al - Representative Value</attalias>
+        <attrtype Sync="TRUE">Single</attrtype>
+        <attwidth Sync="TRUE">4</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>extral_l</attrlabl>
+        <attrdef>The amount of aluminum extracted in 1 normal potassium chloride. The following laboratory method is applied: 55 ml of 1 normal potassium chloride is extracted through 2.5 g of soil sample. The extract is analyzed by use of an atomic adsorption spectrometer or similar instrument (SSIR #1, method 6G9a and NSSH).</attrdef>
+        <attalias Sync="TRUE">Extract Al - Low Value</attalias>
+        <attrtype Sync="TRUE">Single</attrtype>
+        <attwidth Sync="TRUE">4</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>ph2osoluble_r</attrlabl>
+        <attrdef>The amount of water soluble phosphorous in the less than 2mm fraction, that is extractable by distilled water. It represents the mobile phosphorous content.</attrdef>
+        <attalias Sync="TRUE">Water Soluble Phos - Representative Value</attalias>
+        <attrtype Sync="TRUE">Single</attrtype>
+        <attwidth Sync="TRUE">4</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>ph2osoluble_h</attrlabl>
+        <attrdef>The amount of water soluble phosphorous in the less than 2mm fraction, that is extractable by distilled water. It represents the mobile phosphorous content.</attrdef>
+        <attalias Sync="TRUE">Water Soluble Phos - High Value</attalias>
+        <attrtype Sync="TRUE">Single</attrtype>
+        <attwidth Sync="TRUE">4</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>poxalate_h</attrlabl>
+        <attrdef>The amount of phosphorous in the less than 2mm fraction, that is extractable by aluminum oxalate method. It represents the phosphorous level intermediate between total P and water soluble P.</attrdef>
+        <attalias Sync="TRUE">Oxalate Phos - High Value</attalias>
+        <attrtype Sync="TRUE">Single</attrtype>
+        <attwidth Sync="TRUE">4</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>poxalate_r</attrlabl>
+        <attrdef>The amount of phosphorous in the less than 2mm fraction, that is extractable by aluminum oxalate method. It represents the phosphorous level intermediate between total P and water soluble P.</attrdef>
+        <attalias Sync="TRUE">Oxalate Phos - Representative Value</attalias>
+        <attrtype Sync="TRUE">Single</attrtype>
+        <attwidth Sync="TRUE">4</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>pbray1_h</attrlabl>
+        <attrdef>The amount of phosphorous in the less than 2mm fraction, that is extractable using the Bray1 method. It represents the plant available phosphorous content.</attrdef>
+        <attalias Sync="TRUE">Bray 1 Phos - High Value</attalias>
+        <attrtype Sync="TRUE">Single</attrtype>
+        <attwidth Sync="TRUE">4</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>chkey</attrlabl>
+        <attrdef>A non-connotative string of characters used to uniquely identify a record in the Horizon table.</attrdef>
+        <attalias Sync="TRUE">Chorizon Key</attalias>
+        <attrtype Sync="TRUE">String</attrtype>
+        <attwidth Sync="TRUE">30</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>excavdifms</attrlabl>
+        <attrdef>The soil moisture status for which the excavation difficulty class is assigned for the individual component.</attrdef>
+        <attalias Sync="TRUE">Excav Diff Moisture</attalias>
+        <attrtype Sync="TRUE">String</attrtype>
+        <attwidth Sync="TRUE">254</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>cokey</attrlabl>
+        <attrdef>The unique identifier of a record in the Component table. Use this column to join the Horizon table to the Component table.</attrdef>
+        <attalias Sync="TRUE">Component Key</attalias>
+        <attrtype Sync="TRUE">String</attrtype>
+        <attwidth Sync="TRUE">30</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>excavdifcl</attrlabl>
+        <attrdef>An estimation of the difficulty of working an excavation into soil layers, horizons, pedons, or geologic layers. In most instances, excavation difficulty is related to and controlled by a water state.</attrdef>
+        <attalias Sync="TRUE">Excav Diff</attalias>
+        <attrtype Sync="TRUE">String</attrtype>
+        <attwidth Sync="TRUE">254</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>ptotal_l</attrlabl>
+        <attrdef>The estimate of the total phosphorous content of the soil, measured after total dissolution of a size fraction of the soil material. It is reported as a gravimetric percent oxide of the size fraction used.</attrdef>
+        <attalias Sync="TRUE">Total Phos - Low Value</attalias>
+        <attrtype Sync="TRUE">Single</attrtype>
+        <attwidth Sync="TRUE">4</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>feoxalate_h</attrlabl>
+        <attrdef>The amount of ammonium oxalate extractable iron in the less than 2mm fraction. It is considered a measure of noncrystalline iron in the soil.</attrdef>
+        <attalias Sync="TRUE">Oxalate Fe - High Value</attalias>
+        <attrtype Sync="TRUE">Single</attrtype>
+        <attwidth Sync="TRUE">4</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>claysizedcarb_r</attrlabl>
+        <attrdef>Carbonate particles less than 0.002mm in equivalent diameter as a weight percentage of the less than 2.0mm fraction.</attrdef>
+        <attalias Sync="TRUE">CaCO3 Clay - Representative Value</attalias>
+        <attrtype Sync="TRUE">Single</attrtype>
+        <attwidth Sync="TRUE">4</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>caco3_r</attrlabl>
+        <attrdef>The quantity of Carbonate (CO3) in the soil expressed as CaCO3 and as a weight percentage of the less than 2 mm size fraction.</attrdef>
+        <attalias Sync="TRUE">CaCO3 - Representative Value</attalias>
+        <attrtype Sync="TRUE">SmallInteger</attrtype>
+        <attwidth Sync="TRUE">2</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>sandfine_l</attrlabl>
+        <attrdef>Mineral particles 0.10 to 0.25mm in equivalent diameter as a weight percentage of the less than 2 mm fraction.</attrdef>
+        <attalias Sync="TRUE">Fine Sand - Low Value</attalias>
+        <attrtype Sync="TRUE">Single</attrtype>
+        <attwidth Sync="TRUE">4</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>aashind_l</attrlabl>
+        <attrdef>The empirical group index formula devised for approximately within-group evaluation of the "clayey granular materials" and the "silty-clay materials".</attrdef>
+        <attalias Sync="TRUE">AASHTO Group Index - Low Value</attalias>
+        <attrtype Sync="TRUE">SmallInteger</attrtype>
+        <attwidth Sync="TRUE">2</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>wfifteenbar_h</attrlabl>
+        <attrdef>The volumetric content of soil water retained at a tension of 15 bars (1500 kPa), expressed as a percentage of the whole soil.</attrdef>
+        <attalias Sync="TRUE">15 bar H2O - High Value</attalias>
+        <attrtype Sync="TRUE">Single</attrtype>
+        <attwidth Sync="TRUE">4</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>claytotal_h</attrlabl>
+        <attrdef>Mineral particles less than 0.002mm in equivalent diameter as a weight percentage of the less than 2.0mm fraction.</attrdef>
+        <attalias Sync="TRUE">Total Clay - High Value</attalias>
+        <attrtype Sync="TRUE">Single</attrtype>
+        <attwidth Sync="TRUE">4</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>dbtenthbar_l</attrlabl>
+        <attrdef>The oven dried weight of the less than 2 mm soil material per unit volume of soil at a water tension of 1/10 bar.</attrdef>
+        <attalias Sync="TRUE">Db 0.1 bar H2O - Low Value</attalias>
+        <attrtype Sync="TRUE">Single</attrtype>
+        <attwidth Sync="TRUE">4</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>sieveno40_h</attrlabl>
+        <attrdef>Soil fraction passing a number 40 sieve (0.42mm square opening) as a weight percentage of the less than 3 inch (76.4mm) fraction.</attrdef>
+        <attalias Sync="TRUE">Sieve #40 - High Value</attalias>
+        <attrtype Sync="TRUE">Single</attrtype>
+        <attwidth Sync="TRUE">4</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>silttotal_h</attrlabl>
+        <attrdef>Mineral particles 0.002 to 0.05mm in equivalent diameter as a weight percentage of the less than 2.0mm fraction.</attrdef>
+        <attalias Sync="TRUE">Total Silt - High Value</attalias>
+        <attrtype Sync="TRUE">Single</attrtype>
+        <attwidth Sync="TRUE">4</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>frag3to10_r</attrlabl>
+        <attrdef>The percent by weight of the horizon occupied by rock fragments 3 to 10 inches in size.</attrdef>
+        <attalias Sync="TRUE">Rock 3-10 - Representative Value</attalias>
+        <attrtype Sync="TRUE">SmallInteger</attrtype>
+        <attwidth Sync="TRUE">2</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>sandtotal_h</attrlabl>
+        <attrdef>Mineral particles 0.05mm to 2.0mm in equivalent diameter as a weight percentage of the less than 2 mm fraction.</attrdef>
+        <attalias Sync="TRUE">Total Sand - High Value</attalias>
+        <attrtype Sync="TRUE">Single</attrtype>
+        <attwidth Sync="TRUE">4</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>sandvc_h</attrlabl>
+        <attrdef>Mineral particles 1.0mm to 2.0mm in equivalent diameter as a weight percentage of the less than 2 mm fraction.</attrdef>
+        <attalias Sync="TRUE">Very Course Sand - High Value</attalias>
+        <attrtype Sync="TRUE">Single</attrtype>
+        <attwidth Sync="TRUE">4</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>desgnmasterprime</attrlabl>
+        <attrdef>A character used to indicate that this horizon has an identical horizon designation as some overlying horizon. The two horizons in question are separated by at least one other horizon.</attrdef>
+        <attalias Sync="TRUE">Prime</attalias>
+        <attrtype Sync="TRUE">String</attrtype>
+        <attwidth Sync="TRUE">254</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>cec7_h</attrlabl>
+        <attrdef>The amount of readily exchangeable cations that can be electrically adsorbed to negative charges in the soil, soil constituent, or other material, at pH 7.0, as estimated by the ammonium acetate method.</attrdef>
+        <attalias Sync="TRUE">CEC-7 - High Value</attalias>
+        <attrtype Sync="TRUE">Single</attrtype>
+        <attwidth Sync="TRUE">4</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>hzdepb_r</attrlabl>
+        <attrdef>The distance from the top of the soil to the base of the soil horizon.</attrdef>
+        <attalias Sync="TRUE">Bottom Depth - Representative Value</attalias>
+        <attrtype Sync="TRUE">SmallInteger</attrtype>
+        <attwidth Sync="TRUE">2</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>sieveno4_r</attrlabl>
+        <attrdef>Soil fraction passing a number 4 sieve (4.70mm square opening) as a weight percentage of the less than 3 inch (76.4mm) fraction.</attrdef>
+        <attalias Sync="TRUE">Sieve #4 - Representative Value</attalias>
+        <attrtype Sync="TRUE">Single</attrtype>
+        <attwidth Sync="TRUE">4</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>wfifteenbar_r</attrlabl>
+        <attrdef>The volumetric content of soil water retained at a tension of 15 bars (1500 kPa), expressed as a percentage of the whole soil.</attrdef>
+        <attalias Sync="TRUE">15 bar H2O - Representative Value</attalias>
+        <attrtype Sync="TRUE">Single</attrtype>
+        <attwidth Sync="TRUE">4</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>sandmed_r</attrlabl>
+        <attrdef>Mineral particles 0.25mm to 0.5mm in equivalent diameter as a weight percentage of the less than 2 mm fraction.</attrdef>
+        <attalias Sync="TRUE">Medium Sand - Representative Value</attalias>
+        <attrtype Sync="TRUE">Single</attrtype>
+        <attwidth Sync="TRUE">4</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>claysizedcarb_l</attrlabl>
+        <attrdef>Carbonate particles less than 0.002mm in equivalent diameter as a weight percentage of the less than 2.0mm fraction.</attrdef>
+        <attalias Sync="TRUE">CaCO3 Clay - Low Value</attalias>
+        <attrtype Sync="TRUE">Single</attrtype>
+        <attwidth Sync="TRUE">4</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>wsatiated_l</attrlabl>
+        <attrdef>The estimated volumetric soil water content at or near zero bar tension, expressed as a percentage of the whole soil.</attrdef>
+        <attalias Sync="TRUE">Satiated H2O - Low Value</attalias>
+        <attrtype Sync="TRUE">SmallInteger</attrtype>
+        <attwidth Sync="TRUE">2</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>sieveno200_l</attrlabl>
+        <attrdef>Soil fraction passing a number 200 sieve (0.074mm square opening) as a weight percentage of the less than 3 inch (76.4mm) fraction.</attrdef>
+        <attalias Sync="TRUE">Sieve #200 - Low Value</attalias>
+        <attrtype Sync="TRUE">Single</attrtype>
+        <attwidth Sync="TRUE">4</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>hzdepb_l</attrlabl>
+        <attrdef>The distance from the top of the soil to the base of the soil horizon.</attrdef>
+        <attalias Sync="TRUE">Bottom Depth - Low Value</attalias>
+        <attrtype Sync="TRUE">SmallInteger</attrtype>
+        <attwidth Sync="TRUE">2</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>sieveno200_h</attrlabl>
+        <attrdef>Soil fraction passing a number 200 sieve (0.074mm square opening) as a weight percentage of the less than 3 inch (76.4mm) fraction.</attrdef>
+        <attalias Sync="TRUE">Sieve #200 - High Value</attalias>
+        <attrtype Sync="TRUE">Single</attrtype>
+        <attwidth Sync="TRUE">4</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>sandco_r</attrlabl>
+        <attrdef>Mineral particles 0.5mm to 1.0mm in equivalent diameter as a weight percentage of the less than 2 mm fraction.</attrdef>
+        <attalias Sync="TRUE">Course Sand - Representative Value</attalias>
+        <attrtype Sync="TRUE">Single</attrtype>
+        <attwidth Sync="TRUE">4</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>hzthk_l</attrlabl>
+        <attrdef>A measurement from the top to bottom of a soil horizon throughout its areal extent.</attrdef>
+        <attalias Sync="TRUE">Thickness - Low Value</attalias>
+        <attrtype Sync="TRUE">SmallInteger</attrtype>
+        <attwidth Sync="TRUE">2</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>ptotal_h</attrlabl>
+        <attrdef>The estimate of the total phosphorous content of the soil, measured after total dissolution of a size fraction of the soil material. It is reported as a gravimetric percent oxide of the size fraction used.</attrdef>
+        <attalias Sync="TRUE">Total Phos - High Value</attalias>
+        <attrtype Sync="TRUE">Single</attrtype>
+        <attwidth Sync="TRUE">4</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>ptotal_r</attrlabl>
+        <attrdef>The estimate of the total phosphorous content of the soil, measured after total dissolution of a size fraction of the soil material. It is reported as a gravimetric percent oxide of the size fraction used.</attrdef>
+        <attalias Sync="TRUE">Total Phos - Representative Value</attalias>
+        <attrtype Sync="TRUE">Single</attrtype>
+        <attwidth Sync="TRUE">4</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>wtenthbar_r</attrlabl>
+        <attrdef>The volumetric content of soil water retained at a tension of 1/10 bar (10 kPa), expressed as a percentage of the whole soil.</attrdef>
+        <attalias Sync="TRUE">0.1 bar H2O - Representative Value</attalias>
+        <attrtype Sync="TRUE">Single</attrtype>
+        <attwidth Sync="TRUE">4</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>awc_l</attrlabl>
+        <attrdef>The amount of water that an increment of soil depth, inclusive of fragments, can store that is available to plants. AWC is expressed as a volume fraction, and is commonly estimated as the difference between the water contents at 1/10 or 1/3 bar (field capacity) and 15 bars (permanent wilting point) tension and adjusted for salinity, and fragments.</attrdef>
+        <attalias Sync="TRUE">AWC - Low Value</attalias>
+        <attrtype Sync="TRUE">Single</attrtype>
+        <attwidth Sync="TRUE">4</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>hzdepb_h</attrlabl>
+        <attrdef>The distance from the top of the soil to the base of the soil horizon.</attrdef>
+        <attalias Sync="TRUE">Bottom Depth - High Value</attalias>
+        <attrtype Sync="TRUE">SmallInteger</attrtype>
+        <attwidth Sync="TRUE">2</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>claytotal_r</attrlabl>
+        <attrdef>Mineral particles less than 0.002mm in equivalent diameter as a weight percentage of the less than 2.0mm fraction.</attrdef>
+        <attalias Sync="TRUE">Total Clay - Representative Value</attalias>
+        <attrtype Sync="TRUE">Single</attrtype>
+        <attwidth Sync="TRUE">4</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>sandmed_h</attrlabl>
+        <attrdef>Mineral particles 0.25mm to 0.5mm in equivalent diameter as a weight percentage of the less than 2 mm fraction.</attrdef>
+        <attalias Sync="TRUE">Medium Sand - High Value</attalias>
+        <attrtype Sync="TRUE">Single</attrtype>
+        <attwidth Sync="TRUE">4</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>gypsum_l</attrlabl>
+        <attrdef>The percent by weight of hydrated calcium sulfate in the less than 20 mm fraction of soil.</attrdef>
+        <attalias Sync="TRUE">Gypsum - Low Value</attalias>
+        <attrtype Sync="TRUE">SmallInteger</attrtype>
+        <attwidth Sync="TRUE">2</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>hzdept_r</attrlabl>
+        <attrdef>The distance from the top of the soil to the upper boundary of the soil horizon.</attrdef>
+        <attalias Sync="TRUE">Top Depth - Representative Value</attalias>
+        <attrtype Sync="TRUE">SmallInteger</attrtype>
+        <attwidth Sync="TRUE">2</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>fraggt10_l</attrlabl>
+        <attrdef>The percent by weight of the horizon occupied by rock fragments greater than 10 inches in size.</attrdef>
+        <attalias Sync="TRUE">Rock &gt;10 - Low Value</attalias>
+        <attrtype Sync="TRUE">SmallInteger</attrtype>
+        <attwidth Sync="TRUE">2</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>sandtotal_r</attrlabl>
+        <attrdef>Mineral particles 0.05mm to 2.0mm in equivalent diameter as a weight percentage of the less than 2 mm fraction.</attrdef>
+        <attalias Sync="TRUE">Total Sand - Representative Value</attalias>
+        <attrtype Sync="TRUE">Single</attrtype>
+        <attwidth Sync="TRUE">4</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>fraggt10_h</attrlabl>
+        <attrdef>The percent by weight of the horizon occupied by rock fragments greater than 10 inches in size.</attrdef>
+        <attalias Sync="TRUE">Rock &gt;10 - High Value</attalias>
+        <attrtype Sync="TRUE">SmallInteger</attrtype>
+        <attwidth Sync="TRUE">2</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>pi_l</attrlabl>
+        <attrdef>The numerical difference between the liquid limit and plastic limit.</attrdef>
+        <attalias Sync="TRUE">PI - Low Value</attalias>
+        <attrtype Sync="TRUE">Single</attrtype>
+        <attwidth Sync="TRUE">4</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>sandtotal_l</attrlabl>
+        <attrdef>Mineral particles 0.05mm to 2.0mm in equivalent diameter as a weight percentage of the less than 2 mm fraction.</attrdef>
+        <attalias Sync="TRUE">Total Sand - Low Value</attalias>
+        <attrtype Sync="TRUE">Single</attrtype>
+        <attwidth Sync="TRUE">4</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>feoxalate_l</attrlabl>
+        <attrdef>The amount of ammonium oxalate extractable iron in the less than 2mm fraction. It is considered a measure of noncrystalline iron in the soil.</attrdef>
+        <attalias Sync="TRUE">Oxalate Fe - Low Value</attalias>
+        <attrtype Sync="TRUE">Single</attrtype>
+        <attwidth Sync="TRUE">4</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>ph1to1h2o_r</attrlabl>
+        <attrdef>The negative logarithm to the base 10, of the hydrogen ion activity in the soil using the 1:1 soil-water ratio method. A numerical expression of the relative acidity or alkalinity of a soil sample. (SSM)</attrdef>
+        <attalias Sync="TRUE">pH H2O - Representative Value</attalias>
+        <attrtype Sync="TRUE">Single</attrtype>
+        <attwidth Sync="TRUE">4</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>dbtenthbar_r</attrlabl>
+        <attrdef>The oven dried weight of the less than 2 mm soil material per unit volume of soil at a water tension of 1/10 bar.</attrdef>
+        <attalias Sync="TRUE">Db 0.1 bar H2O - Representative Value</attalias>
+        <attrtype Sync="TRUE">Single</attrtype>
+        <attwidth Sync="TRUE">4</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>caco3_l</attrlabl>
+        <attrdef>The quantity of Carbonate (CO3) in the soil expressed as CaCO3 and as a weight percentage of the less than 2 mm size fraction.</attrdef>
+        <attalias Sync="TRUE">CaCO3 - Low Value</attalias>
+        <attrtype Sync="TRUE">SmallInteger</attrtype>
+        <attwidth Sync="TRUE">2</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>sieveno40_l</attrlabl>
+        <attrdef>Soil fraction passing a number 40 sieve (0.42mm square opening) as a weight percentage of the less than 3 inch (76.4mm) fraction.</attrdef>
+        <attalias Sync="TRUE">Sieve #40 - Low Value</attalias>
+        <attrtype Sync="TRUE">Single</attrtype>
+        <attwidth Sync="TRUE">4</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>frag3to10_h</attrlabl>
+        <attrdef>The percent by weight of the horizon occupied by rock fragments 3 to 10 inches in size.</attrdef>
+        <attalias Sync="TRUE">Rock 3-10 - High Value</attalias>
+        <attrtype Sync="TRUE">SmallInteger</attrtype>
+        <attwidth Sync="TRUE">2</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>wsatiated_h</attrlabl>
+        <attrdef>The estimated volumetric soil water content at or near zero bar tension, expressed as a percentage of the whole soil.</attrdef>
+        <attalias Sync="TRUE">Satiated H2O - High Value</attalias>
+        <attrtype Sync="TRUE">SmallInteger</attrtype>
+        <attwidth Sync="TRUE">2</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>wthirdbar_r</attrlabl>
+        <attrdef>The volumetric content of soil water retained at a tension of 1/3 bar (33 kPa), expressed as a percentage of the whole soil.</attrdef>
+        <attalias Sync="TRUE">0.33 bar H2O - Representative Value</attalias>
+        <attrtype Sync="TRUE">Single</attrtype>
+        <attwidth Sync="TRUE">4</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>dbfifteenbar_l</attrlabl>
+        <attrdef>The oven dry weight of the less than 2 mm soil material per unit volume of soil at a water tension of 15 bar.</attrdef>
+        <attalias Sync="TRUE">Db 15 bar H2O - Low Value</attalias>
+        <attrtype Sync="TRUE">Single</attrtype>
+        <attwidth Sync="TRUE">4</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>awc_r</attrlabl>
+        <attrdef>The amount of water that an increment of soil depth, inclusive of fragments, can store that is available to plants. AWC is expressed as a volume fraction, and is commonly estimated as the difference between the water contents at 1/10 or 1/3 bar (field capacity) and 15 bars (permanent wilting point) tension and adjusted for salinity, and fragments.</attrdef>
+        <attalias Sync="TRUE">AWC - Representative Value</attalias>
+        <attrtype Sync="TRUE">Single</attrtype>
+        <attwidth Sync="TRUE">4</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>siltfine_r</attrlabl>
+        <attrdef>Mineral particles ranging in size from 0.002 to 0.02mm in equivalent diameter as a weight percentage of the less than 2.0mm fraction.</attrdef>
+        <attalias Sync="TRUE">Fine Silt - Representative Value</attalias>
+        <attrtype Sync="TRUE">Single</attrtype>
+        <attwidth Sync="TRUE">4</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>pi_h</attrlabl>
+        <attrdef>The numerical difference between the liquid limit and plastic limit.</attrdef>
+        <attalias Sync="TRUE">PI - High Value</attalias>
+        <attrtype Sync="TRUE">Single</attrtype>
+        <attwidth Sync="TRUE">4</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>ksat_r</attrlabl>
+        <attrdef>The amount of water that would move vertically through a unit area of saturated soil in unit time under unit hydraulic gradient.</attrdef>
+        <attalias Sync="TRUE">Ksat - Representative Value</attalias>
+        <attrtype Sync="TRUE">Single</attrtype>
+        <attwidth Sync="TRUE">4</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>hzthk_r</attrlabl>
+        <attrdef>A measurement from the top to bottom of a soil horizon throughout its areal extent.</attrdef>
+        <attalias Sync="TRUE">Thickness - Representative Value</attalias>
+        <attrtype Sync="TRUE">SmallInteger</attrtype>
+        <attwidth Sync="TRUE">2</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>ph1to1h2o_h</attrlabl>
+        <attrdef>The negative logarithm to the base 10, of the hydrogen ion activity in the soil using the 1:1 soil-water ratio method. A numerical expression of the relative acidity or alkalinity of a soil sample. (SSM)</attrdef>
+        <attalias Sync="TRUE">pH H2O - High Value</attalias>
+        <attrtype Sync="TRUE">Single</attrtype>
+        <attwidth Sync="TRUE">4</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>wsatiated_r</attrlabl>
+        <attrdef>The estimated volumetric soil water content at or near zero bar tension, expressed as a percentage of the whole soil.</attrdef>
+        <attalias Sync="TRUE">Satiated H2O - Representative Value</attalias>
+        <attrtype Sync="TRUE">SmallInteger</attrtype>
+        <attwidth Sync="TRUE">2</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>ll_h</attrlabl>
+        <attrdef>The water content of the soil at the change between the liquid and plastic states.</attrdef>
+        <attalias Sync="TRUE">LL - High Value</attalias>
+        <attrtype Sync="TRUE">Single</attrtype>
+        <attwidth Sync="TRUE">4</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>sumbases_h</attrlabl>
+        <attrdef>The sum of NH4OAc extractable bases (pH 7.0), reported on less than 2mm base.</attrdef>
+        <attalias Sync="TRUE">Sum of Bases - High Value</attalias>
+        <attrtype Sync="TRUE">Double</attrtype>
+        <attwidth Sync="TRUE">8</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>sandvf_r</attrlabl>
+        <attrdef>Mineral particles 0.05 to 0.10mm in equivalent diameter as a weight percentage of the less than 2 mm fraction.</attrdef>
+        <attalias Sync="TRUE">Very Fine Sand - Representative Value</attalias>
+        <attrtype Sync="TRUE">Single</attrtype>
+        <attwidth Sync="TRUE">4</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>pbray1_r</attrlabl>
+        <attrdef>The amount of phosphorous in the less than 2mm fraction, that is extractable using the Bray1 method. It represents the plant available phosphorous content.</attrdef>
+        <attalias Sync="TRUE">Bray 1 Phos - Representative Value</attalias>
+        <attrtype Sync="TRUE">Single</attrtype>
+        <attwidth Sync="TRUE">4</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>extracid_r</attrlabl>
+        <attrdef>A measure of soil exchangeable hydrogen ions that may become active by cation exchange.</attrdef>
+        <attalias Sync="TRUE">Ext Acidity - Representative Value</attalias>
+        <attrtype Sync="TRUE">Single</attrtype>
+        <attwidth Sync="TRUE">4</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>sandco_h</attrlabl>
+        <attrdef>Mineral particles 0.5mm to 1.0mm in equivalent diameter as a weight percentage of the less than 2 mm fraction.</attrdef>
+        <attalias Sync="TRUE">Course Sand - High Value</attalias>
+        <attrtype Sync="TRUE">Single</attrtype>
+        <attwidth Sync="TRUE">4</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>sieveno10_l</attrlabl>
+        <attrdef>Soil fraction passing a number 10 sieve (2.00mm square opening) as a weight percentage of the less than 3 inch (76.4mm) fraction.</attrdef>
+        <attalias Sync="TRUE">Sieve #10 - Low Value</attalias>
+        <attrtype Sync="TRUE">Single</attrtype>
+        <attwidth Sync="TRUE">4</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>silttotal_l</attrlabl>
+        <attrdef>Mineral particles 0.002 to 0.05mm in equivalent diameter as a weight percentage of the less than 2.0mm fraction.</attrdef>
+        <attalias Sync="TRUE">Total Silt - Low Value</attalias>
+        <attrtype Sync="TRUE">Single</attrtype>
+        <attwidth Sync="TRUE">4</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>ph01mcacl2_r</attrlabl>
+        <attrdef>The negative logarithm to base of 10 or the hydrogen ion activity in the soil, using the 0.01M CaCl2 method, in a 1:2 soil:solution ratio. A numerical expression of the relative acidity or alkalinity of a soil sample. (SSM)</attrdef>
+        <attalias Sync="TRUE">pH CaCl2 - Representative Value</attalias>
+        <attrtype Sync="TRUE">Single</attrtype>
+        <attwidth Sync="TRUE">4</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>ecec_r</attrlabl>
+        <attrdef>The sum of NH4OAc extractable bases plus KCl extractable aluminum.</attrdef>
+        <attalias Sync="TRUE">ECEC - Representative Value</attalias>
+        <attrtype Sync="TRUE">Single</attrtype>
+        <attwidth Sync="TRUE">4</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>sandvf_h</attrlabl>
+        <attrdef>Mineral particles 0.05 to 0.10mm in equivalent diameter as a weight percentage of the less than 2 mm fraction.</attrdef>
+        <attalias Sync="TRUE">Very Fine Sand - High Value</attalias>
+        <attrtype Sync="TRUE">Single</attrtype>
+        <attwidth Sync="TRUE">4</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>sar_l</attrlabl>
+        <attrdef>A measure of the amount of Sodium (Na) relative to Calcium (Ca) and Magnesium (Mg) in the water extract from saturated soil paste.</attrdef>
+        <attalias Sync="TRUE">SAR - Low Value</attalias>
+        <attrtype Sync="TRUE">Single</attrtype>
+        <attwidth Sync="TRUE">4</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>ecec_h</attrlabl>
+        <attrdef>The sum of NH4OAc extractable bases plus KCl extractable aluminum.</attrdef>
+        <attalias Sync="TRUE">ECEC - High Value</attalias>
+        <attrtype Sync="TRUE">Single</attrtype>
+        <attwidth Sync="TRUE">4</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>dbfifteenbar_h</attrlabl>
+        <attrdef>The oven dry weight of the less than 2 mm soil material per unit volume of soil at a water tension of 15 bar.</attrdef>
+        <attalias Sync="TRUE">Db 15 bar H2O - High Value</attalias>
+        <attrtype Sync="TRUE">Single</attrtype>
+        <attwidth Sync="TRUE">4</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>dbovendry_h</attrlabl>
+        <attrdef>The oven dry weight of the less than 2 mm soil material per unit volume of soil exclusive of the desication cracks, measured on a coated clod.</attrdef>
+        <attalias Sync="TRUE">Db oven dry - High Value</attalias>
+        <attrtype Sync="TRUE">Double</attrtype>
+        <attwidth Sync="TRUE">8</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>ec_l</attrlabl>
+        <attrdef>The electrical conductivity of an extract from saturated soil paste.</attrdef>
+        <attalias Sync="TRUE">EC - Low Value</attalias>
+        <attrtype Sync="TRUE">Single</attrtype>
+        <attwidth Sync="TRUE">4</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>wtenthbar_h</attrlabl>
+        <attrdef>The volumetric content of soil water retained at a tension of 1/10 bar (10 kPa), expressed as a percentage of the whole soil.</attrdef>
+        <attalias Sync="TRUE">0.1 bar H2O - High Value</attalias>
+        <attrtype Sync="TRUE">Single</attrtype>
+        <attwidth Sync="TRUE">4</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>sandvf_l</attrlabl>
+        <attrdef>Mineral particles 0.05 to 0.10mm in equivalent diameter as a weight percentage of the less than 2 mm fraction.</attrdef>
+        <attalias Sync="TRUE">Very Fine Sand - Low Value</attalias>
+        <attrtype Sync="TRUE">Single</attrtype>
+        <attwidth Sync="TRUE">4</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>hzdept_l</attrlabl>
+        <attrdef>The distance from the top of the soil to the upper boundary of the soil horizon.</attrdef>
+        <attalias Sync="TRUE">Top Depth - Low Value</attalias>
+        <attrtype Sync="TRUE">SmallInteger</attrtype>
+        <attwidth Sync="TRUE">2</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>aloxalate_h</attrlabl>
+        <attrdef>The amount of ammonium oxalate extractable aluminum in the less than 2mm fraction. This is an estimate of the total pedogenic aluminum, much of which may be in noncrystalline material, or complexed by organic matter.</attrdef>
+        <attalias Sync="TRUE">Oxalate Al - High Value</attalias>
+        <attrtype Sync="TRUE">Single</attrtype>
+        <attwidth Sync="TRUE">4</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>pbray1_l</attrlabl>
+        <attrdef>The amount of phosphorous in the less than 2mm fraction, that is extractable using the Bray1 method. It represents the plant available phosphorous content.</attrdef>
+        <attalias Sync="TRUE">Bray 1 Phos - Low Value</attalias>
+        <attrtype Sync="TRUE">Single</attrtype>
+        <attwidth Sync="TRUE">4</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>extral_h</attrlabl>
+        <attrdef>The amount of aluminum extracted in 1 normal potassium chloride. The following laboratory method is applied: 55 ml of 1 normal potassium chloride is extracted through 2.5 g of soil sample. The extract is analyzed by use of an atomic adsorption spectrometer or similar instrument (SSIR #1, method 6G9a and NSSH).</attrdef>
+        <attalias Sync="TRUE">Extract Al - High Value</attalias>
+        <attrtype Sync="TRUE">Single</attrtype>
+        <attwidth Sync="TRUE">4</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>kwfact</attrlabl>
+        <attrdef>An erodibility factor which quantifies the susceptibility of soil particles to detachment and movement by water. This factor is adjusted for the effect of rock fragments.</attrdef>
+        <attalias Sync="TRUE">K-Factor Whole Soil</attalias>
+        <attrtype Sync="TRUE">String</attrtype>
+        <attwidth Sync="TRUE">254</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>ph2osoluble_l</attrlabl>
+        <attrdef>The amount of water soluble phosphorous in the less than 2mm fraction, that is extractable by distilled water. It represents the mobile phosphorous content.</attrdef>
+        <attalias Sync="TRUE">Water Soluble Phos - Low Value</attalias>
+        <attrtype Sync="TRUE">Single</attrtype>
+        <attwidth Sync="TRUE">4</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>extracid_l</attrlabl>
+        <attrdef>A measure of soil exchangeable hydrogen ions that may become active by cation exchange.</attrdef>
+        <attalias Sync="TRUE">Ext Acidity - Low Value</attalias>
+        <attrtype Sync="TRUE">Single</attrtype>
+        <attwidth Sync="TRUE">4</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>wthirdbar_h</attrlabl>
+        <attrdef>The volumetric content of soil water retained at a tension of 1/3 bar (33 kPa), expressed as a percentage of the whole soil.</attrdef>
+        <attalias Sync="TRUE">0.33 bar H2O - High Value</attalias>
+        <attrtype Sync="TRUE">Single</attrtype>
+        <attwidth Sync="TRUE">4</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>wthirdbar_l</attrlabl>
+        <attrdef>The volumetric content of soil water retained at a tension of 1/3 bar (33 kPa), expressed as a percentage of the whole soil.</attrdef>
+        <attalias Sync="TRUE">0.33 bar H2O - Low Value</attalias>
+        <attrtype Sync="TRUE">Single</attrtype>
+        <attwidth Sync="TRUE">4</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>sandvc_r</attrlabl>
+        <attrdef>Mineral particles 1.0mm to 2.0mm in equivalent diameter as a weight percentage of the less than 2 mm fraction.</attrdef>
+        <attalias Sync="TRUE">Very Course Sand - Representative Value</attalias>
+        <attrtype Sync="TRUE">Single</attrtype>
+        <attwidth Sync="TRUE">4</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>dbovendry_l</attrlabl>
+        <attrdef>The oven dry weight of the less than 2 mm soil material per unit volume of soil exclusive of the desication cracks, measured on a coated clod.</attrdef>
+        <attalias Sync="TRUE">Db oven dry - Low Value</attalias>
+        <attrtype Sync="TRUE">Double</attrtype>
+        <attwidth Sync="TRUE">8</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>aashind_h</attrlabl>
+        <attrdef>The empirical group index formula devised for approximately within-group evaluation of the "clayey granular materials" and the "silty-clay materials".</attrdef>
+        <attalias Sync="TRUE">AASHTO Group Index - High Value</attalias>
+        <attrtype Sync="TRUE">SmallInteger</attrtype>
+        <attwidth Sync="TRUE">2</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>hzthk_h</attrlabl>
+        <attrdef>A measurement from the top to bottom of a soil horizon throughout its areal extent.</attrdef>
+        <attalias Sync="TRUE">Thickness - High Value</attalias>
+        <attrtype Sync="TRUE">SmallInteger</attrtype>
+        <attwidth Sync="TRUE">2</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>wtenthbar_l</attrlabl>
+        <attrdef>The volumetric content of soil water retained at a tension of 1/10 bar (10 kPa), expressed as a percentage of the whole soil.</attrdef>
+        <attalias Sync="TRUE">0.1 bar H2O - Low Value</attalias>
+        <attrtype Sync="TRUE">Single</attrtype>
+        <attwidth Sync="TRUE">4</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>siltfine_h</attrlabl>
+        <attrdef>Mineral particles ranging in size from 0.002 to 0.02mm in equivalent diameter as a weight percentage of the less than 2.0mm fraction.</attrdef>
+        <attalias Sync="TRUE">Fine Silt - High Value</attalias>
+        <attrtype Sync="TRUE">Single</attrtype>
+        <attwidth Sync="TRUE">4</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>sandfine_r</attrlabl>
+        <attrdef>Mineral particles 0.10 to 0.25mm in equivalent diameter as a weight percentage of the less than 2 mm fraction.</attrdef>
+        <attalias Sync="TRUE">Fine Sand - Representative Value</attalias>
+        <attrtype Sync="TRUE">Single</attrtype>
+        <attwidth Sync="TRUE">4</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>dbthirdbar_l</attrlabl>
+        <attrdef>The oven dry weight of the less than 2 mm soil material per unit volume of soil at a water tension of 1/3 bar.</attrdef>
+        <attalias Sync="TRUE">Db 0.33 bar H2O - Low Value</attalias>
+        <attrtype Sync="TRUE">Single</attrtype>
+        <attwidth Sync="TRUE">4</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>ll_r</attrlabl>
+        <attrdef>The water content of the soil at the change between the liquid and plastic states.</attrdef>
+        <attalias Sync="TRUE">LL - Representative Value</attalias>
+        <attrtype Sync="TRUE">Single</attrtype>
+        <attwidth Sync="TRUE">4</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>siltco_h</attrlabl>
+        <attrdef>Mineral particles ranging in size from 0.02mm to 0.05mm in equivalent diameter as a weight percentage of the less than 2.0mm fraction.</attrdef>
+        <attalias Sync="TRUE">Coarse Silt - High Value</attalias>
+        <attrtype Sync="TRUE">Single</attrtype>
+        <attwidth Sync="TRUE">4</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>freeiron_l</attrlabl>
+        <attrdef>The secondary iron oxides such as geothite, hematite, ferrihydrite, lepidocrocite and maghemite. This form of iron may occur as discrete particles, as coatings on other particles, or as cementing agents between soil mineral grains. It is iron extracted by dithionite-citrate.</attrdef>
+        <attalias Sync="TRUE">Free Iron - Low Value</attalias>
+        <attrtype Sync="TRUE">Single</attrtype>
+        <attwidth Sync="TRUE">4</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>lep_r</attrlabl>
+        <attrdef>The linear expression of the volume difference of natural soil fabric at 1/3 or 1/10 bar water content and oven dryness. The volume change is reported as percent change for the whole soil.</attrdef>
+        <attalias Sync="TRUE">LEP - Representative Value</attalias>
+        <attrtype Sync="TRUE">Single</attrtype>
+        <attwidth Sync="TRUE">4</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>desgnmaster</attrlabl>
+        <attrdef>One of four kinds of symbols, that when concatenated, are used to distinguish different kinds of layers in soils. Master horizons and layers are the base symbols to which other characters are added to complete the designations. Capital letters, virgules (/), and ampersands (&amp;) are used. (SSM)</attrdef>
+        <attalias Sync="TRUE">Master</attalias>
+        <attrtype Sync="TRUE">String</attrtype>
+        <attwidth Sync="TRUE">254</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>ksat_h</attrlabl>
+        <attrdef>The amount of water that would move vertically through a unit area of saturated soil in unit time under unit hydraulic gradient.</attrdef>
+        <attalias Sync="TRUE">Ksat - High Value</attalias>
+        <attrtype Sync="TRUE">Single</attrtype>
+        <attwidth Sync="TRUE">4</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>OBJECTID</attrlabl>
+        <attrdef>Internal feature number.</attrdef>
+        <attrdefs>Esri</attrdefs>
+        <attrdomv>
+          <udom>Sequential unique whole numbers that are automatically generated.</udom>
+        </attrdomv>
+        <attalias Sync="TRUE">OBJECTID</attalias>
+        <attrtype Sync="TRUE">OID</attrtype>
+        <attwidth Sync="TRUE">4</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>sieveno4_l</attrlabl>
+        <attrdef>Soil fraction passing a number 4 sieve (4.70mm square opening) as a weight percentage of the less than 3 inch (76.4mm) fraction.</attrdef>
+        <attalias Sync="TRUE">Sieve #4 - Low Value</attalias>
+        <attrtype Sync="TRUE">Single</attrtype>
+        <attwidth Sync="TRUE">4</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>caco3_h</attrlabl>
+        <attrdef>The quantity of Carbonate (CO3) in the soil expressed as CaCO3 and as a weight percentage of the less than 2 mm size fraction.</attrdef>
+        <attalias Sync="TRUE">CaCO3 - High Value</attalias>
+        <attrtype Sync="TRUE">SmallInteger</attrtype>
+        <attwidth Sync="TRUE">2</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>dbtenthbar_h</attrlabl>
+        <attrdef>The oven dried weight of the less than 2 mm soil material per unit volume of soil at a water tension of 1/10 bar.</attrdef>
+        <attalias Sync="TRUE">Db 0.1 bar H2O - High Value</attalias>
+        <attrtype Sync="TRUE">Single</attrtype>
+        <attwidth Sync="TRUE">4</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>desgndisc</attrlabl>
+        <attrdef>An Arabic numeral used to indicate a significant change in particle-size distribution or mineralogy that indicates a difference in the material from which the horizon(s) formed and/or a significant difference in age, unless that difference in age is indicated by the suffix "b". (SSM) This numeral is one of four kinds of symbols, that when concatenated, are used to distinguish different kinds of layers in the soil.</attrdef>
+        <attalias Sync="TRUE">Disc</attalias>
+        <attrtype Sync="TRUE">SmallInteger</attrtype>
+        <attwidth Sync="TRUE">2</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>lep_h</attrlabl>
+        <attrdef>The linear expression of the volume difference of natural soil fabric at 1/3 or 1/10 bar water content and oven dryness. The volume change is reported as percent change for the whole soil.</attrdef>
+        <attalias Sync="TRUE">LEP - High Value</attalias>
+        <attrtype Sync="TRUE">Single</attrtype>
+        <attwidth Sync="TRUE">4</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>sandco_l</attrlabl>
+        <attrdef>Mineral particles 0.5mm to 1.0mm in equivalent diameter as a weight percentage of the less than 2 mm fraction.</attrdef>
+        <attalias Sync="TRUE">Course Sand - Low Value</attalias>
+        <attrtype Sync="TRUE">Single</attrtype>
+        <attwidth Sync="TRUE">4</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>frag3to10_l</attrlabl>
+        <attrdef>The percent by weight of the horizon occupied by rock fragments 3 to 10 inches in size.</attrdef>
+        <attalias Sync="TRUE">Rock 3-10 - Low Value</attalias>
+        <attrtype Sync="TRUE">SmallInteger</attrtype>
+        <attwidth Sync="TRUE">2</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>hzname</attrlabl>
+        <attrdef>The concatenated string of four kinds of symbols (five data elements) used to distinguish different kinds of layers in the soil. (SSM)</attrdef>
+        <attalias Sync="TRUE">Designation</attalias>
+        <attrtype Sync="TRUE">String</attrtype>
+        <attwidth Sync="TRUE">12</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>sieveno4_h</attrlabl>
+        <attrdef>Soil fraction passing a number 4 sieve (4.70mm square opening) as a weight percentage of the less than 3 inch (76.4mm) fraction.</attrdef>
+        <attalias Sync="TRUE">Sieve #4 - High Value</attalias>
+        <attrtype Sync="TRUE">Single</attrtype>
+        <attwidth Sync="TRUE">4</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>claytotal_l</attrlabl>
+        <attrdef>Mineral particles less than 0.002mm in equivalent diameter as a weight percentage of the less than 2.0mm fraction.</attrdef>
+        <attalias Sync="TRUE">Total Clay - Low Value</attalias>
+        <attrtype Sync="TRUE">Single</attrtype>
+        <attwidth Sync="TRUE">4</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>ec_r</attrlabl>
+        <attrdef>The electrical conductivity of an extract from saturated soil paste.</attrdef>
+        <attalias Sync="TRUE">EC - Representative Value</attalias>
+        <attrtype Sync="TRUE">Single</attrtype>
+        <attwidth Sync="TRUE">4</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>partdensity</attrlabl>
+        <attrdef>Mass per unit of volume (not including pore space) of the solid soil particle either mineral or organic. Also known as specific gravity.</attrdef>
+        <attalias Sync="TRUE">Dp</attalias>
+        <attrtype Sync="TRUE">Single</attrtype>
+        <attwidth Sync="TRUE">4</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>kffact</attrlabl>
+        <attrdef>An erodibility factor which quantifies the susceptibility of soil particles to detachment by water.</attrdef>
+        <attalias Sync="TRUE">K-Factor Rock Free</attalias>
+        <attrtype Sync="TRUE">String</attrtype>
+        <attwidth Sync="TRUE">254</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>sumbases_r</attrlabl>
+        <attrdef>The sum of NH4OAc extractable bases (pH 7.0), reported on less than 2mm base.</attrdef>
+        <attalias Sync="TRUE">Sum of Bases - Representative Value</attalias>
+        <attrtype Sync="TRUE">Double</attrtype>
+        <attwidth Sync="TRUE">8</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>om_l</attrlabl>
+        <attrdef>The amount by weight of decomposed plant and animal residue expressed as a weight percentage of the less than 2 mm soil material.</attrdef>
+        <attalias Sync="TRUE">OM - Low Value</attalias>
+        <attrtype Sync="TRUE">Single</attrtype>
+        <attwidth Sync="TRUE">4</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>silttotal_r</attrlabl>
+        <attrdef>Mineral particles 0.002 to 0.05mm in equivalent diameter as a weight percentage of the less than 2.0mm fraction.</attrdef>
+        <attalias Sync="TRUE">Total Silt - Representative Value</attalias>
+        <attrtype Sync="TRUE">Single</attrtype>
+        <attwidth Sync="TRUE">4</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>dbthirdbar_r</attrlabl>
+        <attrdef>The oven dry weight of the less than 2 mm soil material per unit volume of soil at a water tension of 1/3 bar.</attrdef>
+        <attalias Sync="TRUE">Db 0.33 bar H2O - Representative Value</attalias>
+        <attrtype Sync="TRUE">Single</attrtype>
+        <attwidth Sync="TRUE">4</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>siltfine_l</attrlabl>
+        <attrdef>Mineral particles ranging in size from 0.002 to 0.02mm in equivalent diameter as a weight percentage of the less than 2.0mm fraction.</attrdef>
+        <attalias Sync="TRUE">Fine Silt - Low Value</attalias>
+        <attrtype Sync="TRUE">Single</attrtype>
+        <attwidth Sync="TRUE">4</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>wfifteenbar_l</attrlabl>
+        <attrdef>The volumetric content of soil water retained at a tension of 15 bars (1500 kPa), expressed as a percentage of the whole soil.</attrdef>
+        <attalias Sync="TRUE">15 bar H2O - Low Value</attalias>
+        <attrtype Sync="TRUE">Single</attrtype>
+        <attwidth Sync="TRUE">4</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>sandfine_h</attrlabl>
+        <attrdef>Mineral particles 0.10 to 0.25mm in equivalent diameter as a weight percentage of the less than 2 mm fraction.</attrdef>
+        <attalias Sync="TRUE">Fine Sand - High Value</attalias>
+        <attrtype Sync="TRUE">Single</attrtype>
+        <attwidth Sync="TRUE">4</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>ph1to1h2o_l</attrlabl>
+        <attrdef>The negative logarithm to the base 10, of the hydrogen ion activity in the soil using the 1:1 soil-water ratio method. A numerical expression of the relative acidity or alkalinity of a soil sample. (SSM)</attrdef>
+        <attalias Sync="TRUE">pH H2O - Low Value</attalias>
+        <attrtype Sync="TRUE">Single</attrtype>
+        <attwidth Sync="TRUE">4</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>sandmed_l</attrlabl>
+        <attrdef>Mineral particles 0.25mm to 0.5mm in equivalent diameter as a weight percentage of the less than 2 mm fraction.</attrdef>
+        <attalias Sync="TRUE">Medium Sand - Low Value</attalias>
+        <attrtype Sync="TRUE">Single</attrtype>
+        <attwidth Sync="TRUE">4</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>aloxalate_l</attrlabl>
+        <attrdef>The amount of ammonium oxalate extractable aluminum in the less than 2mm fraction. This is an estimate of the total pedogenic aluminum, much of which may be in noncrystalline material, or complexed by organic matter.</attrdef>
+        <attalias Sync="TRUE">Oxalate Al - Low Value</attalias>
+        <attrtype Sync="TRUE">Single</attrtype>
+        <attwidth Sync="TRUE">4</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>ksat_l</attrlabl>
+        <attrdef>The amount of water that would move vertically through a unit area of saturated soil in unit time under unit hydraulic gradient.</attrdef>
+        <attalias Sync="TRUE">Ksat - Low Value</attalias>
+        <attrtype Sync="TRUE">Single</attrtype>
+        <attwidth Sync="TRUE">4</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>extracid_h</attrlabl>
+        <attrdef>A measure of soil exchangeable hydrogen ions that may become active by cation exchange.</attrdef>
+        <attalias Sync="TRUE">Ext Acidity - High Value</attalias>
+        <attrtype Sync="TRUE">Single</attrtype>
+        <attwidth Sync="TRUE">4</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>poxalate_l</attrlabl>
+        <attrdef>The amount of phosphorous in the less than 2mm fraction, that is extractable by aluminum oxalate method. It represents the phosphorous level intermediate between total P and water soluble P.</attrdef>
+        <attalias Sync="TRUE">Oxalate Phos - Low Value</attalias>
+        <attrtype Sync="TRUE">Single</attrtype>
+        <attwidth Sync="TRUE">4</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>cec7_l</attrlabl>
+        <attrdef>The amount of readily exchangeable cations that can be electrically adsorbed to negative charges in the soil, soil constituent, or other material, at pH 7.0, as estimated by the ammonium acetate method.</attrdef>
+        <attalias Sync="TRUE">CEC-7 - Low Value</attalias>
+        <attrtype Sync="TRUE">Single</attrtype>
+        <attwidth Sync="TRUE">4</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+      <attr>
+        <attrlabl>sumbases_l</attrlabl>
+        <attrdef>The sum of NH4OAc extractable bases (pH 7.0), reported on less than 2mm base.</attrdef>
+        <attalias Sync="TRUE">Sum of Bases - Low Value</attalias>
+        <attrtype Sync="TRUE">Double</attrtype>
+        <attwidth Sync="TRUE">8</attwidth>
+        <atprecis Sync="TRUE">0</atprecis>
+        <attscale Sync="TRUE">0</attscale>
+      </attr>
+    </detailed>
+  </eainfo>
+  <distInfo>
+    <distFormat>
+      <formatName Sync="TRUE">File Geodatabase Table</formatName>
+    </distFormat>
+  </distInfo>
+  <mdHrLvName Sync="TRUE">dataset</mdHrLvName>
+</metadata>

@@ -1,0 +1,82 @@
+﻿<metadata>
+  <idinfo>
+    <citation>
+      <citeinfo>
+        <title>SACATALOG</title>
+        <geoform>tabular digital data</geoform>
+      </citeinfo>
+    </citation>
+    <descript>
+      <abstract>This table records the primary dynamic cetadata associated with a soil survey area. This includes such things as survey area version, tabular data version, etc. The remaining dynamic metadata, which soil interpretations were generated for the corresponding soil survey area, is recorded in the Survey Area Interpretation table.</abstract>
+      <purpose>Survey Area Catalog Table</purpose>
+    </descript>
+    <accconst>None</accconst>
+    <useconst>None</useconst>
+    <native>Microsoft Windows 7 Version 6.1 (Build 7601) Service Pack 1; Esri ArcGIS 10.1.1.3143</native>
+  </idinfo>
+  <eainfo>
+    <detailed>
+      <enttyp>
+        <enttypl>sacatalog</enttypl>
+      </enttyp>
+      <attr>
+        <attrlabl>saversion</attrlabl>
+        <attrdef>A sequential integer number used to denote the overall serial version of the data (tabular and/or spatial) for a soil survey area.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>saverest</attrlabl>
+        <attrdef>The date and time that a particular version of data (tabular and/or spatial) for the soil survey area was established.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>areasymbol</attrlabl>
+        <attrdef>A symbol that uniquely identifies a single occurrence of a particular type of area (e.g. Lancaster Co., Nebraska is NE109).</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>OBJECTID</attrlabl>
+        <attrdef>Internal feature number.</attrdef>
+        <attrdefs>Esri</attrdefs>
+        <attrdomv>
+          <udom>Sequential unique whole numbers that are automatically generated.</udom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>sacatalogkey</attrlabl>
+        <attrdef>A non-connotative string of characters used to uniquely identify a record in the Survey Area Catalog table.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>tabcertstatusdesc</attrlabl>
+        <attrdef>Narrative text notes (metadata) associated with the assignment of the tabular data certification status for a particular soil survey area.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>fgdcmetadata</attrlabl>
+        <attrdef>The FGDC (Federal Geographic Data Committee) spatial and/or tabular metadata for the corresponding soil survey area, in XML format.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>tabcertstatus</attrlabl>
+        <attrdef>The level of certification assigned to a tabular data package for a particular soil survey area.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>tabularversion</attrlabl>
+        <attrdef>A sequential integer number used to denote the serial version of the tabular data for a soil survey area.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>tabularverest</attrlabl>
+        <attrdef>The date and time that a particular version of tabular data for the soil survey area was established.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>areaname</attrlabl>
+        <attrdef>The name given to the specified geographic area.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>tabnasisexportdate</attrlabl>
+        <attrdef>The date and time that soil survey area tabular data was exported from NASIS.</attrdef>
+      </attr>
+    </detailed>
+  </eainfo>
+  <metainfo>
+    <metd>20131230</metd>
+    <metstdn>FGDC Content Standard for Digital Geospatial Metadata</metstdn>
+    <metstdv>FGDC-STD-001-1998</metstdv>
+    <mettc>local time</mettc>
+  </metainfo>
+</metadata>

@@ -1,0 +1,70 @@
+﻿<metadata>
+  <idinfo>
+    <citation>
+      <citeinfo>
+        <title>COPWINDBREAK</title>
+        <geoform>tabular digital data</geoform>
+      </citeinfo>
+    </citation>
+    <descript>
+      <abstract>The Component Potential Windbreak table lists the windbreak plant species commonly recommended for the referenced map unit component. A windbreak plant listed in this table may be used alone or in combination with other plants.</abstract>
+      <purpose>Component Potential Windbreak Table</purpose>
+    </descript>
+    <accconst>None</accconst>
+    <useconst>None</useconst>
+    <native>Microsoft Windows 7 Version 6.1 (Build 7601) Service Pack 1; Esri ArcGIS 10.1.1.3143</native>
+  </idinfo>
+  <eainfo>
+    <detailed>
+      <enttyp>
+        <enttypl>copwindbreak</enttypl>
+      </enttyp>
+      <attr>
+        <attrlabl>OBJECTID</attrlabl>
+        <attrdef>Internal feature number.</attrdef>
+        <attrdefs>Esri</attrdefs>
+        <attrdomv>
+          <udom>Sequential unique whole numbers that are automatically generated.</udom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>wndbrkht_l</attrlabl>
+        <attrdef>Windbreak tree height at age 20 years.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>copwindbreakkey</attrlabl>
+        <attrdef>A non-connotative string of characters used to uniquely identify a record in the Component Potential Windbreak table.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>plantcomname</attrlabl>
+        <attrdef>A generally accepted common name used for a plant in a geographic region, usually a state.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>cokey</attrlabl>
+        <attrdef>The unique identifier of a record in the Component table. Use this column to join the Component Potential Windbreak table to the Component table.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>plantsciname</attrlabl>
+        <attrdef>The full genus and species name as listed in the PLANTS Database, USDA-NRCS, National Plant Data Center.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>wndbrkht_r</attrlabl>
+        <attrdef>Windbreak tree height at age 20 years.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>wndbrkht_h</attrlabl>
+        <attrdef>Windbreak tree height at age 20 years.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>plantsym</attrlabl>
+        <attrdef>A unique symbol used to identify a plant genus or a plant species. (The PLANTS Database, USDA-NRCS, National Plant Data Center.)</attrdef>
+      </attr>
+    </detailed>
+  </eainfo>
+  <metainfo>
+    <metd>20131230</metd>
+    <metstdn>FGDC Content Standard for Digital Geospatial Metadata</metstdn>
+    <metstdv>FGDC-STD-001-1998</metstdv>
+    <mettc>local time</mettc>
+  </metainfo>
+</metadata>
