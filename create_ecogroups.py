@@ -10,11 +10,11 @@ ecogroup_spatialite = [
 """/* This  view ranks ecogroup per map unit by area percent from values listed in the ecogroup table. 
 Ranking removed due to ineffeciency with SQLite (No Row_Number() Function) */
 CREATE VIEW IF NOT EXISTS ecogroup_mapunit_ranked AS
-SELECT f.mukey, f.ecogroup, f.group_type, f.modal, f.pub_status, f.ecogrouppct 
+SELECT f.mukey, f.ecogroup, f.group_type, f.pub_status, f.ecogrouppct 
   FROM (
-       SELECT b.mukey, b.ecogroup, b.group_type, b.modal, b.pub_status, b.ecogrouppct 
+       SELECT b.mukey, b.ecogroup, b.group_type, b.pub_status, b.ecogrouppct 
          FROM (
-              SELECT a.mukey, a.ecogroup, a.group_type, a.pub_status, a.modal, sum(a.ecoclasspct) AS ecogrouppct 
+              SELECT a.mukey, a.ecogroup, a.group_type, a.pub_status, sum(a.ecoclasspct) AS ecogrouppct 
                 FROM (
                      SELECT m.mukey, m.ecoclassid, m.ecoclassid_std, m.ecoclassname, 
                             LOWER(LTRIM(RTRIM(REPLACE(REPLACE(m.ecoclassname,'"',' in'),'  ',' ')))) AS ecoclassname_std, 
@@ -30,9 +30,6 @@ SELECT f.mukey, f.ecogroup, f.group_type, f.modal, f.pub_status, f.ecogrouppct
                             CASE WHEN m.ecoclassid_std IS NULL THEN 'Ecosite'
                                  WHEN n.ecogroup IS NULL THEN 'Ecosite'
                                  ELSE n.group_type END AS group_type, 
-                            CASE WHEN m.ecoclassid_std IS NULL THEN Null
-                                 WHEN n.ecogroup IS NULL THEN 1
-                                 ELSE n.modal END AS modal, 
                             CASE WHEN m.ecoclassid_std IS NULL THEN Null
                                  ELSE n.pub_status END AS pub_status 
                        FROM (
@@ -79,7 +76,7 @@ SELECT f.mukey, f.ecogroup, f.group_type, f.modal, f.pub_status, f.ecogrouppct
                             ) AS m
                        LEFT JOIN ecogroup AS n on m.ecoclassid_std = n.ecoid
                      ) AS a
-               GROUP BY mukey, ecogroup, group_type, modal, pub_status
+               GROUP BY mukey, ecogroup, group_type, pub_status
               ) AS b
        ) AS f;""",
 
@@ -115,38 +112,39 @@ CREATE TABLE IF NOT EXISTS ecogrouppolygon (
        OBJECTID {oid}, 
        ecogroup {limit_text} (50),
        group_type {limit_text} (50),
-       modal {bool},
        pub_status {limit_text} (20),
-       area_dd {double},
+       area_ha {double},
        ecogrouppct {double});""",
 
 """SELECT AddGeometryColumn('ecogrouppolygon', 'shape', 4326, 'MULTIPOLYGON', 2);""",
 
 """/* Spatial view showing dominant ecogroup per polygon with area percentage of ecogroup. Inserted into table for usefulness and speed. */
-INSERT INTO ecogrouppolygon (ecogroup, group_type, modal, pub_status, area_dd, ecogrouppct, shape)
-SELECT ecogroup, group_type, modal, pub_status, ST_Area(shape) AS area_dd, (ecogrouparea_dd/ST_Area(shape)) AS ecogrouppct, ST_Multi(shape) AS shape
+INSERT INTO ecogrouppolygon (ecogroup, group_type, pub_status, area_ha, ecogrouppct, shape)
+SELECT ecogroup, group_type, pub_status, area_ha, ecogrouparea_ha/area_ha AS ecogrouppct, shape
   FROM (
-       SELECT ST_Union(shape) AS shape, ecogroup, group_type, 
-              COALESCE(modal, 0) AS modal, 
-              pub_status, sum(ecogrouparea_dd) AS ecogrouparea_dd
+       SELECT ecogroup, group_type, pub_status, ST_Area(shape, 1)/10000 AS area_ha, ecogrouparea_ha, ST_Multi(shape) AS shape
          FROM (
-              SELECT a.shape, b.ecogroup, b.group_type, b.modal, b.pub_status,
-                     (ST_Area(a.shape)*(CAST(b.ecogrouppct AS REAL)/100)) AS ecogrouparea_dd
-                FROM mupolygon AS a
-                LEFT JOIN ecogroup_mudominant AS b ON a.mukey = b.mukey)
-              AS x
-        GROUP BY ecogroup) AS y;"""
+              SELECT ST_Union(shape) AS shape, ecogroup, group_type,  
+                     pub_status, sum(ecogrouparea_ha) AS ecogrouparea_ha
+                FROM (
+                     SELECT a.shape, b.ecogroup, b.group_type, b.pub_status,
+                            a.area_ha*(CAST(b.ecogrouppct AS REAL)/100) AS ecogrouparea_ha
+                       FROM mupolygon AS a
+                       LEFT JOIN ecogroup_mudominant AS b ON a.mukey = b.mukey)
+                     AS x
+               GROUP BY ecogroup) AS y)
+       AS z;"""
 ]
 
 ecogroup_postgis = [
 """/* This  view ranks ecogroup per map unit by area percent from values listed in the ecogroup table. */
 CREATE OR REPLACE VIEW ecogroup_mapunit_ranked AS
-SELECT f.mukey, f.ecogroup, f.group_type, f.modal, f.pub_status, f.ecogrouppct, f.grouprank 
+SELECT f.mukey, f.ecogroup, f.group_type, f.pub_status, f.ecogrouppct, f.grouprank 
   FROM (
        SELECT Row_Number() OVER (PARTITION BY b.mukey ORDER BY b.ecogrouppct DESC, b.group_type ASC, b.ecogroup ASC) AS grouprank, 
-              b.mukey, b.ecogroup, b.group_type, b.modal, b.pub_status, b.ecogrouppct 
+              b.mukey, b.ecogroup, b.group_type, b.pub_status, b.ecogrouppct 
          FROM (
-              SELECT a.mukey, a.ecogroup, a.group_type, a.pub_status, a.modal, sum(a.ecoclasspct) AS ecogrouppct 
+              SELECT a.mukey, a.ecogroup, a.group_type, a.pub_status, sum(a.ecoclasspct) AS ecogrouppct 
                 FROM (
                      SELECT m.mukey, m.ecoclassid, m.ecoclassid_std, m.ecoclassname, 
                             LOWER(LTRIM(RTRIM(REPLACE(REPLACE(m.ecoclassname,'"',' in'),'  ',' ')))) AS ecoclassname_std, 
@@ -162,9 +160,6 @@ SELECT f.mukey, f.ecogroup, f.group_type, f.modal, f.pub_status, f.ecogrouppct, 
                             CASE WHEN m.ecoclassid_std IS NULL THEN 'Ecosite'
                                  WHEN n.ecogroup IS NULL THEN 'Ecosite'
                                  ELSE n.group_type END AS group_type, 
-                            CASE WHEN m.ecoclassid_std IS NULL THEN Null
-                                 WHEN n.ecogroup IS NULL THEN TRUE
-                                 ELSE n.modal END AS modal, 
                             CASE WHEN m.ecoclassid_std IS NULL THEN Null
                                  ELSE n.pub_status END AS pub_status 
                        FROM (
@@ -213,13 +208,13 @@ SELECT f.mukey, f.ecogroup, f.group_type, f.modal, f.pub_status, f.ecogrouppct, 
                             ) AS m
                        LEFT JOIN ecogroup AS n on m.ecoclassid_std = n.ecoid
                      ) AS a
-               GROUP BY mukey, ecogroup, group_type, modal, pub_status
+               GROUP BY mukey, ecogroup, group_type, pub_status
               ) AS b
        ) AS f;""",
        
 """/* This  view ranks ecogroup per map unit by area percent from values listed in the ecogroup table. */
 CREATE OR REPLACE VIEW ecogroup_mudominant AS
-SELECT mukey, ecogroup, group_type, modal, pub_status, ecogrouppct  
+SELECT mukey, ecogroup, group_type, pub_status, ecogrouppct  
   FROM ecogroup_mapunit_ranked
  WHERE grouprank = 1;""",
  
@@ -245,18 +240,27 @@ SELECT x.mukey,
 CREATE OR REPLACE VIEW ecogroup_unique AS
 SELECT x.ecogroup, COUNT(x.mukey) AS group_n, 
         AVG(CAST(ecogrouppct AS float)) AS ecogrouppct_mean, SUM(group_ha) AS group_ha,
-        MIN(group_type) AS group_type, BOOL_AND(modal) AS modal, MIN(pub_status) AS pubstatus
+        MIN(group_type) AS group_type, MIN(pub_status) AS pubstatus
     FROM (
-        SELECT a.mukey, a.ecogroup, a.group_type, a.modal, a.pub_status, 
-               a.ecogrouppct, a.grouprank, (a.ecogrouppct * b.mu_ha / 100) AS group_ha
+        SELECT a.mukey, a.ecogroup, a.group_type, a.pub_status, 
+               a.ecogrouppct, a.grouprank, (a.ecogrouppct * b.area_ha / 100) AS group_ha
             FROM ecogroup_mapunit_ranked AS a
             LEFT JOIN (
-                SELECT mukey, ST_Area(ST_Union(shape),True) * 0.0001 AS mu_ha
+                SELECT mukey, sum(area_ha) AS area_ha
                     FROM mupolygon
-                GROUP BY MUKEY
+                GROUP BY mukey
                 ) AS b ON a.mukey = b.mukey
         ) AS x
     GROUP BY x.ecogroup;""",
+
+"""/* Calculates the hectares of each ecogroup within a map unit. */
+ CREATE OR REPLACE VIEW soil.ecogroup_area AS
+ SELECT a.areasymbol, a.spatialver, a.musym, a.mukey, a.area_ha,
+        b.ecogroup, b.group_type, b.pub_status, b.ecogrouppct, b.grouprank,
+        a.area_ha * b.ecogrouppct/100 AS ecogroup_ha
+   FROM mupolygon a
+   LEFT JOIN ecogroup_mapunit_ranked b ON a.mukey = b.mukey
+  ORDER BY a.areasymbol, a.musym, b.grouprank;""",
 
 """DROP TABLE IF EXISTS ecogrouppolygon;""",
 
@@ -265,28 +269,31 @@ CREATE TABLE IF NOT EXISTS ecogrouppolygon (
        OBJECTID {oid}, 
        ecogroup {limit_text} (50),
        group_type {limit_text} (50),
-       modal {bool},
        pub_status {limit_text} (20),
-       area_dd {double},
-       ecogrouppct {double});""",
+       area_ha {double},
+       ecogrouppct {double},
+       shape geometry('MULTIPOLYGON', 4326));""",
 
-"""SELECT AddGeometryColumn('ecogrouppolygon', 'shape', 4326, 'MULTIPOLYGON', 2);""",
+#"""SELECT AddGeometryColumn('ecogrouppolygon', 'shape', 4326, 'MULTIPOLYGON', 2);""",
 
 """/* Spatial view showing dominant ecogroup per polygon with area percentage of ecogroup. Inserted into table for usefulness and speed. */
-INSERT INTO ecogrouppolygon (ecogroup, group_type, modal, pub_status, area_dd, ecogrouppct, shape)
-SELECT ecogroup, group_type, modal, pub_status, ST_Area(shape) AS area_dd, (ecogrouparea_dd/ST_Area(shape)) AS ecogrouppct, ST_Multi(shape) AS shape
+INSERT INTO ecogrouppolygon (ecogroup, group_type, pub_status, area_ha, ecogrouppct, shape)
+SELECT ecogroup, group_type, pub_status, area_ha, ecogrouparea_ha/area_ha AS ecogrouppct, shape
   FROM (
-       SELECT ST_Union(shape) AS shape, ecogroup, group_type, 
-              COALESCE(modal, FALSE) AS modal,
-              pub_status, sum(ecogrouparea_dd) AS ecogrouparea_dd
+       SELECT ecogroup, group_type, pub_status, ST_Area(geography(shape))/10000 AS area_ha, ecogrouparea_ha,
+              ST_Multi(shape) AS shape
          FROM (
-              SELECT a.shape, b.ecogroup, b.group_type, b.modal, b.pub_status,
-                     (ST_Area(a.shape)*(CAST(b.ecogrouppct AS REAL)/100)) AS ecogrouparea_dd
-                FROM mupolygon AS a
-                LEFT JOIN ecogroup_mudominant AS b ON a.mukey = b.mukey
-              ) AS x
-        GROUP BY ecogroup, group_type, modal, pub_status
-       ) AS y;"""
+              SELECT ST_Union(shape) AS shape, ecogroup, group_type, 
+                     pub_status, sum(ecogrouparea_ha) AS ecogrouparea_ha
+               FROM (
+                    SELECT a.shape, b.ecogroup, b.group_type, b.pub_status,
+                           a.area_ha*(CAST(b.ecogrouppct AS REAL)/100) AS ecogrouparea_ha
+                      FROM mupolygon AS a
+                      LEFT JOIN ecogroup_mudominant AS b ON a.mukey = b.mukey
+                    ) AS x
+              GROUP BY ecogroup, group_type, pub_status
+              ) AS y)
+       AS z;"""
 ]
 
 def create_table(dbpath, dbtype):

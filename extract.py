@@ -202,8 +202,7 @@ def scan_insert(dbpath, dbtype, scanpath, snap, repair, skip, survey_areas):
                     " GROUP BY AREASYMBOL, SPATIALVER, MUSYM, MUKEY").format(geom)
 
     soilmu_p_sql = ("SELECT {!s}, AREASYMBOL, SPATIALVER, MUSYM, MUKEY"
-                    "  FROM {{!s}}"
-                    " GROUP BY AREASYMBOL, SPATIALVER, MUSYM, MUKEY").format(geom)
+                    "  FROM {{!s}}").format(geom.replace('ST_Multi','').replace('ST_Union',''))
 
     soilsa_a_sql =("SELECT {!s}, AREASYMBOL, SPATIALVER, LKEY"
                    "  FROM {{!s}}"
@@ -214,8 +213,7 @@ def scan_insert(dbpath, dbtype, scanpath, snap, repair, skip, survey_areas):
                     " GROUP BY AREASYMBOL, SPATIALVER, FEATSYM, FEATKEY").format(geom)
 
     soilsf_p_sql = ("SELECT {!s}, AREASYMBOL, SPATIALVER, FEATSYM, FEATKEY"
-                    "  FROM {{!s}}"
-                    " GROUP BY AREASYMBOL, SPATIALVER, FEATSYM, FEATKEY").format(geom)
+                    "  FROM {{!s}}").format(geom.replace('ST_Multi','').replace('ST_Union',''))
 
     spatlist = [('soilmu_a', 'mupolygon', 'shape, areasymbol, spatialver, musym, mukey', soilmu_a_sql),
                 ('soilmu_l', 'muline', 'shape, areasymbol, spatialver, musym, mukey', soilmu_l_sql),
@@ -317,7 +315,8 @@ def scan_insert(dbpath, dbtype, scanpath, snap, repair, skip, survey_areas):
                         shp_table = '_'.join((insert_table, 'shp'))
                         print("Importing shapefile: ", current_ssa + ' | ' + os.path.splitext(f)[0], sep = '')
                         new_imports = True
-                        iSQL = "INSERT INTO {!s} ({!s}) VALUES ({!s},{!s})".format(shp_table, insert_text, '{!s}', ','.join((len(insert_text.split())-1)*[paramstr]))
+                        iSQL = "INSERT INTO {!s} ({!s}) VALUES ({!s},{!s})".format(shp_table, insert_text, '{!s}',
+                                                                                   ','.join((len(insert_text.split())-1)*[paramstr]))
                         sf = shapefile.Reader(os.path.join(root, f))
                         shrecs = sf.shapeRecords()
                         for rec in shrecs:
@@ -325,6 +324,7 @@ def scan_insert(dbpath, dbtype, scanpath, snap, repair, skip, survey_areas):
                             sql = iSQL.format(wtk)
                             c.execute(sql, rec.record)
                         gSQL = "INSERT INTO {!s} ({!s}) {!s};".format(insert_table, insert_text, select_stmt.format(shp_table))
+                        # print(gSQL)
                         c.execute(gSQL)
                         c.execute("DELETE FROM {!s};".format(shp_table))
                         conn.commit()
@@ -369,19 +369,23 @@ def repair_geom(dbpath, dbtype, featlist):
         c = conn.cursor()
         
     # each entry in tables is: tablename, SELECT string, geometry type for ST_CollectionExtract()
-    tables = [('mupolygon', 'OBJECTID, areasymbol, spatialver, musym, mukey', 3),
-              ('muline', 'OBJECTID, areasymbol, spatialver, musym, mukey', 2),
-              ('mupoint', 'OBJECTID, areasymbol, spatialver, musym, mukey', 1),
-              ('sapolygon', 'OBJECTID, areasymbol, spatialver, lkey', 3),
-              ('featline', 'OBJECTID, areasymbol, spatialver, featsym, featkey', 2),
-              ('featpoint', 'OBJECTID, areasymbol, spatialver, featsym, featkey', 1),
-              ('ecopolygon', 'OBJECTID, ecoclassid_std, ecoclassname, ecotype, area_dd, ecopct', 3),
-              ('ecogrouppolygon', 'OBJECTID, ecogroup, group_type, modal, pub_status, area_dd, ecogrouppct', 3)]
+    tables = [('mupolygon', 'OBJECTID, areasymbol, spatialver, musym, mukey, area_ha', 3),
+              ('muline', 'OBJECTID, areasymbol, spatialver, musym, mukey, length_m', 2),
+              ('mupoint', 'OBJECTID, areasymbol, spatialver, musym, mukey, x, y', 1),
+              ('sapolygon', 'OBJECTID, areasymbol, spatialver, lkey, area_ha', 3),
+              ('featline', 'OBJECTID, areasymbol, spatialver, featsym, featkey, length_m', 2),
+              ('featpoint', 'OBJECTID, areasymbol, spatialver, featsym, featkey, x, y', 1),
+              ('ecopolygon', 'OBJECTID, ecoclassid_std, ecoclassname, ecotype, area_ha, ecopct', 3),
+              ('ecogrouppolygon', 'OBJECTID, ecogroup, group_type, pub_status, area_ha, ecogrouppct', 3)]
     use_tables = [k for k in tables if k[0] in featlist] #restricts tables to only features that exist (featlist)
     
     for t in use_tables:
         print("Repairing {!s} geometries...".format(t[0]))
-        c.execute("CREATE TEMP TABLE {!s}_temp AS SELECT {!s}, ST_Multi(ST_CollectionExtract(ST_MakeValid(shape), {!s})) AS shape FROM {!s};".format(t[0],t[1],t[2],t[0]))
+        temp_sql = ("CREATE TEMP TABLE {!s}_temp AS SELECT {!s}, ST_Multi(ST_CollectionExtract(ST_MakeValid(shape), "
+                  "{!s})) AS shape FROM {!s};".format(t[0],t[1],t[2],t[0]))
+        if 'point' in t[0]:
+            temp_sql = temp_sql.replace('ST_Multi','')
+        c.execute(temp_sql)
         c.execute("DELETE FROM {!s};".format(t[0]))
         c.execute("INSERT INTO {!s} SELECT * FROM {!s}_temp;".format(t[0],t[0]))
         
@@ -397,7 +401,7 @@ def create_spatial_indices(dbpath, dbtype, sqlite_bin, featlist):
         stmts = ["SELECT load_extension('mod_spatialite');"]
         for f in featlist:
             stmts.append("SELECT CreateSpatialIndex('{!s}', 'shape');".format(f))
-        if not sqlite_bin:
+        if sqlite_bin == 'no arg':
             conn = sqlite.connect(dbpath)
             conn.enable_load_extension(True)
             c = conn.cursor()
@@ -416,12 +420,48 @@ def create_spatial_indices(dbpath, dbtype, sqlite_bin, featlist):
     elif dbtype == 'postgis':
         conn = psycopg2.connect(dbpath)
         c = conn.cursor()
-        stmts = []
         for f in featlist:
-            stmts.append("CREATE INDEX {table}_gix ON {table} USING GIST (shape);".format(**{'table':f}))
-            stmts.append("ANALYZE {table};".format(**{'table':f}))
+            c.execute("DROP INDEX {table}_gix IF EXISTS;".format(**{'table': f}))
+            c.execute("CREATE INDEX {table}_gix ON {table} USING GIST (shape);".format(**{'table': f}))
+            c.execute("ANALYZE {table};".format(**{'table': f}))
         conn.commit()
         conn.close()
+
+def add_area(dbpath, dbtype, featlist):
+    sql_up = "UPDATE {!s} SET {!s} = {!s};"
+    
+    if dbtype == 'spatialite':
+        conn = sqlite.connect(dbpath)
+        conn.enable_load_extension(True)
+        c = conn.cursor()
+        c.execute("SELECT load_extension('mod_spatialite');")
+
+        for f in featlist:
+            print("Adding geometry measurements to " + f)
+            if 'poly' in f:
+                c.execute(sql_up.format(f, 'area_ha', 'st_area(shape, 1)/10000'))
+            elif 'line' in f:
+                c.execute(sql_up.format(f, 'length_m', 'st_length(shape, 1)'))
+            elif 'point' in f:
+                c.execute(sql_up.format(f, 'x', 'st_x(shape)'))
+                c.execute(sql_up.format(f, 'y', 'st_y(shape)'))
+        conn.commit()
+        conn.close()
+    if dbtype == 'postgis':
+        conn = psycopg2.connect(dbpath)
+        c = conn.cursor()
+        for f in featlist:
+            print("Adding geometry measurements to " + f)
+            if 'poly' in f:
+                c.execute(sql_up.format(f, 'area_ha', 'st_area(geography(shape))/10000'))
+            elif 'line' in f:
+                c.execute(sql_up.format(f, 'length_m', 'st_length(geography(shape))'))
+            elif 'point' in f:
+                c.execute(sql_up.format(f, 'x', 'st_x(shape)'))
+                c.execute(sql_up.format(f, 'y', 'st_y(shape)'))
+        conn.commit()
+        conn.close()
+        
     
 if __name__ == "__main__":
     ### parses script arguments
@@ -442,7 +482,7 @@ if __name__ == "__main__":
     parser.add_argument('-g', '--groups', metavar='"path/to/ecogroups.csv"',
                         help='imports ecogroups from comma delimited list and creates a spatial feature called ecogrouppolygon '
                         'which shows the aggregate dominant ecological groups')
-    parser.add_argument('-i', '--index', nargs='?', default = None, const = '', metavar='"path/to/sqlite3"', 
+    parser.add_argument('-i', '--index', nargs='?', default = None, const = 'no arg', metavar='"path/to/sqlite3"',
                         help='adds spatial index to spatial features. Python sqlite module must be compiled with rtree '
                         'option to work natively. Otherwise an alternate sqlite binary can by supplied that does have rtree '
                         'compiled with "path/to/sqlite3" or a command in the PATH (e.g. sqlite3). WARNING: if an alternate binary '
@@ -496,6 +536,9 @@ if __name__ == "__main__":
 
     if args.repair:
         repair_geom(args.dbpath, args.type, featlist)
+
+    add_area(args.dbpath, args.type, featlist)                
+            
     if args.ecosite:
         featlist.append('ecopolygon')
         if new_imports:

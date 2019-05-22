@@ -858,12 +858,12 @@ SELECT i.ecoclassid_std, j.ecoclassid, j.ecoclassname, j.ecoclassname_std,
                AVG(CAST(ecoclasspct AS float)) AS ecoclasspct_mean, SUM(eco_ha) AS eco_ha
           FROM (
                 SELECT a.mukey, a.ecoclassid, a.ecoclassid_std, a.ecoclassname, a.ecoclassname_std, 
-                       a.ecotype, a.ecoclasspct, a.ecorank, (a.ecoclasspct * b.mu_ha / 100) AS eco_ha
+                       a.ecotype, a.ecoclasspct, a.ecorank, (a.ecoclasspct * b.area_ha / 100) AS eco_ha
                   FROM coecoclass_mapunit_ranked AS a
                   LEFT JOIN (
-                       SELECT mukey, ST_Area(ST_Union(shape), true) * 0.0001 AS mu_ha
+                       SELECT mukey, sum(area_ha) AS area_ha
                          FROM mupolygon
-                        GROUP BY MUKEY
+                        GROUP BY mukey
                        ) AS b ON a.mukey = b.mukey
                 ) AS x
          GROUP BY x.ecoclassid_std) AS i
@@ -1008,18 +1008,29 @@ SELECT x.mukey,
        
 """/* Compiles a list of unique components in the database and displays some statistics, including total area in hectares
 Calculated from the mupolygon feature and the comppct_r field. */
---CREATE OR REPLACE VIEW component_unique AS
+CREATE OR REPLACE VIEW component_unique AS
 SELECT x.compname, MIN(x.compkind) AS compkind, 
        AVG(CAST(x.comppct_r AS FLOAT)) AS comppct_r_mean, SUM(x.comp_ha) AS comp_ha
   FROM ( 
        SELECT a.mukey, a.compname, a.compkind, a.comppct_r,
-             (a.comppct_r * b.mu_ha / 100) AS comp_ha
+             (a.comppct_r * b.area_ha / 100) AS comp_ha
          FROM component AS a
          LEFT JOIN (
-              SELECT mukey, ST_Area(ST_Union(shape), true) * 0.0001 AS mu_ha
+              SELECT mukey, sum(area_ha) AS area_ha
                 FROM mupolygon
-               GROUP BY MUKEY
+               GROUP BY mukey
               ) AS b ON a. mukey = b.mukey
        ) AS x
- GROUP BY x.compname;"""       
+ GROUP BY x.compname;""",
+
+"""/* Calculates the hectares of each ecogroup for each map unit polygon.*/
+ CREATE OR REPLACE VIEW coecoclass_area AS
+ SELECT a.areasymbol, a.spatialver, a.musym, a.mukey, a.area_ha,
+        b.ecoclassid, b.ecoclassid_std, b.ecoclassname, b.ecoclassname_std,
+        b.ecotype, b.ecoclasspct, b.ecorank,
+        a.area_ha * b.ecoclasspct/100 AS eco_ha
+   FROM mupolygon a
+   LEFT JOIN coecoclass_mapunit_ranked b ON a.mukey = b.mukey
+  ORDER BY a.areasymbol, a.musym, b.ecorank;
+"""
 ]

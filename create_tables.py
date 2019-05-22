@@ -25,14 +25,17 @@ table_statements = [
 	areasymbol {limit_text} (20),
 	spatialver {double},
 	featsym {limit_text} (3),
-	featkey {limit_text} (30));""",
+	featkey {limit_text} (30),
+	length_m {double});""",
 
 """CREATE TABLE {notexists} featpoint (
 	OBJECTID {oid},
 	areasymbol {limit_text} (20),
 	spatialver {double},
 	featsym {limit_text} (3),
-	featkey {limit_text} (30));""",
+	featkey {limit_text} (30),
+	x {double},
+	y {double});""",
 
 """CREATE TABLE {notexists} legend (
 	areatypename {limit_text} (45) NOT NULL,
@@ -166,7 +169,8 @@ table_statements = [
 	areasymbol {limit_text} (20),
 	spatialver {double},
 	musym {limit_text} (6),
-	mukey {limit_text} (30));""",
+	mukey {limit_text} (30),
+	length_m {double});""",
 
 							  
 """CREATE TABLE {notexists} mupoint (
@@ -174,7 +178,9 @@ table_statements = [
 	areasymbol {limit_text} (20),
 	spatialver {double},
 	musym {limit_text} (6),
-	mukey {limit_text} (30));""",
+	mukey {limit_text} (30),
+	x {double},
+	y {double});""",
 
 							  
 """CREATE TABLE {notexists} mupolygon (
@@ -182,7 +188,8 @@ table_statements = [
 	areasymbol {limit_text} (20),
 	spatialver {double},
 	musym {limit_text} (6),
-	mukey {limit_text} (30));""",
+	mukey {limit_text} (30),
+	area_ha {double});""",
 
 """CREATE TABLE {notexists} sacatalog (
 	areasymbol {limit_text} (20) NOT NULL,
@@ -201,7 +208,8 @@ table_statements = [
 	OBJECTID {oid},
 	areasymbol {limit_text} (20),
 	spatialver {double},
-	lkey {limit_text} (30));""",
+	lkey {limit_text} (30),
+	area_ha {double});""",
 
 """CREATE TABLE {notexists} sdvalgorithm (
 	algorithmsequence {short_int} NOT NULL,
@@ -1108,9 +1116,9 @@ table_statements = [
 ####### ADD GEOMETRY #######
 
 """SELECT AddGeometryColumn('featline', 'shape', 4326, 'MULTILINESTRING', 2);""",
-"""SELECT AddGeometryColumn('featpoint', 'shape', 4326, 'MULTIPOINT', 2);""",
+"""SELECT AddGeometryColumn('featpoint', 'shape', 4326, 'POINT', 2);""",
 """SELECT AddGeometryColumn('muline', 'shape', 4326, 'MULTILINESTRING', 2);""",
-"""SELECT AddGeometryColumn('mupoint', 'shape', 4326, 'MULTIPOINT', 2);""",
+"""SELECT AddGeometryColumn('mupoint', 'shape', 4326, 'POINT', 2);""",
 """SELECT AddGeometryColumn('mupolygon', 'shape', 4326, 'MULTIPOLYGON', 2);""",
 """SELECT AddGeometryColumn('sapolygon', 'shape', 4326, 'MULTIPOLYGON', 2);"""]
 
