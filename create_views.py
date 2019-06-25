@@ -554,7 +554,16 @@ SELECT x.compname, MIN(x.compkind) AS compkind,
                GROUP BY mukey
               ) AS b ON a. mukey = b.mukey
        ) AS x
- GROUP BY x.compname;"""
+ GROUP BY x.compname;""",
+ 
+"""/* Calculates the hectares of each ecogroup for each map unit polygon.*/
+ CREATE VIEW IF NOT EXISTS {schema}.coecoclass_area AS
+ SELECT a.areasymbol, a.spatialver, a.musym, a.mukey, a.area_ha,
+        b.ecoclassid, b.ecoclassid_std, b.ecoclassname, b.ecoclassname_std,
+        b.ecotype, b.ecoclasspct, a.area_ha * b.ecoclasspct/100 AS eco_ha
+   FROM {schema}.mupolygon a
+   LEFT JOIN {schema}.coecoclass_mapunit_ranked b ON a.mukey = b.mukey
+  ORDER BY a.areasymbol, a.musym, b.ecoclasspct DESC;"""
 ]
 
 postgis_views = [
