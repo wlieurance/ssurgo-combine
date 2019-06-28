@@ -1,10 +1,11 @@
 import os
 import csv
-import sys
 import argparse
 import sqlite3 as sqlite
 import psycopg2
+import extract
 from config import spatialite_tables, postgis_tables
+
 
 ecogroup_spatialite = [
 """/* This view creates a list of ecosites within ecogroups and attaches ecogroup metadata details */
@@ -290,9 +291,8 @@ SELECT v.ecogroup, v.plantsym, v.plantsciname, v.plantcomname, v.prodtype,
 """DROP TABLE IF EXISTS {schema}.ecogrouppolygon;""",
 
 """/* Creates a new table in which store spatial query results for dominant ecogroup polygons. */
-CREATE TABLE IF NOT EXISTS {schema}.ecogrouppolygon (
-       OBJECTID {oid}, 
-       ecogroup {limit_text} (50),
+CREATE TABLE IF NOT EXISTS {schema}.ecogrouppolygon ( 
+       ecogroup {limit_text} (50) PRIMARY KEY,
        groupname {limit_text} (100),
        grouptype {limit_text} (50),
        pub_status {limit_text} (20),
@@ -310,7 +310,7 @@ SELECT ecogroup, groupname, grouptype, pub_status, area_ha, ecogrouparea_ha/area
               SELECT ST_Union(shape) AS shape, ecogroup, groupname, grouptype,  
                      pub_status, sum(ecogrouparea_ha) AS ecogrouparea_ha
                 FROM (
-                     SELECT a.shape, b.ecogroup, b.groupname, b.grouptype, b.pub_status,
+                     SELECT a.shape, COALESCE(b.ecogroup, 'NA') AS ecogroup, b.groupname, b.grouptype, b.pub_status,
                             a.area_ha*(CAST(b.ecogrouppct AS REAL)/100) AS ecogrouparea_ha
                        FROM {schema}.mupolygon AS a
                        LEFT JOIN {schema}.ecogroup_mudominant AS b ON a.mukey = b.mukey)
@@ -526,8 +526,7 @@ SELECT v.ecogroup, v.plantsym, v.plantsciname, v.plantcomname, v.prodtype,
 
 """/* Creates a new table in which store spatial query results for dominant ecogroup polygons. */
 CREATE TABLE IF NOT EXISTS {schema}.ecogrouppolygon (
-       OBJECTID {oid}, 
-       ecogroup {limit_text} (50),
+       ecogroup {limit_text} (50) PRIMARY KEY,
        groupname {limit_text} (100),
        grouptype {limit_text} (50),
        pub_status {limit_text} (20),
@@ -547,7 +546,7 @@ SELECT ecogroup, groupname, grouptype, pub_status, area_ha, ecogrouparea_ha/area
               SELECT ST_Union(shape) AS shape, ecogroup, groupname, grouptype, 
                      pub_status, sum(ecogrouparea_ha) AS ecogrouparea_ha
                FROM (
-                    SELECT a.shape, b.ecogroup, b.groupname, b.grouptype, b.pub_status,
+                    SELECT a.shape, COALESCE(b.ecogroup, 'NA') AS ecogroup, b.groupname, b.grouptype, b.pub_status,
                            a.area_ha*(CAST(b.ecogrouppct AS REAL)/100) AS ecogrouparea_ha
                       FROM {schema}.mupolygon AS a
                       LEFT JOIN {schema}.ecogroup_mudominant AS b ON a.mukey = b.mukey
@@ -556,17 +555,6 @@ SELECT ecogroup, groupname, grouptype, pub_status, area_ha, ecogrouparea_ha/area
               ) AS y)
        AS z;"""
 ]
-
-
-def get_default_schema(dbtype, schema):
-    if dbtype == 'spatialite':
-        schema = 'main'
-    if not schema:
-        if dbtype == 'postgis':
-            schema = 'public'
-        elif dbtype == 'mssql':
-            schema = 'dbo'
-    return schema
 
 
 def create_table(dbpath, schema, dbtype):
@@ -691,7 +679,7 @@ if __name__ == "__main__":
         print(csvpath + " does not exist. Please choose an existing comma delimited ecogroup file to use.")
         quit()
     
-    schema = get_default_schema(args.type, args.schema)
+    schema = extract.get_default_schema(args.type, args.schema)
     create_table(args.dbpath, schema, args.type)
     load_ecogroups(args.dbpath, schema, args.type, csvmetapath, csvpath)
     create_views(args.dbpath, schema, args.type)

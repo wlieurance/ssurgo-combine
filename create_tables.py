@@ -1,198 +1,23 @@
 table_statements = [
-
-####### LEVEL 1 #######
-"""CREATE TABLE {notexists} {schema}.imports (
-    ssa {limit_text} (10) PRIMARY KEY, 
-    version {short_int} NOT NULL, 
-    est_date {date} NOT NULL);""",
-    
-"""CREATE TABLE {notexists} {schema}.distmd (
-    distgendate {date},
-    diststatus {limit_text} (254) NOT NULL,
-    interpmaxreasons {short_int},
-    distmdkey {limit_text} (30) PRIMARY KEY);""",
-
-"""CREATE TABLE {notexists} {schema}.featdesc (
-    areasymbol {limit_text} (20) NOT NULL,
-    spatialversion {int} NOT NULL,
-    featsym {limit_text} (3) NOT NULL,
-    featname {limit_text} (80) NOT NULL,
-    featdesc {text} NOT NULL,
-    featkey {limit_text} (30) PRIMARY KEY);""",
-
-"""CREATE TABLE {notexists} {schema}.featline (
-    OBJECTID {oid},
-    areasymbol {limit_text} (20),
-    spatialver {double},
-    featsym {limit_text} (3),
-    featkey {limit_text} (30),
-    length_m {double});""",
-
-"""CREATE TABLE {notexists} {schema}.featpoint (
-    OBJECTID {oid},
-    areasymbol {limit_text} (20),
-    spatialver {double},
-    featsym {limit_text} (3),
-    featkey {limit_text} (30),
-    x {double},
-    y {double});""",
-
-"""CREATE TABLE {notexists} {schema}.legend (
-    areatypename {limit_text} (45) NOT NULL,
-    areasymbol {limit_text} (20) NOT NULL,
-    areaname {limit_text} (135),
-    areaacres {int},
-    mlraoffice {limit_text} (254),
-    legenddesc {limit_text} (60),
-    ssastatus {limit_text} (254),
-    mouagncyresp {limit_text} (254),
-    projectscale {int},
-    cordate {date},
-    ssurgoarchived {date},
-    legendsuituse {limit_text} (254),
-    legendcertstat {limit_text} (254),
-    lkey {limit_text} (30) PRIMARY KEY);""",
-
-"""CREATE TABLE {notexists} {schema}.mdstatdomdet (
-    domainname {limit_text} (40) NOT NULL,
-    choicesequence {short_int} NOT NULL,
-    choice {limit_text} (254) NOT NULL,
-    choicedesc {text},
-    choiceobsolete {limit_text} (3) NOT NULL,
-    PRIMARY KEY (domainname, choicesequence));""",
-
+####### LEVEL 0 #######
 """CREATE TABLE {notexists} {schema}.mdstatdommas (
     domainname {limit_text} (40) PRIMARY KEY,
     domainmaxlen {short_int} NOT NULL);""",
-
-"""CREATE TABLE {notexists} {schema}.mdstatidxdet (
-    tabphyname {limit_text} (30) NOT NULL,
-    idxphyname {limit_text} (30) NOT NULL,
-    idxcolsequence {short_int} NOT NULL,
-    colphyname {limit_text} (30) NOT NULL,
-    PRIMARY KEY (tabphyname, idxphyname, idxcolsequence));""",
-
-"""CREATE TABLE {notexists} {schema}.mdstatidxmas (
-    tabphyname {limit_text} (30) NOT NULL,
-    idxphyname {limit_text} (30) NOT NULL,
-    uniqueindex {limit_text} (3) NOT NULL,
-    PRIMARY KEY (tabphyname, idxphyname));""",
-
-"""CREATE TABLE {notexists} {schema}.mdstatrshipdet (
-    ltabphyname {limit_text} (30) NOT NULL,
-    rtabphyname {limit_text} (30) NOT NULL,
-    relationshipname {limit_text} (30) NOT NULL,
-    ltabcolphyname {limit_text} (30) NOT NULL,
-    rtabcolphyname {limit_text} (30) NOT NULL,
-    PRIMARY KEY (ltabphyname, rtabphyname, relationshipname, ltabcolphyname, rtabcolphyname));""",
-
-"""CREATE TABLE {notexists} {schema}.mdstatrshipmas (
-    ltabphyname {limit_text} (30) NOT NULL,
-    rtabphyname {limit_text} (30) NOT NULL,
-    relationshipname {limit_text} (30) NOT NULL,
-    cardinality {limit_text} (254) NOT NULL,
-    mandatory {limit_text} (3) NOT NULL,
-    PRIMARY KEY (ltabphyname, rtabphyname, relationshipname));""",
-
-"""CREATE TABLE {notexists} {schema}.mdstattabcols (
-    tabphyname {limit_text} (30) NOT NULL,
-    colsequence {short_int} NOT NULL,
-    colphyname {limit_text} (30) NOT NULL,
-    collogname {limit_text} (30) NOT NULL,
-    collabel {limit_text} (80) NOT NULL,
-    logicaldatatype {limit_text} (254) NOT NULL,
-    not_null {limit_text} (3) NOT NULL,  --changed notnull -> not_null
-    fieldsize {short_int},
-    precision {short_int},
-    minimum {double},
-    maximum {double},
-    uom {limit_text} (60),
-    domainname {limit_text} (40),
-    coldesc {text} NOT NULL,
-    PRIMARY KEY (tabphyname, colsequence));""",
-
+    
 """CREATE TABLE {notexists} {schema}.mdstattabs (
     tabphyname {limit_text} (30) PRIMARY KEY,
-    tablogname {limit_text} (30) NOT NULL,
-    tablabel {limit_text} (80) NOT NULL,
+    tablogname {limit_text} (30) UNIQUE NOT NULL,
+    tablabel {limit_text} (80) UNIQUE NOT NULL,
     tabdesc {text} NOT NULL,
-    iefilename {limit_text} (30) NOT NULL);""",
-
+    iefilename {limit_text} (30) UNIQUE NOT NULL);""",
+    
 """CREATE TABLE {notexists} {schema}.month (
-    monthseq {short_int} NOT NULL,
+    monthseq {short_int} UNIQUE NOT NULL,
     monthname {limit_text} (9) PRIMARY KEY);""",
-
-"""CREATE TABLE {notexists} {schema}.muaggatt (
-    musym {limit_text} (6) NOT NULL,
-    muname {limit_text} (175),
-    mustatus {limit_text} (254),
-    slopegraddcp {double},
-    slopegradwta {double},
-    brockdepmin {short_int},
-    wtdepannmin {short_int},
-    wtdepaprjunmin {short_int},
-    flodfreqdcd {limit_text} (254),
-    flodfreqmax {limit_text} (254),
-    pondfreqprs {limit_text} (254),
-    aws025wta {double},
-    aws050wta {double},
-    aws0100wta {double},
-    aws0150wta {double},
-    drclassdcd {limit_text} (254),
-    drclasswettest {limit_text} (254),
-    hydgrpdcd {limit_text} (254),
-    iccdcd {limit_text} (254),
-    iccdcdpct {short_int},
-    niccdcd {limit_text} (254),
-    niccdcdpct {short_int},
-    engdwobdcd {limit_text} (254),
-    engdwbdcd {limit_text} (254),
-    engdwbll {limit_text} (254),
-    engdwbml {limit_text} (254),
-    engstafdcd {limit_text} (254),
-    engstafll {limit_text} (254),
-    engstafml {limit_text} (254),
-    engsldcd {limit_text} (254),
-    engsldcp {limit_text} (254),
-    englrsdcd {limit_text} (254),
-    engcmssdcd {limit_text} (254),
-    engcmssmp {limit_text} (254),
-    urbrecptdcd {limit_text} (254),
-    urbrecptwta {double},
-    forpehrtdcp {limit_text} (254),
-    hydclprs {limit_text} (254),
-    awmmfpwwta {double},
-    mukey {limit_text} (30) PRIMARY KEY);""",
-
-"""CREATE TABLE {notexists} {schema}.muline (
-    OBJECTID {oid},
-    areasymbol {limit_text} (20),
-    spatialver {double},
-    musym {limit_text} (6),
-    mukey {limit_text} (30),
-    length_m {double});""",
-
-
-"""CREATE TABLE {notexists} {schema}.mupoint (
-    OBJECTID {oid},
-    areasymbol {limit_text} (20),
-    spatialver {double},
-    musym {limit_text} (6),
-    mukey {limit_text} (30),
-    x {double},
-    y {double});""",
-
-
-"""CREATE TABLE {notexists} {schema}.mupolygon (
-    OBJECTID {oid},
-    areasymbol {limit_text} (20),
-    spatialver {double},
-    musym {limit_text} (6),
-    mukey {limit_text} (30),
-    area_ha {double});""",
-
+    
+# acts as a linchpin to cascade delete all other data
 """CREATE TABLE {notexists} {schema}.sacatalog (
-    areasymbol {limit_text} (20) NOT NULL,
+    areasymbol {limit_text} (20) UNIQUE NOT NULL,
     areaname {limit_text} (135) NOT NULL,
     saversion {int} NOT NULL,
     saverest {date} NOT NULL,
@@ -203,23 +28,16 @@ table_statements = [
     tabcertstatusdesc {text},
     fgdcmetadata {text} NOT NULL,
     sacatalogkey {limit_text} (30) PRIMARY KEY);""",
-
-"""CREATE TABLE {notexists} {schema}.sapolygon (
-    OBJECTID {oid},
-    areasymbol {limit_text} (20),
-    spatialver {double},
-    lkey {limit_text} (30),
-    area_ha {double});""",
-
+    
 """CREATE TABLE {notexists} {schema}.sdvalgorithm (
-    algorithmsequence {short_int} NOT NULL,
+    algorithmsequence {short_int} UNIQUE NOT NULL,
     algorithmname {limit_text} (50) PRIMARY KEY,
-    algorithminitials {limit_text} (3) NOT NULL,
+    algorithminitials {limit_text} (3) UNIQUE NOT NULL,
     algorithmdescription {text} NOT NULL);""",
 
 """CREATE TABLE {notexists} {schema}.sdvattribute (
     attributekey {int} PRIMARY KEY,
-    attributename {limit_text} (60) NOT NULL,
+    attributename {limit_text} (60) UNIQUE NOT NULL,
     attributetablename {limit_text} (30) NOT NULL,
     attributecolumnname {limit_text} (30) NOT NULL,
     attributelogicaldatatype {limit_text} (20) NOT NULL,
@@ -241,7 +59,7 @@ table_statements = [
     tiebreaklowlabel {limit_text} (20),
     tiebreakhighlabel {limit_text} (20),
     tiebreakrule {short_int} NOT NULL,
-    resultcolumnname {limit_text} (10) NOT NULL,
+    resultcolumnname {limit_text} (10) UNIQUE NOT NULL,
     sqlwhereclause {limit_text} (255),
     primaryconcolname {limit_text} (30),
     pcclogicaldatatype {limit_text} (20),
@@ -279,32 +97,114 @@ table_statements = [
     folderkey {int} PRIMARY KEY,
     parentfolderkey {int},
     wlupdated {date} NOT NULL);""",
+    
+####### LEVEL 1 #######    
+"""CREATE TABLE {notexists} {schema}.featdesc (
+    areasymbol {limit_text} (20) NOT NULL,
+    spatialversion {int} NOT NULL,
+    featsym {limit_text} (3) NOT NULL,
+    featname {limit_text} (80) NOT NULL,
+    featdesc {text} NOT NULL,
+    featkey {limit_text} (30) PRIMARY KEY,
+    UNIQUE (areasymbol, featsym),
+    FOREIGN KEY(areasymbol) REFERENCES {schema}.sacatalog(areasymbol) ON DELETE CASCADE);""",
+
+"""CREATE TABLE {notexists} {schema}.featline (
+    areasymbol {limit_text} (20),
+    spatialver {double},
+    featsym {limit_text} (3),
+    featkey {limit_text} (30) PRIMARY KEY,
+    length_m {double},
+    FOREIGN KEY(areasymbol) REFERENCES {schema}.sacatalog(areasymbol) ON DELETE CASCADE);""",
+
+"""CREATE TABLE {notexists} {schema}.featpoint (
+    areasymbol {limit_text} (20),
+    spatialver {double},
+    featsym {limit_text} (3),
+    featkey {limit_text} (30) PRIMARY KEY,
+    x {double},
+    y {double},
+    FOREIGN KEY(areasymbol) REFERENCES {schema}.sacatalog(areasymbol) ON DELETE CASCADE);""",
+    
+"""CREATE TABLE {notexists} {schema}.legend (
+    areatypename {limit_text} (45) NOT NULL,
+    areasymbol {limit_text} (20) NOT NULL,
+    areaname {limit_text} (135),
+    areaacres {int},
+    mlraoffice {limit_text} (254),
+    legenddesc {limit_text} (60),
+    ssastatus {limit_text} (254),
+    mouagncyresp {limit_text} (254),
+    projectscale {int},
+    cordate {date},
+    ssurgoarchived {date},
+    legendsuituse {limit_text} (254),
+    legendcertstat {limit_text} (254),
+    lkey {limit_text} (30) PRIMARY KEY,
+    FOREIGN KEY (areasymbol) REFERENCES {schema}.sacatalog(areasymbol) ON DELETE CASCADE);""",
+    
+"""CREATE TABLE {notexists} {schema}.mdstatdomdet (
+    domainname {limit_text} (40) NOT NULL,
+    choicesequence {short_int} NOT NULL,
+    choice {limit_text} (254) NOT NULL,
+    choicedesc {text},
+    choiceobsolete {limit_text} (3) NOT NULL,
+    PRIMARY KEY (domainname, choicesequence),
+    UNIQUE (domainname, choice),
+    FOREIGN KEY (domainname) REFERENCES {schema}.mdstatdommas(domainname) ON DELETE CASCADE);""",
+    
+"""CREATE TABLE {notexists} {schema}.mdstatidxmas (
+    tabphyname {limit_text} (30) NOT NULL,
+    idxphyname {limit_text} (30) NOT NULL,
+    uniqueindex {limit_text} (3) NOT NULL,
+    PRIMARY KEY (tabphyname, idxphyname),
+    FOREIGN KEY (tabphyname) REFERENCES {schema}.mdstattabs(tabphyname) ON DELETE CASCADE);""",
+    
+"""CREATE TABLE {notexists} {schema}.mdstatrshipmas (
+    ltabphyname {limit_text} (30) NOT NULL,
+    rtabphyname {limit_text} (30) NOT NULL,
+    relationshipname {limit_text} (30) NOT NULL,
+    cardinality {limit_text} (254) NOT NULL,
+    mandatory {limit_text} (3) NOT NULL,
+    PRIMARY KEY (ltabphyname, rtabphyname, relationshipname),
+    FOREIGN KEY (ltabphyname) REFERENCES {schema}.mdstattabs(tabphyname) ON DELETE CASCADE,
+    FOREIGN KEY (rtabphyname) REFERENCES {schema}.mdstattabs(tabphyname) ON DELETE CASCADE);""",
+
+"""CREATE TABLE {notexists} {schema}.mdstattabcols (
+    tabphyname {limit_text} (30) NOT NULL,
+    colsequence {short_int} NOT NULL,
+    colphyname {limit_text} (30) NOT NULL,
+    collogname {limit_text} (30) NOT NULL,
+    collabel {limit_text} (80) NOT NULL,
+    logicaldatatype {limit_text} (254) NOT NULL,
+    not_null {limit_text} (3) NOT NULL,  --changed notnull -> not_null
+    fieldsize {short_int},
+    precision {short_int},
+    minimum {double},
+    maximum {double},
+    uom {limit_text} (60),
+    domainname {limit_text} (40),
+    coldesc {text} NOT NULL,
+    PRIMARY KEY (tabphyname, colsequence),
+    UNIQUE (tabphyname, colphyname),
+    UNIQUE (tabphyname, collogname),
+    UNIQUE (tabphyname, collabel),
+    FOREIGN KEY (tabphyname) REFERENCES {schema}.mdstattabs(tabphyname) ON DELETE CASCADE,
+    FOREIGN KEY (domainname) REFERENCES {schema}.mdstatdommas(domainname) ON DELETE CASCADE);""",
 
 """CREATE TABLE {notexists} {schema}.sdvfolderattribute (
-    folderkey {int} NOT NULL,
-    attributekey {int} NOT NULL,
+    folderkey {int} NOT NULL REFERENCES {schema}.sdvfolder(folderkey) ON DELETE CASCADE,
+    attributekey {int} NOT NULL REFERENCES {schema}.sdvattribute(attributekey) ON DELETE CASCADE,
     PRIMARY KEY (folderkey, attributekey));""",
-
-"""CREATE TABLE {notexists} {schema}.version (
+    
+####### LEVEL 1.1 #######
+"""CREATE TABLE {notexists} {schema}.sapolygon (
     areasymbol {limit_text} (20),
-    datatype {limit_text} (20),
-    version {limit_text} (20),
-    PRIMARY KEY (areasymbol, datatype));""",
-
-
-####### LEVEL 2 #######
-
-"""CREATE TABLE {notexists} {schema}.distinterpmd (
-    rulename {limit_text} (60),
-    ruledesign {limit_text} (254) NOT NULL,
-    ruledesc {text},
-    dataafuse {limit_text} (3),
-    mrecentrulecwlu {date},
-    rulekey {limit_text} (30) NOT NULL,
-    distmdkey {limit_text} (30) NOT NULL,
-    distinterpmdkey {limit_text} (30) PRIMARY KEY,
-    FOREIGN KEY(distmdkey) REFERENCES {schema}.distmd(distmdkey));""",
-
+    spatialver {double},
+    lkey {limit_text} (30) PRIMARY KEY,
+    area_ha {double},
+    FOREIGN KEY(lkey) REFERENCES {schema}.legend(lkey) ON DELETE CASCADE);""",
+    
 """CREATE TABLE {notexists} {schema}.distlegendmd (
     areatypename {limit_text} (45),
     areasymbol {limit_text} (20),
@@ -315,10 +215,29 @@ table_statements = [
     exportcertdate {date},
     exportmetadata {text},
     lkey {limit_text} (30) NOT NULL,
-    distmdkey {limit_text} (30) NOT NULL,
+    distmdkey {limit_text} (30) UNIQUE NOT NULL,
     distlegendmdkey {limit_text} (30) PRIMARY KEY,
-    FOREIGN KEY(distmdkey) REFERENCES {schema}.distmd(distmdkey));""",
+    FOREIGN KEY(lkey) REFERENCES {schema}.legend(lkey) ON DELETE CASCADE);""",
+  
+####### LEVEL 2 #######
+"""CREATE TABLE {notexists} {schema}.distmd (
+    distgendate {date},
+    diststatus {limit_text} (254) NOT NULL,
+    interpmaxreasons {short_int},
+    distmdkey {limit_text} (30) PRIMARY KEY,
+    FOREIGN KEY(distmdkey) REFERENCES {schema}.distlegendmd(distmdkey) ON DELETE CASCADE);""",
 
+"""CREATE TABLE {notexists} {schema}.distinterpmd (
+    rulename {limit_text} (60),
+    ruledesign {limit_text} (254) NOT NULL,
+    ruledesc {text},
+    dataafuse {limit_text} (3),
+    mrecentrulecwlu {date},
+    rulekey {limit_text} (30) NOT NULL,
+    distmdkey {limit_text} (30) NOT NULL,
+    distinterpmdkey {limit_text} (30) PRIMARY KEY,
+    FOREIGN KEY(distmdkey) REFERENCES {schema}.distlegendmd(distmdkey) ON DELETE CASCADE);""",
+    
 """CREATE TABLE {notexists} {schema}.laoverlap (
     areatypename {limit_text} (45) NOT NULL,
     areasymbol {limit_text} (20) NOT NULL,
@@ -326,7 +245,7 @@ table_statements = [
     areaovacres {int},
     lkey {limit_text} (30) NOT NULL,
     lareaovkey {limit_text} (30) PRIMARY KEY,
-    FOREIGN KEY(lkey) REFERENCES {schema}.legend(lkey));""",
+    FOREIGN KEY(lkey) REFERENCES {schema}.legend(lkey) ON DELETE CASCADE);""",
 
 """CREATE TABLE {notexists} {schema}.legendtext (
     recdate {date},
@@ -336,7 +255,7 @@ table_statements = [
     text {text},
     lkey {limit_text} (30) NOT NULL,
     legtextkey {limit_text} (30) PRIMARY KEY,
-    FOREIGN KEY(lkey) REFERENCES {schema}.legend(lkey));""",
+    FOREIGN KEY(lkey) REFERENCES {schema}.legend(lkey) ON DELETE CASCADE);""",
 
 """CREATE TABLE {notexists} {schema}.mapunit (
     musym {limit_text} (6) NOT NULL,
@@ -363,7 +282,26 @@ table_statements = [
     mucertstat {limit_text} (254),
     lkey {limit_text} (30) NOT NULL,
     mukey {limit_text} (30) PRIMARY KEY,
-    FOREIGN KEY(lkey) REFERENCES {schema}.legend(lkey));""",
+    FOREIGN KEY(lkey) REFERENCES {schema}.legend(lkey) ON DELETE CASCADE);""",
+
+"""CREATE TABLE {notexists} {schema}.mdstatidxdet (
+    tabphyname {limit_text} (30) NOT NULL,
+    idxphyname {limit_text} (30) NOT NULL,
+    idxcolsequence {short_int} NOT NULL,
+    colphyname {limit_text} (30) NOT NULL,
+    PRIMARY KEY (tabphyname, idxphyname, idxcolsequence),
+    UNIQUE (tabphyname, idxphyname, colphyname),
+    FOREIGN KEY(tabphyname, idxphyname) REFERENCES {schema}.mdstatidxmas(tabphyname, idxphyname) ON DELETE CASCADE);""",
+    
+"""CREATE TABLE {notexists} {schema}.mdstatrshipdet (
+    ltabphyname {limit_text} (30) NOT NULL,
+    rtabphyname {limit_text} (30) NOT NULL,
+    relationshipname {limit_text} (30) NOT NULL,
+    ltabcolphyname {limit_text} (30) NOT NULL,
+    rtabcolphyname {limit_text} (30) NOT NULL,
+    PRIMARY KEY (ltabphyname, rtabphyname, relationshipname, ltabcolphyname, rtabcolphyname),
+    FOREIGN KEY (ltabphyname, rtabphyname, relationshipname) REFERENCES {schema}.mdstatrshipmas(ltabphyname, rtabphyname, relationshipname)
+    ON DELETE CASCADE);""",
 
 """CREATE TABLE {notexists} {schema}.sainterp (
     areasymbol {limit_text} (20) NOT NULL,
@@ -375,10 +313,10 @@ table_statements = [
     interpmaxreasons {short_int},
     sacatalogkey {limit_text} (30) NOT NULL,
     sainterpkey {limit_text} (30) PRIMARY KEY,
-    FOREIGN KEY(sacatalogkey) REFERENCES {schema}.sacatalog(sacatalogkey));""",
+    UNIQUE (areasymbol, interpname),
+    FOREIGN KEY(sacatalogkey) REFERENCES {schema}.sacatalog(sacatalogkey) ON DELETE CASCADE);""",
 
 ####### LEVEL 3 #######
-
 """CREATE TABLE {notexists} {schema}.component (
     comppct_l {short_int},
     comppct_r {short_int},
@@ -489,14 +427,57 @@ table_statements = [
     vasoimgtgrp {limit_text} (254),
     mukey {limit_text} (30) NOT NULL,
     cokey {limit_text} (30) PRIMARY KEY,
-    FOREIGN KEY(mukey) REFERENCES {schema}.mapunit(mukey));""",
+    FOREIGN KEY(mukey) REFERENCES {schema}.mapunit(mukey) ON DELETE CASCADE);""",
+    
+"""CREATE TABLE {notexists} {schema}.muaggatt (
+    musym {limit_text} (6) NOT NULL,
+    muname {limit_text} (175),
+    mustatus {limit_text} (254),
+    slopegraddcp {double},
+    slopegradwta {double},
+    brockdepmin {short_int},
+    wtdepannmin {short_int},
+    wtdepaprjunmin {short_int},
+    flodfreqdcd {limit_text} (254),
+    flodfreqmax {limit_text} (254),
+    pondfreqprs {limit_text} (254),
+    aws025wta {double},
+    aws050wta {double},
+    aws0100wta {double},
+    aws0150wta {double},
+    drclassdcd {limit_text} (254),
+    drclasswettest {limit_text} (254),
+    hydgrpdcd {limit_text} (254),
+    iccdcd {limit_text} (254),
+    iccdcdpct {short_int},
+    niccdcd {limit_text} (254),
+    niccdcdpct {short_int},
+    engdwobdcd {limit_text} (254),
+    engdwbdcd {limit_text} (254),
+    engdwbll {limit_text} (254),
+    engdwbml {limit_text} (254),
+    engstafdcd {limit_text} (254),
+    engstafll {limit_text} (254),
+    engstafml {limit_text} (254),
+    engsldcd {limit_text} (254),
+    engsldcp {limit_text} (254),
+    englrsdcd {limit_text} (254),
+    engcmssdcd {limit_text} (254),
+    engcmssmp {limit_text} (254),
+    urbrecptdcd {limit_text} (254),
+    urbrecptwta {double},
+    forpehrtdcp {limit_text} (254),
+    hydclprs {limit_text} (254),
+    awmmfpwwta {double},
+    mukey {limit_text} (30) PRIMARY KEY,
+    FOREIGN KEY (mukey) REFERENCES {schema}.mapunit(mukey) ON DELETE CASCADE);""",
 
 """CREATE TABLE {notexists} {schema}.muaoverlap (
     areaovacres {int},
     lareaovkey {limit_text} (30) NOT NULL,
     mukey {limit_text} (30) NOT NULL,
     muareaovkey {limit_text} (30) PRIMARY KEY,
-    FOREIGN KEY(mukey) REFERENCES {schema}.mapunit(mukey));""",
+    FOREIGN KEY(mukey) REFERENCES {schema}.mapunit(mukey) ON DELETE CASCADE);""",
 
 """CREATE TABLE {notexists} {schema}.mucropyld (
     cropname {limit_text} (254),
@@ -509,7 +490,32 @@ table_statements = [
     irryield_h {double},
     mukey {limit_text} (30) NOT NULL,
     mucrpyldkey {limit_text} (30) PRIMARY KEY,
-    FOREIGN KEY(mukey) REFERENCES {schema}.mapunit(mukey));""",
+    FOREIGN KEY(mukey) REFERENCES {schema}.mapunit(mukey) ON DELETE CASCADE);""",
+ 
+"""CREATE TABLE {notexists} {schema}.muline (
+    areasymbol {limit_text} (20),
+    spatialver {double},
+    musym {limit_text} (6),
+    mukey {limit_text} (30) PRIMARY KEY,
+    length_m {double},
+    FOREIGN KEY(mukey) REFERENCES {schema}.mapunit(mukey) ON DELETE CASCADE);""",
+
+"""CREATE TABLE {notexists} {schema}.mupoint (
+    areasymbol {limit_text} (20),
+    spatialver {double},
+    musym {limit_text} (6),
+    mukey {limit_text} (30) PRIMARY KEY,
+    x {double},
+    y {double},
+    FOREIGN KEY(mukey) REFERENCES {schema}.mapunit(mukey) ON DELETE CASCADE);""",
+
+"""CREATE TABLE {notexists} {schema}.mupolygon (
+    areasymbol {limit_text} (20),
+    spatialver {double},
+    musym {limit_text} (6),
+    mukey {limit_text} (30) PRIMARY KEY,
+    area_ha {double},
+    FOREIGN KEY(mukey) REFERENCES {schema}.mapunit(mukey) ON DELETE CASCADE);""",
 
 """CREATE TABLE {notexists} {schema}.mutext (
     recdate {date},
@@ -519,10 +525,9 @@ table_statements = [
     text {text},
     mukey {limit_text} (30) NOT NULL,
     mutextkey {limit_text} (30) PRIMARY KEY,
-    FOREIGN KEY(mukey) REFERENCES {schema}.mapunit(mukey));""",
+    FOREIGN KEY(mukey) REFERENCES {schema}.mapunit(mukey) ON DELETE CASCADE);""",
 
 ####### LEVEL 4 #######
-
 """CREATE TABLE {notexists} {schema}.chorizon (
     hzname {limit_text} (12),
     desgndisc {short_int},
@@ -695,7 +700,7 @@ table_statements = [
     excavdifms {limit_text} (254),
     cokey {limit_text} (30) NOT NULL,
     chkey {limit_text} (30) PRIMARY KEY,
-    FOREIGN KEY(cokey) REFERENCES {schema}.component(cokey));""",
+    FOREIGN KEY(cokey) REFERENCES {schema}.component(cokey) ON DELETE CASCADE);""",
 
 """CREATE TABLE {notexists} {schema}.cocanopycover (
     plantcov {short_int},
@@ -704,7 +709,7 @@ table_statements = [
     plantcomname {limit_text} (60),
     cokey {limit_text} (30) NOT NULL,
     cocanopycovkey {limit_text} (30) PRIMARY KEY,
-    FOREIGN KEY(cokey) REFERENCES {schema}.component(cokey));""",
+    FOREIGN KEY(cokey) REFERENCES {schema}.component(cokey) ON DELETE CASCADE);""",
 
 """CREATE TABLE {notexists} {schema}.cocropyld (
     cropname {limit_text} (254),
@@ -719,7 +724,7 @@ table_statements = [
     vasoiprdgrp {limit_text} (254),
     cokey {limit_text} (30) NOT NULL,
     cocropyldkey {limit_text} (30) PRIMARY KEY,
-    FOREIGN KEY(cokey) REFERENCES {schema}.component(cokey));""",
+    FOREIGN KEY(cokey) REFERENCES {schema}.component(cokey) ON DELETE CASCADE);""",
 
 """CREATE TABLE {notexists} {schema}.codiagfeatures (
     featkind {limit_text} (254),
@@ -734,7 +739,7 @@ table_statements = [
     featthick_h {short_int},
     cokey {limit_text} (30) NOT NULL,
     codiagfeatkey {limit_text} (30) PRIMARY KEY,
-    FOREIGN KEY(cokey) REFERENCES {schema}.component(cokey));""",
+    FOREIGN KEY(cokey) REFERENCES {schema}.component(cokey) ON DELETE CASCADE);""",
 
 """CREATE TABLE {notexists} {schema}.coecoclass (
     ecoclasstypename {limit_text} (60) NOT NULL,
@@ -743,7 +748,7 @@ table_statements = [
     ecoclassname {text},
     cokey {limit_text} (30) NOT NULL,
     coecoclasskey {limit_text} (30) PRIMARY KEY,
-    FOREIGN KEY(cokey) REFERENCES {schema}.component(cokey));""",
+    FOREIGN KEY(cokey) REFERENCES {schema}.component(cokey) ON DELETE CASCADE);""",
 
 """CREATE TABLE {notexists} {schema}.coeplants (
     plantsym {limit_text} (8) NOT NULL,
@@ -753,14 +758,14 @@ table_statements = [
     rangeprod {short_int},
     cokey {limit_text} (30) NOT NULL,
     coeplantskey {limit_text} (30) PRIMARY KEY,
-    FOREIGN KEY(cokey) REFERENCES {schema}.component(cokey));""",
+    FOREIGN KEY(cokey) REFERENCES {schema}.component(cokey) ON DELETE CASCADE);""",
 
 """CREATE TABLE {notexists} {schema}.coerosionacc (
     erokind {limit_text} (254),
     rvindicator {limit_text} (3) NOT NULL,
     cokey {limit_text} (30) NOT NULL,
     coeroacckey {limit_text} (30) PRIMARY KEY,
-    FOREIGN KEY(cokey) REFERENCES {schema}.component(cokey));""",
+    FOREIGN KEY(cokey) REFERENCES {schema}.component(cokey) ON DELETE CASCADE);""",
 
 """CREATE TABLE {notexists} {schema}.coforprod (
     plantsym {limit_text} (8) NOT NULL,
@@ -775,7 +780,7 @@ table_statements = [
     fprod_h {double},
     cokey {limit_text} (30) NOT NULL,
     cofprodkey {limit_text} (30) PRIMARY KEY,
-    FOREIGN KEY(cokey) REFERENCES {schema}.component(cokey));""",
+    FOREIGN KEY(cokey) REFERENCES {schema}.component(cokey) ON DELETE CASCADE);""",
 
 """CREATE TABLE {notexists} {schema}.cogeomordesc (
     geomftname {limit_text} (30) NOT NULL,
@@ -786,13 +791,13 @@ table_statements = [
     rvindicator {limit_text} (3) NOT NULL,
     cokey {limit_text} (30) NOT NULL,
     cogeomdkey {limit_text} (30) PRIMARY KEY,
-    FOREIGN KEY(cokey) REFERENCES {schema}.component(cokey));""",
+    FOREIGN KEY(cokey) REFERENCES {schema}.component(cokey) ON DELETE CASCADE);""",
 
 """CREATE TABLE {notexists} {schema}.cohydriccriteria (
     hydriccriterion {limit_text} (254),
     cokey {limit_text} (30) NOT NULL,
     cohydcritkey {limit_text} (30) PRIMARY KEY,
-    FOREIGN KEY(cokey) REFERENCES {schema}.component(cokey));""",
+    FOREIGN KEY(cokey) REFERENCES {schema}.component(cokey) ON DELETE CASCADE);""",
 
 """CREATE TABLE {notexists} {schema}.cointerp (
     cokey {limit_text} (30) NOT NULL,
@@ -814,7 +819,7 @@ table_statements = [
     defpropdatabool {limit_text} (3),
     incpropdatabool {limit_text} (3),
     cointerpkey {limit_text} (30) PRIMARY KEY,
-    FOREIGN KEY(cokey) REFERENCES {schema}.component(cokey));""",
+    FOREIGN KEY(cokey) REFERENCES {schema}.component(cokey) ON DELETE CASCADE);""",
 
 """CREATE TABLE {notexists} {schema}.comonth (
     monthseq {short_int},
@@ -834,14 +839,14 @@ table_statements = [
     dlyavgpotet_h {short_int},
     cokey {limit_text} (30) NOT NULL,
     comonthkey {limit_text} (30) PRIMARY KEY,
-    FOREIGN KEY(cokey) REFERENCES {schema}.component(cokey));""",
+    FOREIGN KEY(cokey) REFERENCES {schema}.component(cokey) ON DELETE CASCADE);""",
 
 """CREATE TABLE {notexists} {schema}.copmgrp (
     pmgroupname {limit_text} (252),
     rvindicator {limit_text} (3) NOT NULL,
     cokey {limit_text} (30) NOT NULL,
     copmgrpkey {limit_text} (30) PRIMARY KEY,
-    FOREIGN KEY(cokey) REFERENCES {schema}.component(cokey));""",
+    FOREIGN KEY(cokey) REFERENCES {schema}.component(cokey) ON DELETE CASCADE);""",
 
 """CREATE TABLE {notexists} {schema}.copwindbreak (
     wndbrkht_l {double},
@@ -852,7 +857,7 @@ table_statements = [
     plantcomname {limit_text} (60),
     cokey {limit_text} (30) NOT NULL,
     copwindbreakkey {limit_text} (30) PRIMARY KEY,
-    FOREIGN KEY(cokey) REFERENCES {schema}.component(cokey));""",
+    FOREIGN KEY(cokey) REFERENCES {schema}.component(cokey) ON DELETE CASCADE);""",
 
 """CREATE TABLE {notexists} {schema}.corestrictions (
     reskind {limit_text} (254),
@@ -868,7 +873,7 @@ table_statements = [
     resthk_h {short_int},
     cokey {limit_text} (30) NOT NULL,
     corestrictkey {limit_text} (30) PRIMARY KEY,
-    FOREIGN KEY(cokey) REFERENCES {schema}.component(cokey));""",
+    FOREIGN KEY(cokey) REFERENCES {schema}.component(cokey) ON DELETE CASCADE);""",
 
 """CREATE TABLE {notexists} {schema}.cosurffrags (
     sfragcov_l {double},
@@ -886,19 +891,19 @@ table_statements = [
     sfraghard {limit_text} (254),
     cokey {limit_text} (30) NOT NULL,
     cosurffragskey {limit_text} (30) PRIMARY KEY,
-    FOREIGN KEY(cokey) REFERENCES {schema}.component(cokey));""",
+    FOREIGN KEY(cokey) REFERENCES {schema}.component(cokey) ON DELETE CASCADE);""",
 
 """CREATE TABLE {notexists} {schema}.cotaxfmmin (
     taxminalogy {limit_text} (254),
     cokey {limit_text} (30) NOT NULL,
     cotaxfmminkey {limit_text} (30) PRIMARY KEY,
-    FOREIGN KEY(cokey) REFERENCES {schema}.component(cokey));""",
+    FOREIGN KEY(cokey) REFERENCES {schema}.component(cokey) ON DELETE CASCADE);""",
 
 """CREATE TABLE {notexists} {schema}.cotaxmoistcl (
     taxmoistcl {limit_text} (254),
     cokey {limit_text} (30) NOT NULL,
     cotaxmckey {limit_text} (30) PRIMARY KEY,
-    FOREIGN KEY(cokey) REFERENCES {schema}.component(cokey));""",
+    FOREIGN KEY(cokey) REFERENCES {schema}.component(cokey) ON DELETE CASCADE);""",
 
 """CREATE TABLE {notexists} {schema}.cotext (
     recdate {date},
@@ -908,7 +913,7 @@ table_statements = [
     text {text},
     cokey {limit_text} (30) NOT NULL,
     cotextkey {limit_text} (30) PRIMARY KEY,
-    FOREIGN KEY(cokey) REFERENCES {schema}.component(cokey));""",
+    FOREIGN KEY(cokey) REFERENCES {schema}.component(cokey) ON DELETE CASCADE);""",
 
 """CREATE TABLE {notexists} {schema}.cotreestomng (
     plantsym {limit_text} (8) NOT NULL,
@@ -916,22 +921,21 @@ table_statements = [
     plantcomname {limit_text} (60),
     cokey {limit_text} (30) NOT NULL,
     cotreestomngkey {limit_text} (30) PRIMARY KEY,
-    FOREIGN KEY(cokey) REFERENCES {schema}.component(cokey));""",
+    FOREIGN KEY(cokey) REFERENCES {schema}.component(cokey) ON DELETE CASCADE);""",
 
 """CREATE TABLE {notexists} {schema}.cotxfmother (
     taxfamother {limit_text} (254),
     cokey {limit_text} (30) NOT NULL,
     cotaxfokey {limit_text} (30) PRIMARY KEY,
-    FOREIGN KEY(cokey) REFERENCES {schema}.component(cokey));""",
+    FOREIGN KEY(cokey) REFERENCES {schema}.component(cokey) ON DELETE CASCADE);""",
 
 ####### LEVEL 5 #######
-
 """CREATE TABLE {notexists} {schema}.chaashto (
     aashtocl {limit_text} (254),
     rvindicator {limit_text} (3) NOT NULL,
     chkey {limit_text} (30) NOT NULL,
     chaashtokey {limit_text} (30) PRIMARY KEY,
-    FOREIGN KEY(chkey) REFERENCES {schema}.chorizon(chkey));""",
+    FOREIGN KEY(chkey) REFERENCES {schema}.chorizon(chkey) ON DELETE CASCADE);""",
 
 """CREATE TABLE {notexists} {schema}.chconsistence (
     rupresblkmst {limit_text} (254),
@@ -944,13 +948,13 @@ table_statements = [
     rvindicator {limit_text} (3) NOT NULL,
     chkey {limit_text} (30) NOT NULL,
     chconsistkey {limit_text} (30) PRIMARY KEY,
-    FOREIGN KEY(chkey) REFERENCES {schema}.chorizon(chkey));""",
+    FOREIGN KEY(chkey) REFERENCES {schema}.chorizon(chkey) ON DELETE CASCADE);""",
 
 """CREATE TABLE {notexists} {schema}.chdesgnsuffix (
     desgnsuffix {limit_text} (254),
     chkey {limit_text} (30) NOT NULL,
     chdesgnsfxkey {limit_text} (30) PRIMARY KEY,
-    FOREIGN KEY(chkey) REFERENCES {schema}.chorizon(chkey));""",
+    FOREIGN KEY(chkey) REFERENCES {schema}.chorizon(chkey) ON DELETE CASCADE);""",
 
 """CREATE TABLE {notexists} {schema}.chfrags (
     fragvol_l {short_int},
@@ -965,7 +969,7 @@ table_statements = [
     fraghard {limit_text} (254),
     chkey {limit_text} (30) NOT NULL,
     chfragskey {limit_text} (30) PRIMARY KEY,
-    FOREIGN KEY(chkey) REFERENCES {schema}.chorizon(chkey));""",
+    FOREIGN KEY(chkey) REFERENCES {schema}.chorizon(chkey) ON DELETE CASCADE);""",
 
 """CREATE TABLE {notexists} {schema}.chpores (
     poreqty_l {double},
@@ -977,14 +981,14 @@ table_statements = [
     rvindicator {limit_text} (3) NOT NULL,
     chkey {limit_text} (30) NOT NULL,
     chporeskey {limit_text} (30) PRIMARY KEY,
-    FOREIGN KEY(chkey) REFERENCES {schema}.chorizon(chkey));""",
+    FOREIGN KEY(chkey) REFERENCES {schema}.chorizon(chkey) ON DELETE CASCADE);""",
 
 """CREATE TABLE {notexists} {schema}.chstructgrp (
     structgrpname {limit_text} (254),
     rvindicator {limit_text} (3) NOT NULL,
     chkey {limit_text} (30) NOT NULL,
     chstructgrpkey {limit_text} (30) PRIMARY KEY,
-    FOREIGN KEY(chkey) REFERENCES {schema}.chorizon(chkey));""",
+    FOREIGN KEY(chkey) REFERENCES {schema}.chorizon(chkey) ON DELETE CASCADE);""",
 
 """CREATE TABLE {notexists} {schema}.chtext (
     recdate {date},
@@ -994,7 +998,7 @@ table_statements = [
     text {text},
     chkey {limit_text} (30) NOT NULL,
     chtextkey {limit_text} (30) PRIMARY KEY,
-    FOREIGN KEY(chkey) REFERENCES {schema}.chorizon(chkey));""",
+    FOREIGN KEY(chkey) REFERENCES {schema}.chorizon(chkey) ON DELETE CASCADE);""",
 
 """CREATE TABLE {notexists} {schema}.chtexturegrp (
     texture {limit_text} (30),
@@ -1003,14 +1007,14 @@ table_statements = [
     texdesc {text},
     chkey {limit_text} (30) NOT NULL,
     chtgkey {limit_text} (30) PRIMARY KEY,
-    FOREIGN KEY(chkey) REFERENCES {schema}.chorizon(chkey));""",
+    FOREIGN KEY(chkey) REFERENCES {schema}.chorizon(chkey) ON DELETE CASCADE);""",
 
 """CREATE TABLE {notexists} {schema}.chunified (
     unifiedcl {limit_text} (254),
     rvindicator {limit_text} (3) NOT NULL,
     chkey {limit_text} (30) NOT NULL,
     chunifiedkey {limit_text} (30) PRIMARY KEY,
-    FOREIGN KEY(chkey) REFERENCES {schema}.chorizon(chkey));""",
+    FOREIGN KEY(chkey) REFERENCES {schema}.chorizon(chkey) ON DELETE CASCADE);""",
 
 """CREATE TABLE {notexists} {schema}.coforprodo (
     siteindexbase {limit_text} (254),
@@ -1023,7 +1027,7 @@ table_statements = [
     fprodunits {limit_text} (254),
     cofprodkey {limit_text} (30) NOT NULL,
     cofprodokey {limit_text} (30) PRIMARY KEY,
-    FOREIGN KEY(cofprodkey) REFERENCES {schema}.coforprod(cofprodkey));""",
+    FOREIGN KEY(cofprodkey) REFERENCES {schema}.coforprod(cofprodkey) ON DELETE CASCADE);""",
 
 """CREATE TABLE {notexists} {schema}.copm (
     pmorder {short_int},
@@ -1033,7 +1037,7 @@ table_statements = [
     pmorigin {limit_text} (254),
     copmgrpkey {limit_text} (30) NOT NULL,
     copmkey {limit_text} (30) PRIMARY KEY,
-    FOREIGN KEY(copmgrpkey) REFERENCES {schema}.copmgrp(copmgrpkey));""",
+    FOREIGN KEY(copmgrpkey) REFERENCES {schema}.copmgrp(copmgrpkey) ON DELETE CASCADE);""",
 
 """CREATE TABLE {notexists} {schema}.cosoilmoist (
     soimoistdept_l {short_int},
@@ -1045,7 +1049,7 @@ table_statements = [
     soimoiststat {limit_text} (254),
     comonthkey {limit_text} (30) NOT NULL,
     cosoilmoistkey {limit_text} (30) PRIMARY KEY,
-    FOREIGN KEY(comonthkey) REFERENCES {schema}.comonth(comonthkey));""",
+    FOREIGN KEY(comonthkey) REFERENCES {schema}.comonth(comonthkey) ON DELETE CASCADE);""",
 
 """CREATE TABLE {notexists} {schema}.cosoiltemp (
     soitempmm {short_int},
@@ -1057,7 +1061,7 @@ table_statements = [
     soitempdepb_h {short_int},
     comonthkey {limit_text} (30) NOT NULL,
     cosoiltempkey {limit_text} (30) PRIMARY KEY,
-    FOREIGN KEY(comonthkey) REFERENCES {schema}.comonth(comonthkey));""",
+    FOREIGN KEY(comonthkey) REFERENCES {schema}.comonth(comonthkey) ON DELETE CASCADE);""",
 
 """CREATE TABLE {notexists} {schema}.cosurfmorphgc (
     geomposmntn {limit_text} (254),
@@ -1066,29 +1070,28 @@ table_statements = [
     geomposflats {limit_text} (254),
     cogeomdkey {limit_text} (30) NOT NULL,
     cosurfmorgckey {limit_text} (30) PRIMARY KEY,
-    FOREIGN KEY(cogeomdkey) REFERENCES {schema}.cogeomordesc(cogeomdkey));""",
+    FOREIGN KEY(cogeomdkey) REFERENCES {schema}.cogeomordesc(cogeomdkey) ON DELETE CASCADE);""",
 
 """CREATE TABLE {notexists} {schema}.cosurfmorphhpp (
     hillslopeprof {limit_text} (254),
     cogeomdkey {limit_text} (30) NOT NULL,
     cosurfmorhppkey {limit_text} (30) PRIMARY KEY,
-    FOREIGN KEY(cogeomdkey) REFERENCES {schema}.cogeomordesc(cogeomdkey));""",
+    FOREIGN KEY(cogeomdkey) REFERENCES {schema}.cogeomordesc(cogeomdkey) ON DELETE CASCADE);""",
 
 """CREATE TABLE {notexists} {schema}.cosurfmorphmr (
     geomicrorelief {limit_text} (254),
     cogeomdkey {limit_text} (30) NOT NULL,
     cosurfmormrkey {limit_text} (30) PRIMARY KEY,
-    FOREIGN KEY(cogeomdkey) REFERENCES {schema}.cogeomordesc(cogeomdkey));""",
+    FOREIGN KEY(cogeomdkey) REFERENCES {schema}.cogeomordesc(cogeomdkey) ON DELETE CASCADE);""",
 
 """CREATE TABLE {notexists} {schema}.cosurfmorphss (
     shapeacross {limit_text} (254),
     shapedown {limit_text} (254),
     cogeomdkey {limit_text} (30) NOT NULL,
     cosurfmorsskey {limit_text} (30) PRIMARY KEY,
-    FOREIGN KEY(cogeomdkey) REFERENCES {schema}.cogeomordesc(cogeomdkey));""",
+    FOREIGN KEY(cogeomdkey) REFERENCES {schema}.cogeomordesc(cogeomdkey) ON DELETE CASCADE);""",
 
 ####### LEVEL 6 #######
-
 """CREATE TABLE {notexists} {schema}.chstruct (
     structgrade {limit_text} (254),
     structsize {limit_text} (254),
@@ -1097,14 +1100,14 @@ table_statements = [
     structpartsto {short_int},
     chstructgrpkey {limit_text} (30) NOT NULL,
     chstructkey {limit_text} (30) PRIMARY KEY,
-    FOREIGN KEY(chstructgrpkey) REFERENCES {schema}.chstructgrp(chstructgrpkey));""",
+    FOREIGN KEY(chstructgrpkey) REFERENCES {schema}.chstructgrp(chstructgrpkey) ON DELETE CASCADE);""",
 
 """CREATE TABLE {notexists} {schema}.chtexture (
     texcl {limit_text} (254),
     lieutex {limit_text} (254),
     chtgkey {limit_text} (30) NOT NULL,
     chtkey {limit_text} (30) PRIMARY KEY,
-    FOREIGN KEY(chtgkey) REFERENCES {schema}.chtexturegrp(chtgkey));""",
+    FOREIGN KEY(chtgkey) REFERENCES {schema}.chtexturegrp(chtgkey) ON DELETE CASCADE);""",
 
 ####### LEVEL 7 #######
 
@@ -1112,7 +1115,7 @@ table_statements = [
     texmod {limit_text} (254),
     chtkey {limit_text} (30) NOT NULL,
     chtexmodkey {limit_text} (30) PRIMARY KEY,
-    FOREIGN KEY(chtkey) REFERENCES {schema}.chtexture(chtkey));"""]
+    FOREIGN KEY(chtkey) REFERENCES {schema}.chtexture(chtkey) ON DELETE CASCADE);"""]
     
 spatialite_addgeom = [
 """SELECT AddGeometryColumn('featline', 'shape', 4326, 'MULTILINESTRING', 2);""",

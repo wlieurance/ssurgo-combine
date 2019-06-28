@@ -113,6 +113,6 @@ dmypy.json
 .idea/
 
 # other
-ecogroups.csv
-list.csv
+# ecogroups.csv
+# list.csv
 *.bak

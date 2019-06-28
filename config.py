@@ -38,6 +38,6 @@ mssql_tables      = {'date':'DATETIME2(7)',
                      'guid':'UNIQUEIDENTIFIER',
                      'geom':'GEOMETRY',
                      'raster':'INT',
-                     'oid':'INT PRIMARY KEY NOT NULL',
+                     'oid':'INT NOT NULL',
                      'bool':'BIT NOT NULL',
                      'notexists':''}

@@ -5,8 +5,7 @@ custom_spatialite = [
 
 """/* Creates a new table in which store spatial query results for dominant ecosite polygons. */
 CREATE TABLE IF NOT EXISTS {schema}.ecopolygon (
-       OBJECTID {oid}, 
-       ecoclassid_std {limit_text} (20),
+       ecoclassid_std {limit_text} (20) PRIMARY KEY,
        ecoclassname {text},
        ecotype {limit_text} (20),
        area_ha {double},
@@ -22,7 +21,7 @@ SELECT ecoclassid_std, ecoclassname, ecotype, area_ha, ecoarea_ha/area_ha AS eco
          FROM (
               SELECT ST_Union(shape) AS shape, ecoclassid_std, ecoclassname, ecotype, sum(ecoarea_ha) AS ecoarea_ha
                 FROM (
-                     SELECT a.shape, b.ecoclassid_std, b.ecoclassname, b.ecotype, 
+                     SELECT a.shape, COALESCE(b.ecoclassid_std, 'NA') AS ecoclassid_std, b.ecoclassname, b.ecotype, 
                             a.area_ha*(CAST(b.ecoclasspct AS REAL)/100) AS ecoarea_ha
                        FROM {schema}.mupolygon AS a
                        LEFT JOIN {schema}.coecoclass_mudominant AS b ON a.mukey = b.mukey)
@@ -37,8 +36,7 @@ custom_postgis = [
 
 """/* Creates a new table in which store spatial query results for dominant ecosite polygons. */
 CREATE TABLE IF NOT EXISTS {schema}.ecopolygon (
-       OBJECTID {oid}, 
-       ecoclassid_std {limit_text} (20),
+       ecoclassid_std {limit_text} (20) PRIMARY KEY,
        ecoclassname {text},
        ecotype {limit_text} (20),
        area_ha {double},
@@ -56,7 +54,7 @@ SELECT ecoclassid_std, ecoclassname, ecotype, area_ha, ecoarea_ha/area_ha AS eco
          FROM (
               SELECT ST_Union(shape) AS shape, ecoclassid_std, min(ecoclassname) AS ecoclassname, min(ecotype) AS ecotype, sum(ecoarea_ha) AS ecoarea_ha
                 FROM (
-                     SELECT a.shape, b.ecoclassid_std, b.ecoclassname, b.ecotype, 
+                     SELECT a.shape, COALESCE(b.ecoclassid_std, 'NA') AS ecoclassid_std, b.ecoclassname, b.ecotype, 
                             a.area_ha*(CAST(b.ecoclasspct AS NUMERIC)/100) AS ecoarea_ha
                        FROM {schema}.mupolygon AS a
                        LEFT JOIN {schema}.coecoclass_mudominant AS b ON a.mukey = b.mukey)

@@ -17,35 +17,49 @@ from create_views import spatialite_views
 from create_views import postgis_views
 from create_custom import custom_spatialite, custom_postgis
 import create_ecogroups
-from create_ecogroups import get_default_schema
+import delete
 # from create_ecogroups import ecogroup_spatialite, ecogroup_postgis
 from config import spatialite_tables, postgis_tables, mssql_tables
 
 
+def get_default_schema(dbtype, schema):
+    if dbtype == 'spatialite':
+        schema = 'main'
+    if not schema:
+        if dbtype == 'postgis':
+            schema = 'public'
+        elif dbtype == 'mssql':
+            schema = 'dbo'
+    return schema
+
+
 def initdb(dbpath, schema, dbtype):
     """connect to database, initialize if necessary and create tables."""
-    # determines if db needs to be initialized.
-    if os.path.isfile(dbpath):
-        newdb = False
-    else:
-        newdb = True
     if dbtype == 'spatialite':
         conn = sqlite.connect(dbpath)
         conn.enable_load_extension(True)
         c = conn.cursor()
         c.execute("SELECT load_extension('mod_spatialite');")
+        c.execute("SELECT Count(*) FROM sqlite_master WHERE type = 'table' "
+                  "AND name NOT LIKE 'sqlite_%' and name = 'mupolygon';")
+        objects = c.fetchone()[0]
+        if objects >= 1:
+            newdb = False
+        else:
+            newdb = True
         if newdb:
             print("Creating tables...")
             c.execute("SELECT InitSpatialMetaData(1);")
-        spatialite_tables['schema'] = schema
-        for stmt in table_statements + spatialite_addgeom:
-            s = stmt.replace(" REFERENCES {schema}.", " REFERENCES ")  # sqlite doesn't like schema in REFERENCES
-            #print(s.format(**spatialite_tables))
-            c.execute(s.format(**spatialite_tables))
-        conn.commit()
-        print("Creating views...")
-        for stmt in spatialite_views:
-            c.execute(stmt.format(**spatialite_tables))
+            spatialite_tables['schema'] = schema
+            for stmt in table_statements + spatialite_addgeom:
+                s = stmt.replace(" REFERENCES {schema}.", " REFERENCES ")  # sqlite doesn't like schema in REFERENCES
+                # print(s.format(**spatialite_tables))
+                c.execute(s.format(**spatialite_tables))
+            conn.commit()
+            print("Creating views...")
+            for stmt in spatialite_views:
+                c.execute(stmt.format(**spatialite_tables))
+            conn.commit()
         conn.close()
 
     # connect to postgres database, initialize if necessary and create tables.
@@ -185,8 +199,7 @@ def scan_insert(dbpath, schema, dbtype, scanpath, snap, repair, skip, survey_are
                ('sdvalgorithm.txt', 'sdvalgorithm'),
                ('sdvattribute.txt', 'sdvattribute'),
                ('sdvfolder.txt', 'sdvfolder'),
-               ('sdvfolderattribute.txt', 'sdvfolderattribute'),
-               ('version.txt', 'version')]
+               ('sdvfolderattribute.txt', 'sdvfolderattribute')]
     if skip:
         skiplist = skip.split(',')
         for s in skiplist:
@@ -247,7 +260,9 @@ def scan_insert(dbpath, schema, dbtype, scanpath, snap, repair, skip, survey_are
         conn.enable_load_extension(True)
         c = conn.cursor()
         c.execute("SELECT load_extension('mod_spatialite');")
+        spatialite_tables['schema'] = schema
         for stmt in temp_tables + spatialite_temp_addgeom:
+            # print(stmt)
             c.execute(stmt.format(**spatialite_tables))
         conn.commit()
         paramstr = '?'
@@ -256,7 +271,7 @@ def scan_insert(dbpath, schema, dbtype, scanpath, snap, repair, skip, survey_are
     elif dbtype == 'postgis':
         conn = psycopg2.connect(dbpath)
         c = conn.cursor()
-
+        postgis_tables['schema'] = schema
         for stmt in temp_tables + postgis_temp_addgeom:
             c.execute(stmt.format(**postgis_tables))
         conn.commit()
@@ -264,58 +279,43 @@ def scan_insert(dbpath, schema, dbtype, scanpath, snap, repair, skip, survey_are
         ins1 = ''
         ins2 = 'ON CONFLICT DO NOTHING'
     existing = []
-    c.execute("SELECT areasymbol FROM {schema}.sacatalog GROUP BY areasymbol ORDER BY areasymbol;"
+    c.execute("SELECT areasymbol, saversion FROM {schema}.sacatalog ORDER BY areasymbol;"
               .format(**{'schema': schema}))
     for row in c:
-        existing.append(row[0].lower())
+        existing.append({'ssa': row[0].lower(), 'version': row[1]})
     current_ssa = ''
-    meta_ssa = ''
-    meta_ssa_version = ''
-    meta_ssa_date = ''
     new_imports = False
     # searches scanpath for SSURGO tabular data and imports into dbpath
     for root, dirs, files in os.walk(scanpath):
         for f in files:
             if f.find('soil_metadata_') >= 0 and f.find('.txt') > 0:
+                new_ssa = True
                 current_ssa = re.findall(r'soil_metadata_(.*?).txt', f)[0]
-            if f == 'readme.txt':
-                with open(os.path.join(root, f), 'r') as readme:
-                    for line in readme.readlines():
-                        if line.lower().find('ssa symbol:') >= 0:
-                            meta_ssa = line.split()[-1].lower()
-                        if line.lower().find('ssa version:') >= 0:
-                            meta_ssa_version_str = line.split()[-1]
-                            meta_ssa_version = int(meta_ssa_version_str)
-                        if line.lower().find('ssa version est.:') >= 0:
-                            meta_ssa_date_str = ' '.join(line.split()[-3:])
-                            meta_ssa_date = datetime.datetime.strptime(meta_ssa_date_str, '%m/%d/%Y %I:%M:%S %p')
-
-            if not current_ssa.lower() in existing:
+                with open(os.path.join(root, 'tabular', 'sacatlog.txt'), 'r') as textfile:
+                    reader = csv.reader(textfile, quotechar='"', delimiter='|')
+                    scan_ssa_version = int(next(reader)[2])
+                print("Current SSA is", current_ssa, "version", scan_ssa_version)
+                ssa_deleted = False
                 if current_ssa.lower() in survey_areas or survey_areas == '':
-                    # inserts import/version info from readme
-                    SQL = "INSERT {{ins1}} INTO {{schema}}.imports (ssa, version, est_date) VALUES ({!s}) {{ins2}};"\
-                        .format(','.join([paramstr]*3))
-                    SQL = SQL.format(**{'ins1': ins1, 'schema': schema, 'ins2': ins2})
-                    if meta_ssa:
-                        c.execute(SQL, (meta_ssa, meta_ssa_version, meta_ssa_date))
-                    conn.commit()
+                    if current_ssa.lower() in [x['ssa'] for x in existing]:
+                        existing_ssa_version = [x['version'] for x in existing if x['ssa'] == current_ssa.lower()][0]
+                        if existing_ssa_version < scan_ssa_version:
+                            print("Replacing", current_ssa.lower(), "version", existing_ssa_version,
+                                  "with version", scan_ssa_version)
+                            delete.delete_ssa(dbpath, schema, dbtype, current_ssa.lower())
+                            ssa_deleted = True
+            if current_ssa.lower() in survey_areas or survey_areas == '':
+                if current_ssa.lower() not in [x['ssa'] for x in existing] or ssa_deleted:
                     # finds and inserts tabular data
                     if f in [(i[0]) for i in tablist]:
                         tbl = [t[1] for t in tablist if t[0] == f][0]
                         print("Importing table: ", current_ssa + ' | ' + tbl, sep='')
                         new_imports = True
                         c.execute("SELECT * FROM {table} LIMIT 1;".format(**{'table': '.'.join((schema, tbl))}))
-                        if not tbl == 'version':
-                            fields = [description[0] for description in c.description]
-                            SQL = "INSERT {{!s}} INTO {!s} VALUES ({!s}) {{!s}};"\
-                                .format('.'.join((schema, tbl)), ','.join([paramstr]*len(fields)))
-                            SQL = SQL.format(ins1, ins2)
-                        else:
-                            fields = ['version']
-                            SQL = "INSERT {{ins1}} INTO {{schema}}.version VALUES ({!s}) {{ins2}};"\
-                                .format(','.join([paramstr]*3))
-                            SQL = SQL.format(**{'ins1': ins1, 'schema': schema, 'ins2': ins2})
-                            datatype = root.split(os.path.sep)[-1].lower()
+                        fields = [description[0] for description in c.description]
+                        SQL = "INSERT {{!s}} INTO {!s} VALUES ({!s}) {{!s}};"\
+                            .format('.'.join((schema, tbl)), ','.join([paramstr]*len(fields)))
+                        SQL = SQL.format(ins1, ins2)
                         if dbtype == 'postgis':
                             c.execute("ALTER TABLE {table} DISABLE TRIGGER ALL;"
                                       .format(**{'table': '.'.join((schema, tbl))}))
@@ -326,10 +326,7 @@ def scan_insert(dbpath, schema, dbtype, scanpath, snap, repair, skip, survey_are
                                     if value == '':
                                         row[key] = None
                                 # print(current_ssa, tbl, row.values(), sep = ' | ')
-                                if not tbl == 'version':
-                                    c.execute(SQL, list(row.values()))
-                                else:
-                                    c.execute(SQL, [current_ssa, datatype] + list(row.values()))
+                                c.execute(SQL, list(row.values()))
                         if dbtype == 'postgis':
                             c.execute("ALTER TABLE {table} ENABLE TRIGGER ALL;"
                                       .format(**{'table': '.'.join((schema, tbl))}))
@@ -360,20 +357,31 @@ def scan_insert(dbpath, schema, dbtype, scanpath, snap, repair, skip, survey_are
                         gSQL = "INSERT INTO {!s} ({!s}) {!s};".format(insert_table, insert_text,
                                                                       select_stmt.format(shp_table))
                         # print(gSQL)
+                        if dbtype == 'postgis':
+                            c.execute("ALTER TABLE {table} DISABLE TRIGGER ALL;"
+                                      .format(**{'table': insert_table}))
                         c.execute(gSQL)
+                        if dbtype == 'postgis':
+                            c.execute("ALTER TABLE {table} ENABLE TRIGGER ALL;"
+                                      .format(**{'table': insert_table}))
                         c.execute("DELETE FROM {!s};".format(shp_table))
                         conn.commit()
-            else:
-                if current_ssa != '':
-                    print('Already imported ', current_ssa, '. Skipping ', os.path.join(root, f), sep='')
+                else:
+                    if current_ssa != '' and new_ssa:
+                        print('Already imported ', current_ssa, '. Skipping...', sep='')
+                        new_ssa = False
                     
     # delete vestige virtual table information from shapefile import
-    shp_list = ['.'.join((schema, '_'.join((i[1], 'shp')))) for i in spatlist]
+    shp_list = ['_'.join((i[1], 'shp')) for i in spatlist]
     for i in shp_list:
-        c.execute("DROP TABLE {!s};".format(i))
+        if dbtype == 'spatialite':
+            sql = "SELECT DiscardGeometryColumn('{!s}', 'shape');".format(i)
+            c.execute(sql)
+        c.execute("DROP TABLE {schema}.{table};".format(**{'schema': schema, 'table': i}))
     conn.commit()
     conn.close()
     return new_imports
+
 
 def make_eco(dbpath, schema, dbtype):
     """Creates custom spatial ecosite features."""
@@ -408,14 +416,14 @@ def repair_geom(dbpath, schema, dbtype, featlist):
         c = conn.cursor()
         
     # each entry in tables is: tablename, SELECT string, geometry type for ST_CollectionExtract()
-    tables = [('mupolygon', 'OBJECTID, areasymbol, spatialver, musym, mukey, area_ha', 3),
-              ('muline', 'OBJECTID, areasymbol, spatialver, musym, mukey, length_m', 2),
-              ('mupoint', 'OBJECTID, areasymbol, spatialver, musym, mukey, x, y', 1),
-              ('sapolygon', 'OBJECTID, areasymbol, spatialver, lkey, area_ha', 3),
-              ('featline', 'OBJECTID, areasymbol, spatialver, featsym, featkey, length_m', 2),
-              ('featpoint', 'OBJECTID, areasymbol, spatialver, featsym, featkey, x, y', 1),
-              ('ecopolygon', 'OBJECTID, ecoclassid_std, ecoclassname, ecotype, area_ha, ecopct', 3),
-              ('ecogrouppolygon', 'OBJECTID, ecogroup, group_type, pub_status, area_ha, ecogrouppct', 3)]
+    tables = [('mupolygon', 'areasymbol, spatialver, musym, mukey, area_ha', 3),
+              ('muline', 'areasymbol, spatialver, musym, mukey, length_m', 2),
+              ('mupoint', 'areasymbol, spatialver, musym, mukey, x, y', 1),
+              ('sapolygon', 'areasymbol, spatialver, lkey, area_ha', 3),
+              ('featline', 'areasymbol, spatialver, featsym, featkey, length_m', 2),
+              ('featpoint', 'areasymbol, spatialver, featsym, featkey, x, y', 1),
+              ('ecopolygon', 'ecoclassid_std, ecoclassname, ecotype, area_ha, ecopct', 3),
+              ('ecogrouppolygon', 'ecogroup, groupname, grouptype, pub_status, area_ha, ecogrouppct', 3)]
     use_tables = [k for k in tables if k[0] in featlist]  # restricts tables to only features that exist (featlist)
     
     for t in use_tables:
@@ -431,7 +439,6 @@ def repair_geom(dbpath, schema, dbtype, featlist):
         iSQL = "INSERT INTO {!s} ({!s}) SELECT {!s} FROM {!s}_temp;"\
             .format(tbl, ', '.join((t[1], 'shape')), ', '.join((t[1], 'shape')), t[0])
         c.execute(iSQL)
-        
     conn.commit()
     conn.close()
 
@@ -453,7 +460,13 @@ def create_spatial_indices(dbpath, schema, dbtype, sqlite_bin, featlist):
                   'sqlite3 module is not compiled with spatial index support. Spatial indices will not be created in '
                   'this case.')
             for stmt in stmts:
-                c.execute(stmt)
+                success = c.execute(stmt).fetchone()[0]
+            for f in featlist:
+                valid = c.execute("SELECT CheckSpatialIndex('{!s}', 'shape');".format(f)).fetchone()[0]
+                if valid is None:
+                    c.execute("SELECT DisableSpatialIndex('{!s}', 'shape');".format(f)).fetchone()[0]
+                    print("disabling index due top lack of Rtree for", f)
+
             conn.commit()
             conn.close()
         else:
@@ -466,11 +479,10 @@ def create_spatial_indices(dbpath, schema, dbtype, sqlite_bin, featlist):
         conn = psycopg2.connect(dbpath)
         c = conn.cursor()
         for f in featlist:
-            xf = '.'.join((schema, f))
-            c.execute("DROP INDEX IF EXISTS {schema}_{name}_gix;".format(**{'schema': schema, 'name': f}))
-            c.execute("CREATE INDEX {schema}_{name}_gix ON {table} USING GIST (shape);"
-                      .format(**{'schema': schema, 'name': f, 'table': xf}))
-            c.execute("ANALYZE {table};".format(**{'table': xf}))
+            c.execute("DROP INDEX IF EXISTS {schema}.{name}_gix;".format(**{'schema': schema, 'name': f}))
+            c.execute("CREATE INDEX {name}_gix ON {schema}.{table} USING GIST (shape);"
+                      .format(**{'schema': schema, 'name': f, 'table': f}))
+            c.execute("ANALYZE {schema}.{table};".format(**{'schema': schema, 'table': f}))
         conn.commit()
         conn.close()
 
@@ -540,7 +552,7 @@ if __name__ == "__main__":
     parser.add_argument('-g', '--groups', metavar='"path/to/ecogroup_meta.csv","/path/to/ecogroup.csv"',
                         help='paths of the csv files containing the ecological group metadata and the sites '
                              'within each ecogroup (see ecogroups_example.csv and ecogroups_meta_example.csv)')
-    parser.add_argument('-i', '--index', nargs='?', default = None, const = 'no arg', metavar='"path/to/sqlite3"',
+    parser.add_argument('-i', '--index', nargs='?', default=None, const='no arg', metavar='"path/to/sqlite3"',
                         help='adds spatial index to spatial features. Python sqlite module must be compiled with rtree '
                              'option to work natively. Otherwise an alternate sqlite binary can by supplied that does '
                              'have rtree compiled with "path/to/sqlite3" or a command in the PATH (e.g. sqlite3). '
@@ -576,7 +588,7 @@ if __name__ == "__main__":
             print("dbpath directory does not exist. Please choose an existing path to create db in.")
             quit()
 
-    # check for valid optional argumuments
+    # check for valid optional arguments
     if args.groups is not None:
         good_csv_paths = True
         csvmetapath = args.groups.split(',')[0].strip().replace('"', '')
@@ -610,10 +622,11 @@ if __name__ == "__main__":
     new_imports = scan_insert(args.dbpath, schema, args.type, args.scanpath, args.snap, args.repair, args.skip,
                               survey_areas)
 
-    if args.repair:
+    if (args.repair and new_imports) or (args.repair and args.force):
         repair_geom(args.dbpath, schema, args.type, featlist)
 
-    add_area(args.dbpath, schema, args.type, featlist, args.force)
+    if new_imports or args.force:
+        add_area(args.dbpath, schema, args.type, featlist, args.force)
             
     if args.ecosite:
         featlist.append('ecopolygon')
