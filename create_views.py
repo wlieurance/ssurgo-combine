@@ -188,7 +188,7 @@ SELECT a.mukey,
         WHERE ecorank = 6
        ) AS s ON a.mukey = s.mukey;""",
 
-"""/* Creates a unique list of ecosites in the database and calculates area statistics via mupolygon.shape and component.comppct_r (eco_ha).
+"""/* Creates a unique list of ecosites in the database and calculates area statistics via mupolygon.geom and component.comppct_r (eco_ha).
 ecoclasspct_mean is the average percentage of the a map unit the ecosite takes up if it is present. */
 CREATE VIEW IF NOT EXISTS {schema}.coecoclass_unique AS
 SELECT i.ecoclassid_std, j.ecoclassid, j.ecoclassname, j.ecoclassname_std, j.ecoclasstypename, i.eco_n, i.ecoclasspct_mean, i.eco_ha
@@ -200,7 +200,7 @@ SELECT i.ecoclassid_std, j.ecoclassid, j.ecoclassname, j.ecoclassname_std, j.eco
                        a.ecotype, a.ecoclasspct, (a.ecoclasspct * b.mu_ha / 100) AS eco_ha
                   FROM {schema}.coecoclass_mapunit_ranked AS a
                   LEFT JOIN (
-                       SELECT mukey, ST_Area(ST_Union(shape), 1) * 0.0001 AS mu_ha
+                       SELECT mukey, ST_Area(ST_Union(geom), 1) * 0.0001 AS mu_ha
                          FROM {schema}.mupolygon
                         GROUP BY MUKEY
                        ) AS b ON a.mukey = b.mukey
@@ -549,7 +549,7 @@ SELECT x.compname, MIN(x.compkind) AS compkind,
              (a.comppct_r * b.mu_ha / 100) AS comp_ha
          FROM {schema}.component AS a
          LEFT JOIN (
-              SELECT mukey, ST_Area(ST_Union(shape), 1) * 0.0001 AS mu_ha
+              SELECT mukey, ST_Area(ST_Union(geom), 1) * 0.0001 AS mu_ha
                 FROM {schema}.mupolygon
                GROUP BY mukey
               ) AS b ON a. mukey = b.mukey
@@ -857,7 +857,7 @@ SELECT a.mukey,
   LEFT JOIN (SELECT * FROM {schema}.coecoclass_mapunit_ranked WHERE ecorank = 5) AS r ON a.mukey = r.mukey
   LEFT JOIN (SELECT * FROM {schema}.coecoclass_mapunit_ranked WHERE ecorank = 6) AS s ON a.mukey = s.mukey;""",
        
-"""/* Creates a unique list of ecosites in the database and calculates area statistics via mupolygon.shape and component.comppct_r (eco_ha).
+"""/* Creates a unique list of ecosites in the database and calculates area statistics via mupolygon.geom and component.comppct_r (eco_ha).
 ecoclasspct_mean is the average percentage of the a map unit the ecosite takes up if it is present. */
 CREATE OR REPLACE VIEW {schema}.coecoclass_unique AS
 SELECT i.ecoclassid_std, j.ecoclassid, j.ecoclassname, j.ecoclassname_std, 

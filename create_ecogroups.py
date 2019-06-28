@@ -97,7 +97,7 @@ SELECT mukey, ecogroup, groupname, grouptype, pub_status, MAX(ecogrouppct) AS ec
   FROM (SELECT * FROM {schema}.ecogroup_mapunit_ranked ORDER BY mukey ASC, ecogrouppct DESC, grouptype ASC, ecogroup ASC)
  GROUP BY mukey;""",
 
-"""/*  Creates a list of unique ecogroups and calculates area statistics based on mupolygon.shape and component.comppct_r */
+"""/*  Creates a list of unique ecogroups and calculates area statistics based on mupolygon.geom and component.comppct_r */
 CREATE VIEW IF NOT EXISTS {schema}.ecogroup_unique AS
 SELECT x.ecogroup, COUNT(x.mukey) AS group_n, 
         AVG(CAST(ecogrouppct AS float)) AS ecogrouppct_mean, SUM(group_ha) AS group_ha,
@@ -107,7 +107,7 @@ SELECT x.ecogroup, COUNT(x.mukey) AS group_n,
                a.ecogrouppct, (a.ecogrouppct * b.mu_ha / 100) AS group_ha
             FROM {schema}.ecogroup_mapunit_ranked AS a
             LEFT JOIN (
-                SELECT mukey, ST_Area(ST_Union(shape),1) * 0.0001 AS mu_ha
+                SELECT mukey, ST_Area(ST_Union(geom),1) * 0.0001 AS mu_ha
                     FROM {schema}.mupolygon
                 GROUP BY mukey
                 ) AS b ON a.mukey = b.mukey
@@ -286,7 +286,7 @@ SELECT v.ecogroup, v.plantsym, v.plantsciname, v.plantcomname, v.prodtype,
          GROUP BY w.ecogroup, w.plantsym, w.prodtype
       ) AS v;""",
 
-"""SELECT DiscardGeometryColumn('ecogrouppolygon', 'shape');""",
+"""SELECT DiscardGeometryColumn('ecogrouppolygon', 'geom');""",
 
 """DROP TABLE IF EXISTS {schema}.ecogrouppolygon;""",
 
@@ -299,18 +299,18 @@ CREATE TABLE IF NOT EXISTS {schema}.ecogrouppolygon (
        area_ha {double},
        ecogrouppct {double});""",
 
-"""SELECT AddGeometryColumn('ecogrouppolygon', 'shape', 4326, 'MULTIPOLYGON', 2);""",
+"""SELECT AddGeometryColumn('ecogrouppolygon', 'geom', 4326, 'MULTIPOLYGON', 2);""",
 
 """/* Spatial view showing dominant ecogroup per polygon with area percentage of ecogroup. Inserted into table for usefulness and speed. */
-INSERT INTO {schema}.ecogrouppolygon (ecogroup, groupname, grouptype, pub_status, area_ha, ecogrouppct, shape)
-SELECT ecogroup, groupname, grouptype, pub_status, area_ha, ecogrouparea_ha/area_ha AS ecogrouppct, shape
+INSERT INTO {schema}.ecogrouppolygon (ecogroup, groupname, grouptype, pub_status, area_ha, ecogrouppct, geom)
+SELECT ecogroup, groupname, grouptype, pub_status, area_ha, ecogrouparea_ha/area_ha AS ecogrouppct, geom
   FROM (
-       SELECT ecogroup, groupname, grouptype, pub_status, ST_Area(shape, 1)/10000 AS area_ha, ecogrouparea_ha, ST_Multi(shape) AS shape
+       SELECT ecogroup, groupname, grouptype, pub_status, ST_Area(geom, 1)/10000 AS area_ha, ecogrouparea_ha, ST_Multi(geom) AS geom
          FROM (
-              SELECT ST_Union(shape) AS shape, ecogroup, groupname, grouptype,  
+              SELECT ST_Union(geom) AS geom, ecogroup, groupname, grouptype,  
                      pub_status, sum(ecogrouparea_ha) AS ecogrouparea_ha
                 FROM (
-                     SELECT a.shape, COALESCE(b.ecogroup, 'NA') AS ecogroup, b.groupname, b.grouptype, b.pub_status,
+                     SELECT a.geom, COALESCE(b.ecogroup, 'NA') AS ecogroup, b.groupname, b.grouptype, b.pub_status,
                             a.area_ha*(CAST(b.ecogrouppct AS REAL)/100) AS ecogrouparea_ha
                        FROM {schema}.mupolygon AS a
                        LEFT JOIN {schema}.ecogroup_mudominant AS b ON a.mukey = b.mukey)
@@ -411,7 +411,7 @@ SELECT mukey, ecogroup, groupname, grouptype, pub_status, ecogrouppct
   FROM {schema}.ecogroup_mapunit_ranked
  WHERE grouprank = 1;""",
  
-""" /*  Creates a list of unique ecogroups and calculates area statistics based on mupolygon.shape and component.comppct_r */
+""" /*  Creates a list of unique ecogroups and calculates area statistics based on mupolygon.geom and component.comppct_r */
 CREATE OR REPLACE VIEW {schema}.ecogroup_unique AS
 SELECT x.ecogroup, COUNT(x.mukey) AS group_n, 
         AVG(CAST(ecogrouppct AS float)) AS ecogrouppct_mean, SUM(group_ha) AS group_ha,
@@ -447,13 +447,13 @@ SELECT x.mukey,
   LEFT JOIN (SELECT * FROM {schema}.ecogroup_mapunit_ranked WHERE grouprank=6) AS f ON x.mukey = f.mukey;""",
 
 """/* Calculates the hectares of each ecogroup within a map unit. */
- CREATE OR REPLACE VIEW {schema}.ecogroup_area AS
- SELECT a.areasymbol, a.spatialver, a.musym, a.mukey, a.area_ha,
-        b.ecogroup, b.groupname, b.grouptype, b.pub_status, b.ecogrouppct, b.grouprank,
-        a.area_ha * b.ecogrouppct/100 AS ecogroup_ha
-   FROM {schema}.mupolygon a
-   LEFT JOIN {schema}.ecogroup_mapunit_ranked b ON a.mukey = b.mukey
-  ORDER BY a.areasymbol, a.musym, b.grouprank;""",
+CREATE OR REPLACE VIEW {schema}.ecogroup_area AS
+SELECT a.areasymbol, a.spatialver, a.musym, a.mukey, a.area_ha,
+       b.ecogroup, b.groupname, b.grouptype, b.pub_status, b.ecogrouppct, b.grouprank,
+       a.area_ha * b.ecogrouppct/100 AS ecogroup_ha
+  FROM {schema}.mupolygon a
+  LEFT JOIN {schema}.ecogroup_mapunit_ranked b ON a.mukey = b.mukey
+ ORDER BY a.areasymbol, a.musym, b.grouprank;""",
   
 """/* Calculates area weighted plant production for each ecogroup. */
 CREATE OR REPLACE VIEW {schema}.ecogroup_plantprod AS
@@ -532,26 +532,26 @@ CREATE TABLE IF NOT EXISTS {schema}.ecogrouppolygon (
        pub_status {limit_text} (20),
        area_ha {double},
        ecogrouppct {double},
-       shape geometry('MULTIPOLYGON', 4326));""",
+       geom geometry('MULTIPOLYGON', 4326));""",
 
-#"""SELECT AddGeometryColumn('{schema}', 'ecogrouppolygon', 'shape', 4326, 'MULTIPOLYGON', 2);""",
+#"""SELECT AddGeometryColumn('{schema}', 'ecogrouppolygon', 'geom', 4326, 'MULTIPOLYGON', 2);""",
 
 """/* Spatial view showing dominant ecogroup per polygon with area percentage of ecogroup. Inserted into table for usefulness and speed. */
-INSERT INTO {schema}.ecogrouppolygon (ecogroup, groupname, grouptype, pub_status, area_ha, ecogrouppct, shape)
-SELECT ecogroup, groupname, grouptype, pub_status, area_ha, ecogrouparea_ha/area_ha AS ecogrouppct, shape
+INSERT INTO {schema}.ecogrouppolygon (ecogroup, groupname, grouptype, pub_status, area_ha, ecogrouppct, geom)
+SELECT ecogroup, groupname, grouptype, pub_status, area_ha, ecogrouparea_ha/area_ha AS ecogrouppct, geom
   FROM (
-       SELECT ecogroup, groupname, grouptype, pub_status, ST_Area(geography(shape))/10000 AS area_ha, ecogrouparea_ha,
-              ST_Multi(shape) AS shape
+       SELECT ecogroup, groupname, grouptype, pub_status, ST_Area(geography(geom))/10000 AS area_ha, ecogrouparea_ha,
+              ST_Multi(geom) AS geom
          FROM (
-              SELECT ST_Union(shape) AS shape, ecogroup, groupname, grouptype, 
-                     pub_status, sum(ecogrouparea_ha) AS ecogrouparea_ha
+              SELECT ST_Union(geom) AS geom, ecogroup, Min(groupname) AS groupname,  Min(grouptype) AS grouptype, 
+                     min(pub_status) AS pub_status, sum(ecogrouparea_ha) AS ecogrouparea_ha
                FROM (
-                    SELECT a.shape, COALESCE(b.ecogroup, 'NA') AS ecogroup, b.groupname, b.grouptype, b.pub_status,
+                    SELECT a.geom, COALESCE(b.ecogroup, 'NA') AS ecogroup, b.groupname, b.grouptype, b.pub_status,
                            a.area_ha*(CAST(b.ecogrouppct AS REAL)/100) AS ecogrouparea_ha
                       FROM {schema}.mupolygon AS a
                       LEFT JOIN {schema}.ecogroup_mudominant AS b ON a.mukey = b.mukey
                     ) AS x
-              GROUP BY ecogroup, groupname, grouptype, pub_status
+              GROUP BY ecogroup
               ) AS y)
        AS z;"""
 ]

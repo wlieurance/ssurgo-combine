@@ -209,19 +209,19 @@ def scan_insert(dbpath, schema, dbtype, scanpath, snap, repair, skip, survey_are
 
     if snap == 0:
         if repair:
-            geom = "ST_Multi(ST_Union(ST_MakeValid(shape)))"
+            geom = "ST_Multi(ST_Union(ST_MakeValid(geom)))"
             print("Importing: no snapping with repair...")
         else:
-            geom = "ST_Multi(ST_Union(shape))"
+            geom = "ST_Multi(ST_Union(geom))"
             print("Importing: no snapping no repair...")
     else:
         # '{:.20f}'.format(snap/111319.9) converts meters to decimal degrees and formats for non-scientific notation
         if repair:
-            geom = "ST_SnapToGrid(ST_Multi(ST_Union(ST_MakeValid(shape))), {!s})"\
+            geom = "ST_SnapToGrid(ST_Multi(ST_Union(ST_MakeValid(geom))), {!s})"\
                 .format('{:.20f}'.format(snap/111319.9))
             print("Importing with snapping with repair...")
         else:
-            geom = "ST_SnapToGrid(ST_Multi(ST_Union(shape)), {!s})".format('{:.20f}'.format(snap/111319.9))
+            geom = "ST_SnapToGrid(ST_Multi(ST_Union(geom)), {!s})".format('{:.20f}'.format(snap/111319.9))
             print("Importing with snapping no repair...")
         
     soilmu_a_sql = ("SELECT {!s}, AREASYMBOL, SPATIALVER, MUSYM, MUKEY"
@@ -249,12 +249,12 @@ def scan_insert(dbpath, schema, dbtype, scanpath, snap, repair, skip, survey_are
                     "  FROM {{!s}}"
                     " GROUP BY AREASYMBOL, SPATIALVER, FEATSYM, FEATKEY").format(geom)
 
-    spatlist = [('soilmu_a', 'mupolygon', 'shape, areasymbol, spatialver, musym, mukey', soilmu_a_sql),
-                ('soilmu_l', 'muline', 'shape, areasymbol, spatialver, musym, mukey', soilmu_l_sql),
-                ('soilmu_p', 'mupoint', 'shape, areasymbol, spatialver, musym, mukey', soilmu_p_sql),
-                ('soilsa_a', 'sapolygon', 'shape, areasymbol, spatialver, lkey', soilsa_a_sql),
-                ('soilsf_l', 'featline', 'shape, areasymbol, spatialver, featsym, featkey', soilsf_l_sql),
-                ('soilsf_p', 'featpoint', 'shape, areasymbol, spatialver, featsym, featkey', soilsf_p_sql)]
+    spatlist = [('soilmu_a', 'mupolygon', 'geom, areasymbol, spatialver, musym, mukey', soilmu_a_sql),
+                ('soilmu_l', 'muline', 'geom, areasymbol, spatialver, musym, mukey', soilmu_l_sql),
+                ('soilmu_p', 'mupoint', 'geom, areasymbol, spatialver, musym, mukey', soilmu_p_sql),
+                ('soilsa_a', 'sapolygon', 'geom, areasymbol, spatialver, lkey', soilsa_a_sql),
+                ('soilsf_l', 'featline', 'geom, areasymbol, spatialver, featsym, featkey', soilsf_l_sql),
+                ('soilsf_p', 'featpoint', 'geom, areasymbol, spatialver, featsym, featkey', soilsf_p_sql)]
     if dbtype == 'spatialite':
         conn = sqlite.connect(dbpath)
         conn.enable_load_extension(True)
@@ -375,7 +375,7 @@ def scan_insert(dbpath, schema, dbtype, scanpath, snap, repair, skip, survey_are
     shp_list = ['_'.join((i[1], 'shp')) for i in spatlist]
     for i in shp_list:
         if dbtype == 'spatialite':
-            sql = "SELECT DiscardGeometryColumn('{!s}', 'shape');".format(i)
+            sql = "SELECT DiscardGeometryColumn('{!s}', 'geom');".format(i)
             c.execute(sql)
         c.execute("DROP TABLE {schema}.{table};".format(**{'schema': schema, 'table': i}))
     conn.commit()
@@ -429,15 +429,15 @@ def repair_geom(dbpath, schema, dbtype, featlist):
     for t in use_tables:
         tbl = '.'.join((schema, t[0]))
         print("Repairing {!s} geometries...".format(t[0]))
-        temp_sql = ("CREATE TEMP TABLE {!s}_temp AS SELECT {!s}, ST_Multi(ST_CollectionExtract(ST_MakeValid(shape), "
-                    "{!s})) AS shape FROM {!s};".format(t[0], t[1], t[2], tbl))
+        temp_sql = ("CREATE TEMP TABLE {!s}_temp AS SELECT {!s}, ST_Multi(ST_CollectionExtract(ST_MakeValid(geom), "
+                    "{!s})) AS geom FROM {!s};".format(t[0], t[1], t[2], tbl))
         # relic for converting MULTIPOINT to POINT. decided to use multipoint for consistency
         # if 'point' in t[0]:
         #     temp_sql = temp_sql.replace('ST_Multi', '')
         c.execute(temp_sql)
         c.execute("DELETE FROM {!s};".format(tbl))
         iSQL = "INSERT INTO {!s} ({!s}) SELECT {!s} FROM {!s}_temp;"\
-            .format(tbl, ', '.join((t[1], 'shape')), ', '.join((t[1], 'shape')), t[0])
+            .format(tbl, ', '.join((t[1], 'geom')), ', '.join((t[1], 'geom')), t[0])
         c.execute(iSQL)
     conn.commit()
     conn.close()
@@ -451,7 +451,7 @@ def create_spatial_indices(dbpath, schema, dbtype, sqlite_bin, featlist):
     if dbtype == 'spatialite':
         stmts = ["SELECT load_extension('mod_spatialite');"]
         for f in featlist:
-            stmts.append("SELECT CreateSpatialIndex('{!s}', 'shape');".format(f))
+            stmts.append("SELECT CreateSpatialIndex('{!s}', 'geom');".format(f))
         if sqlite_bin == 'no arg':
             conn = sqlite.connect(dbpath)
             conn.enable_load_extension(True)
@@ -462,9 +462,9 @@ def create_spatial_indices(dbpath, schema, dbtype, sqlite_bin, featlist):
             for stmt in stmts:
                 success = c.execute(stmt).fetchone()[0]
             for f in featlist:
-                valid = c.execute("SELECT CheckSpatialIndex('{!s}', 'shape');".format(f)).fetchone()[0]
+                valid = c.execute("SELECT CheckSpatialIndex('{!s}', 'geom');".format(f)).fetchone()[0]
                 if valid is None:
-                    c.execute("SELECT DisableSpatialIndex('{!s}', 'shape');".format(f)).fetchone()[0]
+                    c.execute("SELECT DisableSpatialIndex('{!s}', 'geom');".format(f)).fetchone()[0]
                     print("disabling index due top lack of Rtree for", f)
 
             conn.commit()
@@ -480,7 +480,7 @@ def create_spatial_indices(dbpath, schema, dbtype, sqlite_bin, featlist):
         c = conn.cursor()
         for f in featlist:
             c.execute("DROP INDEX IF EXISTS {schema}.{name}_gix;".format(**{'schema': schema, 'name': f}))
-            c.execute("CREATE INDEX {name}_gix ON {schema}.{table} USING GIST (shape);"
+            c.execute("CREATE INDEX {name}_gix ON {schema}.{table} USING GIST (geom);"
                       .format(**{'schema': schema, 'name': f, 'table': f}))
             c.execute("ANALYZE {schema}.{table};".format(**{'schema': schema, 'table': f}))
         conn.commit()
@@ -504,12 +504,12 @@ def add_area(dbpath, schema, dbtype, featlist, force):
             xf = '.'.join((schema, f))
             print("Adding geometry measurements to " + f)
             if 'poly' in f:
-                c.execute(sql_up.format(xf, 'area_ha', 'st_area(shape, 1)/10000', 'area_ha'))
+                c.execute(sql_up.format(xf, 'area_ha', 'st_area(geom, 1)/10000', 'area_ha'))
             elif 'line' in f:
-                c.execute(sql_up.format(xf, 'length_m', 'st_length(shape, 1)', 'length_m'))
+                c.execute(sql_up.format(xf, 'length_m', 'st_length(geom, 1)', 'length_m'))
             elif 'point' in f:
-                c.execute(sql_up.format(xf, 'x', 'st_x(st_centroid(shape))', 'x'))
-                c.execute(sql_up.format(xf, 'y', 'st_y(st_centroid(shape))', 'y'))
+                c.execute(sql_up.format(xf, 'x', 'st_x(st_centroid(geom))', 'x'))
+                c.execute(sql_up.format(xf, 'y', 'st_y(st_centroid(geom))', 'y'))
         conn.commit()
         conn.close()
     if dbtype == 'postgis':
@@ -519,12 +519,12 @@ def add_area(dbpath, schema, dbtype, featlist, force):
             xf = '.'.join((schema, f))
             print("Adding geometry measurements to " + f)
             if 'poly' in f:
-                c.execute(sql_up.format(xf, 'area_ha', 'st_area(geography(shape))/10000', 'area_ha'))
+                c.execute(sql_up.format(xf, 'area_ha', 'st_area(geography(geom))/10000', 'area_ha'))
             elif 'line' in f:
-                c.execute(sql_up.format(xf, 'length_m', 'st_length(geography(shape))', 'length_m'))
+                c.execute(sql_up.format(xf, 'length_m', 'st_length(geography(geom))', 'length_m'))
             elif 'point' in f:
-                c.execute(sql_up.format(xf, 'x', 'st_x(st_centroid(shape))', 'x'))
-                c.execute(sql_up.format(xf, 'y', 'st_y(st_centroid(shape))', 'y'))
+                c.execute(sql_up.format(xf, 'x', 'st_x(st_centroid(geom))', 'x'))
+                c.execute(sql_up.format(xf, 'y', 'st_y(st_centroid(geom))', 'y'))
         conn.commit()
         conn.close()
         
@@ -634,6 +634,7 @@ if __name__ == "__main__":
             make_eco(args.dbpath, schema, args.type)
             if args.repair:
                 repair_geom(args.dbpath, schema, args.type, ['ecopolygon'])
+                add_area(args.dbpath, schema, args.type, ['ecopolygon'], True)
     if args.groups is not None:
         if good_csv_paths:
             featlist.append('ecogrouppolygon')
@@ -643,6 +644,7 @@ if __name__ == "__main__":
                 create_ecogroups.create_views(args.dbpath, schema, args.type)
                 if args.repair:
                     repair_geom(args.dbpath, schema, args.type, ['ecogrouppolygon'])
+                    add_area(args.dbpath, schema, args.type, ['ecogrouppolygon'], True)
     if args.index is not None:
         create_spatial_indices(args.dbpath, schema, args.type, args.index, featlist)
         

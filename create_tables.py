@@ -1085,8 +1085,8 @@ table_statements = [
     FOREIGN KEY(cogeomdkey) REFERENCES {schema}.cogeomordesc(cogeomdkey) ON DELETE CASCADE);""",
 
 """CREATE TABLE {notexists} {schema}.cosurfmorphss (
-    shapeacross {limit_text} (254),
-    shapedown {limit_text} (254),
+    geomacross {limit_text} (254),
+    geomdown {limit_text} (254),
     cogeomdkey {limit_text} (30) NOT NULL,
     cosurfmorsskey {limit_text} (30) PRIMARY KEY,
     FOREIGN KEY(cogeomdkey) REFERENCES {schema}.cogeomordesc(cogeomdkey) ON DELETE CASCADE);""",
@@ -1118,24 +1118,24 @@ table_statements = [
     FOREIGN KEY(chtkey) REFERENCES {schema}.chtexture(chtkey) ON DELETE CASCADE);"""]
     
 spatialite_addgeom = [
-"""SELECT AddGeometryColumn('featline', 'shape', 4326, 'MULTILINESTRING', 2);""",
-"""SELECT AddGeometryColumn('featpoint', 'shape', 4326, 'MULTIPOINT', 2);""",
-"""SELECT AddGeometryColumn('muline', 'shape', 4326, 'MULTILINESTRING', 2);""",
-"""SELECT AddGeometryColumn('mupoint', 'shape', 4326, 'MULTIPOINT', 2);""",
-"""SELECT AddGeometryColumn('mupolygon', 'shape', 4326, 'MULTIPOLYGON', 2);""",
-"""SELECT AddGeometryColumn('sapolygon', 'shape', 4326, 'MULTIPOLYGON', 2);"""]
+"""SELECT AddGeometryColumn('featline', 'geom', 4326, 'MULTILINESTRING', 2);""",
+"""SELECT AddGeometryColumn('featpoint', 'geom', 4326, 'MULTIPOINT', 2);""",
+"""SELECT AddGeometryColumn('muline', 'geom', 4326, 'MULTILINESTRING', 2);""",
+"""SELECT AddGeometryColumn('mupoint', 'geom', 4326, 'MULTIPOINT', 2);""",
+"""SELECT AddGeometryColumn('mupolygon', 'geom', 4326, 'MULTIPOLYGON', 2);""",
+"""SELECT AddGeometryColumn('sapolygon', 'geom', 4326, 'MULTIPOLYGON', 2);"""]
 
 postgis_addgeom = [
-"""ALTER TABLE {schema}.featline ADD COLUMN IF NOT EXISTS shape geometry(MULTILINESTRING, 4326);""",
-"""ALTER TABLE {schema}.featpoint ADD COLUMN IF NOT EXISTS shape geometry(MULTIPOINT, 4326);""",
-"""ALTER TABLE {schema}.muline ADD COLUMN IF NOT EXISTS shape geometry(MULTILINESTRING, 4326);""",
-"""ALTER TABLE {schema}.mupoint ADD COLUMN IF NOT EXISTS shape geometry(MULTIPOINT, 4326);""",
-"""ALTER TABLE {schema}.mupolygon ADD COLUMN IF NOT EXISTS shape geometry(MULTIPOLYGON, 4326);""",
-"""ALTER TABLE {schema}.sapolygon ADD COLUMN IF NOT EXISTS shape geometry(MULTIPOLYGON, 4326);"""]
+"""ALTER TABLE {schema}.featline ADD COLUMN IF NOT EXISTS geom geometry(MULTILINESTRING, 4326);""",
+"""ALTER TABLE {schema}.featpoint ADD COLUMN IF NOT EXISTS geom geometry(MULTIPOINT, 4326);""",
+"""ALTER TABLE {schema}.muline ADD COLUMN IF NOT EXISTS geom geometry(MULTILINESTRING, 4326);""",
+"""ALTER TABLE {schema}.mupoint ADD COLUMN IF NOT EXISTS geom geometry(MULTIPOINT, 4326);""",
+"""ALTER TABLE {schema}.mupolygon ADD COLUMN IF NOT EXISTS geom geometry(MULTIPOLYGON, 4326);""",
+"""ALTER TABLE {schema}.sapolygon ADD COLUMN IF NOT EXISTS geom geometry(MULTIPOLYGON, 4326);"""]
 
 
 temp_tables = [
-###### Shapefile temp tables ######
+###### geomfile temp tables ######
 """DROP TABLE IF EXISTS {schema}.featline_shp;""",     
 """CREATE TABLE {schema}.featline_shp (
     OBJECTID {oid},
@@ -1184,17 +1184,17 @@ temp_tables = [
     lkey {limit_text} (30));"""]
     
 spatialite_temp_addgeom = [
-"""SELECT AddGeometryColumn('featline_shp', 'shape', 4326, 'LINESTRING', 2);""",
-"""SELECT AddGeometryColumn('featpoint_shp', 'shape', 4326, 'POINT', 2);""",
-"""SELECT AddGeometryColumn('muline_shp', 'shape', 4326, 'LINESTRING', 2);""",
-"""SELECT AddGeometryColumn('mupoint_shp', 'shape', 4326, 'POINT', 2);""",
-"""SELECT AddGeometryColumn('mupolygon_shp', 'shape', 4326, 'POLYGON', 2);""",
-"""SELECT AddGeometryColumn('sapolygon_shp', 'shape', 4326, 'POLYGON', 2);"""]
+"""SELECT AddGeometryColumn('featline_shp', 'geom', 4326, 'LINESTRING', 2);""",
+"""SELECT AddGeometryColumn('featpoint_shp', 'geom', 4326, 'POINT', 2);""",
+"""SELECT AddGeometryColumn('muline_shp', 'geom', 4326, 'LINESTRING', 2);""",
+"""SELECT AddGeometryColumn('mupoint_shp', 'geom', 4326, 'POINT', 2);""",
+"""SELECT AddGeometryColumn('mupolygon_shp', 'geom', 4326, 'POLYGON', 2);""",
+"""SELECT AddGeometryColumn('sapolygon_shp', 'geom', 4326, 'POLYGON', 2);"""]
 
 postgis_temp_addgeom = [
-"""ALTER TABLE {schema}.featline_shp ADD COLUMN IF NOT EXISTS shape geometry(LINESTRING, 4326);""",
-"""ALTER TABLE {schema}.featpoint_shp ADD COLUMN IF NOT EXISTS shape geometry(POINT, 4326);""",
-"""ALTER TABLE {schema}.muline_shp ADD COLUMN IF NOT EXISTS shape geometry(LINESTRING, 4326);""",
-"""ALTER TABLE {schema}.mupoint_shp ADD COLUMN IF NOT EXISTS shape geometry(POINT, 4326);""",
-"""ALTER TABLE {schema}.mupolygon_shp ADD COLUMN IF NOT EXISTS shape geometry(POLYGON, 4326);""",
-"""ALTER TABLE {schema}.sapolygon_shp ADD COLUMN IF NOT EXISTS shape geometry(POLYGON, 4326);"""]
+"""ALTER TABLE {schema}.featline_shp ADD COLUMN IF NOT EXISTS geom geometry(LINESTRING, 4326);""",
+"""ALTER TABLE {schema}.featpoint_shp ADD COLUMN IF NOT EXISTS geom geometry(POINT, 4326);""",
+"""ALTER TABLE {schema}.muline_shp ADD COLUMN IF NOT EXISTS geom geometry(LINESTRING, 4326);""",
+"""ALTER TABLE {schema}.mupoint_shp ADD COLUMN IF NOT EXISTS geom geometry(POINT, 4326);""",
+"""ALTER TABLE {schema}.mupolygon_shp ADD COLUMN IF NOT EXISTS geom geometry(POLYGON, 4326);""",
+"""ALTER TABLE {schema}.sapolygon_shp ADD COLUMN IF NOT EXISTS geom geometry(POLYGON, 4326);"""]
