@@ -551,7 +551,8 @@ if __name__ == "__main__":
                              'ecological sites')
     parser.add_argument('-g', '--groups', metavar='"path/to/ecogroup_meta.csv","/path/to/ecogroup.csv"',
                         help='paths of the csv files containing the ecological group metadata and the sites '
-                             'within each ecogroup (see ecogroups_example.csv and ecogroups_meta_example.csv)')
+                             'within each ecogroup (see ecogroups_example.csv and ecogroups_meta_example.csv)',
+                        const='NA', nargs='?')
     parser.add_argument('-i', '--index', nargs='?', default=None, const='no arg', metavar='"path/to/sqlite3"',
                         help='adds spatial index to spatial features. Python sqlite module must be compiled with rtree '
                              'option to work natively. Otherwise an alternate sqlite binary can by supplied that does '
@@ -590,17 +591,18 @@ if __name__ == "__main__":
 
     # check for valid optional arguments
     if args.groups is not None:
-        good_csv_paths = True
-        csvmetapath = args.groups.split(',')[0].strip().replace('"', '')
-        csvpath = args.groups.split(',')[1].strip().replace('"', '')
-        if not os.path.isfile(csvmetapath):
-            print(csvmetapath + " does not exist. Please choose an existing comma delimited ecogroup_meta file to use.")
-            good_csv_paths = False
-            quit()
-        if not os.path.isfile(csvpath):
-            print(csvpath + " does not exist. Please choose an existing comma delimited ecogroup file to use.")
-            good_csv_paths = False
-            quit()
+        if args.groups != 'NA':
+            csvmetapath = args.groups.split(',')[0].strip().replace('"', '')
+            csvpath = args.groups.split(',')[1].strip().replace('"', '')
+            if not os.path.isfile(csvmetapath):
+                print(csvmetapath + " does not exist. Please choose an existing comma delimited ecogroup_meta file "
+                                    "to use.")
+                good_csv_paths = False
+                quit()
+            if not os.path.isfile(csvpath):
+                print(csvpath + " does not exist. Please choose an existing comma delimited ecogroup file to use.")
+                good_csv_paths = False
+                quit()
     if args.restrict is not None:
         if not os.path.isfile(args.restrict):
             print(args.restrict, "does not exist. Please choose an existing comma delimited SSURGO list to use.")
@@ -636,15 +638,15 @@ if __name__ == "__main__":
                 repair_geom(args.dbpath, schema, args.type, ['ecopolygon'])
                 add_area(args.dbpath, schema, args.type, ['ecopolygon'], True)
     if args.groups is not None:
-        if good_csv_paths:
-            featlist.append('ecogrouppolygon')
+        if args.groups != 'NA':
             create_ecogroups.create_table(args.dbpath, schema, args.type)
             create_ecogroups.load_ecogroups(args.dbpath, schema, args.type, csvmetapath, csvpath)
-            if new_imports or args.force:
-                create_ecogroups.create_views(args.dbpath, schema, args.type)
-                if args.repair:
-                    repair_geom(args.dbpath, schema, args.type, ['ecogrouppolygon'])
-                    add_area(args.dbpath, schema, args.type, ['ecogrouppolygon'], True)
+        if new_imports or args.force:
+            featlist.append('ecogrouppolygon')
+            create_ecogroups.create_views(args.dbpath, schema, args.type)
+            if args.repair:
+                repair_geom(args.dbpath, schema, args.type, ['ecogrouppolygon'])
+                add_area(args.dbpath, schema, args.type, ['ecogrouppolygon'], True)
     if args.index is not None:
         create_spatial_indices(args.dbpath, schema, args.type, args.index, featlist)
         
