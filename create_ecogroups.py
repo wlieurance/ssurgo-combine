@@ -594,36 +594,46 @@ def load_ecogroups(dbpath, schema, dbtype, csvmetapath, csvpath):
         ins1 = ''
         ins2 = 'ON CONFLICT DO NOTHING'
     c = conn.cursor()
-    with open(csvmetapath, 'r') as csvfile_meta:
-        csvreader_meta = csv.reader(csvfile_meta, delimiter=',')
-        headers = next(csvreader_meta)
-        SQL = "INSERT {{ins1}} INTO {{schema}}.ecogroup_meta (ecogroup, groupname, grouptype, modal_site, pub_status)" \
-              " VALUES ({!s}) {{ins2}};".format(','.join([paramstr]*5))
-        SQL = SQL.format(**{'ins1': ins1, 'schema': schema, 'ins2': ins2})
-        for row in csvreader_meta:
-            convert = []
-            for r in row:
-                if r:
-                    convert.append(r)
-                else:
-                    convert.append(None)
-            c.execute(SQL, (convert[0], convert[1], convert[2], convert[3], convert[4]))
-    conn.commit()
-    with open(csvpath, 'r') as csvfile:
-        csvreader = csv.reader(csvfile, delimiter=',')
-        headers = next(csvreader)
-        SQL = "INSERT {{ins1}} INTO {{schema}}.ecogroup (ecoid, ecogroup) " \
-              "VALUES ({!s}) {{ins2}};".format(','.join([paramstr]*2))
-        SQL = SQL.format(**{'ins1': ins1, 'schema': schema, 'ins2': ins2})
-        for row in csvreader:
-            convert = []
-            for r in row:
-                if r:
-                    convert.append(r)
-                else:
-                    convert.append(None)
-            c.execute(SQL, (convert[0], convert[1]))
-    conn.commit()
+    if csvmetapath:
+        c.execute("DELETE FROM {schema}.ecogroup;".format({'schema': schema}))
+        c.execute("DELETE FROM {schema}.ecogroup_meta;".format({'schema': schema}))
+        with open(csvmetapath, 'r') as csvfile_meta:
+            csvreader_meta = csv.reader(csvfile_meta, delimiter=',')
+            headers = next(csvreader_meta)
+            SQL = "INSERT {{ins1}} INTO {{schema}}.ecogroup_meta (ecogroup, groupname, grouptype, modal_site, " \
+                  "pub_status) VALUES ({!s}) {{ins2}};".format(','.join([paramstr]*5))
+            SQL = SQL.format(**{'ins1': ins1, 'schema': schema, 'ins2': ins2})
+            for row in csvreader_meta:
+                if row:
+                    # print(row)
+                    convert = []
+                    for r in row:
+                        if r:
+                            convert.append(r)
+                        else:
+                            convert.append(None)
+                    c.execute(SQL, (convert[0], convert[1], convert[2], convert[3], convert[4]))
+        conn.commit()
+    else:
+        print("no ecogroup metadata file provided. Skipping data load...")
+    if csvmetapath:
+        with open(csvpath, 'r') as csvfile:
+            csvreader = csv.reader(csvfile, delimiter=',')
+            headers = next(csvreader)
+            SQL = "INSERT {{ins1}} INTO {{schema}}.ecogroup (ecoid, ecogroup) " \
+                  "VALUES ({!s}) {{ins2}};".format(','.join([paramstr]*2))
+            SQL = SQL.format(**{'ins1': ins1, 'schema': schema, 'ins2': ins2})
+            for row in csvreader:
+                convert = []
+                for r in row:
+                    if r:
+                        convert.append(r)
+                    else:
+                        convert.append(None)
+                c.execute(SQL, (convert[0], convert[1]))
+        conn.commit()
+    else:
+        print("no ecogroup file provided. Skipping data load...")
     conn.close()
 
 
@@ -658,7 +668,7 @@ if __name__ == "__main__":
     parser.add_argument('dbpath', help='path of the sqlite SSURGO created via main.py within this toolset')
     parser.add_argument('csvpaths', help='paths of the csv files containing the ecological group metadata and the sites '
                                          'within each ecogroup ("path/to/ecogroup_meta.csv","/path/to/ecogroup.csv") '
-                                         '(see ecogroups_example.csv and ecogroups_meta_example.csv)')
+                                         '(see ecogroups_example.csv and ecogroups_meta_example.csv) (tab delimited)')
     parser.add_argument('-t', '--type', metavar='DATABASE_TYPE', default='spatialite',
                         help='decides which database type to import to, spatialite or postgis')
     parser.add_argument('-x', '--schema', default='',

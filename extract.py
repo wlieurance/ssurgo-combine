@@ -66,7 +66,8 @@ def initdb(dbpath, schema, dbtype):
     if dbtype == 'postgis':
         conn = psycopg2.connect(dbpath)
         c = conn.cursor()
-        c.execute("SELECT Count(*) FROM information_schema.tables WHERE table_name = 'mupolygon';")
+        c.execute("SELECT Count(*) FROM information_schema.tables WHERE table_name = 'mupolygon' "
+                  "AND table_schema = %s;", (schema,))
         objects = c.fetchone()[0]
         if objects >= 1:
             newdb = False
@@ -603,6 +604,9 @@ if __name__ == "__main__":
                 print(csvpath + " does not exist. Please choose an existing comma delimited ecogroup file to use.")
                 good_csv_paths = False
                 quit()
+        else:
+            csvmetapath = None
+            csvpath = None
     if args.restrict is not None:
         if not os.path.isfile(args.restrict):
             print(args.restrict, "does not exist. Please choose an existing comma delimited SSURGO list to use.")
