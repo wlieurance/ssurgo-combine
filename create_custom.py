@@ -47,7 +47,7 @@ CREATE TABLE IF NOT EXISTS {schema}.ecopolygon (
 
 """/* Spatial view showing dominant ecosite per polygon with area percentage of ecosite. Inserted into table for usefulness and speed. */
 INSERT INTO {schema}.ecopolygon (ecoclassid_std, ecoclassname, ecotype, area_ha, ecopct, geom)
-SELECT ecoclassid_std, ecoclassname, ecotype, area_ha, ecoarea_ha/area_ha AS ecopct, geom
+SELECT ecoclassid_std, ecoclassname, ecotype, area_ha, ecoarea_ha/area_ha AS ecopct, ST_ForceRHR(ST_MakeValid(geom)) AS geom
   FROM (
        SELECT ecoclassid_std, ecoclassname, ecotype, ecoarea_ha, ST_Area(geography(geom))/10000 AS area_ha,
               ST_Multi(geom) AS geom

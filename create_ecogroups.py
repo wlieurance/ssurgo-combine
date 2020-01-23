@@ -303,7 +303,7 @@ CREATE TABLE IF NOT EXISTS {schema}.ecogrouppolygon (
 
 """/* Spatial view showing dominant ecogroup per polygon with area percentage of ecogroup. Inserted into table for usefulness and speed. */
 INSERT INTO {schema}.ecogrouppolygon (ecogroup, groupname, grouptype, pub_status, area_ha, ecogrouppct, geom)
-SELECT ecogroup, groupname, grouptype, pub_status, area_ha, ecogrouparea_ha/area_ha AS ecogrouppct, geom
+SELECT ecogroup, groupname, grouptype, pub_status, area_ha, ecogrouparea_ha/area_ha AS ecogrouppct, ST_ForceRHR(ST_MakeValid(geom)) AS geom
   FROM (
        SELECT ecogroup, groupname, grouptype, pub_status, ST_Area(geom, 1)/10000 AS area_ha, ecogrouparea_ha, ST_Multi(geom) AS geom
          FROM (

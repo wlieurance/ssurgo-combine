@@ -563,7 +563,33 @@ SELECT x.compname, MIN(x.compkind) AS compkind,
         b.ecotype, b.ecoclasspct, a.area_ha * b.ecoclasspct/100 AS eco_ha
    FROM {schema}.mupolygon a
    LEFT JOIN {schema}.coecoclass_mapunit_ranked b ON a.mukey = b.mukey
-  ORDER BY a.areasymbol, a.musym, b.ecoclasspct DESC;"""
+  ORDER BY a.areasymbol, a.musym, b.ecoclasspct DESC;""",
+
+"""
+CREATE OR REPLACE VIEW {schema}.coeplants_gh AS
+WITH
+generic_gh (code, dur, gh, name) as (
+ VALUES ('2FA', 'Annual', 'Forb/herb', 'annual forbs'),
+        ('2FORB', NULL, 'Forb/herb', 'forbs'),
+	('2FP', 'Perennial', 'Forb/herb', 'perennial forbs'),
+	('2GA', 'Annual', 'Graminoid', 'annual grasses'),
+	('2GL', NULL, 'Graminoid', 'grasslikes'),
+	('2GLA', 'Annual', 'Graminoid', 'annual grasslikes'),
+	('2GLP', 'Perennial', 'Graminoid', 'perennial grasslikes'),
+	('2GP', 'Perennial', 'Graminoid', 'perennial grasses'),
+	('2LF', NULL, 'Lichenous', 'foliose lichens'),
+	('2LICHN', NULL, 'Lichenous', 'lichens'),
+	('2LTR', NULL, NULL, 'litter'),
+	('2MOSS', NULL, 'Nonvascular', 'mosses'),
+	('2SD', 'Perennial', 'Shrub', 'deciduous shrubs'),
+	('2SE', 'Perennial', 'Shrub', 'evergreen shrubs'),
+	('2SHRUB', 'Perennial', 'Shrub', 'shrubs'),
+	('2SUBS', 'Perennial', 'Subshrub', 'subshrubs'),
+	('2TD', 'Perennial', 'Tree', 'deciduous trees'),
+	('2TE', 'Perennial', 'Tree', 'evergreen trees'),
+	('2TN', 'Perennial', 'Tree', 'coniferous trees'),
+	('2TREE', 'Perennial', 'Tree', 'trees'))			
+SELECT * FROM generic_gh;"""
 ]
 
 postgis_views = [
@@ -1041,5 +1067,31 @@ SELECT x.compname, MIN(x.compkind) AS compkind,
    FROM {schema}.mupolygon a
    LEFT JOIN {schema}.coecoclass_mapunit_ranked b ON a.mukey = b.mukey
   ORDER BY a.areasymbol, a.musym, b.ecorank;
+""",
+
 """
+CREATE OR REPLACE VIEW {schema}.coeplants_gh AS
+WITH
+generic_gh (code, dur, gh, name) as (
+ VALUES ('2FA', 'Annual', 'Forb/herb', 'annual forbs'),
+        ('2FORB', NULL, 'Forb/herb', 'forbs'),
+	('2FP', 'Perennial', 'Forb/herb', 'perennial forbs'),
+	('2GA', 'Annual', 'Graminoid', 'annual grasses'),
+	('2GL', NULL, 'Graminoid', 'grasslikes'),
+	('2GLA', 'Annual', 'Graminoid', 'annual grasslikes'),
+	('2GLP', 'Perennial', 'Graminoid', 'perennial grasslikes'),
+	('2GP', 'Perennial', 'Graminoid', 'perennial grasses'),
+	('2LF', NULL, 'Lichenous', 'foliose lichens'),
+	('2LICHN', NULL, 'Lichenous', 'lichens'),
+	('2LTR', NULL, NULL, 'litter'),
+	('2MOSS', NULL, 'Nonvascular', 'mosses'),
+	('2SD', 'Perennial', 'Shrub', 'deciduous shrubs'),
+	('2SE', 'Perennial', 'Shrub', 'evergreen shrubs'),
+	('2SHRUB', 'Perennial', 'Shrub', 'shrubs'),
+	('2SUBS', 'Perennial', 'Subshrub', 'subshrubs'),
+	('2TD', 'Perennial', 'Tree', 'deciduous trees'),
+	('2TE', 'Perennial', 'Tree', 'evergreen trees'),
+	('2TN', 'Perennial', 'Tree', 'coniferous trees'),
+	('2TREE', 'Perennial', 'Tree', 'trees'))			
+SELECT * FROM generic_gh;"""
 ]

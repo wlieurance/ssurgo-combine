@@ -1,6 +1,6 @@
 -- returns the dominant ecosite polygons with correct percentages from the area
 -- replace 'my_table' with actual table to clip by
-SELECT ecoclassid_std, ecoclassname, ecotype, area_ha, ecoarea_ha/area_ha AS ecopct, geom
+SELECT ecoclassid_std, ecoclassname, ecotype, area_ha, ecoarea_ha/area_ha AS ecopct, ST_ForceRHR(ST_MakeValid(geom)) AS geom
   FROM (
        SELECT ecoclassid_std, ecoclassname, ecotype, ecoarea_ha, ST_Area(geography(geom))/10000 AS area_ha,
               ST_Multi(geom) AS geom

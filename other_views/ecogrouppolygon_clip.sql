@@ -1,6 +1,6 @@
 -- returns the dominant ecogroup polygons with correct percentages from the area
 -- replace 'my_table' with actual table to clip by
-SELECT ecogroup, groupname, grouptype, pub_status, area_ha, ecogrouparea_ha/area_ha AS ecogrouppct, geom
+SELECT ecogroup, groupname, grouptype, pub_status, area_ha, ecogrouparea_ha/area_ha AS ecogrouppct, ST_ForceRHR(ST_MakeValid(geom)) AS geom
   FROM (
        SELECT ecogroup, groupname, grouptype, pub_status, ST_Area(geography(geom))/10000 AS area_ha, ecogrouparea_ha,
               ST_Multi(geom) AS geom
