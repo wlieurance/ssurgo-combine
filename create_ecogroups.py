@@ -598,7 +598,7 @@ def load_ecogroups(dbpath, schema, dbtype, csvmetapath, csvpath):
         c.execute("DELETE FROM {schema}.ecogroup;".format({'schema': schema}))
         c.execute("DELETE FROM {schema}.ecogroup_meta;".format({'schema': schema}))
         with open(csvmetapath, 'r') as csvfile_meta:
-            csvreader_meta = csv.reader(csvfile_meta, delimiter=',')
+            csvreader_meta = csv.reader(csvfile_meta, delimiter='\t')
             headers = next(csvreader_meta)
             SQL = "INSERT {{ins1}} INTO {{schema}}.ecogroup_meta (ecogroup, groupname, grouptype, modal_site, " \
                   "pub_status) VALUES ({!s}) {{ins2}};".format(','.join([paramstr]*5))
@@ -618,7 +618,7 @@ def load_ecogroups(dbpath, schema, dbtype, csvmetapath, csvpath):
         print("no ecogroup metadata file provided. Skipping data load...")
     if csvmetapath:
         with open(csvpath, 'r') as csvfile:
-            csvreader = csv.reader(csvfile, delimiter=',')
+            csvreader = csv.reader(csvfile, delimiter='\t')
             headers = next(csvreader)
             SQL = "INSERT {{ins1}} INTO {{schema}}.ecogroup (ecoid, ecogroup) " \
                   "VALUES ({!s}) {{ins2}};".format(','.join([paramstr]*2))

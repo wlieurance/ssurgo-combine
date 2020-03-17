@@ -552,7 +552,7 @@ if __name__ == "__main__":
                              'ecological sites')
     parser.add_argument('-g', '--groups', metavar='"path/to/ecogroup_meta.csv","/path/to/ecogroup.csv"',
                         help='paths of the csv files containing the ecological group metadata and the sites '
-                             'within each ecogroup (see ecogroups_example.csv and ecogroups_meta_example.csv)',
+                             'within each ecogroup (see ecogroups_example.csv and ecogroups_meta_example.csv, tab delimited).',
                         const='NA', nargs='?')
     parser.add_argument('-i', '--index', nargs='?', default=None, const='no arg', metavar='"path/to/sqlite3"',
                         help='adds spatial index to spatial features. Python sqlite module must be compiled with rtree '

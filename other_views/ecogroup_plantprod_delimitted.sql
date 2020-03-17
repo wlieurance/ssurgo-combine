@@ -1,4 +1,4 @@
---creates a comma delimitted list of plants in an ecogroup in descending production order
+--creates a comma delimited list of plants in an ecogroup in descending production order
 SELECT a.ecogroup, coalesce(b.production, c.production) AS production
   FROM (SELECT ecogroup FROM soil.ecogroup_plantprod GROUP BY ecogroup) AS a
   LEFT JOIN (
