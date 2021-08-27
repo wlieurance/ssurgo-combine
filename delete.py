@@ -1,71 +1,38 @@
 #!/usr/bin/env python3
-import sqlite3 as sqlite
-import psycopg2
 import os
-import pyodbc
 import argparse
-import extract
 
+# custom
+import import_soil
 
-def delete_custom(dbpath, schema, dbtype, custom):
-    if dbtype == 'spatialite':
-        conn = sqlite.connect(dbpath)
-        conn.enable_load_extension(True)
-        c = conn.cursor()
-        c.execute("SELECT load_extension('mod_spatialite');")
-    if dbtype == 'postgis':
-        conn = psycopg2.connect(dbpath)
-        c = conn.cursor()
-    deltbls = [x.strip() for x in custom.split(',')]
-    sql = "DELETE FROM {schema}.{table};"
-    for tbl in deltbls:
-        print("DELETING ROWS FROM", tbl)
-        c.execute(sql.format(**{'schema': schema, 'table': tbl}))
-    conn.commit()
-
-
-def remove_custom(dbpath, schema, dbtype, remove):
-    if dbtype == 'spatialite':
-        conn = sqlite.connect(dbpath)
-        conn.enable_load_extension(True)
-        c = conn.cursor()
-        c.execute("SELECT load_extension('mod_spatialite');")
-    if dbtype == 'postgis':
-        conn = psycopg2.connect(dbpath)
-        c = conn.cursor()
+def remove_custom(db, schema):
+    db.open()
+    c = db.conn.cursor()
     sql = "DROP {type} IF EXISTS {schema}.{item};"
-    itemlist = []
-    if remove in ['ecosite', 'all']:
-        itemlist.append({'type': 'table', 'item': 'ecopolygon'})
-    if remove in ['ecogroup', 'all']:
-        itemlist.append({'type': 'view', 'item': 'ecogroup_area'})
-        itemlist.append({'type': 'view', 'item': 'ecogroup_mudominant'})
-        itemlist.append({'type': 'view', 'item': 'ecogroup_plantprod'})
-        itemlist.append({'type': 'view', 'item': 'ecogroup_unique'})
-        itemlist.append({'type': 'view', 'item': 'ecogroup_wide'})
-        itemlist.append({'type': 'view', 'item': 'ecogroup_mapunit_ranked'})
-        itemlist.append({'type': 'view', 'item': 'ecogroup_detail'})
-        itemlist.append({'type': 'table', 'item': 'ecogrouppolygon'})
-        itemlist.append({'type': 'table', 'item': 'ecogroup'})
-        itemlist.append({'type': 'table', 'item': 'ecogroup_meta'})
+    itemlist = [
+        {'type': 'table', 'item': 'ecopolygon'},
+        {'type': 'view', 'item': 'ecogroup_area'},
+        {'type': 'view', 'item': 'ecogroup_mudominant'},
+        {'type': 'view', 'item': 'ecogroup_plantprod'},
+        {'type': 'view', 'item': 'ecogroup_unique'},
+        {'type': 'view', 'item': 'ecogroup_wide'},
+        {'type': 'view', 'item': 'ecogroup_mapunit_ranked'},
+        {'type': 'view', 'item': 'ecogroup_detail'},
+        {'type': 'table', 'item': 'ecogrouppolygon'},
+        {'type': 'table', 'item': 'ecogroup'},
+        {'type': 'table', 'item': 'ecogroup_meta'}]
     for item in itemlist:
-        i = item
+        i = item.copy()
         i['schema'] = schema
         print("DROPPING", item['type'], item['item'])
         c.execute(sql.format(**i))
-    conn.commit()
+    db.conn.commit()
+    db.close()
 
 
-def delete_ssa(dbpath, schema, dbtype, ssa):
-    if dbtype == 'spatialite':
-        conn = sqlite.connect(dbpath)
-        conn.enable_load_extension(True)
-        c = conn.cursor()
-        c.execute("SELECT load_extension('mod_spatialite');")
-        c.execute("PRAGMA foreign_keys = ON;")
-    if dbtype == 'postgis':
-        conn = psycopg2.connect(dbpath)
-        c = conn.cursor()
+def delete_ssa(db, schema, ssa):
+    db.open()
+    c = db.conn.cursor()
     if ssa == 'all':
         print('CASCADE DELETING ALL Soil Survey Areas')
         c.execute("DELETE FROM {schema}.sacatalog;".format(**{'schema': schema}))
@@ -75,24 +42,19 @@ def delete_ssa(dbpath, schema, dbtype, ssa):
         for area in ssas:
             print("CASCADE DELETING Soil Survey Area:", area)
             c.execute(sql.format(**{'schema': schema, 'area': area.lower()}))
-    conn.commit()
+    db.conn.commit()
+    db.close()
 
 
-def delete_meta(dbpath, schema, dbtype):
-    if dbtype == 'spatialite':
-        conn = sqlite.connect(dbpath)
-        conn.enable_load_extension(True)
-        c = conn.cursor()
-        c.execute("SELECT load_extension('mod_spatialite');")
-        c.execute("PRAGMA foreign_keys = ON;")
-    if dbtype == 'postgis':
-        conn = psycopg2.connect(dbpath)
-        c = conn.cursor()
+def delete_meta(db, schema):
+    db.open()
+    c = db.conn.cursor()
     metalist = ['mdstatdommas', 'mdstattabs', 'month', 'sdvalgorithm', 'sdvattribute', 'sdvfolder']
     for meta in metalist:
         print('CASCADE DELETING', meta)
         c.execute("DELETE FROM {schema}.{meta};".format(**{'schema': schema, 'meta': meta}))
-    conn.commit()
+    db.conn.commit()
+    db.close()
 
 
 if __name__ == "__main__":
@@ -101,28 +63,31 @@ if __name__ == "__main__":
                                      description='This script can remove imported Soil Areas, custom features and user'
                                                  'data from a database previously created with the extract function.')
     # positional arguments
-    parser.add_argument('dbpath', metavar='CONNECTION_STRING',
-                        help='if db type is spatialite, then this is the path to the SpatialLite database to import '
-                             'into, (e.g. ("path/to/db.sqlite") which will be created if does not exist. Otherwise, '
-                             'this is the database connection string for your database. (e.g. "dbname=somedb '
-                             'user=someuser password=\'somepass\'" for postgis')
-    # or "server=SOME\SQLSERVER;database=somedb;trusted_connection=yes" for mssql)
-
-    # optional arguments
-    parser.add_argument('-x', '--schema', default='',
-                        help='tells the script what schema to use (do not use for spatialite, or use "main" '
-                             'for schema name)')
-    parser.add_argument('-t', '--type', metavar='DATABASE_TYPE', default='spatialite',
-                        help='decides which database type to import to: spatialite, postgis') #, or mssql
-    parser.add_argument('-d', '--delete', nargs='?', const='ecogroup,ecogroup_meta,ecopolygon,ecogrouppolygon',
-                        help='deletes data from all custom tables in features. provide comma separated list for '
-                             'choosing, specific tables')
-    parser.add_argument('-e', '--ecosite', action='store_true',
-                        help='removes the custom spatial feature called ecopolygon which shows the aggregate dominant '
-                             'ecological sites')
-    parser.add_argument('-g', '--groups', action='store_true',
-                        help='removes the custom spatial feature called ecogrouppolygon, the user uploaded tables of '
-                             '"ecogroup_meta" and "ecogroup", and any associated ecogroup based views')
+    parser.add_argument('-d', '--dbname',
+                        help='Either the path to the soils spatialite file database or the name of the'
+                             'database in a PostreSQL or SQL Server RDBMS instance to be created/updated.')
+    parser.add_argument('-H', '--host', default='localhost',
+                        help='The dns name or IP address of the database instance to which to connect '
+                             '(only for RDBMS connections).')
+    parser.add_argument('-i', '--instance',
+                        help='For SQL Sever connections, a named instance can be used instead of the port number '
+                             '(e.g. SQLEXPRESS).')
+    parser.add_argument('-P', '--port',
+                        help='The port on which the database instance is accepting connections. For SQL Server, '
+                             '--instance maybe be used instead.')
+    parser.add_argument('-u', '--user',
+                        help='The user name used to connect to the database instance '
+                             '(only for RDBMS connections). Not providing --user with a SQL Server connection will '
+                             'make the script assume a trusted connection.')
+    parser.add_argument('-p', '--password',
+                        help='The password used to connect to the database instance. Leaving this blank may require the'
+                             ' user to enter the password at a prompt for RDBMS connections.')
+    parser.add_argument('-S', '--schema', default='',
+                        help='tells the script what schema to use (only for RDBMS connections)')
+    parser.add_argument('-t', '--type', choices=['spatialite', 'postgis', 'mssql'], default='spatialite',
+                        help='which type of database on which to do the import.')
+    parser.add_argument('-d', '--delete', action='store_true',
+                        help='deletes data from all custom tables in features and drops tables.')
     parser.add_argument('-a', '--ssa', help='deletes specific soil survey areas from the database, as listed in the '
                                             '"ssa" field in the "legend" table (case insensitive). Provide comma '
                                             'separated list of soil survey areas to delete')
@@ -132,7 +97,7 @@ if __name__ == "__main__":
                         help='removes all data from the database.')
     args = parser.parse_args()
 
-    if not (args.delete or args.ssa or args.ecosite or args.groups or args.meta or args.wipe):
+    if not (args.delete or args.ssa or args.meta or args.wipe):
         print(os.linesep + "need one type of deletion provided (delete, ssa, ecosite, or groups) "
                            "to run this script." + os.linesep)
         quit()
@@ -142,18 +107,16 @@ if __name__ == "__main__":
             print("Sqlite database does not exist. Choose existing database.")
             quit()
 
-    schema = extract.get_default_schema(args.type, args.schema)
+    schema = import_soil.get_default_schema(args.type, args.schema)
+    my_db = import_soil.DbConnect(dbtype=args.type, user=args.user, dbname=args.dbname, port=args.port,
+                                  instance=args.instance, host=args.host, pwd=args.password)
     if args.delete:
-        delete_custom(args.dbpath, schema, args.type, args.delete)
-    if args.ecosite or args.wipe:
-        remove_custom(args.dbpath, schema, args.type, 'ecosite')
-    if args.groups or args.wipe:
-        remove_custom(args.dbpath, schema, args.type, 'ecogroup')
+        remove_custom(db=my_db, schema=schema)
     if args.wipe:
         ssa = 'all'
     else:
         ssa = args.ssa
     if args.ssa or args.wipe:
-        delete_ssa(args.dbpath, schema, args.type, ssa)
+        delete_ssa(db=my_db, schema=schema, ssa=ssa)
     if args.meta or args.wipe:
-        delete_meta(args.dbpath, schema, args.type)
+        delete_meta(db=my_db, schema=schema )

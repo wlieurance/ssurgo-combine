@@ -116,3 +116,4 @@ dmypy.json
 # ecogroups.csv
 # list.csv
 *.bak
+archive/
