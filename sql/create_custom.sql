@@ -31,7 +31,7 @@ SELECT ST_Multi(ST_Union(geom)) AS geom, ecoclassid_std, min(ecoclassname) AS ec
 
 ), eco_cleaned AS (
 SELECT ecoclassid_std, ecoclassname, ecotype, ecoarea_ha,
-       ST_ForcePolygonCCW(ST_CollectionExtract(ST_MakeValid(geom), 3)) AS geom
+       ST_ForcePolygonCW(ST_CollectionExtract(ST_MakeValid(geom), 3)) AS geom
   FROM eco_union
 
 ), eco_area AS (
