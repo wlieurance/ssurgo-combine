@@ -2085,8 +2085,7 @@ class SqlParser:
 
     def __str__(self):
         cr.init()
-        s = '\n\n----------------------------------' \
-            '----------------------------------------\n\n'.join(self.formatted)
+        s = ''.join(('\n\n', '-' * 70, '\n\n')).join(self.formatted)
         return s
 
     @staticmethod
@@ -2103,7 +2102,7 @@ class SqlParser:
         if my_state['lc'] or my_state['bc']:
             text = cr.Fore.YELLOW + my_chars
         elif any(v for (k, v) in my_state.items() if k in ['dt1', 'dc', 'dt2']):
-            text = cr.Fore.BLUE + my_chars
+            text = cr.Fore.MAGENTA + my_chars
         elif my_state['sq']:
             text = cr.Fore.RED + my_chars
         elif my_state['qi']:
@@ -2111,7 +2110,7 @@ class SqlParser:
         else:
             if reserved:
                 split_text = re.split(r'(\s+|,|;)', my_chars)
-                format_list = [cr.Fore.MAGENTA + cr.Style.BRIGHT +
+                format_list = [cr.Fore.BLUE + cr.Style.BRIGHT +
                                x if x.upper() in reserved else cr.Style.RESET_ALL + x
                                for x in split_text]
                 text = cr.Style.RESET_ALL + ''.join(format_list)
