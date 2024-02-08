@@ -1,9 +1,10 @@
 #!/usr/bin/env python3
 import os
 import argparse
-
+import sys
 # custom
 import import_soil
+
 
 def remove_custom(db, schema):
     db.open()
@@ -33,13 +34,12 @@ def remove_custom(db, schema):
 def delete_ssa(db, schema, ssa):
     db.open()
     c = db.conn.cursor()
-    if ssa == 'all':
+    if ssa[0] == 'all':
         print('CASCADE DELETING ALL Soil Survey Areas')
         c.execute("DELETE FROM {schema}.sacatalog;".format(**{'schema': schema}))
     else:
-        ssas = [x.strip() for x in ssa.split(',')]
         sql = "DELETE FROM {schema}.sacatalog WHERE lower(areasymbol) = '{area}';"
-        for area in ssas:
+        for area in ssa:
             print("CASCADE DELETING Soil Survey Area:", area)
             c.execute(sql.format(**{'schema': schema, 'area': area.lower()}))
     db.conn.commit()
@@ -63,60 +63,65 @@ if __name__ == "__main__":
                                      description='This script can remove imported Soil Areas, custom features and user'
                                                  'data from a database previously created with the extract function.')
     # positional arguments
-    parser.add_argument('-d', '--dbname',
-                        help='Either the path to the soils spatialite file database or the name of the'
-                             'database in a PostreSQL or SQL Server RDBMS instance to be created/updated.')
-    parser.add_argument('-H', '--host', default='localhost',
-                        help='The dns name or IP address of the database instance to which to connect '
-                             '(only for RDBMS connections).')
-    parser.add_argument('-i', '--instance',
-                        help='For SQL Sever connections, a named instance can be used instead of the port number '
-                             '(e.g. SQLEXPRESS).')
-    parser.add_argument('-P', '--port',
-                        help='The port on which the database instance is accepting connections. For SQL Server, '
-                             '--instance maybe be used instead.')
-    parser.add_argument('-u', '--user',
-                        help='The user name used to connect to the database instance '
-                             '(only for RDBMS connections). Not providing --user with a SQL Server connection will '
-                             'make the script assume a trusted connection.')
-    parser.add_argument('-p', '--password',
-                        help='The password used to connect to the database instance. Leaving this blank may require the'
-                             ' user to enter the password at a prompt for RDBMS connections.')
-    parser.add_argument('-S', '--schema', default='',
-                        help='tells the script what schema to use (only for RDBMS connections)')
-    parser.add_argument('-t', '--type', choices=['spatialite', 'postgis', 'mssql'], default='spatialite',
-                        help='which type of database on which to do the import.')
-    parser.add_argument('-d', '--delete', action='store_true',
-                        help='deletes data from all custom tables in features and drops tables.')
-    parser.add_argument('-a', '--ssa', help='deletes specific soil survey areas from the database, as listed in the '
-                                            '"ssa" field in the "legend" table (case insensitive). Provide comma '
-                                            'separated list of soil survey areas to delete')
-    parser.add_argument('-m', '--meta', action='store_true',
-                        help='deletes non-ssa specific metadata loaded into the database')
-    parser.add_argument('-w', '--wipe', action='store_true',
-                        help='removes all data from the database.')
-    args = parser.parse_args()
+    dbo = parser.add_argument_group('Database options')
+    dbo_grp = dbo.add_mutually_exclusive_group(required=True)
+    dbo_grp.add_argument('-D', '--dbpath',
+                         help='File path for the SpatiaLite database to be created/updated.')
+    dbo_grp.add_argument('-d', '--dbname',
+                         help='Name of the database in a PostreSQL instance to be created/updated.')
+    postgres = parser.add_argument_group('PostGIS options')
+    postgres.add_argument('-H', '--host', default='localhost',
+                          help='DNS name or IP address of the database instance to which to connect')
+    # parser.add_argument('-i', '--instance',
+    #                     help='For SQL Sever connections, a named instance can be used instead of the port number '
+    #                          '(e.g. SQLEXPRESS).')
+    postgres.add_argument('-P', '--port',
+                          help='Port on which the database instance is accepting connections.')
+    postgres.add_argument('-u', '--user',
+                          help='User name used to connect to the database instance')
+    postgres.add_argument('-p', '--password',
+                          help='Password used to connect to the database instance. Leaving this blank may require '
+                               'the user to enter the password at a prompt.')
+    postgres.add_argument('-S', '--schema', default='',
+                          help='Schema to use within database')
+    delete = parser.add_argument_group('Deletion options')
+    delete_ex = delete.add_mutually_exclusive_group(required=True)
+    delete_ex.add_argument('-x', '--delete', action='store_true',
+                           help='Deletes custom ecosite and ecogroup tables.')
+    delete_ex.add_argument('-a', '--ssa', nargs='+',
+                           help='deletes specific soil survey areas from the database, as listed in the '
+                                '"ssa" field in the "legend" table (case insensitive).')
+    delete_ex.add_argument('-m', '--meta', action='store_true',
+                           help='deletes non-ssa specific metadata loaded into the database in the following tables:'
+                                '("mdstatdommas", "mdstattabs", "month", "sdvalgorithm", "sdvattribute", "sdvfolder")')
+    delete_ex.add_argument('-w', '--wipe', action='store_true',
+                           help='removes all data from the database.')
 
-    if not (args.delete or args.ssa or args.meta or args.wipe):
-        print(os.linesep + "need one type of deletion provided (delete, ssa, ecosite, or groups) "
-                           "to run this script." + os.linesep)
-        quit()
+    my_args = sys.argv[1:]
+    args = parser.parse_args(my_args)
 
-    if args.type == 'spatialite':
+    if args.dbpath is None and args.dbname is not None:
+        dbtype = 'postgis'
+    elif args.dbpath is not None and args.dbname is None:
+        dbtype = 'spatialite'
+    else:
+        dbtype = None
+
+    if dbtype == 'spatialite':
         if not os.path.isfile(args.dbpath):
             print("Sqlite database does not exist. Choose existing database.")
             quit()
 
-    schema = import_soil.get_default_schema(args.type, args.schema)
-    my_db = import_soil.DbConnect(dbtype=args.type, user=args.user, dbname=args.dbname, port=args.port,
-                                  instance=args.instance, host=args.host, pwd=args.password)
+    my_schema = import_soil.get_default_schema(dbtype, args.schema)
+    my_db = import_soil.DbConnect(dbtype=dbtype, dbpath=args.dbpath, user=args.user, dbname=args.dbname, port=args.port,
+                                  host=args.host, pwd=args.password)
     if args.delete:
-        remove_custom(db=my_db, schema=schema)
+        remove_custom(db=my_db, schema=my_schema)
     if args.wipe:
-        ssa = 'all'
+        ssa = ['all']
     else:
         ssa = args.ssa
     if args.ssa or args.wipe:
-        delete_ssa(db=my_db, schema=schema, ssa=ssa)
+        delete_ssa(db=my_db, schema=my_schema, ssa=ssa)
     if args.meta or args.wipe:
-        delete_meta(db=my_db, schema=schema )
+        delete_meta(db=my_db, schema=my_schema)
