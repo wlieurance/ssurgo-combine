@@ -239,6 +239,7 @@ SELECT * FROM prod_wgt_sum;
 
 
 /* Spatial view showing dominant ecogroup per polygon with area percentage of ecogroup. Inserted into table for usefulness and speed. */
+-- CW polygons are topologically correct for ArcGIS use
 INSERT INTO {schema}.ecogrouppolygon (ecogroup, groupname, grouptype, pub_status, area_ha, ecogrouppct, geom)
 WITH subgroup AS (
 SELECT * 
@@ -259,7 +260,7 @@ SELECT ST_Multi(ST_Union(geom)) AS geom, ecogroup, min(groupname) AS groupname, 
 
 ), group_cleaned AS (
 SELECT ecogroup, groupname, grouptype, pub_status, ecogrouparea_ha,  
-       ST_ForcePolygonCCW(ST_CollectionExtract(ST_MakeValid(geom), 3)) AS geom
+       ST_ForcePolygonCW(ST_CollectionExtract(ST_MakeValid(geom), 3)) AS geom
   FROM group_union
 
 ), group_area AS (
