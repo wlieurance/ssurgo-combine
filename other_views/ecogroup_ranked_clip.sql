@@ -3,7 +3,7 @@
 WITH clip_table AS (
 SELECT group_cols, geom
   FROM my_table
- WHERE some_col IN = 'something'
+ WHERE some_col = 'something'
  
 ), clip AS (
 SELECT x.areasymbol, x.spatialver, x.musym, x.mukey,
