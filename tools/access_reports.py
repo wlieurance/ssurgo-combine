@@ -62,7 +62,8 @@ def close_connection(obj, mod=None):
         mod = None
 
 
-def generate_reports(scanpath, reports, musyms=None, overwrite=False, outfolder=None, filter_text=''):
+def generate_reports(scanpath, reports, musyms=None, overwrite=False, outfolder=None, filter_text='', list=False,
+                     sa=None):
     # ac = win32com.client.gencache.EnsureDispatch("Access.Application")
     ac = win32com.client.Dispatch("Access.Application")
     # ac.Visible = False
@@ -90,22 +91,50 @@ def generate_reports(scanpath, reports, musyms=None, overwrite=False, outfolder=
                     except pyodbc.ProgrammingError:
                         not_ssurgo = True
                     else:
-                        print('Exporting reports in', file_path)
+                        if not list:
+                            print('Exporting reports in', file_path)
                         rows = c.fetchall()
                         if rows:
-                            sa_text = '_v'.join((rows[0][0], str(rows[0][1])))
-                            if len(rows) > 1:
-                                sa_text += '_etal'
-                            c.execute("SELECT * FROM mapunit")
-                            mus = c.fetchall()
-                            if len(mus) <= 1:
-                                notcom = True
+                            soil_area = rows[0][0]
+                            soil_version = rows[0][1]
+                            sa_int_str = re.findall(r"^([a-zA-Z]{2})(\d{3})$", soil_area)
+                            if sa_int_str:
+                                sa_state = sa_int_str[0][0]
+                                sa_int = int(sa_int_str[0][1])
                             else:
+                                sa_state = None
+                                sa_int = None
+                            if sa is not None:
+                                if sa[1] and sa[2]:
+                                    test = "'{}{}' {} '{}{}'".format(sa_state, sa_int, sa[0], sa[1], sa[2])
+                                elif sa[1]:
+                                    test = "'{}' {} '{}'".format(sa_state, sa[0], sa[1])
+                                elif sa[2]:
+                                    test = "{} {} {}".format(sa_int, sa[0], sa[2])
+                                else:
+                                    test = "False"
+                            else:
+                                test = "True"
+                            if eval(test):
+                                sa_text = '_v'.join((soil_area, str(soil_version)))
+                                if len(rows) > 1:
+                                    sa_text += '_etal'
+                                c.execute("SELECT * FROM mapunit")
+                                mus = c.fetchall()
+                                if len(mus) <= 1:
+                                    notcom = True
                                 report_sql = "SELECT [Report Key], [Access Report Name], [Report Name] " \
                                              "  FROM [SYSTEM - Soil Reports] " \
                                              " WHERE [Include Report] = True " \
                                              "   AND [Parameters Required]=False"
                                 avail_reports = c.execute(report_sql).fetchall()
+                                if list:
+                                    report_text = os.linesep.join(
+                                        [''.join([''.join((str(x[0]) + ':')).ljust(10), x[2]]) for x in
+                                         avail_reports])
+                                    print(report_text, '\n')
+                                    con.close()
+                                    return 0, 0, None
                                 avail_keys = [x[0] for x in avail_reports]
                                 in_reports = [r for r in reports if r in avail_keys]
                                 out_reports = [r for r in reports if r not in avail_keys]
@@ -115,7 +144,7 @@ def generate_reports(scanpath, reports, musyms=None, overwrite=False, outfolder=
                         else:
                             empty = True
                     con.close()
-                    if not (not_ssurgo or notcom or empty):
+                    if not (not_ssurgo or notcom or empty) and eval(test):
                         try:
                             ac.OpenCurrentDatabase(file_path)
                         except pywintypes.com_error:
@@ -186,6 +215,8 @@ def generate_reports(scanpath, reports, musyms=None, overwrite=False, outfolder=
                             print(file_path, "Soil survey is not completed. Skipping... ")
                         elif empty:
                             print(file_path, "does not appear to be populated. Skipping...")
+                        elif not eval(test):
+                            print(file_path, "Skipped by manual filtering (--sa_filter)")
                         else:
                             print("Unknown skip reason.")
                 else:
@@ -213,8 +244,12 @@ if __name__ == "__main__":
                                          '{}'.format(report_text))))
     # positional arguments
     parser.add_argument('scanpath', help='path to recursively scan for populated MS Access SSURGO databases.')
-    parser.add_argument('-r', '--report', nargs='+',  type=int,
+    regular = parser.add_mutually_exclusive_group()
+    regular.add_argument('-r', '--report', nargs='+',  type=int,
                         help='the report key(s) of the MS Access report to export.')
+    regular.add_argument('-l', '--list', action='store_true',
+                        help='list the report keys and descriptions of the first MS Access report to be encountered '
+                             'on scanpath.')
     parser.add_argument('-o', '--overwrite', action='store_true',
                         help='overwrite reports if a file of the same name already exists.')
     parser.add_argument('-p', '--out_path',
@@ -223,6 +258,10 @@ if __name__ == "__main__":
     parser.add_argument('-f', '--filter', default='',
                         help='A text string which must be present in the file name of the MS Access database to '
                              'process it.')
+    parser.add_argument('-F', '--sa_filter', help='A text string in the format of "[!<>=]=(ST)###" where "ST" is the '
+                                                  'state abbreviation (optional) and ### is the soil area number which '
+                                                  'to filter above, below, or at. (also optional, though one or the '
+                                                  'other must be given)')
     group = parser.add_mutually_exclusive_group()
     group.add_argument('-m', '--musym', nargs='+',
                        help='map unit symbol(s) to which the report is restricted.')
@@ -233,7 +272,7 @@ if __name__ == "__main__":
 
     # check for valid arguments
     if not os.path.isdir(args.scanpath):
-        print(scanpath, "does not exist. Please choose an existing path to search.")
+        print(args.scanpath, "does not exist. Please choose an existing path to search.")
         quit()
     if args.musym_file is not None:
         if not os.path.isfile(args.musym_file):
@@ -243,7 +282,15 @@ if __name__ == "__main__":
         if not os.path.isdir(args.out_path):
             print(args.out_path, "does not exist. Please choose an existing directory.")
             quit()
-
+    if args.sa_filter is not None:
+        good = re.findall(r"^([<>!=]?=?)([A-Za-z]{2})*(\d{1,3})*$", args.sa_filter)
+        if not good:
+            print("--sa_filter object not correctly formed.")
+            quit()
+        else:
+            sa = (good[0][0], good[0][1], int(good[0][2]))
+    else:
+        sa = None
     if args.musym is not None:
         musyms = args.musym
     elif args.musym_file is not None:
@@ -253,7 +300,7 @@ if __name__ == "__main__":
     else:
         musyms = None
     i, j, s = generate_reports(scanpath=args.scanpath, reports=args.report, musyms=musyms, overwrite=args.overwrite,
-                               outfolder=args.out_path, filter_text=args.filter)
+                               outfolder=args.out_path, filter_text=args.filter, list=args.list, sa=sa)
     print('Exported', i, 'reports from', j, 'soil databases.')
     if s:
         print('Skipped the following databases due to filter option:')
