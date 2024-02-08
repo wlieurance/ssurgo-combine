@@ -371,6 +371,46 @@ SELECT i.ecoclassid_std, j.ecoclassid, j.ecoclassname, j.ecoclassname_std,
   LEFT JOIN eco_select AS j ON i.ecoclassid_std = j.ecoclassid_std;
 
 
+/* This view will create a list of unique plants and their % production values by component*/
+CREATE OR REPLACE VIEW {schema}.component_plantprod AS
+WITH forest_species AS (
+SELECT plantsym, plantsciname, plantcomname, fprod_r, cokey, cofprodkey
+  FROM {schema}.coforprod
+ WHERE fprod_r > 0 
+
+), forest_all AS (
+SELECT cokey, sum(fprod_r) fprod_sum
+  FROM {schema}.coforprod
+ WHERE fprod_r IS NOT NULL
+ GROUP BY cokey
+HAVING sum(fprod_r) > 0
+
+), forest_species_calc AS (
+SELECT a.*, b.fprod_sum, CAST(round((CAST(a.fprod_r AS NUMERIC)/CAST(b.fprod_sum AS NUMERIC) * 100), 0) AS INTEGER) forestprod 
+  FROM forest_species a 
+ INNER JOIN forest_all b ON a.cokey = b.cokey
+
+), base AS (
+SELECT d.cokey,
+       d.plantsym, d.plantsciname, d.plantcomname, d.rangeprod AS prod, 'range' AS prodtype
+  FROM {schema}.coeplants AS d
+ WHERE d.rangeprod IS NOT NULL
+ UNION
+SELECT d.cokey,
+       d.plantsym, d.plantsciname, d.plantcomname, d.forestunprod AS prod, 'forest understory' AS prodtype
+  FROM {schema}.coeplants AS d
+ WHERE d.forestunprod IS NOT NULL
+ UNION
+SELECT d.cokey,
+       d.plantsym, d.plantsciname, d.plantcomname, d.forestprod AS prod, 'forest' AS prodtype
+  FROM forest_species_calc AS d
+ WHERE d.forestprod IS NOT NULL
+)
+
+SELECT cokey, plantsym, plantsciname, plantcomname, prodtype, prod 
+  FROM base;
+
+
 /* This view will create a list of unique plants and their % production values, weighted by component area within map units */
 CREATE OR REPLACE VIEW {schema}.coecoclass_plantprod AS
 WITH forest_species AS (
@@ -452,7 +492,6 @@ SELECT v.ecoclassid_std, v.ecoclassid, v.ecoclassname_std, v.plantsym, v.plantsc
 )
 
 SELECT * FROM prod_wgt_sum;
-
 
 /* Creates a list of components per map unit key ranked by total area */
 CREATE OR REPLACE VIEW {schema}.component_mapunit_ranked AS
