@@ -3,6 +3,8 @@ import os
 import csv
 import argparse
 import shutil
+import re
+import copy
 
 
 def get_meta(scanpath, verbose=False):
@@ -29,33 +31,48 @@ def get_meta(scanpath, verbose=False):
 
 def rename_dirs(meta_list, verbose=True):
     dir_altered = 0
+    new_meta = list()
     for m in meta_list:
+        n = copy.deepcopy(m)
         root = os.path.dirname(os.path.dirname(os.path.dirname(m['path'])))
         dir = os.path.basename(os.path.dirname(os.path.dirname(m['path'])))
         # tabdir = os.path.basename(os.path.dirname(m['path']))
         meta_text = '_v'.join((m['areasymbol'], m['saversion']))
+        old_dir = os.path.join(root, dir)
+        new_dir = os.path.join(root, meta_text)
         if dir != meta_text:
             if verbose:
-                print('Renaming', os.path.join(root, dir), 'to', os.path.join(root, meta_text))
+                print('Renaming', old_dir, 'to', new_dir)
             try:
-                os.rename(os.path.join(root, dir), os.path.join(root, meta_text))
+                os.rename(old_dir, new_dir)
             except:
-                print('Error renaming', os.path.join(root, dir), 'to', os.path.join(root, meta_text))
+                print('Error renaming', old_dir, 'to', new_dir)
+                n['old_path'] = None
             else:
                 dir_altered += 1
-    return dir_altered
+                n['old_path'] = n['path']
+                n['path'] = n['path'].replace(old_dir, new_dir)
+
+        else:
+            n['old_path'] = None
+        new_meta.append(n)
+    return dir_altered, new_meta
 
 
 def rename_files(meta_list, verbose=True):
     f_altered = 0
     for m in meta_list:
-        base_dir = os.path.dirname(os.path.dirname(os.path.dirname(m['path'])))
+        base_dir = os.path.dirname(os.path.dirname(m['path']))
         meta_text = '_v'.join((m['areasymbol'], m['saversion']))
         for root, dirs, files in os.walk(base_dir, topdown=True):
             for f in files:
                 ext = os.path.splitext(f)[1]
-                base = os.path.splitext(f)[0]
-                if ext in ['.mdb', '.accdb']:
+                base_find = re.findall(r"^(soildb_[A-Z]{2}_\d{4}).*", os.path.splitext(f)[0])
+                if base_find:
+                    base = base_find[0]
+                else:
+                    base = None
+                if ext in ['.mdb', '.accdb'] and base is not None:
                     f_new = ''.join((base, '_', meta_text, ext))
                     if verbose:
                         print('Renaming', os.path.join(root, f), 'to', os.path.join(root, f_new))
@@ -66,6 +83,7 @@ def rename_files(meta_list, verbose=True):
                     else:
                         f_altered += 1
             break  # prevents looking into deeper subdirs
+
     return f_altered
 
 
@@ -126,7 +144,7 @@ if __name__ == "__main__":
     meta = get_meta(scanpath=args.scanpath)
     if meta:
         if args.rename_dirs:
-            rd = rename_dirs(meta_list=meta)
+            rd, meta = rename_dirs(meta_list=meta)
             print('Renamed', rd, 'directories.')
         if args.rename_access:
             rf = rename_files(meta_list=meta)
