@@ -6,8 +6,8 @@ import psycopg2
 import pyodbc
 import argparse
 import shapefile
-import pygeoif
 import getpass
+from pygeoif.factories import shape as asShape
 
 # custom modules
 import create_ecogroups
@@ -92,8 +92,9 @@ feature_list = ['featline', 'featpoint', 'muline', 'mupoint', 'mupolygon', 'sapo
 
 
 class DbConnect:
-    def __init__(self, dbtype, dbname, user=None, port=None, instance=None, host='localhost', pwd=None, schema=None):
-        self.dbtype = dbtype
+    def __init__(self, dbtype, dbpath, dbname, user=None, port=None, instance=None, host='localhost', pwd=None,
+                 schema=None):
+        self.dbpath = dbpath
         self.user = user
         self.dbname = dbname
         self.port = port
@@ -105,25 +106,38 @@ class DbConnect:
         self.server = None
         self.conn = None
         self.connected = False
+        self.dbtype = dbtype
 
     def open(self):
         if self.dbtype == 'spatialite':
-            self.conn = sqlite.connect(self.dbname)
+            self.conn = sqlite.connect(self.dbpath)
             self.conn.enable_load_extension(True)
             self.conn.execute("SELECT load_extension('mod_spatialite');")
             self.conn.execute("PRAGMA foreign_keys = ON;")
             self.connected = True
         elif self.dbtype == 'postgis':
-            if self.pwd is None:
-                self.pwd = getpass.getpass()
+            # if self.pwd is None:
+            #     self.pwd = getpass.getpass()
             if self.user is None:
                 self.user = 'postgres'
             if self.port is None:
                 self.port = 5432
             if self.dbname is None:
                 self.dbname = 'postgres'
-            self.conn = psycopg2.connect(user=self.user, host=self.host, dbname=self.dbname, port=self.port,
+            try:
+                self.conn = psycopg2.connect(user=self.user, host=self.host, dbname=self.dbname, port=self.port,
                                          password=self.pwd)
+            except psycopg2.OperationalError as e:
+                # print(e)
+                if 'fe_sendauth: no password supplied' in str(e):
+                    self.pwd = getpass.getpass(prompt='Password: ')
+                    try:
+                        self.conn = psycopg2.connect(user=self.user, host=self.host, dbname=self.dbname, port=self.port,
+                                                     password=self.pwd)
+                    except psycopg2.OperationalError as e2:
+                        if 'password authentication failed' in str(e2):
+                            print('Password authentication failed')
+                            raise e2
             self.connected = True
             if self.schema:
                 self.conn.execute(f"SET search_path = {self.schema};")
@@ -280,7 +294,7 @@ def set_csv_limit():
             decrement = True
 
 
-def scan_insert(db, schema, scanpath, snap, repair, skip, survey_areas, ignore=True):
+def scan_insert(db, schema, scanpath, snap, repair, skip, survey_areas, stype, ignore=True):
     """scans the scanpath and inserts new tabular and spatial data from soil areas that do not exist into the DB."""
     # define variables
     si_support = True
@@ -289,22 +303,27 @@ def scan_insert(db, schema, scanpath, snap, repair, skip, survey_areas, ignore=T
             for i in tabular_list:
                 if s == i[1]:
                     tabular_list.remove(i)
+    if stype == 'esri':
+        poly_dir = 'ST_ForcePolygonCW({})'
+    else:
+        poly_dir = 'ST_ForcePolygonCCW({})'
 
     if snap == 0:
         if repair:
-            geom = "ST_Multi(ST_Union(ST_MakeValid(geom)))"
+            geom = poly_dir.format("ST_Multi(ST_Union(ST_MakeValid(geom)))")
             print("Importing: no snapping with repair...")
         else:
-            geom = "ST_Multi(ST_Union(geom))"
+            geom = poly_dir.format("ST_Multi(ST_Union(geom))")
             print("Importing: no snapping no repair...")
     else:
         # '{:.20f}'.format(snap/111319.9) converts meters to decimal degrees and formats for non-scientific notation
         if repair:
-            geom = "ST_SnapToGrid(ST_Multi(ST_Union(ST_MakeValid(geom))), {!s})"\
-                .format('{:.20f}'.format(snap/111319.9))
+            geom = poly_dir.format("ST_SnapToGrid(ST_Multi(ST_Union(ST_MakeValid(geom))), {!s})"
+                                   .format('{:.20f}'.format(snap/111319.9)))
             print("Importing with snapping with repair...")
         else:
-            geom = "ST_SnapToGrid(ST_Multi(ST_Union(geom)), {!s})".format('{:.20f}'.format(snap/111319.9))
+            geom = poly_dir.format("ST_SnapToGrid(ST_Multi(ST_Union(geom)), {!s})"
+                                   .format('{:.20f}'.format(snap/111319.9)))
             print("Importing with snapping no repair...")
         
     soilmu_a_sql = (f"SELECT {geom}, AREASYMBOL, SPATIALVER, MUSYM, MUKEY"
@@ -333,12 +352,12 @@ def scan_insert(db, schema, scanpath, snap, repair, skip, survey_areas, ignore=T
                     " GROUP BY AREASYMBOL, SPATIALVER, FEATSYM, FEATKEY")
 
     spatial_list = [
-        ('soilsa_a', 'sapolygon', 'geom, areasymbol, spatialver, lkey', soilsa_a_sql),
-        ('soilsf_l', 'featline', 'geom, areasymbol, spatialver, featsym, featkey', soilsf_l_sql),
-        ('soilsf_p', 'featpoint', 'geom, areasymbol, spatialver, featsym, featkey', soilsf_p_sql),
-        ('soilmu_l', 'muline', 'geom, areasymbol, spatialver, musym, mukey', soilmu_l_sql),
-        ('soilmu_p', 'mupoint', 'geom, areasymbol, spatialver, musym, mukey', soilmu_p_sql),
-        ('soilmu_a', 'mupolygon', 'geom, areasymbol, spatialver, musym, mukey', soilmu_a_sql)
+        ('soilsa_a', 'sapolygon', 'geom, areasymbol, spatialver, lkey', soilsa_a_sql, 'poly'),
+        ('soilsf_l', 'featline', 'geom, areasymbol, spatialver, featsym, featkey', soilsf_l_sql, 'line'),
+        ('soilsf_p', 'featpoint', 'geom, areasymbol, spatialver, featsym, featkey', soilsf_p_sql, 'point'),
+        ('soilmu_l', 'muline', 'geom, areasymbol, spatialver, musym, mukey', soilmu_l_sql, 'line'),
+        ('soilmu_p', 'mupoint', 'geom, areasymbol, spatialver, musym, mukey', soilmu_p_sql, 'point'),
+        ('soilmu_a', 'mupolygon', 'geom, areasymbol, spatialver, musym, mukey', soilmu_a_sql, 'poly')
     ]
 
     temp_sql = SqlParser(file='sql/create_tables_temp.sql')
@@ -381,7 +400,7 @@ def scan_insert(db, schema, scanpath, snap, repair, skip, survey_areas, ignore=T
                     else:
                         current_dict['status'] = 'new'
                         current_dict['vold'] = None
-                import_list.append(current_dict)
+                    import_list.append(current_dict)
 
     skip = [x for x in import_list if x['status'] == 'skip']
     for s in skip:
@@ -451,7 +470,7 @@ def scan_insert(db, schema, scanpath, snap, repair, skip, survey_areas, ignore=T
                     sf = shapefile.Reader(os.path.join(root, f))
                     shrecs = sf.shapeRecords()
                     for rec in shrecs:
-                        wkt = ''.join(("ST_GeomFromText('", str(pygeoif.geometry.as_shape(rec.shape)), "', 4326)"))
+                        wkt = ''.join(("ST_GeomFromText('", str(asShape(rec.shape)), "', 4326)"))
                         sql = isql.format(wkt=wkt)
                         c.execute(sql, rec.record)
                     gsql = f"INSERT INTO {schema}.{tbl} ({insert_text}) " \
@@ -486,7 +505,7 @@ def scan_insert(db, schema, scanpath, snap, repair, skip, survey_areas, ignore=T
     return new_imports, si_support
 
 
-def repair_geom(db, schema, featlist):
+def repair_geom(db, schema, featlist, stype):
     """repairs geometries of final spatial features if that option was selected"""
     db.open()
     c = db.conn.cursor()
@@ -501,12 +520,21 @@ def repair_geom(db, schema, featlist):
               ('ecopolygon', 'ecoclassid_std, ecoclassname, ecotype, area_ha, ecopct', 3),
               ('ecogrouppolygon', 'ecogroup, groupname, grouptype, pub_status, area_ha, ecogrouppct', 3)]
     use_tables = [k for k in tables if k[0] in featlist]  # restricts tables to only features that exist (featlist)
-    
+    if stype == 'esri':
+        poly_dir = 'ST_ForcePolygonCW({})'
+    else:
+        poly_dir = 'ST_ForcePolygonCCW({})'
+
     for t in use_tables:
         tbl = '.'.join((schema, t[0]))
         print("Repairing {!s} geometries...".format(t[0]))
-        temp_sql = ("CREATE TEMP TABLE {!s}_temp AS SELECT {!s}, ST_Multi(ST_CollectionExtract(ST_MakeValid(geom), "
-                    "{!s})) AS geom FROM {!s};".format(t[0], t[1], t[2], tbl))
+        temp_sql = '\n'.join((
+            f"CREATE TEMP TABLE {t[0]}_temp AS",
+            f"SELECT {t[1]},",
+            "".join(('       ', poly_dir.format(f"ST_Multi(ST_CollectionExtract(ST_MakeValid(geom), {t[2]})"),
+            ") AS geom")),
+            f"  FROM {tbl};"
+        ))
         c.execute(temp_sql)
         c.execute("DELETE FROM {!s};".format(tbl))
         isql = "INSERT INTO {!s} ({!s}) SELECT {!s} FROM {!s}_temp;"\
@@ -607,60 +635,74 @@ if __name__ == "__main__":
     parser.add_argument('scanpath', help='path to recursively scan for SSURGO files')
 
     # optional arguments
-    dbpath_default = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'soils.sqlite')
-    parser.add_argument('-d', '--dbname', default=dbpath_default,
-                        help='Either the path to the soils spatialite file database or the name of the'
-                             'database in a PostreSQL or SQL Server RDBMS instance to be created/updated.')
-    parser.add_argument('-H', '--host', default='localhost',
-                        help='The dns name or IP address of the database instance to which to connect '
-                             '(only for RDBMS connections).')
+    # dbpath_default = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'soils.sqlite')
+    dbo = parser.add_argument_group('Database options')
+    dbo_grp = dbo.add_mutually_exclusive_group(required=True)
+    dbo_grp.add_argument('-D', '--dbpath',
+                         help='File path for the SpatiaLite database to be created/updated.')
+    dbo_grp.add_argument('-d', '--dbname',
+                          help='Name of the database in a PostreSQL instance to be created/updated.')
+    postgres = parser.add_argument_group('PostGIS options')
+    postgres.add_argument('-H', '--host', default='localhost',
+                          help='DNS name or IP address of the database instance to which to connect')
     # parser.add_argument('-i', '--instance',
     #                     help='For SQL Sever connections, a named instance can be used instead of the port number '
     #                          '(e.g. SQLEXPRESS).')
-    parser.add_argument('-P', '--port',
-                        help='The port on which the database instance is accepting connections. For SQL Server, '
-                             '--instance maybe be used instead.')
-    parser.add_argument('-u', '--user',
-                        help='The user name used to connect to the database instance '
-                             '(only for RDBMS connections). Not providing --user with a SQL Server connection will '
-                             'make the script assume a trusted connection.')
-    parser.add_argument('-p', '--password',
-                        help='The password used to connect to the database instance. Leaving this blank may require the'
-                             ' user to enter the password at a prompt for RDBMS connections.')
-    parser.add_argument('-S', '--schema', default='',
-                        help='tells the script what schema to use (only for RDBMS connections)')
-    parser.add_argument('-t', '--type', choices=['spatialite', 'postgis'], default='spatialite',  # , 'mssql'
-                        help='which type of database on which to do the import.')
-    parser.add_argument('-e', '--ecosite', action='store_true',
-                        help='creates a spatial feature called ecopolygon which shows the aggregate dominant '
-                             'ecological sites')
-    parser.add_argument('-g', '--groups', nargs=2, metavar=("path/to/ecogroup_meta.csv", "/path/to/ecogroup.csv"),
-                        help='paths of the csv files containing the ecological group metadata and the sites '
-                             'within each ecogroup (see ecogroups_example.csv and ecogroups_meta_example.csv, '
-                             'tab delimited).')
-    parser.add_argument('-r', '--repair', action='store_true',
-                        help='attempts to repair any faulty geometry in original features and faulty geometries '
-                             'produced by the --snap option')
-    parser.add_argument('-R', '--restrict', metavar='"path/to/list.csv"',
-                        help='restricts imports to just those found in a comma delimited list (see list_example.csv)')
-    parser.add_argument('-s', '--snap', default=0, type=float, metavar='grid_size_m',
-                        help='the grid size (in meters) to snap features to')
-    parser.add_argument('-k', '--skip', nargs='*',
-                        help='Table(s) to skip during the import (e.g. cointerp). '
-                             'WARNING: skipping tables can be dangerous if they are referenced by a FOREIGN KEY '
-                             'CONSTRAINT. Use caution.')
-    parser.add_argument('-f', '--force', action='store_true',
-                        help='will force the recreation/repair of ecosite and ecogroup layers even if no new imports '
-                             'are found')
+    postgres.add_argument('-P', '--port',
+                          help='Port on which the database instance is accepting connections.')
+    postgres.add_argument('-u', '--user',
+                          help='User name used to connect to the database instance')
+    postgres.add_argument('-p', '--password',
+                          help='Password used to connect to the database instance. Leaving this blank may require '
+                               'the user to enter the password at a prompt.')
+    postgres.add_argument('-S', '--schema', default='',
+                          help='Schema to use within database')
+    # parser.add_argument('-t', '--type', choices=['spatialite', 'postgis'], default='spatialite',  # , 'mssql'
+    #                     help='which type of database on which to do the import.')
+    eco = parser.add_argument_group('Ecosite / Ecogroup options')
+    eco.add_argument('-e', '--ecosite', action='store_true',
+                     help='creates a spatial feature called ecopolygon which shows the aggregate dominant '
+                          'ecological sites')
+    eco.add_argument('-g', '--groups', nargs=2, metavar=("path/to/ecogroup_meta.csv", "/path/to/ecogroup.csv"),
+                     help='Paths of the csv files containing the ecological group metadata and the sites '
+                          'within each ecogroup (see ecogroups_example.csv and ecogroups_meta_example.csv, '
+                          'tab delimited).')
+    geo = parser.add_argument_group('Geometry options')
+    geo.add_argument('-r', '--repair', action='store_true',
+                     help='Attempts to repair any faulty geometry in original features and faulty geometries '
+                          'produced by the --snap option')
+    geo.add_argument('-s', '--snap', default=0, type=float, metavar='grid_size_m',
+                     help='the grid size (in meters) to snap features to')
+    geo.add_argument('-f', '--force', action='store_true',
+                     help='Will force the recreation/repair of ecosite and ecogroup layers even if no new imports '
+                          'are found')
+    geo.add_argument('-t', '--spatial_type', choices=['sf', 'esri'], default='sf',
+                     help='Polygon construction method. "sf" will use the ISO 19125-1 OGC Simple Features standard '
+                          '(CCW), and "esri" will use the ESRI/Arc standard (CW).')
+    impt = parser.add_argument_group('Import options')
+    impt.add_argument('-R', '--restrict', metavar='"path/to/list.csv"',
+                      help='Restricts imports to just those found in a comma delimited list '
+                           '(see examples/list_example.csv)')
+    impt.add_argument('-k', '--skip', nargs='*',
+                      help='Table(s) to skip during the import (e.g. cointerp). '
+                           'WARNING: skipping tables can be dangerous if they are referenced by a FOREIGN KEY '
+                           'CONSTRAINT. Use caution.')
+    my_args = sys.argv[1:]
+    args = parser.parse_args(my_args)
 
-    args = parser.parse_args()
+    if args.dbpath is None and args.dbname is not None:
+        dbtype = 'postgis'
+    elif args.dbpath is not None and args.dbname is None:
+        dbtype = 'spatialite'
+    else:
+        dbtype = None
 
     # check for valid arguments
     if not os.path.isdir(args.scanpath):
         print("scanpath does not exist. Please choose an existing path to search.")
         quit()
-    if args.type == 'spatialite':
-        if not os.path.isdir(os.path.dirname(args.dbname)):
+    if args.dbpath is not None:
+        if not os.path.isdir(os.path.dirname(args.dbpath)):
             print("dbpath directory does not exist. Please choose an existing path to create db in.")
             quit()
 
@@ -695,15 +737,15 @@ if __name__ == "__main__":
     else:
         sa = ''
     set_csv_limit()
-    my_schema = get_default_schema(args.type, args.schema)
-    my_db = DbConnect(dbtype=args.type, user=args.user, dbname=args.dbname, port=args.port,  # instance=args.instance,
-                      host=args.host, pwd=args.password)
+    my_schema = get_default_schema(dbtype, args.schema)
+    my_db = DbConnect(dbtype=dbtype, dbpath=args.dbpath, user=args.user, dbname=args.dbname, port=args.port,
+                      host=args.host, pwd=args.password)  # instance=args.instance,
     is_new, eco, grp = initdb(db=my_db, schema=my_schema)
     has_new_imports, si = scan_insert(db=my_db, schema=my_schema, scanpath=args.scanpath, snap=args.snap,
-                                      repair=args.repair, skip=args.skip, survey_areas=sa)
+                                      repair=args.repair, skip=args.skip, survey_areas=sa, stype=args.spatial_type)
 
     if (args.repair and has_new_imports) or (args.repair and args.force):
-        repair_geom(db=my_db, schema=my_schema, featlist=feature_list)
+        repair_geom(db=my_db, schema=my_schema, featlist=feature_list, stype=args.spatial_type)
 
     if has_new_imports or args.force:
         add_area(db=my_db, schema=my_schema, featlist=feature_list, force=args.force)
@@ -718,7 +760,7 @@ if __name__ == "__main__":
                 custom_statements = [x for x in custom_statements if not re.search(r'\bUSING\s+GIST\b', x, re.I)]
             execute_statements(db=my_db, stmts=custom_statements, schema=my_schema)
             if args.repair:
-                repair_geom(db=my_db, schema=my_schema, featlist=['ecopolygon'])
+                repair_geom(db=my_db, schema=my_schema, featlist=['ecopolygon'], stype=args.spatial_type)
                 add_area(db=my_db, schema=my_schema, featlist=['ecopolygon'], force=True)
     if args.groups or grp:
         print("Creating ecogroup tables...")
@@ -736,7 +778,7 @@ if __name__ == "__main__":
             view_statements = view_parser.sql
             execute_statements(db=my_db, stmts=view_statements, schema=my_schema)
             if args.repair:
-                repair_geom(db=my_db, schema=my_schema, featlist=['ecogrouppolygon'])
+                repair_geom(db=my_db, schema=my_schema, featlist=['ecogrouppolygon'], stype=args.spatial_type)
                 add_area(db=my_db, schema=my_schema, featlist=['ecogrouppolygon'], force=True)
 
     print('Updating table statistics...')
