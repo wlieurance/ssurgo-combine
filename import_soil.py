@@ -405,15 +405,22 @@ def scan_insert(db, schema, scanpath, snap, repair, skip, survey_areas, stype, i
     skip = [x for x in import_list if x['status'] == 'skip']
     for s in skip:
         print('Skipping SSA', s['ssa'], "found version <= existing version in database.")
+
+    indices_active = True
     to_delete = [x for x in import_list if x['status'] == 'replace']
-    for d in to_delete:
-        print('Deleting SSA ', d['ssa'], ' version ', d['vold'], ' in preparation for replacement by version ',
-              d['vnew'], '.', sep='')
-        delete.delete_ssa(db=db, schema=schema, ssa=d['ssa'])
+    if to_delete:
+        print("Disabling indices for bulk delete...")
+        si_support = toggle_indices(db=db, schema=schema, drop=True)
+        indices_active = False
+        for d in to_delete:
+            print('Deleting SSA ', d['ssa'], ' version ', d['vold'], ' in preparation for replacement by version ',
+                  d['vnew'], '.', sep='')
+            delete.delete_ssa(db=db, schema=schema, ssa=d['ssa'])
     to_import = [x for x in import_list if x['status'] != 'skip']
     if to_import:
-        print("Disabling indices for bulk insert...")
-        si_support = toggle_indices(db=db, schema=schema, drop=True)
+        if indices_active:
+            print("Disabling indices for bulk insert...")
+            si_support = toggle_indices(db=db, schema=schema, drop=True)
         db.open()
         c = db.conn.cursor()
         for i in to_import:
@@ -483,6 +490,7 @@ def scan_insert(db, schema, scanpath, snap, repair, skip, survey_areas, stype, i
                     c.execute(f"DELETE FROM {schema}.{shp_table};")
                     db.conn.commit()
         db.close()
+    if not indices_active:
         print("Enabling indices after bulk insert...")
         si_support = toggle_indices(db=db, schema=schema, drop=False)
 
@@ -697,6 +705,12 @@ if __name__ == "__main__":
     else:
         dbtype = None
 
+    # choose spatial direction:
+    if args.spatial_type == 'esri':
+        poly_dir = 'ST_ForcePolygonCW'
+    else:
+        poly_dir = 'ST_ForcePolygonCCW'
+
     # check for valid arguments
     if not os.path.isdir(args.scanpath):
         print("scanpath does not exist. Please choose an existing path to search.")
@@ -758,7 +772,7 @@ if __name__ == "__main__":
             custom_statements = custom_parser.sql
             if not si:
                 custom_statements = [x for x in custom_statements if not re.search(r'\bUSING\s+GIST\b', x, re.I)]
-            execute_statements(db=my_db, stmts=custom_statements, schema=my_schema)
+            execute_statements(db=my_db, stmts=custom_statements, schema=my_schema, params={'st_direction': poly_dir})
             if args.repair:
                 repair_geom(db=my_db, schema=my_schema, featlist=['ecopolygon'], stype=args.spatial_type)
                 add_area(db=my_db, schema=my_schema, featlist=['ecopolygon'], force=True)
@@ -776,7 +790,7 @@ if __name__ == "__main__":
             print("Creating ecogroup views...")
             view_parser = SqlParser(file=r'sql/create_ecogroup_views.sql')
             view_statements = view_parser.sql
-            execute_statements(db=my_db, stmts=view_statements, schema=my_schema)
+            execute_statements(db=my_db, stmts=view_statements, schema=my_schema, params={'st_direction': poly_dir})
             if args.repair:
                 repair_geom(db=my_db, schema=my_schema, featlist=['ecogrouppolygon'], stype=args.spatial_type)
                 add_area(db=my_db, schema=my_schema, featlist=['ecogrouppolygon'], force=True)
