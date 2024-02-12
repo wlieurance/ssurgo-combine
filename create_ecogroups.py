@@ -1,6 +1,7 @@
 
 import csv
 import argparse
+import sys
 
 # custom
 import import_soil
@@ -54,34 +55,50 @@ if __name__ == "__main__":
     parser.add_argument('csvpath',  metavar="path/to/ecogroup.csv",
                         help='path of the csv files containing the ecological sites within each group (see '
                              'examples/ecogroup_example.csv). Tab, comma, or pipe delimited.')
-    parser.add_argument('-d', '--dbname',
-                        help='Either the path to the soils spatialite file database or the name of the'
-                             'database in a PostreSQL or SQL Server RDBMS instance to be created/updated.')
-    parser.add_argument('-H', '--host', default='localhost',
-                        help='The dns name or IP address of the database instance to which to connect '
-                             '(only for RDBMS connections).')
+    dbo = parser.add_argument_group('Database options')
+    dbo_grp = dbo.add_mutually_exclusive_group(required=True)
+    dbo_grp.add_argument('-D', '--dbpath',
+                         help='File path for the SpatiaLite database to be created/updated.')
+    dbo_grp.add_argument('-d', '--dbname',
+                         help='Name of the database in a PostreSQL instance to be created/updated.')
+    postgres = parser.add_argument_group('PostGIS options')
+    postgres.add_argument('-H', '--host', default='localhost',
+                          help='DNS name or IP address of the database instance to which to connect')
     # parser.add_argument('-i', '--instance',
     #                     help='For SQL Sever connections, a named instance can be used instead of the port number '
     #                          '(e.g. SQLEXPRESS).')
-    parser.add_argument('-P', '--port',
-                        help='The port on which the database instance is accepting connections. For SQL Server, '
-                             '--instance maybe be used instead.')
-    parser.add_argument('-u', '--user',
-                        help='The user name used to connect to the database instance '
-                             '(only for RDBMS connections). Not providing --user with a SQL Server connection will '
-                             'make the script assume a trusted connection.')
-    parser.add_argument('-p', '--password',
-                        help='The password used to connect to the database instance. Leaving this blank may require the'
-                             ' user to enter the password at a prompt for RDBMS connections.')
-    parser.add_argument('-S', '--schema', default='',
-                        help='tells the script what schema to use (only for RDBMS connections)')
-    parser.add_argument('-t', '--type', choices=['spatialite', 'postgis'], default='spatialite',  # , 'mssql'
-                        help='which type of database on which to do the import.')
+    postgres.add_argument('-P', '--port',
+                          help='Port on which the database instance is accepting connections.')
+    postgres.add_argument('-u', '--user',
+                          help='User name used to connect to the database instance')
+    postgres.add_argument('-p', '--password',
+                          help='Password used to connect to the database instance. Leaving this blank may require '
+                               'the user to enter the password at a prompt.')
+    postgres.add_argument('-S', '--schema', default='',
+                          help='Schema to use within database')
+    geo = parser.add_argument_group('Geometry options')
+    geo.add_argument('-t', '--spatial_type', choices=['sf', 'esri'], default='sf',
+                     help='Polygon construction method. "sf" will use the ISO 19125-1 OGC Simple Features standard '
+                          '(CCW), and "esri" will use the ESRI/Arc standard (CW).')
 
-    args = parser.parse_args()
+    my_args = sys.argv[1:]
+    args = parser.parse_args(my_args)
+
+    if args.dbpath is None and args.dbname is not None:
+        dbtype = 'postgis'
+    elif args.dbpath is not None and args.dbname is None:
+        dbtype = 'spatialite'
+    else:
+        dbtype = None
+
+    # choose spatial direction:
+    if args.spatial_type == 'esri':
+        poly_dir = 'ST_ForcePolygonCW'
+    else:
+        poly_dir = 'ST_ForcePolygonCCW'
 
     # check for valid arguments
-    if args.type == 'spatialite':
+    if dbtype == 'spatialite':
         if not os.path.isfile(args.dbpath):
             print("dbpath does not exist. Please choose an existing SSURGO file to use.")
             quit()
@@ -93,9 +110,9 @@ if __name__ == "__main__":
         print(args.csvpath + " does not exist. Please choose an existing comma delimited ecogroup file to use.")
         quit()
     
-    my_schema = import_soil.get_default_schema(args.type, args.schema)
-    my_db = import_soil.DbConnect(dbtype=args.type, user=args.user, dbname=args.dbname, port=args.port,
-                                  host=args.host, pwd=args.password)  # instance=args.instance,
+    my_schema = import_soil.get_default_schema(dbtype, args.schema)
+    my_db = import_soil.DbConnect(dbtype=dbtype, dbpath=args.dbpath, user=args.user, dbname=args.dbname, port=args.port,
+                                  host=args.host, pwd=args.password)
     print("Creating tables...")
     table_parser = SqlParser(file=r'sql/create_ecogroup_tables.sql')
     table_statements = table_parser.sql
@@ -105,5 +122,5 @@ if __name__ == "__main__":
     print("Creating views...")
     view_parser = SqlParser(file=r'sql/create_ecogroup_views.sql')
     view_statements = view_parser.sql
-    import_soil.execute_statements(db=my_db, stmts=view_statements, schema=my_schema)
+    import_soil.execute_statements(db=my_db, stmts=view_statements, schema=my_schema, params={'st_direction': poly_dir})
     print('Script finished.')
