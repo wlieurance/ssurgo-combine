@@ -11,7 +11,8 @@ ALTER TABLE {schema}.ecopolygon ADD COLUMN IF NOT EXISTS geom geometry('MULTIPOL
 
 
 
-/* Spatial view showing dominant ecosite per polygon with area percentage of ecosite. Inserted into table for usefulness and speed. */
+/* Spatial view showing dominant ecosite per polygon with area percentage of ecosite. Inserted into table for usefulness and speed. 
+{st_direction}: OGC sf = ST_ForcePolygonCCW, ESRI = ST_ForcePolygonCW */
 INSERT INTO {schema}.ecopolygon (ecoclassid_std, ecoclassname, ecotype, area_ha, ecopct, geom)
 WITH subgroup AS (
 SELECT * 
@@ -31,7 +32,7 @@ SELECT ST_Multi(ST_Union(geom)) AS geom, ecoclassid_std, min(ecoclassname) AS ec
 
 ), eco_cleaned AS (
 SELECT ecoclassid_std, ecoclassname, ecotype, ecoarea_ha,
-       ST_ForcePolygonCW(ST_CollectionExtract(ST_MakeValid(geom), 3)) AS geom
+       {st_direction}(ST_CollectionExtract(ST_MakeValid(geom), 3)) AS geom
   FROM eco_union
 
 ), eco_area AS (
