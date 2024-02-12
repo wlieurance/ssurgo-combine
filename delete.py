@@ -34,6 +34,8 @@ def remove_custom(db, schema):
 def delete_ssa(db, schema, ssa):
     db.open()
     c = db.conn.cursor()
+    if type(ssa) not in [list, tuple]:
+        ssa = [ssa]
     if ssa[0] == 'all':
         print('CASCADE DELETING ALL Soil Survey Areas')
         c.execute("DELETE FROM {schema}.sacatalog;".format(**{'schema': schema}))
