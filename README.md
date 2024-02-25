@@ -150,3 +150,11 @@ default python installation, it is recommended to use a virtual environment, or
 a tool such as pyenv or pipenv instead. Users with a conda installation my
 already have Rtree compiled, but may have to create a new conda environment for
 the project.
+
+If you receive an error such as:
+
+`sqlite3.OperationalError: wrong number of arguments to function st_area()`
+
+it means that your spatialite libraries have been built without **rttopo**
+topology libraries, which are necessary.  You will have to rebuild / reinstall
+spatialite libraries with **rttopo** support.

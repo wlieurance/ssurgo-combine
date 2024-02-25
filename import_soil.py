@@ -2,7 +2,7 @@
 import csv
 import sys
 import sqlite3 as sqlite
-import psycopg2
+import psycopg
 import pyodbc
 import argparse
 import shapefile
@@ -125,16 +125,16 @@ class DbConnect:
             if self.dbname is None:
                 self.dbname = 'postgres'
             try:
-                self.conn = psycopg2.connect(user=self.user, host=self.host, dbname=self.dbname, port=self.port,
+                self.conn = psycopg.connect(user=self.user, host=self.host, dbname=self.dbname, port=self.port,
                                          password=self.pwd)
-            except psycopg2.OperationalError as e:
+            except psycopg.OperationalError as e:
                 # print(e)
                 if 'fe_sendauth: no password supplied' in str(e):
                     self.pwd = getpass.getpass(prompt='Password: ')
                     try:
-                        self.conn = psycopg2.connect(user=self.user, host=self.host, dbname=self.dbname, port=self.port,
+                        self.conn = psycopg.connect(user=self.user, host=self.host, dbname=self.dbname, port=self.port,
                                                      password=self.pwd)
-                    except psycopg2.OperationalError as e2:
+                    except psycopg.OperationalError as e2:
                         if 'password authentication failed' in str(e2):
                             print('Password authentication failed')
                             raise e2
@@ -193,7 +193,7 @@ def execute_statements(db, stmts, schema, params={}):
     for stmt in formatted_stmts:
         try:
             c.execute(stmt)
-        except (sqlite.Error, pyodbc.Error, psycopg2.Error):
+        except (sqlite.Error, pyodbc.Error, psycopg.Error):
             print(stmt)
             raise
         else:
@@ -456,7 +456,7 @@ def scan_insert(db, schema, scanpath, snap, repair, skip, survey_areas, stype, i
                                     row[key] = None
                             try:
                                 c.execute(sql, list(row.values()))
-                            except (sqlite.IntegrityError, psycopg2.IntegrityError, pyodbc.IntegrityError):
+                            except (sqlite.IntegrityError, psycopg.IntegrityError, pyodbc.IntegrityError):
                                 print(sql, '\n', row.values())
                                 raise
                     db.conn.commit()
@@ -484,7 +484,7 @@ def scan_insert(db, schema, scanpath, snap, repair, skip, survey_areas, stype, i
                            f"{select_stmt.format(schema=schema, tbl=shp_table)} ON CONFLICT DO NOTHING;"
                     try:
                         c.execute(gsql)
-                    except (sqlite.Error, pyodbc.Error, psycopg2.Error):
+                    except (sqlite.Error, pyodbc.Error, psycopg.Error):
                         print(gsql)
                         raise
                     c.execute(f"DELETE FROM {schema}.{shp_table};")
