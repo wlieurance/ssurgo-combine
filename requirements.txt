@@ -1,5 +1,5 @@
 pyshp
 pygeoif
-psycopg2
+psycopg
 pyodbc
 colorama
