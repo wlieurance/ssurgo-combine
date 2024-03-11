@@ -1,10 +1,12 @@
 CREATE TABLE IF NOT EXISTS {schema}.ecogroup_meta (
        ecogroup VARCHAR (20) PRIMARY KEY, 
-       groupname TEXT, 
+       groupname TEXT,
+       veg_type TEXT,
        grouptype VARCHAR (50), 
        modal_site VARCHAR (20), 
-       pub_status VARCHAR (20), 
-       veg_type TEXT);
+       published BOOLEAN,
+       modeled BOOLEAN,
+       model_status VARCHAR(20));
 
 CREATE TABLE IF NOT EXISTS {schema}.ecogroup (
        ecoid VARCHAR (20) PRIMARY KEY, 
@@ -18,7 +20,6 @@ CREATE TABLE IF NOT EXISTS {schema}.ecogrouppolygon (
        ecogroup VARCHAR (50) PRIMARY KEY,
        groupname TEXT,
        grouptype VARCHAR (50),
-       pub_status VARCHAR (20),
        area_ha DOUBLE PRECISION,
        ecogrouppct DOUBLE PRECISION);
 

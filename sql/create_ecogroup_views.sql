@@ -1,8 +1,7 @@
 /* This view creates a list of ecosites within ecogroups and attaches ecogroup metadata details */
 CREATE OR REPLACE VIEW {schema}.ecogroup_detail AS
 SELECT a.ecoid, a.ecogroup, b.groupname, b.grouptype,
-       CASE WHEN b.ecogroup IS NULL THEN NULL WHEN a.ecoid = b.modal_site THEN 1 ELSE 0 END AS modal,
-       b.pub_status
+       CASE WHEN b.ecogroup IS NULL THEN NULL WHEN a.ecoid = b.modal_site THEN 1 ELSE 0 END AS modal
   FROM {schema}.ecogroup AS a
   LEFT JOIN {schema}.ecogroup_meta AS b ON a.ecogroup = b.ecogroup;
 
@@ -76,30 +75,28 @@ SELECT m.mukey, m.ecoclassid, m.ecoclassid_std, m.ecoclassname,
             ELSE Null END AS ecosubgroup,
        CASE WHEN m.ecoclassid_std IS NULL THEN 'Ecosite'
             WHEN n.ecogroup IS NULL THEN 'Ecosite'
-            ELSE n.grouptype END AS grouptype, 
-       CASE WHEN m.ecoclassid_std IS NULL THEN Null
-            ELSE n.pub_status END AS pub_status 
+            ELSE n.grouptype END AS grouptype
   FROM comp_join AS m
   LEFT JOIN {schema}.ecogroup_detail AS n on m.ecoclassid_std = n.ecoid
 
 ), ecogroup_area_sum AS (
-SELECT a.mukey, a.ecogroup, a.groupname, a.grouptype, a.pub_status, sum(a.ecoclasspct) AS ecogrouppct 
+SELECT a.mukey, a.ecogroup, a.groupname, a.grouptype, sum(a.ecoclasspct) AS ecogrouppct
   FROM ecogroup_join AS a
- GROUP BY mukey, ecogroup, groupname, grouptype, pub_status
+ GROUP BY mukey, ecogroup, groupname, grouptype
 
 ), ecogroup_rn AS (
 SELECT Row_Number() OVER (PARTITION BY b.mukey ORDER BY b.ecogrouppct DESC, b.grouptype ASC, b.ecogroup ASC) AS grouprank, 
-       b.mukey, b.ecogroup, b.groupname, b.grouptype, b.pub_status, b.ecogrouppct 
+       b.mukey, b.ecogroup, b.groupname, b.grouptype, b.ecogrouppct
   FROM ecogroup_area_sum AS b
 
 )
-SELECT f.mukey, f.ecogroup, f.groupname, f.grouptype, f.pub_status, f.ecogrouppct, f.grouprank 
+SELECT f.mukey, f.ecogroup, f.groupname, f.grouptype, f.ecogrouppct, f.grouprank
   FROM ecogroup_rn AS f;
 
 
 /* This  view ranks ecogroup per map unit by area percent values listed in the ecogroup table. */
 CREATE OR REPLACE VIEW {schema}.ecogroup_mudominant AS
-SELECT mukey, ecogroup, groupname, grouptype, pub_status, ecogrouppct  
+SELECT mukey, ecogroup, groupname, grouptype, ecogrouppct
   FROM {schema}.ecogroup_mapunit_ranked
  WHERE grouprank = 1;
 
@@ -112,7 +109,7 @@ SELECT mukey, sum(area_ha) AS area_ha
 GROUP BY mukey
 
 ), mu_area_calc AS (
-SELECT a.mukey, a.ecogroup, a.groupname, a.grouptype, a.pub_status, 
+SELECT a.mukey, a.ecogroup, a.groupname, a.grouptype,
        a.ecogrouppct, a.grouprank, (a.ecogrouppct * b.area_ha / 100) AS group_ha
   FROM {schema}.ecogroup_mapunit_ranked AS a
   LEFT JOIN mu_area_sum AS b ON a.mukey = b.mukey
@@ -120,7 +117,7 @@ SELECT a.mukey, a.ecogroup, a.groupname, a.grouptype, a.pub_status,
 
 SELECT x.ecogroup, COUNT(x.mukey) AS group_n, 
         AVG(CAST(ecogrouppct AS REAL)) AS ecogrouppct_mean, SUM(group_ha) AS group_ha,
-        MIN(groupname) AS groupname, MIN(grouptype) AS grouptype, MIN(pub_status) AS pubstatus
+        MIN(groupname) AS groupname, MIN(grouptype) AS grouptype
   FROM mu_area_calc AS x
   GROUP BY x.ecogroup;
 
@@ -147,7 +144,7 @@ SELECT x.mukey,
 /* Calculates the hectares of each ecogroup within a map unit. */
 CREATE OR REPLACE VIEW {schema}.ecogroup_area AS
 SELECT a.areasymbol, a.spatialver, a.musym, a.mukey, a.area_ha,
-       b.ecogroup, b.groupname, b.grouptype, b.pub_status, b.ecogrouppct, b.grouprank,
+       b.ecogroup, b.groupname, b.grouptype, b.ecogrouppct, b.grouprank,
        a.area_ha * b.ecogrouppct/100 AS ecogroup_ha
   FROM {schema}.mupolygon a
   LEFT JOIN {schema}.ecogroup_mapunit_ranked b ON a.mukey = b.mukey
@@ -240,37 +237,37 @@ SELECT * FROM prod_wgt_sum;
 
 /* Spatial view showing dominant ecogroup per polygon with area percentage of ecogroup. Inserted into table for usefulness and speed.
 {st_direction}: OGC sf = ST_ForcePolygonCCW, ESRI = ST_ForcePolygonCW */
-INSERT INTO {schema}.ecogrouppolygon (ecogroup, groupname, grouptype, pub_status, area_ha, ecogrouppct, geom)
+INSERT INTO {schema}.ecogrouppolygon (ecogroup, groupname, grouptype, area_ha, ecogrouppct, geom)
 WITH subgroup AS (
 SELECT * 
   FROM {schema}.ecogroup_mapunit_ranked 
  WHERE grouprank = 1
     
 ), group_area_mu AS (
-SELECT a.geom, COALESCE(b.ecogroup, 'NA' || '_' || a.areasymbol) AS ecogroup, b.groupname, b.grouptype, b.pub_status,
+SELECT a.geom, COALESCE(b.ecogroup, 'NA' || '_' || a.areasymbol) AS ecogroup, b.groupname, b.grouptype,
        a.area_ha*(CAST(b.ecogrouppct AS REAL)/100) AS ecogrouparea_ha
   FROM {schema}.mupolygon AS a
   LEFT JOIN subgroup AS b ON a.mukey = b.mukey
 
 ), group_union AS (
 SELECT ST_Multi(ST_Union(geom)) AS geom, ecogroup, min(groupname) AS groupname, min(grouptype) AS grouptype, 
-       min(pub_status) AS pub_status, sum(ecogrouparea_ha) AS ecogrouparea_ha
+       sum(ecogrouparea_ha) AS ecogrouparea_ha
   FROM group_area_mu
  GROUP BY ecogroup
 
 ), group_cleaned AS (
-SELECT ecogroup, groupname, grouptype, pub_status, ecogrouparea_ha,  
+SELECT ecogroup, groupname, grouptype, ecogrouparea_ha,
        {st_direction}(ST_CollectionExtract(ST_MakeValid(geom), 3)) AS geom
   FROM group_union
 
 ), group_area AS (
-SELECT ecogroup, groupname, grouptype, pub_status, ST_Area(geom, True)/10000 AS area_ha, ecogrouparea_ha,
+SELECT ecogroup, groupname, grouptype, ST_Area(geom, True)/10000 AS area_ha, ecogrouparea_ha,
        geom
   FROM group_cleaned
  WHERE ST_IsValid(geom)
 
 ), group_pct AS (
-SELECT ecogroup, groupname, grouptype, pub_status, area_ha, ecogrouparea_ha/area_ha AS ecogrouppct, ST_Multi(geom) geom
+SELECT ecogroup, groupname, grouptype, area_ha, ecogrouparea_ha/area_ha AS ecogrouppct, ST_Multi(geom) geom
   FROM group_area
 )
 
