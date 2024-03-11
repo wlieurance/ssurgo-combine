@@ -1,0 +1,13 @@
+table,field,type,constraint,description
+ecogroup_meta,,,,Contains descriptive data at the level of the ecogroup itself. Standardizing the code is useful due to some conflicts and duplicates which arise in the database without this standardization.
+ecogroup_meta,ecogroup,text,primary key,The unique identifier of the ecogroup 
+ecogroup_meta,groupname,text,,A more descriptive field for the ecogroup
+ecogroup_meta,veg_type,text,,The types of vegetation that the ecogroup is composed of
+ecogroup_meta,grouptype,text,,A descriptive label which defines the type of group or grouping process
+ecogroup_meta,modal_site,text,,The standardized ecoclassid (###XY####ST) which is the modal site for the group (e.g. most area)
+ecogroup_meta,published,boolean,,Has this group been published somewhere
+ecogroup_meta,modeled,boolean,,Has the State and Transition Model (STM) been completed for this group
+ecogroup_meta,model_status,text,,What is the status of the STM (e.g. final or draft)
+ecogroup,,,,Contains the associations between ecological sites in the coecolass table and the ecogroup_meta table
+ecogroup,ecoid,,primary key,"The standardized ecoclassid from the coecoclass table. The standardized code is the ecoclassid with the first character (‘R’, ‘F’, or ‘G’ etc.) removed and any trailing characters after the 2 character state code also removed. Standardization reduces join issues which can occur due to some ecological sites being duplicated in the database with different leading and trailing characters. "
+ecogroup,ecogroup,,foreign key references ecogroup_meta(ecogroup),the ecogroup identifier associated with the ecological site
