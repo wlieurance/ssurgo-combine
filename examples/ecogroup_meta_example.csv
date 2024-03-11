@@ -1,4 +1,4 @@
-"ecogroup","groupname","grouptype","modal_site","pub_status","veg_type"
-"mygroup1","Upland oak forest","custom","074XC001IA","final","QUAL-CAOV2/ANGE-SPHE"
-"mygroup2","Riparian shrubland","custom","099XY010IA","final","TIAM/COSE16"
-"some other group","Upland tallgrass prairie","custom","099XY040IA","draft","ANGE-SPHE"
+ecogroup,groupname,veg_type,grouptype,modal_site,published,modeled,model_status
+mygroup1,Upland oak forest,QUAL-CAOV2/ANGE-SPHE,custom,074XC001IA,1,1,final
+mygroup2,Riparian shrubland,TIAM/COSE16,custom,099XY010IA,1,1,draft
+some other group,Upland tallgrass prairie,ANGE-SPHE,custom,099XY040IA,0,0,
