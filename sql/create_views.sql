@@ -190,6 +190,17 @@ SELECT a.cokey, min(b.soimoistdept_r) AS soimoistdept_rmin, max(b.soimoistdept_r
  WHERE soimoiststat = 'Wet' 
  GROUP BY a.cokey;
 
+ /* In the case that there is more than one parent material group per component, returns the one with the alphabetically lowest copmgrpkey.
+ where rvindicator = Yes. Join to component via cokey. */
+CREATE OR REPLACE VIEW soil.copmgrp_first AS
+WITH pm_base AS (
+SELECT pmgroupname, rvindicator, cokey, copmgrpkey, 
+       row_number() over(partition by cokey ORDER BY rvindicator DESC, copmgrpkey) rn
+  FROM soil.copmgrp
+)
+
+SELECT pmgroupname, rvindicator, cokey, copmgrpkey 
+  FROM pm_base WHERE rn = 1;
 
  /* In the case that there is more than one texture available per horizon, returns the one with the alphabetically lowest chkey.
 Join to chorizon or qry_chorizon_surface via chkey. */
@@ -515,18 +526,18 @@ SELECT * FROM {schema}.chorizon WHERE hzdept_r = 0
 )
 
 SELECT a.mukey, a.cokey, a.compname, 
-       CONCAT(a.compname,
-              CASE WHEN a.localphase IS NULL THEN '' 
-                   ELSE ' ' || a.localphase END,
-              CASE WHEN c.texdesc IS NULL THEN '' 
-                   ELSE ' ' || LOWER(c.texdesc) END,
-              CASE WHEN a.slope_l IS NULL THEN '' 
-                   ELSE CONCAT(', ',
-                               CAST(a.slope_l AS INTEGER),
-                               ' to ',
-                               CAST(a.slope_h AS INTEGER),
-                               '% slope') 
-                               END) 
+       a.compname ||
+       CASE WHEN a.localphase IS NULL THEN '' 
+            ELSE ' ' || a.localphase END ||
+       CASE WHEN c.texdesc IS NULL THEN '' 
+            ELSE ' ' || LOWER(c.texdesc) END ||
+       CASE WHEN a.slope_l IS NULL THEN '' 
+            ELSE ', ' ||
+              CAST(a.slope_l AS INTEGER) ||
+              ' to ' ||
+              CAST(a.slope_h AS INTEGER) ||
+              '% slope'
+            END 
        AS compnamelong, 
        a.comppct_r, a.comprank 
   FROM comp_rn AS a
@@ -618,3 +629,12 @@ generic_gh (code, dur, gh, name) as (VALUES
     ('2TREE', 'Perennial', 'Tree', 'trees'))
 
 SELECT * FROM generic_gh;
+
+CREATE VIEW IF NOT EXISTS {schema}.cotaxmoistcl_first AS 
+WITH moist_rn AS (
+SELECT taxmoistcl, cokey, cotaxmckey, 
+       row_number() over(partition by cokey order by cotaxmckey) rn
+  FROM {schema}.cotaxmoistcl
+)
+
+SELECT * FROM moist_rn WHERE rn = 1;
