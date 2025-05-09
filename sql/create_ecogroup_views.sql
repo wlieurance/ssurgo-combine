@@ -218,15 +218,19 @@ SELECT f.mukey, f.area_ha, g.cokey, g.comppct_r, h.ecoclassid_std, h.ecoclassid,
         AND h.prodtype = i.prodtype
 
 ), prod_wgt AS (
-SELECT coalesce(q.ecogroup, w.ecoclassid_std) ecogroup, w.plantsym, 
+SELECT coalesce(q.ecogroup, w.ecoclassid_std) ecogroup, 
+	   CASE WHEN q.ecoid IS NULL THEN 'ecosite' ELSE 'ecogroup' END grouptype,
+	   w.plantsym, 
        MIN(w.plantsciname) AS plantsciname, MIN(w.plantcomname) AS plantcomname, w.prodtype, 
        SUM(w.comp_ha * w.prod) AS prodwgt, SUM(w.comp_ha) AS comp_ha
   FROM base_soil_join AS w
   LEFT JOIN {schema}.ecogroup q ON w.ecoclassid_std = q.ecoid
- GROUP BY coalesce(q.ecogroup, w.ecoclassid_std), w.plantsym, w.prodtype
+ GROUP BY coalesce(q.ecogroup, w.ecoclassid_std), 
+	      CASE WHEN q.ecoid IS NULL THEN 'ecosite' ELSE 'ecogroup' END,
+	      w.plantsym, w.prodtype
 
 ), prod_wgt_sum AS (
-SELECT v.ecogroup, v.plantsym, v.plantsciname, v.plantcomname, v.prodtype, 
+SELECT v.ecogroup, v.grouptype, v.plantsym, v.plantsciname, v.plantcomname, v.prodtype, 
        CASE WHEN (v.prodwgt IS NULL OR v.comp_ha IS NULL OR v.comp_ha = 0) THEN 0 
             ELSE ROUND(CAST(v.prodwgt/v.comp_ha AS numeric), 1) END AS prod
   FROM prod_wgt AS v

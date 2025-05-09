@@ -192,11 +192,11 @@ SELECT a.cokey, min(b.soimoistdept_r) AS soimoistdept_rmin, max(b.soimoistdept_r
 
  /* In the case that there is more than one parent material group per component, returns the one with the alphabetically lowest copmgrpkey.
  where rvindicator = Yes. Join to component via cokey. */
-CREATE OR REPLACE VIEW soil.copmgrp_first AS
+CREATE OR REPLACE VIEW {schema}.copmgrp_first AS
 WITH pm_base AS (
 SELECT pmgroupname, rvindicator, cokey, copmgrpkey, 
        row_number() over(partition by cokey ORDER BY rvindicator DESC, copmgrpkey) rn
-  FROM soil.copmgrp
+  FROM {schema}.copmgrp
 )
 
 SELECT pmgroupname, rvindicator, cokey, copmgrpkey 
@@ -211,21 +211,20 @@ SELECT chkey, min(chtgkey) AS chtgkey
  WHERE rvindicator = 'Yes'
  GROUP BY chkey
 
-), texture_min AS (
-SELECT chtgkey, min(chtkey) AS chtkey 
+), texture_rn AS (
+SELECT *, row_number() over(PARTITION BY chtgkey ORDER BY chtkey) AS rn
   FROM {schema}.chtexture
- GROUP BY chtgkey
 
-), texture_full AS (
-SELECT x.* 
-  FROM {schema}.chtexture AS x
- INNER JOIN texture_min AS y ON x.chtkey = y.chtkey
+), texture_min AS (
+SELECT texcl, lieutex, chtgkey, chtkey 
+  FROM texture_rn  
+ WHERE rn = 1
 )
 
-SELECT a.*, c.texcl, c.lieutex, c.chtkey 
+SELECT a.*, c.texcl, c.lieutex, c.chtkey
   FROM {schema}.chtexturegrp AS a
  INNER JOIN texgrp_min AS b ON a.chtgkey = b.chtgkey
- INNER JOIN texture_full AS c ON b.chtgkey = c.chtgkey;
+ INNER JOIN texture_min AS c ON b.chtgkey = c.chtgkey;
 
 
 /* Creates a list of ecosites per map unit key ranked by total area */

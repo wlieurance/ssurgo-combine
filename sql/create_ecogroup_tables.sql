@@ -11,8 +11,8 @@ CREATE TABLE IF NOT EXISTS {schema}.ecogroup_meta (
 CREATE TABLE IF NOT EXISTS {schema}.ecogroup (
        ecoid VARCHAR (20) PRIMARY KEY, 
        ecogroup VARCHAR (50) NOT NULL, 
-       FOREIGN KEY(ecogroup) REFERENCES {schema}.ecogroup_meta(ecogroup));
-
+       FOREIGN KEY (ecogroup) REFERENCES {schema}.ecogroup_meta(ecogroup));
+CREATE INDEX IF NOT EXISTS ecogroup_ecogroup_idx ON {schema}.ecogroup (ecogroup);
 
 DROP TABLE IF EXISTS {schema}.ecogrouppolygon;
 /* Creates a new table in which store spatial query results for dominant ecogroup polygons. */

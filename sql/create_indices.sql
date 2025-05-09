@@ -11,9 +11,8 @@ CREATE INDEX IF NOT EXISTS mdstattabcols_tabphyname_idx ON {schema}.mdstattabcol
 CREATE INDEX IF NOT EXISTS mdstattabcols_domainname_idx ON {schema}.mdstattabcols (domainname);
 CREATE INDEX IF NOT EXISTS sdvfolderattribute_folderkey_idx ON {schema}.sdvfolderattribute (folderkey);
 CREATE INDEX IF NOT EXISTS sdvfolderattribute_attributekey_idx ON {schema}.sdvfolderattribute (attributekey);
-CREATE INDEX IF NOT EXISTS sapolygon_lkey_idx ON {schema}.sapolygon (lkey);
+CREATE INDEX IF NOT EXISTS sapolygon_areasymbol_idx ON {schema}.sapolygon (areasymbol); --not fkey
 CREATE INDEX IF NOT EXISTS distlegendmd_lkey_idx ON {schema}.distlegendmd (lkey);
-CREATE INDEX IF NOT EXISTS distmd_distmdkey_idx ON {schema}.distmd (distmdkey);
 CREATE INDEX IF NOT EXISTS distinterpmd_distmdkey_idx ON {schema}.distinterpmd (distmdkey);
 CREATE INDEX IF NOT EXISTS laoverlap_lkey_idx ON {schema}.laoverlap (lkey);
 CREATE INDEX IF NOT EXISTS legendtext_lkey_idx ON {schema}.legendtext (lkey);
@@ -22,12 +21,11 @@ CREATE INDEX IF NOT EXISTS mdstatidxdet_fkey_idx ON {schema}.mdstatidxdet (tabph
 CREATE INDEX IF NOT EXISTS mdstatrshipdet_fkey_idx ON {schema}.mdstatrshipdet (ltabphyname, rtabphyname, relationshipname);
 CREATE INDEX IF NOT EXISTS sainterp_sacatalogkey_idx ON {schema}.sainterp (sacatalogkey);
 CREATE INDEX IF NOT EXISTS component_mukey_idx ON {schema}.component (mukey);
-CREATE INDEX IF NOT EXISTS muaggatt_mukey_idx ON {schema}.muaggatt (mukey);
 CREATE INDEX IF NOT EXISTS muaoverlap_mukey_idx ON {schema}.muaoverlap (mukey);
 CREATE INDEX IF NOT EXISTS mucropyld_mukey_idx ON {schema}.mucropyld (mukey);
-CREATE INDEX IF NOT EXISTS muline_mukey_idx ON {schema}.muline (mukey);
-CREATE INDEX IF NOT EXISTS mupoint_mukey_idx ON {schema}.mupoint (mukey);
-CREATE INDEX IF NOT EXISTS mupolygon_mukey_idx ON {schema}.mupolygon (mukey);
+CREATE INDEX IF NOT EXISTS muline_areasymbol_idx ON {schema}.muline (areasymbol); --not fkey
+CREATE INDEX IF NOT EXISTS mupoint_areasymbol_idx ON {schema}.mupoint (areasymbol);  --not fkey
+CREATE INDEX IF NOT EXISTS mupolygon_areasymbol_idx ON {schema}.mupolygon (areasymbol); --not fkey
 CREATE INDEX IF NOT EXISTS mutext_mukey_idx ON {schema}.mutext (mukey);
 CREATE INDEX IF NOT EXISTS chorizon_cokey_idx ON {schema}.chorizon (cokey);
 CREATE INDEX IF NOT EXISTS cocanopycover_cokey_idx ON {schema}.cocanopycover (cokey);
