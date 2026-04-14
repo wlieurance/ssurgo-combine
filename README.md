@@ -2,34 +2,68 @@
 
 ## Introduction
 
-The purpose of this toolset is to give the user the ability to quickly combine
+The purpose of this tool is to give the user the ability to quickly combine
 individual soil area based SSURGOs downloaded from NRCS. These are packaged as a
 collection of tabular (.txt) and shapefile data for individual Soil Survey
 Areas. This toolset combines all downloaded SSURGOs located within the same base
 folder and imports them into a new SpatiaLite or PostGIS database, usable in
 ArcMap/Pro, QGIS, R, et al.
 
-This toolset also adds some custom SQL queries and features to the dataset. See
+This tool also adds some custom SQL queries and features to the dataset. See
 the Custom Additions Section for more info.
 
+## Data Sources
+The tool expects unzipped SSURGO downloads from the NRCS 
+[Web Soil Survey](https://websoilsurvey.sc.egov.usda.gov/app/WebSoilSurvey.aspx) 
+web application. To acquire these, from the base site navigate to the 
+`Download Soils Data` tab and then choose `Soil Survey Area (SSURGO)`. From 
+here, users can download individual soil surveys as source data for the tool. 
+This should also work with zip files downloaded via NRCS's 
+[Bulk Download Tools](https://www.nrcs.usda.gov/resources/data-and-reports/ssurgo-portal)
+
+Best storage practice for use with this tool is to have each soil survey area
+live in it's own subfolder given by its name:
+
+```text
+survey_areas
+├── AZ701
+│   ├── readme.txt
+│   ├── soil_metadata_az701.txt
+│   ├── soil_metadata_az701.xml
+│   ├── spatial
+│   └── tabular
+└── CA011
+    ├── etc
+```
+
 ## Prerequisites/Installation
+The SSURGO-combine tool was written in python 3.8 but has been updated and is
+working as of python 3.13. It does not attempt to be backwards compatible with
+earlier python versions. That being said, it will likely function properly for
+most modern python3 installations. A virtual environment is recommend, but may
+not be required (e.g. non-system standalone python installations)
 
-This toolset was written in python 3.8 and does
-not attempt to be backwards compatible with earlier python version. That being
-said it will likely function properly for most python3 installations.
-
-This toolset requires some non-base python libraries (see requirements.txt), and
-also requires that the modular SpatiaLite library (4.3+) or PostGIS (2.4+) be
-installed on your system. In the case of SpatiaLite on MS Windows, its location
-needs to be added manually into either your user, or system PATH variable. See
-the [Gaia-SINS](https://www.gaia-gis.it/gaia-sins/) site for more info on how to
-install the SpatiaLite modular library for your specific system. Moreover, the
-SpatiaLite libraries need to be built with the RTTOPO and GEOS extensions.
+SSUROG-combine requires some non-base python libraries (see requirements.txt),
+and also requires that the modular SpatiaLite library (4.3+) or PostGIS (2.4+)
+be installed on your system such that `SELECT load_extension('mod_spatialite');`
+can be executed within a sqlite3 environment. In the case of SpatiaLite on MS
+Windows, its location may need to be added manually into either your user, or
+system PATH variable. See the [Gaia-SINS](https://www.gaia-gis.it/gaia-sins/)
+site for more info on how to install the SpatiaLite modular library for your
+specific system. Moreover, the SpatiaLite libraries need to be built with the
+RTTOPO and GEOS extensions. Pre-compiled binaries of SpatiaLite generally have
+these libraries built into them.
 
 ## Use
+This is a command line tool. Script arguments and help can be argument
+documentation can be viewed by running the following (modifying python calls as
+necessary for your system, e.g python vs python3 vs py -3.13 etc.):
 
-Basic use would be to run the following, modifying python calls as necessary for
-your system (e.g python vs python3.6 vs py -3.6 etc).:
+`pip install -r requirements.txt`
+
+`python import_soil.py --help`
+
+A simple use case to scan a folder unzipped SSURGO downloads would be:
 
 `python import_soil.py "/path/to/scan"`
 
