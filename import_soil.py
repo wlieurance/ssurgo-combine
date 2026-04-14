@@ -423,9 +423,9 @@ def scan_insert(db, schema, scanpath, snap, repair, skip, survey_areas, stype, i
     indices_active = True
     to_delete = [x for x in import_list if x['status'] == 'replace']
     if to_delete:
-        print("Disabling indices for bulk delete...")
-        si_support = toggle_indices(db=db, schema=schema, drop=True)
-        indices_active = False
+        # print("Disabling indices for bulk delete...")
+        # si_support = toggle_indices(db=db, schema=schema, drop=True)
+        # indices_active = False
         for d in to_delete:
             print('Deleting SSA ', d['ssa'], ' version ', d['vold'],
                   ' in preparation for replacement by version ', d['vnew'], '.', sep='')
