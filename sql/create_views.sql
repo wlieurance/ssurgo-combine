@@ -629,7 +629,7 @@ generic_gh (code, dur, gh, name) as (VALUES
 
 SELECT * FROM generic_gh;
 
-CREATE VIEW IF NOT EXISTS {schema}.cotaxmoistcl_first AS 
+CREATE OR REPLACE VIEW {schema}.cotaxmoistcl_first AS 
 WITH moist_rn AS (
 SELECT taxmoistcl, cokey, cotaxmckey, 
        row_number() over(partition by cokey order by cotaxmckey) rn
