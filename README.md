@@ -43,7 +43,7 @@ earlier python versions. That being said, it will likely function properly for
 most modern python3 installations. A virtual environment is recommend, but may
 not be required (e.g. non-system standalone python installations)
 
-SSUROG-combine requires some non-base python libraries (see requirements.txt),
+SSURGO-combine requires some non-base python libraries (see requirements.txt),
 and also requires that the modular SpatiaLite library (4.3+) or PostGIS (2.4+)
 be installed on your system such that `SELECT load_extension('mod_spatialite');`
 can be executed within a sqlite3 environment. In the case of SpatiaLite on MS
@@ -53,6 +53,12 @@ site for more info on how to install the SpatiaLite modular library for your
 specific system. Moreover, the SpatiaLite libraries need to be built with the
 RTTOPO and GEOS extensions. Pre-compiled binaries of SpatiaLite generally have
 these libraries built into them.
+
+As a safety measure, in the case of an import to a PostrgreSQL database, the
+database must already exist. If the chosen schema does not already exist within
+the selected database, it will be created for the user. Users can create a blank
+database via the `CREATE DATABASE my_database;` in psql or another RDBMS
+administration tool (e.g. pgAdmin4, DBeaver, etc.). 
 
 ## Use
 This is a command line tool. Script arguments and help can be argument
