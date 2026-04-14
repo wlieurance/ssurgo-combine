@@ -141,6 +141,12 @@ class DbConnect:
                         if 'password authentication failed' in str(e2):
                             print('Password authentication failed')
                             raise e2
+                elif f'database "{self.dbname}" does not exist' in str(e):
+                    print(f'Database "{self.dbname}" does not exist. Please provide an existing '
+                          'database.')
+                    quit()
+                else:
+                    raise e
             self.connected = True
             if self.schema:
                 self.conn.execute(f"SET search_path = {self.schema};")
@@ -661,6 +667,8 @@ def toggle_indices(db, schema, drop=False):
 
 
 if __name__ == "__main__":
+    my_args = sys.argv[1:]
+
     # parses script arguments
     parser = argparse.ArgumentParser(
             formatter_class=argparse.ArgumentDefaultsHelpFormatter,
@@ -728,7 +736,7 @@ if __name__ == "__main__":
                       help='Table(s) to skip during the import (e.g. cointerp). '
                            'WARNING: skipping tables can be dangerous if they are referenced by '
                            'a FOREIGN KEY CONSTRAINT. Use caution.')
-    my_args = sys.argv[1:]
+    
     args = parser.parse_args(my_args)
 
     if args.dbpath is None and args.dbname is not None:
@@ -773,6 +781,8 @@ if __name__ == "__main__":
     else:
         csvmetapath = None
         csvpath = None
+    
+    # check to make sure restriction file exists
     if args.restrict is not None:
         if not os.path.isfile(args.restrict):
             print(args.restrict, 
@@ -788,10 +798,11 @@ if __name__ == "__main__":
                     sa.append(crow[0].strip().lower())
     else:
         sa = ''
+    
     set_csv_limit()
     my_schema = get_default_schema(dbtype, args.schema)
     my_db = DbConnect(dbtype=dbtype, dbpath=args.dbpath, user=args.user, dbname=args.dbname,
-                      port=args.port, host=args.host, pwd=args.password)  # instance=args.instance,
+                      port=args.port, host=args.host, pwd=args.password) 
     is_new, eco, grp = initdb(db=my_db, schema=my_schema)
     has_new_imports, si = scan_insert(db=my_db, schema=my_schema, scanpath=args.scanpath,
                                       snap=args.snap, repair=args.repair, skip=args.skip,
