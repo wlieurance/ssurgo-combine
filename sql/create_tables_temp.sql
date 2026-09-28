@@ -3,7 +3,7 @@ DROP TABLE IF EXISTS {schema}.featline_shp;
 CREATE TABLE {schema}.featline_shp (
     OBJECTID SERIAL PRIMARY KEY NOT NULL,
     areasymbol VARCHAR (20),
-    spatialver DOUBLE PRECISION,
+    spatialversion INTEGER,
     featsym VARCHAR (3),
     featkey VARCHAR (30));
 
@@ -11,7 +11,7 @@ DROP TABLE IF EXISTS {schema}.featpoint_shp;
 CREATE TABLE {schema}.featpoint_shp (
     OBJECTID SERIAL PRIMARY KEY NOT NULL,
     areasymbol VARCHAR (20),
-    spatialver DOUBLE PRECISION,
+    spatialversion INTEGER,
     featsym VARCHAR (3),
     featkey VARCHAR (30));
 
@@ -19,7 +19,7 @@ DROP TABLE IF EXISTS {schema}.muline_shp;
 CREATE TABLE {schema}.muline_shp (
     OBJECTID SERIAL PRIMARY KEY NOT NULL,
     areasymbol VARCHAR (20),
-    spatialver DOUBLE PRECISION,
+    spatialversion INTEGER,
     musym VARCHAR (6),
     mukey VARCHAR (30));
 
@@ -27,7 +27,7 @@ DROP TABLE IF EXISTS {schema}.mupoint_shp;
 CREATE TABLE {schema}.mupoint_shp (
     OBJECTID SERIAL PRIMARY KEY NOT NULL,
     areasymbol VARCHAR (20),
-    spatialver DOUBLE PRECISION,
+    spatialversion INTEGER,
     musym VARCHAR (6),
     mukey VARCHAR (30));
 
@@ -35,7 +35,7 @@ DROP TABLE IF EXISTS {schema}.mupolygon_shp;
 CREATE TABLE {schema}.mupolygon_shp (
     OBJECTID SERIAL PRIMARY KEY NOT NULL,
     areasymbol VARCHAR (20),
-    spatialver DOUBLE PRECISION,
+    spatialversion INTEGER,
     musym VARCHAR (6),
     mukey VARCHAR (30));
 
@@ -43,7 +43,7 @@ DROP TABLE IF EXISTS {schema}.sapolygon_shp;
 CREATE TABLE {schema}.sapolygon_shp (
     OBJECTID SERIAL PRIMARY KEY NOT NULL,
     areasymbol VARCHAR (20),
-    spatialver DOUBLE PRECISION,
+    spatialversion INTEGER,
     lkey VARCHAR (30));
 
 

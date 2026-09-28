@@ -8,14 +8,14 @@ SELECT group_cols, geom
  WHERE my_col = 'something'
     
 ), clip AS (
-SELECT r.groupcols, q.areasymbol, q.spatialver, q.musym, q.mukey,
+SELECT r.groupcols, q.areasymbol, q.spatialversion, q.musym, q.mukey,
        CASE WHEN ST_CoveredBy(q.geom, r.geom) THEN q.geom
             ELSE ST_Multi(ST_Intersection(q.geom, r.geom)) END AS geom
   FROM soil.mupolygon AS q
  INNER JOIN clip_table AS r ON ST_Intersects(q.geom, r.geom)
     
 ), area_calc AS (
-SELECT group_cols, areasymbol, spatialver, musym, mukey, geom,
+SELECT group_cols, areasymbol, spatialversion, musym, mukey, geom,
       ST_Area(geography(geom))/10000 AS area_ha
   FROM clip
     
@@ -94,14 +94,14 @@ SELECT geom
  WHERE my_col = 'something'
     
 ), clip AS (
-SELECT q.areasymbol, q.spatialver, q.musym, q.mukey,
+SELECT q.areasymbol, q.spatialversion, q.musym, q.mukey,
        CASE WHEN ST_CoveredBy(q.geom, r.geom) THEN q.geom
             ELSE ST_Multi(ST_Intersection(q.geom, r.geom)) END AS geom
   FROM soil.mupolygon AS q
  INNER JOIN clip_table AS r ON ST_Intersects(q.geom, r.geom)
     
 ), area_calc AS (
-SELECT areasymbol, spatialver, musym, mukey, geom,
+SELECT areasymbol, spatialversion, musym, mukey, geom,
       ST_Area(geography(geom))/10000 AS area_ha
   FROM clip
     

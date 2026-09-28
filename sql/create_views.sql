@@ -5,6 +5,7 @@ SELECT *
   FROM {schema}.chorizon 
  WHERE hzdept_r = 0;
 
+COMMENT ON VIEW {schema}.chorizon_surface IS 'Source is the "chorizon" table but containing only surface horizons (hzdept_r = 0)';
 
 /* This selects the top layer FROM chorizon that is not organic material */
 CREATE OR REPLACE VIEW {schema}.chorizon_surface_noOM AS
@@ -30,6 +31,10 @@ SELECT a.unifiedcl, a.rvindicator, a.chkey, a.chunifiedkey
  WHERE rn = 1;
 
 
+COMMENT ON VIEW {schema}.chunified_first IS 
+'Source is the "chunified" table but containing only a single value per chkey, prioritizing representative values (rvindicator = ''Yes'')';
+
+
  /* Isolates one ecosite per component by ecoclasstype in the case of multiple ecosites per component 
 (in order of ecoclasstype abundance within the database). JOIN to component or qry_component_dominant via cokey. */
 CREATE OR REPLACE VIEW {schema}.coecoclass_codominant AS
@@ -53,10 +58,19 @@ SELECT y.*,
        CASE WHEN SUBSTRING(ecoclassid, 1,1) IN ('F','R') THEN SUBSTRING(ecoclassid, 2, 10) 
             WHEN SUBSTRING(ecoclassid, 1,1) = '0' THEN SUBSTRING(ecoclassid, 1, 10) 
             ELSE ecoclassid END AS ecoclassid_std, 
-       LOWER(LTRIM(RTRIM(REPLACE(REPLACE(ecoclassname,'"',' in'),'  ',' ')))) AS ecoclassname_std 
+       LOWER(LTRIM(RTRIM(REPLACE(REPLACE(ecoclassname,'"',' in.'),'  ',' ')))) AS ecoclassname_std 
   FROM {schema}.coecoclass AS y 
  INNER JOIN eco_dom AS z ON y.coecoclasskey = z.coecoclasskey;
 
+COMMENT ON VIEW {schema}.coecoclass_codominant IS 
+'Sourced from the coecoclass table, isolates one ecosite per soil component by "ecoclasstype", in the case of multiple ecosites per component (in order of ecoclasstype abundance within the database).';
+
+COMMENT ON COLUMN {schema}.coecoclass_codominant.ecoclassid_std IS 
+'The identifier of a particular ecological community, but standardized to remove the ecological site type from 
+the beginning of the identifier and any trailing characters such as _1 which may occur after the state FIPS alpha code.';
+
+COMMENT ON COLUMN {schema}.coecoclass_codominant.ecoclassname_std IS 
+'The descriptive name of a particular ecological community, but formatted to replace the inch symbol (") with "in.", then trimmed, and lower-cased.';
 
  /* Gives dominant and maximum flooding/ponding frequency class and flooding/ponding frequency duration grouped by comonth.
 Join to component or qry_component_dominant via cokey. */
@@ -181,14 +195,22 @@ SELECT a.cokey,
  WHERE b.rownum = 1 AND c.rownum = 1 AND d.rownum = 1 AND e.rownum = 1 
    AND f.rownum = 1 AND g.rownum = 1 AND h.rownum = 1 AND i.rownum = 1;
 
+COMMENT ON VIEW {schema}.comonth_flodpondfreqcl IS 
+'Sourced from the "comonth" table. Gives dominant and maximum flooding/ponding frequency class and flooding/ponding frequency duration grouped by cokey.
+Field definitions are the same as those in comonth, but given a suffix, where: _max is the largest value, _dom is the dominant value, and _n denotes the number of records
+available for the calculation, and _dom_n is the number of records within the dominant class.';
 
-/* Provides minimum and maximum soil moisture depth levels group by comonth.  JOIN to component or qry_component_dominant */
+
+/* Provides minimum and maximum soil moisture depth levels group by cokey.  JOIN to component or qry_component_dominant */
 CREATE OR REPLACE VIEW {schema}.comonth_soimoistdept AS
 SELECT a.cokey, min(b.soimoistdept_r) AS soimoistdept_rmin, max(b.soimoistdept_r) AS soimoistdept_rmax 
   FROM {schema}.comonth AS a 
  INNER JOIN {schema}.cosoilmoist AS b ON a.comonthkey = b.comonthkey 
  WHERE soimoiststat = 'Wet' 
  GROUP BY a.cokey;
+
+COMMENT ON VIEW {schema}.comonth_soimoistdept IS
+'';
 
  /* In the case that there is more than one parent material group per component, returns the one with the alphabetically lowest copmgrpkey.
  where rvindicator = Yes. Join to component via cokey. */
@@ -594,7 +616,7 @@ SELECT x.compname, min(x.compkind) AS compkind,
 
 /* Calculates the hectares of each ecogroup for each map unit polygon.*/
 CREATE OR REPLACE VIEW {schema}.coecoclass_area AS
-SELECT a.areasymbol, a.spatialver, a.musym, a.mukey, a.area_ha,
+SELECT a.areasymbol, a.spatialversion, a.musym, a.mukey, a.area_ha,
        b.ecoclassid, b.ecoclassid_std, b.ecoclassname, b.ecoclassname_std,
        b.ecotype, b.ecoclasspct, b.ecorank,
        a.area_ha * b.ecoclasspct/100 AS eco_ha
