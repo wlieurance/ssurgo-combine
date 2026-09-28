@@ -1,18 +1,21 @@
 ------- LEVEL 0 -------
 CREATE TABLE IF NOT EXISTS {schema}.mdstatdommas (
     domainname VARCHAR (40) PRIMARY KEY,
-    domainmaxlen SMALLINT NOT NULL);
+    domainmaxlen SMALLINT NOT NULL
+);
     
 CREATE TABLE IF NOT EXISTS {schema}.mdstattabs (
     tabphyname VARCHAR (30) PRIMARY KEY,
     tablogname VARCHAR (30) UNIQUE NOT NULL,
     tablabel VARCHAR (80) UNIQUE NOT NULL,
     tabdesc TEXT NOT NULL,
-    iefilename VARCHAR (30) UNIQUE NOT NULL);
+    iefilename VARCHAR (30) UNIQUE NOT NULL
+);
     
 CREATE TABLE IF NOT EXISTS {schema}.month (
     monthseq SMALLINT UNIQUE NOT NULL,
-    monthname VARCHAR (9) PRIMARY KEY);
+    monthname VARCHAR (9) PRIMARY KEY
+);
     
 INSERT INTO {schema}.month (monthseq, monthname) VALUES
 (1, 'January'),
@@ -31,7 +34,7 @@ ON CONFLICT DO NOTHING;
 
 -- acts as a linchpin to cascade delete all other data
 CREATE TABLE IF NOT EXISTS {schema}.sacatalog (
-    areasymbol VARCHAR (20) UNIQUE NOT NULL,
+    areasymbol VARCHAR (20) PRIMARY KEY,
     areaname VARCHAR (135) NOT NULL,
     saversion INTEGER NOT NULL,
     saverest DATE NOT NULL,
@@ -41,14 +44,26 @@ CREATE TABLE IF NOT EXISTS {schema}.sacatalog (
     tabcertstatus VARCHAR (254),
     tabcertstatusdesc TEXT,
     fgdcmetadata TEXT NOT NULL,
-    sacatalogkey VARCHAR (30) PRIMARY KEY);
+    sacatalogkey VARCHAR (30) UNIQUE NOT NULL
+);
     
 CREATE TABLE IF NOT EXISTS {schema}.sdvalgorithm (
     algorithmsequence SMALLINT UNIQUE NOT NULL,
     algorithmname VARCHAR (50) PRIMARY KEY,
     algorithminitials VARCHAR (3) UNIQUE NOT NULL,
-    algorithmdescription TEXT NOT NULL);
+    algorithmdescription TEXT NOT NULL
+);
 
+CREATE TABLE IF NOT EXISTS {schema}.sdvfolder (
+    foldersequence SMALLINT NOT NULL,
+    foldername VARCHAR (80) NOT NULL,
+    folderdescription TEXT NOT NULL,
+    folderkey INTEGER PRIMARY KEY,
+    parentfolderkey INTEGER,
+    wlupdated DATE NOT NULL
+);
+    
+------- LEVEL 1 -------    
 CREATE TABLE IF NOT EXISTS {schema}.sdvattribute (
     attributekey INTEGER PRIMARY KEY,
     attributename VARCHAR (60) NOT NULL,
@@ -89,7 +104,7 @@ CREATE TABLE IF NOT EXISTS {schema}.sdvattribute (
     monthrangeoptionflag SMALLINT NOT NULL,
     beginningmonth VARCHAR (9),
     endingmonth VARCHAR (9),
-    horzaggmeth VARCHAR (30),
+    horzaggmeth VARCHAR (30) NOT NULL,
     interpnullsaszerooptionflag SMALLINT NOT NULL,
     interpnullsaszeroflag SMALLINT NOT NULL,
     nullratingreplacementvalue VARCHAR (254),
@@ -102,17 +117,10 @@ CREATE TABLE IF NOT EXISTS {schema}.sdvattribute (
     algorithmname VARCHAR (50) NOT NULL,
     componentpercentcutoff SMALLINT,
     readytodistribute SMALLINT NOT NULL,
-    effectivelogicaldatatype VARCHAR (20) NOT NULL);
+    effectivelogicaldatatype VARCHAR (20) NOT NULL,
+    FOREIGN KEY (algorithmname) REFERENCES {schema}.sdvalgorithm(algorithmname) ON DELETE CASCADE
+);
 
-CREATE TABLE IF NOT EXISTS {schema}.sdvfolder (
-    foldersequence SMALLINT NOT NULL,
-    foldername VARCHAR (80) NOT NULL,
-    folderdescription TEXT NOT NULL,
-    folderkey INTEGER PRIMARY KEY,
-    parentfolderkey INTEGER,
-    wlupdated DATE NOT NULL);
-    
-------- LEVEL 1 -------    
 CREATE TABLE IF NOT EXISTS {schema}.featdesc (
     areasymbol VARCHAR (20) NOT NULL,
     spatialversion INTEGER NOT NULL,
@@ -121,24 +129,8 @@ CREATE TABLE IF NOT EXISTS {schema}.featdesc (
     featdesc TEXT NOT NULL,
     featkey VARCHAR (30) PRIMARY KEY,
     UNIQUE (areasymbol, featsym),
-    FOREIGN KEY (areasymbol) REFERENCES {schema}.sacatalog(areasymbol) ON DELETE CASCADE);
-
-CREATE TABLE IF NOT EXISTS {schema}.featline (
-    areasymbol VARCHAR (20),
-    spatialver DOUBLE PRECISION,
-    featsym VARCHAR (3),
-    featkey VARCHAR (30) PRIMARY KEY,
-    length_m DOUBLE PRECISION,
-    FOREIGN KEY (areasymbol) REFERENCES {schema}.sacatalog(areasymbol) ON DELETE CASCADE);
-
-CREATE TABLE IF NOT EXISTS {schema}.featpoint (
-    areasymbol VARCHAR (20),
-    spatialver DOUBLE PRECISION,
-    featsym VARCHAR (3),
-    featkey VARCHAR (30) PRIMARY KEY,
-    x DOUBLE PRECISION,
-    y DOUBLE PRECISION,
-    FOREIGN KEY (areasymbol) REFERENCES {schema}.sacatalog(areasymbol) ON DELETE CASCADE);
+    FOREIGN KEY (areasymbol) REFERENCES {schema}.sacatalog(areasymbol) ON DELETE CASCADE
+);
     
 CREATE TABLE IF NOT EXISTS {schema}.legend (
     areatypename VARCHAR (45) NOT NULL,
@@ -155,7 +147,8 @@ CREATE TABLE IF NOT EXISTS {schema}.legend (
     legendsuituse VARCHAR (254),
     legendcertstat VARCHAR (254),
     lkey VARCHAR (30) PRIMARY KEY,
-    FOREIGN KEY (areasymbol) REFERENCES {schema}.sacatalog(areasymbol) ON DELETE CASCADE);
+    FOREIGN KEY (areasymbol) REFERENCES {schema}.sacatalog(areasymbol) ON DELETE CASCADE
+);
 
 CREATE TABLE IF NOT EXISTS {schema}.mdstatdomdet (
     domainname VARCHAR (40) NOT NULL,
@@ -165,14 +158,16 @@ CREATE TABLE IF NOT EXISTS {schema}.mdstatdomdet (
     choiceobsolete VARCHAR (3) NOT NULL,
     PRIMARY KEY (domainname, choicesequence),
     UNIQUE (domainname, choice),
-    FOREIGN KEY (domainname) REFERENCES {schema}.mdstatdommas(domainname) ON DELETE CASCADE);
+    FOREIGN KEY (domainname) REFERENCES {schema}.mdstatdommas(domainname) ON DELETE CASCADE
+);
     
 CREATE TABLE IF NOT EXISTS {schema}.mdstatidxmas (
     tabphyname VARCHAR (30) NOT NULL,
     idxphyname VARCHAR (30) NOT NULL,
     uniqueindex VARCHAR (3) NOT NULL,
     PRIMARY KEY (tabphyname, idxphyname),
-    FOREIGN KEY (tabphyname) REFERENCES {schema}.mdstattabs(tabphyname) ON DELETE CASCADE);
+    FOREIGN KEY (tabphyname) REFERENCES {schema}.mdstattabs(tabphyname) ON DELETE CASCADE
+);
 
 CREATE TABLE IF NOT EXISTS {schema}.mdstatrshipmas (
     ltabphyname VARCHAR (30) NOT NULL,
@@ -182,7 +177,8 @@ CREATE TABLE IF NOT EXISTS {schema}.mdstatrshipmas (
     mandatory VARCHAR (3) NOT NULL,
     PRIMARY KEY (ltabphyname, rtabphyname, relationshipname),
     FOREIGN KEY (ltabphyname) REFERENCES {schema}.mdstattabs(tabphyname) ON DELETE CASCADE,
-    FOREIGN KEY (rtabphyname) REFERENCES {schema}.mdstattabs(tabphyname) ON DELETE CASCADE);
+    FOREIGN KEY (rtabphyname) REFERENCES {schema}.mdstattabs(tabphyname) ON DELETE CASCADE
+);
 
 CREATE TABLE IF NOT EXISTS {schema}.mdstattabcols (
     tabphyname VARCHAR (30) NOT NULL,
@@ -191,9 +187,9 @@ CREATE TABLE IF NOT EXISTS {schema}.mdstattabcols (
     collogname VARCHAR (30) NOT NULL,
     collabel VARCHAR (80) NOT NULL,
     logicaldatatype VARCHAR (254) NOT NULL,
-    not_null VARCHAR (3) NOT NULL,
+    "notnull" VARCHAR (3) NOT NULL,
     fieldsize SMALLINT,
-    precision SMALLINT,
+    "precision" SMALLINT,
     minimum DOUBLE PRECISION,
     maximum DOUBLE PRECISION,
     uom VARCHAR (60),
@@ -204,21 +200,52 @@ CREATE TABLE IF NOT EXISTS {schema}.mdstattabcols (
     UNIQUE (tabphyname, collogname),
     UNIQUE (tabphyname, collabel),
     FOREIGN KEY (tabphyname) REFERENCES {schema}.mdstattabs(tabphyname) ON DELETE CASCADE,
-    FOREIGN KEY (domainname) REFERENCES {schema}.mdstatdommas(domainname) ON DELETE CASCADE);
+    FOREIGN KEY (domainname) REFERENCES {schema}.mdstatdommas(domainname) ON DELETE CASCADE
+);
 
 CREATE TABLE IF NOT EXISTS {schema}.sdvfolderattribute (
     folderkey INTEGER NOT NULL REFERENCES {schema}.sdvfolder(folderkey) ON DELETE CASCADE,
     attributekey INTEGER NOT NULL REFERENCES {schema}.sdvattribute(attributekey) ON DELETE CASCADE,
-    PRIMARY KEY (folderkey, attributekey));
+    PRIMARY KEY (folderkey, attributekey)
+);
     
 ------- LEVEL 1.1 -------
+CREATE TABLE IF NOT EXISTS {schema}.featline (
+    areasymbol VARCHAR (20) NOT NULL,
+    spatialversion INTEGER NOT NULL,
+    featsym VARCHAR (3) NOT NULL,
+    featkey VARCHAR (30) PRIMARY KEY,
+    length_m DOUBLE PRECISION,
+    FOREIGN KEY (featkey) REFERENCES {schema}.featdesc(featkey) ON DELETE CASCADE
+);
+
+CREATE TABLE IF NOT EXISTS {schema}.featpoint (
+    areasymbol VARCHAR (20) NOT NULL,
+    spatialversion INTEGER NOT NULL,
+    featsym VARCHAR (3) NOT NULL,
+    featkey VARCHAR (30) PRIMARY KEY,
+    x DOUBLE PRECISION,
+    y DOUBLE PRECISION,
+    FOREIGN KEY (featkey) REFERENCES {schema}.featdesc(featkey) ON DELETE CASCADE
+);
+
 CREATE TABLE IF NOT EXISTS {schema}.sapolygon (
-    areasymbol VARCHAR (20),
-    spatialver DOUBLE PRECISION,
+    areasymbol VARCHAR (20) NOT NULL,
+    spatialversion INTEGER NOT NULL,
     lkey VARCHAR (30) PRIMARY KEY,
     area_ha DOUBLE PRECISION,
-    FOREIGN KEY (lkey) REFERENCES {schema}.legend(lkey) ON DELETE CASCADE);
+    FOREIGN KEY (lkey) REFERENCES {schema}.legend(lkey) ON DELETE CASCADE
+);
     
+
+CREATE TABLE IF NOT EXISTS {schema}.distmd (
+   distgendate DATE,
+   diststatus VARCHAR (254) NOT NULL,
+   interpmaxreasons SMALLINT,
+   distmdkey VARCHAR (30) PRIMARY KEY
+);
+
+  ------- LEVEL 2 -------
 CREATE TABLE IF NOT EXISTS {schema}.distlegendmd (
     areatypename VARCHAR (45),
     areasymbol VARCHAR (20),
@@ -231,16 +258,9 @@ CREATE TABLE IF NOT EXISTS {schema}.distlegendmd (
     lkey VARCHAR (30) NOT NULL,
     distmdkey VARCHAR (30) UNIQUE NOT NULL,
     distlegendmdkey VARCHAR (30) PRIMARY KEY,
-    FOREIGN KEY (lkey) REFERENCES {schema}.legend(lkey) ON DELETE CASCADE);
-
-  
-------- LEVEL 2 -------
-CREATE TABLE IF NOT EXISTS {schema}.distmd (
-    distgendate DATE,
-    diststatus VARCHAR (254) NOT NULL,
-    interpmaxreasons SMALLINT,
-    distmdkey VARCHAR (30) PRIMARY KEY,
-    FOREIGN KEY (distmdkey) REFERENCES {schema}.distlegendmd(distmdkey) ON DELETE CASCADE);
+    FOREIGN KEY (distmdkey) REFERENCES {schema}.distmd(distmdkey) ON DELETE CASCADE, 
+    FOREIGN KEY (lkey) REFERENCES {schema}.legend(lkey) ON DELETE CASCADE
+);
 
 CREATE TABLE IF NOT EXISTS {schema}.distinterpmd (
     rulename VARCHAR (60),
@@ -251,7 +271,8 @@ CREATE TABLE IF NOT EXISTS {schema}.distinterpmd (
     rulekey VARCHAR (30) NOT NULL,
     distmdkey VARCHAR (30) NOT NULL,
     distinterpmdkey VARCHAR (30) PRIMARY KEY,
-    FOREIGN KEY (distmdkey) REFERENCES {schema}.distlegendmd(distmdkey) ON DELETE CASCADE);
+    FOREIGN KEY (distmdkey) REFERENCES {schema}.distmd(distmdkey) ON DELETE CASCADE
+);
     
 CREATE TABLE IF NOT EXISTS {schema}.laoverlap (
     areatypename VARCHAR (45) NOT NULL,
@@ -260,7 +281,8 @@ CREATE TABLE IF NOT EXISTS {schema}.laoverlap (
     areaovacres INTEGER,
     lkey VARCHAR (30) NOT NULL,
     lareaovkey VARCHAR (30) PRIMARY KEY,
-    FOREIGN KEY (lkey) REFERENCES {schema}.legend(lkey) ON DELETE CASCADE);
+    FOREIGN KEY (lkey) REFERENCES {schema}.legend(lkey) ON DELETE CASCADE
+);
 
 CREATE TABLE IF NOT EXISTS {schema}.legendtext (
     recdate DATE,
@@ -270,11 +292,12 @@ CREATE TABLE IF NOT EXISTS {schema}.legendtext (
     text TEXT,
     lkey VARCHAR (30) NOT NULL,
     legtextkey VARCHAR (30) PRIMARY KEY,
-    FOREIGN KEY (lkey) REFERENCES {schema}.legend(lkey) ON DELETE CASCADE);
+    FOREIGN KEY (lkey) REFERENCES {schema}.legend(lkey) ON DELETE CASCADE
+);
 
 CREATE TABLE IF NOT EXISTS {schema}.mapunit (
     musym VARCHAR (6) NOT NULL,
-    muname VARCHAR (175),
+    muname VARCHAR (200),  -- originally varchar (175) but a value in id685 has 183 char
     mukind VARCHAR (254),
     mustatus VARCHAR (254),
     muacres INTEGER,
@@ -297,7 +320,8 @@ CREATE TABLE IF NOT EXISTS {schema}.mapunit (
     mucertstat VARCHAR (254),
     lkey VARCHAR (30) NOT NULL,
     mukey VARCHAR (30) PRIMARY KEY,
-    FOREIGN KEY (lkey) REFERENCES {schema}.legend(lkey) ON DELETE CASCADE);
+    FOREIGN KEY (lkey) REFERENCES {schema}.legend(lkey) ON DELETE CASCADE
+);
 
 CREATE TABLE IF NOT EXISTS {schema}.mdstatidxdet (
     tabphyname VARCHAR (30) NOT NULL,
@@ -306,7 +330,8 @@ CREATE TABLE IF NOT EXISTS {schema}.mdstatidxdet (
     colphyname VARCHAR (30) NOT NULL,
     PRIMARY KEY (tabphyname, idxphyname, idxcolsequence),
     UNIQUE (tabphyname, idxphyname, colphyname),
-    FOREIGN KEY (tabphyname, idxphyname) REFERENCES {schema}.mdstatidxmas(tabphyname, idxphyname) ON DELETE CASCADE);
+    FOREIGN KEY (tabphyname, idxphyname) REFERENCES {schema}.mdstatidxmas(tabphyname, idxphyname) ON DELETE CASCADE
+);
     
 CREATE TABLE IF NOT EXISTS {schema}.mdstatrshipdet (
     ltabphyname VARCHAR (30) NOT NULL,
@@ -316,7 +341,8 @@ CREATE TABLE IF NOT EXISTS {schema}.mdstatrshipdet (
     rtabcolphyname VARCHAR (30) NOT NULL,
     PRIMARY KEY (ltabphyname, rtabphyname, relationshipname, ltabcolphyname, rtabcolphyname),
     FOREIGN KEY (ltabphyname, rtabphyname, relationshipname) REFERENCES {schema}.mdstatrshipmas(ltabphyname, rtabphyname, relationshipname)
-    ON DELETE CASCADE);
+    ON DELETE CASCADE
+);
 
 CREATE TABLE IF NOT EXISTS {schema}.sainterp (
     areasymbol VARCHAR (20) NOT NULL,
@@ -329,7 +355,8 @@ CREATE TABLE IF NOT EXISTS {schema}.sainterp (
     sacatalogkey VARCHAR (30) NOT NULL,
     sainterpkey VARCHAR (30) PRIMARY KEY,
     UNIQUE (areasymbol, interpname),
-    FOREIGN KEY (sacatalogkey) REFERENCES {schema}.sacatalog(sacatalogkey) ON DELETE CASCADE);
+    FOREIGN KEY (sacatalogkey) REFERENCES {schema}.sacatalog(sacatalogkey) ON DELETE CASCADE
+);
 
 ------- LEVEL 3 -------
 CREATE TABLE IF NOT EXISTS {schema}.component (
@@ -340,7 +367,7 @@ CREATE TABLE IF NOT EXISTS {schema}.component (
     compkind VARCHAR (254),
     majcompflag VARCHAR (3),
     otherph VARCHAR (40),
-    localphase VARCHAR (40),
+    localphase VARCHAR (50),  -- this is documented at varchar(40) but at least 1 record in or683v8 = length 41
     slope_l DOUBLE PRECISION,
     slope_r DOUBLE PRECISION,
     slope_h DOUBLE PRECISION,
@@ -442,11 +469,12 @@ CREATE TABLE IF NOT EXISTS {schema}.component (
     vasoimgtgrp VARCHAR (254),
     mukey VARCHAR (30) NOT NULL,
     cokey VARCHAR (30) PRIMARY KEY,
-    FOREIGN KEY (mukey) REFERENCES {schema}.mapunit(mukey) ON DELETE CASCADE);
+    FOREIGN KEY (mukey) REFERENCES {schema}.mapunit(mukey) ON DELETE CASCADE
+);
     
 CREATE TABLE IF NOT EXISTS {schema}.muaggatt (
     musym VARCHAR (6) NOT NULL,
-    muname VARCHAR (175),
+    muname VARCHAR (200), -- supposed to be varcahr(175) but id685 and id700 have larger values
     mustatus VARCHAR (254),
     slopegraddcp DOUBLE PRECISION,
     slopegradwta DOUBLE PRECISION,
@@ -485,14 +513,17 @@ CREATE TABLE IF NOT EXISTS {schema}.muaggatt (
     hydclprs VARCHAR (254),
     awmmfpwwta DOUBLE PRECISION,
     mukey VARCHAR (30) PRIMARY KEY,
-    FOREIGN KEY (mukey) REFERENCES {schema}.mapunit(mukey) ON DELETE CASCADE);
+    FOREIGN KEY (mukey) REFERENCES {schema}.mapunit(mukey) ON DELETE CASCADE
+);
 
 CREATE TABLE IF NOT EXISTS {schema}.muaoverlap (
     areaovacres INTEGER,
     lareaovkey VARCHAR (30) NOT NULL,
     mukey VARCHAR (30) NOT NULL,
     muareaovkey VARCHAR (30) PRIMARY KEY,
-    FOREIGN KEY (mukey) REFERENCES {schema}.mapunit(mukey) ON DELETE CASCADE);
+    FOREIGN KEY (mukey) REFERENCES {schema}.mapunit(mukey) ON DELETE CASCADE,
+    FOREIGN KEY (lareaovkey) REFERENCES {schema}.laoverlap(lareaovkey) ON DELETE CASCADE
+);
 
 CREATE TABLE IF NOT EXISTS {schema}.mucropyld (
     cropname VARCHAR (254),
@@ -505,32 +536,36 @@ CREATE TABLE IF NOT EXISTS {schema}.mucropyld (
     irryield_h DOUBLE PRECISION,
     mukey VARCHAR (30) NOT NULL,
     mucrpyldkey VARCHAR (30) PRIMARY KEY,
-    FOREIGN KEY (mukey) REFERENCES {schema}.mapunit(mukey) ON DELETE CASCADE);
+    FOREIGN KEY (mukey) REFERENCES {schema}.mapunit(mukey) ON DELETE CASCADE
+);
  
 CREATE TABLE IF NOT EXISTS {schema}.muline (
-    areasymbol VARCHAR (20),
-    spatialver DOUBLE PRECISION,
-    musym VARCHAR (6),
+    areasymbol VARCHAR (20) NOT NULL,
+    spatialversion INTEGER NOT NULL,
+    musym VARCHAR (6) NOT NULL,
     mukey VARCHAR (30) PRIMARY KEY,
     length_m DOUBLE PRECISION,
-    FOREIGN KEY (mukey) REFERENCES {schema}.mapunit(mukey) ON DELETE CASCADE);
+    FOREIGN KEY (mukey) REFERENCES {schema}.mapunit(mukey) ON DELETE CASCADE
+);
 
 CREATE TABLE IF NOT EXISTS {schema}.mupoint (
-    areasymbol VARCHAR (20),
-    spatialver DOUBLE PRECISION,
-    musym VARCHAR (6),
+    areasymbol VARCHAR (20) NOT NULL,
+    spatialversion INTEGER NOT NULL,
+    musym VARCHAR (6) NOT NULL,
     mukey VARCHAR (30) PRIMARY KEY,
     x DOUBLE PRECISION,
     y DOUBLE PRECISION,
-    FOREIGN KEY (mukey) REFERENCES {schema}.mapunit(mukey) ON DELETE CASCADE);
+    FOREIGN KEY (mukey) REFERENCES {schema}.mapunit(mukey) ON DELETE CASCADE
+);
 
 CREATE TABLE IF NOT EXISTS {schema}.mupolygon (
-    areasymbol VARCHAR (20),
-    spatialver DOUBLE PRECISION,
-    musym VARCHAR (6),
+    areasymbol VARCHAR (20) NOT NULL,
+    spatialversion INTEGER NOT NULL,
+    musym VARCHAR (6) NOT NULL,
     mukey VARCHAR (30) PRIMARY KEY,
     area_ha DOUBLE PRECISION,
-    FOREIGN KEY (mukey) REFERENCES {schema}.mapunit(mukey) ON DELETE CASCADE);
+    FOREIGN KEY (mukey) REFERENCES {schema}.mapunit(mukey) ON DELETE CASCADE
+);
 
 CREATE TABLE IF NOT EXISTS {schema}.mutext (
     recdate DATE,
@@ -540,7 +575,8 @@ CREATE TABLE IF NOT EXISTS {schema}.mutext (
     text TEXT,
     mukey VARCHAR (30) NOT NULL,
     mutextkey VARCHAR (30) PRIMARY KEY,
-    FOREIGN KEY (mukey) REFERENCES {schema}.mapunit(mukey) ON DELETE CASCADE);
+    FOREIGN KEY (mukey) REFERENCES {schema}.mapunit(mukey) ON DELETE CASCADE
+);
 
 ------- LEVEL 4 -------
 CREATE TABLE IF NOT EXISTS {schema}.chorizon (
@@ -715,7 +751,8 @@ CREATE TABLE IF NOT EXISTS {schema}.chorizon (
     excavdifms VARCHAR (254),
     cokey VARCHAR (30) NOT NULL,
     chkey VARCHAR (30) PRIMARY KEY,
-    FOREIGN KEY (cokey) REFERENCES {schema}.component(cokey) ON DELETE CASCADE);
+    FOREIGN KEY (cokey) REFERENCES {schema}.component(cokey) ON DELETE CASCADE
+);
 
 CREATE TABLE IF NOT EXISTS {schema}.cocanopycover (
     plantcov SMALLINT,
@@ -724,7 +761,8 @@ CREATE TABLE IF NOT EXISTS {schema}.cocanopycover (
     plantcomname VARCHAR (60),
     cokey VARCHAR (30) NOT NULL,
     cocanopycovkey VARCHAR (30) PRIMARY KEY,
-    FOREIGN KEY (cokey) REFERENCES {schema}.component(cokey) ON DELETE CASCADE);
+    FOREIGN KEY (cokey) REFERENCES {schema}.component(cokey) ON DELETE CASCADE
+);
 
 CREATE TABLE IF NOT EXISTS {schema}.cocropyld (
     cropname VARCHAR (254),
@@ -739,7 +777,8 @@ CREATE TABLE IF NOT EXISTS {schema}.cocropyld (
     vasoiprdgrp VARCHAR (254),
     cokey VARCHAR (30) NOT NULL,
     cocropyldkey VARCHAR (30) PRIMARY KEY,
-    FOREIGN KEY (cokey) REFERENCES {schema}.component(cokey) ON DELETE CASCADE);
+    FOREIGN KEY (cokey) REFERENCES {schema}.component(cokey) ON DELETE CASCADE
+);
 
 CREATE TABLE IF NOT EXISTS {schema}.codiagfeatures (
     featkind VARCHAR (254),
@@ -754,7 +793,8 @@ CREATE TABLE IF NOT EXISTS {schema}.codiagfeatures (
     featthick_h SMALLINT,
     cokey VARCHAR (30) NOT NULL,
     codiagfeatkey VARCHAR (30) PRIMARY KEY,
-    FOREIGN KEY (cokey) REFERENCES {schema}.component(cokey) ON DELETE CASCADE);
+    FOREIGN KEY (cokey) REFERENCES {schema}.component(cokey) ON DELETE CASCADE
+);
 
 CREATE TABLE IF NOT EXISTS {schema}.coecoclass (
     ecoclasstypename VARCHAR (60) NOT NULL,
@@ -763,7 +803,8 @@ CREATE TABLE IF NOT EXISTS {schema}.coecoclass (
     ecoclassname TEXT,
     cokey VARCHAR (30) NOT NULL,
     coecoclasskey VARCHAR (30) PRIMARY KEY,
-    FOREIGN KEY (cokey) REFERENCES {schema}.component(cokey) ON DELETE CASCADE);
+    FOREIGN KEY (cokey) REFERENCES {schema}.component(cokey) ON DELETE CASCADE
+);
 
 CREATE TABLE IF NOT EXISTS {schema}.coeplants (
     plantsym VARCHAR (8) NOT NULL,
@@ -773,14 +814,16 @@ CREATE TABLE IF NOT EXISTS {schema}.coeplants (
     rangeprod SMALLINT,
     cokey VARCHAR (30) NOT NULL,
     coeplantskey VARCHAR (30) PRIMARY KEY,
-    FOREIGN KEY (cokey) REFERENCES {schema}.component(cokey) ON DELETE CASCADE);
+    FOREIGN KEY (cokey) REFERENCES {schema}.component(cokey) ON DELETE CASCADE
+);
 
 CREATE TABLE IF NOT EXISTS {schema}.coerosionacc (
     erokind VARCHAR (254),
     rvindicator VARCHAR (3) NOT NULL,
     cokey VARCHAR (30) NOT NULL,
     coeroacckey VARCHAR (30) PRIMARY KEY,
-    FOREIGN KEY (cokey) REFERENCES {schema}.component(cokey) ON DELETE CASCADE);
+    FOREIGN KEY (cokey) REFERENCES {schema}.component(cokey) ON DELETE CASCADE
+);
 
 CREATE TABLE IF NOT EXISTS {schema}.coforprod (
     plantsym VARCHAR (8) NOT NULL,
@@ -795,7 +838,8 @@ CREATE TABLE IF NOT EXISTS {schema}.coforprod (
     fprod_h DOUBLE PRECISION,
     cokey VARCHAR (30) NOT NULL,
     cofprodkey VARCHAR (30) PRIMARY KEY,
-    FOREIGN KEY (cokey) REFERENCES {schema}.component(cokey) ON DELETE CASCADE);
+    FOREIGN KEY (cokey) REFERENCES {schema}.component(cokey) ON DELETE CASCADE
+);
 
 CREATE TABLE IF NOT EXISTS {schema}.cogeomordesc (
     geomftname VARCHAR (30) NOT NULL,
@@ -806,13 +850,15 @@ CREATE TABLE IF NOT EXISTS {schema}.cogeomordesc (
     rvindicator VARCHAR (3) NOT NULL,
     cokey VARCHAR (30) NOT NULL,
     cogeomdkey VARCHAR (30) PRIMARY KEY,
-    FOREIGN KEY (cokey) REFERENCES {schema}.component(cokey) ON DELETE CASCADE);
+    FOREIGN KEY (cokey) REFERENCES {schema}.component(cokey) ON DELETE CASCADE
+);
 
 CREATE TABLE IF NOT EXISTS {schema}.cohydriccriteria (
     hydriccriterion VARCHAR (254),
     cokey VARCHAR (30) NOT NULL,
     cohydcritkey VARCHAR (30) PRIMARY KEY,
-    FOREIGN KEY (cokey) REFERENCES {schema}.component(cokey) ON DELETE CASCADE);
+    FOREIGN KEY (cokey) REFERENCES {schema}.component(cokey) ON DELETE CASCADE
+);
 
 CREATE TABLE IF NOT EXISTS {schema}.cointerp (
     cokey VARCHAR (30) NOT NULL,
@@ -834,7 +880,8 @@ CREATE TABLE IF NOT EXISTS {schema}.cointerp (
     defpropdatabool VARCHAR (3),
     incpropdatabool VARCHAR (3),
     cointerpkey VARCHAR (30) PRIMARY KEY,
-    FOREIGN KEY (cokey) REFERENCES {schema}.component(cokey) ON DELETE CASCADE);
+    FOREIGN KEY (cokey) REFERENCES {schema}.component(cokey) ON DELETE CASCADE
+);
 
 CREATE TABLE IF NOT EXISTS {schema}.comonth (
     monthseq SMALLINT,
@@ -854,14 +901,16 @@ CREATE TABLE IF NOT EXISTS {schema}.comonth (
     dlyavgpotet_h SMALLINT,
     cokey VARCHAR (30) NOT NULL,
     comonthkey VARCHAR (30) PRIMARY KEY,
-    FOREIGN KEY (cokey) REFERENCES {schema}.component(cokey) ON DELETE CASCADE);
+    FOREIGN KEY (cokey) REFERENCES {schema}.component(cokey) ON DELETE CASCADE
+);
 
 CREATE TABLE IF NOT EXISTS {schema}.copmgrp (
     pmgroupname VARCHAR (252),
     rvindicator VARCHAR (3) NOT NULL,
     cokey VARCHAR (30) NOT NULL,
     copmgrpkey VARCHAR (30) PRIMARY KEY,
-    FOREIGN KEY (cokey) REFERENCES {schema}.component(cokey) ON DELETE CASCADE);
+    FOREIGN KEY (cokey) REFERENCES {schema}.component(cokey) ON DELETE CASCADE
+);
 
 CREATE TABLE IF NOT EXISTS {schema}.copwindbreak (
     wndbrkht_l DOUBLE PRECISION,
@@ -872,7 +921,8 @@ CREATE TABLE IF NOT EXISTS {schema}.copwindbreak (
     plantcomname VARCHAR (60),
     cokey VARCHAR (30) NOT NULL,
     copwindbreakkey VARCHAR (30) PRIMARY KEY,
-    FOREIGN KEY (cokey) REFERENCES {schema}.component(cokey) ON DELETE CASCADE);
+    FOREIGN KEY (cokey) REFERENCES {schema}.component(cokey) ON DELETE CASCADE
+);
 
 CREATE TABLE IF NOT EXISTS {schema}.corestrictions (
     reskind VARCHAR (254),
@@ -888,7 +938,8 @@ CREATE TABLE IF NOT EXISTS {schema}.corestrictions (
     resthk_h SMALLINT,
     cokey VARCHAR (30) NOT NULL,
     corestrictkey VARCHAR (30) PRIMARY KEY,
-    FOREIGN KEY (cokey) REFERENCES {schema}.component(cokey) ON DELETE CASCADE);
+    FOREIGN KEY (cokey) REFERENCES {schema}.component(cokey) ON DELETE CASCADE
+);
 
 CREATE TABLE IF NOT EXISTS {schema}.cosurffrags (
     sfragcov_l DOUBLE PRECISION,
@@ -906,19 +957,22 @@ CREATE TABLE IF NOT EXISTS {schema}.cosurffrags (
     sfraghard VARCHAR (254),
     cokey VARCHAR (30) NOT NULL,
     cosurffragskey VARCHAR (30) PRIMARY KEY,
-    FOREIGN KEY (cokey) REFERENCES {schema}.component(cokey) ON DELETE CASCADE);
+    FOREIGN KEY (cokey) REFERENCES {schema}.component(cokey) ON DELETE CASCADE
+);
 
 CREATE TABLE IF NOT EXISTS {schema}.cotaxfmmin (
     taxminalogy VARCHAR (254),
     cokey VARCHAR (30) NOT NULL,
     cotaxfmminkey VARCHAR (30) PRIMARY KEY,
-    FOREIGN KEY (cokey) REFERENCES {schema}.component(cokey) ON DELETE CASCADE);
+    FOREIGN KEY (cokey) REFERENCES {schema}.component(cokey) ON DELETE CASCADE
+);
 
 CREATE TABLE IF NOT EXISTS {schema}.cotaxmoistcl (
     taxmoistcl VARCHAR (254),
     cokey VARCHAR (30) NOT NULL,
     cotaxmckey VARCHAR (30) PRIMARY KEY,
-    FOREIGN KEY (cokey) REFERENCES {schema}.component(cokey) ON DELETE CASCADE);
+    FOREIGN KEY (cokey) REFERENCES {schema}.component(cokey) ON DELETE CASCADE
+);
 
 CREATE TABLE IF NOT EXISTS {schema}.cotext (
     recdate DATE,
@@ -928,7 +982,8 @@ CREATE TABLE IF NOT EXISTS {schema}.cotext (
     text TEXT,
     cokey VARCHAR (30) NOT NULL,
     cotextkey VARCHAR (30) PRIMARY KEY,
-    FOREIGN KEY (cokey) REFERENCES {schema}.component(cokey) ON DELETE CASCADE);
+    FOREIGN KEY (cokey) REFERENCES {schema}.component(cokey) ON DELETE CASCADE
+);
 
 CREATE TABLE IF NOT EXISTS {schema}.cotreestomng (
     plantsym VARCHAR (8) NOT NULL,
@@ -936,13 +991,15 @@ CREATE TABLE IF NOT EXISTS {schema}.cotreestomng (
     plantcomname VARCHAR (60),
     cokey VARCHAR (30) NOT NULL,
     cotreestomngkey VARCHAR (30) PRIMARY KEY,
-    FOREIGN KEY (cokey) REFERENCES {schema}.component(cokey) ON DELETE CASCADE);
+    FOREIGN KEY (cokey) REFERENCES {schema}.component(cokey) ON DELETE CASCADE
+);
 
 CREATE TABLE IF NOT EXISTS {schema}.cotxfmother (
     taxfamother VARCHAR (254),
     cokey VARCHAR (30) NOT NULL,
     cotaxfokey VARCHAR (30) PRIMARY KEY,
-    FOREIGN KEY (cokey) REFERENCES {schema}.component(cokey) ON DELETE CASCADE);
+    FOREIGN KEY (cokey) REFERENCES {schema}.component(cokey) ON DELETE CASCADE
+);
 
 ------- LEVEL 5 -------
 CREATE TABLE IF NOT EXISTS {schema}.chaashto (
@@ -950,7 +1007,8 @@ CREATE TABLE IF NOT EXISTS {schema}.chaashto (
     rvindicator VARCHAR (3) NOT NULL,
     chkey VARCHAR (30) NOT NULL,
     chaashtokey VARCHAR (30) PRIMARY KEY,
-    FOREIGN KEY (chkey) REFERENCES {schema}.chorizon(chkey) ON DELETE CASCADE);
+    FOREIGN KEY (chkey) REFERENCES {schema}.chorizon(chkey) ON DELETE CASCADE
+);
 
 CREATE TABLE IF NOT EXISTS {schema}.chconsistence (
     rupresblkmst VARCHAR (254),
@@ -963,13 +1021,15 @@ CREATE TABLE IF NOT EXISTS {schema}.chconsistence (
     rvindicator VARCHAR (3) NOT NULL,
     chkey VARCHAR (30) NOT NULL,
     chconsistkey VARCHAR (30) PRIMARY KEY,
-    FOREIGN KEY (chkey) REFERENCES {schema}.chorizon(chkey) ON DELETE CASCADE);
+    FOREIGN KEY (chkey) REFERENCES {schema}.chorizon(chkey) ON DELETE CASCADE
+);
 
 CREATE TABLE IF NOT EXISTS {schema}.chdesgnsuffix (
     desgnsuffix VARCHAR (254),
     chkey VARCHAR (30) NOT NULL,
     chdesgnsfxkey VARCHAR (30) PRIMARY KEY,
-    FOREIGN KEY (chkey) REFERENCES {schema}.chorizon(chkey) ON DELETE CASCADE);
+    FOREIGN KEY (chkey) REFERENCES {schema}.chorizon(chkey) ON DELETE CASCADE
+);
 
 CREATE TABLE IF NOT EXISTS {schema}.chfrags (
     fragvol_l SMALLINT,
@@ -984,7 +1044,8 @@ CREATE TABLE IF NOT EXISTS {schema}.chfrags (
     fraghard VARCHAR (254),
     chkey VARCHAR (30) NOT NULL,
     chfragskey VARCHAR (30) PRIMARY KEY,
-    FOREIGN KEY (chkey) REFERENCES {schema}.chorizon(chkey) ON DELETE CASCADE);
+    FOREIGN KEY (chkey) REFERENCES {schema}.chorizon(chkey) ON DELETE CASCADE
+);
 
 CREATE TABLE IF NOT EXISTS {schema}.chpores (
     poreqty_l DOUBLE PRECISION,
@@ -996,14 +1057,16 @@ CREATE TABLE IF NOT EXISTS {schema}.chpores (
     rvindicator VARCHAR (3) NOT NULL,
     chkey VARCHAR (30) NOT NULL,
     chporeskey VARCHAR (30) PRIMARY KEY,
-    FOREIGN KEY (chkey) REFERENCES {schema}.chorizon(chkey) ON DELETE CASCADE);
+    FOREIGN KEY (chkey) REFERENCES {schema}.chorizon(chkey) ON DELETE CASCADE
+);
 
 CREATE TABLE IF NOT EXISTS {schema}.chstructgrp (
     structgrpname VARCHAR (254),
     rvindicator VARCHAR (3) NOT NULL,
     chkey VARCHAR (30) NOT NULL,
     chstructgrpkey VARCHAR (30) PRIMARY KEY,
-    FOREIGN KEY (chkey) REFERENCES {schema}.chorizon(chkey) ON DELETE CASCADE);
+    FOREIGN KEY (chkey) REFERENCES {schema}.chorizon(chkey) ON DELETE CASCADE
+);
 
 CREATE TABLE IF NOT EXISTS {schema}.chtext (
     recdate DATE,
@@ -1013,7 +1076,8 @@ CREATE TABLE IF NOT EXISTS {schema}.chtext (
     text TEXT,
     chkey VARCHAR (30) NOT NULL,
     chtextkey VARCHAR (30) PRIMARY KEY,
-    FOREIGN KEY (chkey) REFERENCES {schema}.chorizon(chkey) ON DELETE CASCADE);
+    FOREIGN KEY (chkey) REFERENCES {schema}.chorizon(chkey) ON DELETE CASCADE
+);
 
 CREATE TABLE IF NOT EXISTS {schema}.chtexturegrp (
     texture VARCHAR (30),
@@ -1022,14 +1086,16 @@ CREATE TABLE IF NOT EXISTS {schema}.chtexturegrp (
     texdesc TEXT,
     chkey VARCHAR (30) NOT NULL,
     chtgkey VARCHAR (30) PRIMARY KEY,
-    FOREIGN KEY (chkey) REFERENCES {schema}.chorizon(chkey) ON DELETE CASCADE);
+    FOREIGN KEY (chkey) REFERENCES {schema}.chorizon(chkey) ON DELETE CASCADE
+);
 
 CREATE TABLE IF NOT EXISTS {schema}.chunified (
     unifiedcl VARCHAR (254),
     rvindicator VARCHAR (3) NOT NULL,
     chkey VARCHAR (30) NOT NULL,
     chunifiedkey VARCHAR (30) PRIMARY KEY,
-    FOREIGN KEY (chkey) REFERENCES {schema}.chorizon(chkey) ON DELETE CASCADE);
+    FOREIGN KEY (chkey) REFERENCES {schema}.chorizon(chkey) ON DELETE CASCADE
+);
 
 CREATE TABLE IF NOT EXISTS {schema}.coforprodo (
     siteindexbase VARCHAR (254),
@@ -1042,7 +1108,8 @@ CREATE TABLE IF NOT EXISTS {schema}.coforprodo (
     fprodunits VARCHAR (254),
     cofprodkey VARCHAR (30) NOT NULL,
     cofprodokey VARCHAR (30) PRIMARY KEY,
-    FOREIGN KEY (cofprodkey) REFERENCES {schema}.coforprod(cofprodkey) ON DELETE CASCADE);
+    FOREIGN KEY (cofprodkey) REFERENCES {schema}.coforprod(cofprodkey) ON DELETE CASCADE
+);
 
 CREATE TABLE IF NOT EXISTS {schema}.copm (
     pmorder SMALLINT,
@@ -1052,7 +1119,8 @@ CREATE TABLE IF NOT EXISTS {schema}.copm (
     pmorigin VARCHAR (254),
     copmgrpkey VARCHAR (30) NOT NULL,
     copmkey VARCHAR (30) PRIMARY KEY,
-    FOREIGN KEY (copmgrpkey) REFERENCES {schema}.copmgrp(copmgrpkey) ON DELETE CASCADE);
+    FOREIGN KEY (copmgrpkey) REFERENCES {schema}.copmgrp(copmgrpkey) ON DELETE CASCADE
+);
 
 CREATE TABLE IF NOT EXISTS {schema}.cosoilmoist (
     soimoistdept_l SMALLINT,
@@ -1064,7 +1132,8 @@ CREATE TABLE IF NOT EXISTS {schema}.cosoilmoist (
     soimoiststat VARCHAR (254),
     comonthkey VARCHAR (30) NOT NULL,
     cosoilmoistkey VARCHAR (30) PRIMARY KEY,
-    FOREIGN KEY (comonthkey) REFERENCES {schema}.comonth(comonthkey) ON DELETE CASCADE);
+    FOREIGN KEY (comonthkey) REFERENCES {schema}.comonth(comonthkey) ON DELETE CASCADE
+);
 
 CREATE TABLE IF NOT EXISTS {schema}.cosoiltemp (
     soitempmm SMALLINT,
@@ -1076,7 +1145,8 @@ CREATE TABLE IF NOT EXISTS {schema}.cosoiltemp (
     soitempdepb_h SMALLINT,
     comonthkey VARCHAR (30) NOT NULL,
     cosoiltempkey VARCHAR (30) PRIMARY KEY,
-    FOREIGN KEY (comonthkey) REFERENCES {schema}.comonth(comonthkey) ON DELETE CASCADE);
+    FOREIGN KEY (comonthkey) REFERENCES {schema}.comonth(comonthkey) ON DELETE CASCADE
+);
 
 CREATE TABLE IF NOT EXISTS {schema}.cosurfmorphgc (
     geomposmntn VARCHAR (254),
@@ -1085,26 +1155,30 @@ CREATE TABLE IF NOT EXISTS {schema}.cosurfmorphgc (
     geomposflats VARCHAR (254),
     cogeomdkey VARCHAR (30) NOT NULL,
     cosurfmorgckey VARCHAR (30) PRIMARY KEY,
-    FOREIGN KEY (cogeomdkey) REFERENCES {schema}.cogeomordesc(cogeomdkey) ON DELETE CASCADE);
+    FOREIGN KEY (cogeomdkey) REFERENCES {schema}.cogeomordesc(cogeomdkey) ON DELETE CASCADE
+);
 
 CREATE TABLE IF NOT EXISTS {schema}.cosurfmorphhpp (
     hillslopeprof VARCHAR (254),
     cogeomdkey VARCHAR (30) NOT NULL,
     cosurfmorhppkey VARCHAR (30) PRIMARY KEY,
-    FOREIGN KEY (cogeomdkey) REFERENCES {schema}.cogeomordesc(cogeomdkey) ON DELETE CASCADE);
+    FOREIGN KEY (cogeomdkey) REFERENCES {schema}.cogeomordesc(cogeomdkey) ON DELETE CASCADE
+);
 
 CREATE TABLE IF NOT EXISTS {schema}.cosurfmorphmr (
     geomicrorelief VARCHAR (254),
     cogeomdkey VARCHAR (30) NOT NULL,
     cosurfmormrkey VARCHAR (30) PRIMARY KEY,
-    FOREIGN KEY (cogeomdkey) REFERENCES {schema}.cogeomordesc(cogeomdkey) ON DELETE CASCADE);
+    FOREIGN KEY (cogeomdkey) REFERENCES {schema}.cogeomordesc(cogeomdkey) ON DELETE CASCADE
+);
 
 CREATE TABLE IF NOT EXISTS {schema}.cosurfmorphss (
-    geomacross VARCHAR (254),
-    geomdown VARCHAR (254),
+    shapeacross VARCHAR (254),
+    shapedown VARCHAR (254),
     cogeomdkey VARCHAR (30) NOT NULL,
     cosurfmorsskey VARCHAR (30) PRIMARY KEY,
-    FOREIGN KEY (cogeomdkey) REFERENCES {schema}.cogeomordesc(cogeomdkey) ON DELETE CASCADE);
+    FOREIGN KEY (cogeomdkey) REFERENCES {schema}.cogeomordesc(cogeomdkey) ON DELETE CASCADE
+);
 
 ------- LEVEL 6 -------
 CREATE TABLE IF NOT EXISTS {schema}.chstruct (
@@ -1115,14 +1189,16 @@ CREATE TABLE IF NOT EXISTS {schema}.chstruct (
     structpartsto SMALLINT,
     chstructgrpkey VARCHAR (30) NOT NULL,
     chstructkey VARCHAR (30) PRIMARY KEY,
-    FOREIGN KEY (chstructgrpkey) REFERENCES {schema}.chstructgrp(chstructgrpkey) ON DELETE CASCADE);
+    FOREIGN KEY (chstructgrpkey) REFERENCES {schema}.chstructgrp(chstructgrpkey) ON DELETE CASCADE
+);
 
 CREATE TABLE IF NOT EXISTS {schema}.chtexture (
     texcl VARCHAR (254),
     lieutex VARCHAR (254),
     chtgkey VARCHAR (30) NOT NULL,
     chtkey VARCHAR (30) PRIMARY KEY,
-    FOREIGN KEY (chtgkey) REFERENCES {schema}.chtexturegrp(chtgkey) ON DELETE CASCADE);
+    FOREIGN KEY (chtgkey) REFERENCES {schema}.chtexturegrp(chtgkey) ON DELETE CASCADE
+);
 
 ------- LEVEL 7 -------
 
@@ -1130,7 +1206,8 @@ CREATE TABLE IF NOT EXISTS {schema}.chtexturemod (
     texmod VARCHAR (254),
     chtkey VARCHAR (30) NOT NULL,
     chtexmodkey VARCHAR (30) PRIMARY KEY,
-    FOREIGN KEY (chtkey) REFERENCES {schema}.chtexture(chtkey) ON DELETE CASCADE);
+    FOREIGN KEY (chtkey) REFERENCES {schema}.chtexture(chtkey) ON DELETE CASCADE
+);
     
 ------- Geometry ------
 ALTER TABLE {schema}.featline ADD COLUMN IF NOT EXISTS geom geometry(MULTILINESTRING, 4326);
