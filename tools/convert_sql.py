@@ -3,7 +3,7 @@ import argparse
 import sys
 from config import spatialite_regex, mssql_regex
 from import_soil import get_default_schema
-from parse_sql import *
+from parse_sql import STANDARDS, SPECIAL, SqlParser
 
 
 def convert_statements(dbtype, stmts, schema, params={}):
