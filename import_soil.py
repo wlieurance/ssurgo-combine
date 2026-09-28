@@ -13,9 +13,9 @@ from pygeoif.factories import shape as asShape
 
 # custom modules
 import create_ecogroups
-import delete
+import delete_soil
 from config import spatialite_regex, mssql_regex
-from parse_sql import *
+from parse_sql import STANDARDS, SPECIAL, SqlParser
 
 tabular_list = [
     ('msdommas.txt', 'mdstatdommas', 1),
@@ -32,8 +32,8 @@ tabular_list = [
     ('msrsmas.txt', 'mdstatrshipmas', 12),
     ('mstabcol.txt', 'mdstattabcols', 13),
     ('sdvfolderattribute.txt', 'sdvfolderattribute', 14),
-    ('distlmd.txt', 'distlegendmd', 15),
     ('distmd.txt', 'distmd', 16),
+    ('distlmd.txt', 'distlegendmd', 15),
     ('distimd.txt', 'distinterpmd', 17),
     ('lareao.txt', 'laoverlap', 18),
     ('ltext.txt', 'legendtext', 19),
@@ -339,42 +339,42 @@ def scan_insert(db, schema, scanpath, snap, repair, skip, survey_areas, stype, i
                                    .format('{:.20f}'.format(snap/111319.9)))
             print("Importing with snapping no repair...")
         
-    soilmu_a_sql = (f"SELECT {geom}, AREASYMBOL, SPATIALVER, MUSYM, MUKEY"
+    soilmu_a_sql = (f"SELECT {geom}, AREASYMBOL, SPATIALVERSION, MUSYM, MUKEY"
                     "  FROM {schema}.{tbl}"
-                    " GROUP BY AREASYMBOL, SPATIALVER, MUSYM, MUKEY")
+                    " GROUP BY AREASYMBOL, SPATIALVERSION, MUSYM, MUKEY")
 
-    soilmu_l_sql = (f"SELECT {geom}, AREASYMBOL, SPATIALVER, MUSYM, MUKEY"
+    soilmu_l_sql = (f"SELECT {geom}, AREASYMBOL, SPATIALVERSION, MUSYM, MUKEY"
                     "  FROM {schema}.{tbl}"
-                    " GROUP BY AREASYMBOL, SPATIALVER, MUSYM, MUKEY")
+                    " GROUP BY AREASYMBOL, SPATIALVERSION, MUSYM, MUKEY")
 
     # .format(geom.replace('ST_Multi','').replace('ST_Union','')) for POINT vs MULTIPOINT 
     # (remove GROUP BY clause)
-    soilmu_p_sql = (f"SELECT {geom}, AREASYMBOL, SPATIALVER, MUSYM, MUKEY"
+    soilmu_p_sql = (f"SELECT {geom}, AREASYMBOL, SPATIALVERSION, MUSYM, MUKEY"
                     "  FROM {schema}.{tbl}"
-                    " GROUP BY AREASYMBOL, SPATIALVER, MUSYM, MUKEY")
+                    " GROUP BY AREASYMBOL, SPATIALVERSION, MUSYM, MUKEY")
 
-    soilsa_a_sql = (f"SELECT {geom}, AREASYMBOL, SPATIALVER, LKEY"
+    soilsa_a_sql = (f"SELECT {geom}, AREASYMBOL, SPATIALVERSION, LKEY"
                     "  FROM {schema}.{tbl}"
-                    " GROUP BY AREASYMBOL, SPATIALVER, LKEY")
+                    " GROUP BY AREASYMBOL, SPATIALVERSION, LKEY")
 
-    soilsf_l_sql = (f"SELECT {geom}, AREASYMBOL, SPATIALVER, FEATSYM, FEATKEY"
+    soilsf_l_sql = (f"SELECT {geom}, AREASYMBOL, SPATIALVERSION, FEATSYM, FEATKEY"
                     "  FROM {schema}.{tbl}"
-                    " GROUP BY AREASYMBOL, SPATIALVER, FEATSYM, FEATKEY")
+                    " GROUP BY AREASYMBOL, SPATIALVERSION, FEATSYM, FEATKEY")
 
-    soilsf_p_sql = (f"SELECT {geom}, AREASYMBOL, SPATIALVER, FEATSYM, FEATKEY"
+    soilsf_p_sql = (f"SELECT {geom}, AREASYMBOL, SPATIALVERSION, FEATSYM, FEATKEY"
                     "  FROM {schema}.{tbl}"
-                    " GROUP BY AREASYMBOL, SPATIALVER, FEATSYM, FEATKEY")
+                    " GROUP BY AREASYMBOL, SPATIALVERSION, FEATSYM, FEATKEY")
 
     spatial_list = [
-        ('soilsa_a', 'sapolygon', 'geom, areasymbol, spatialver, lkey', soilsa_a_sql, 'poly'),
-        ('soilsf_l', 'featline', 'geom, areasymbol, spatialver, featsym, featkey', soilsf_l_sql,
+        ('soilsa_a', 'sapolygon', 'geom, areasymbol, spatialversion, lkey', soilsa_a_sql, 'poly'),
+        ('soilsf_l', 'featline', 'geom, areasymbol, spatialversion, featsym, featkey', soilsf_l_sql,
          'line'),
-        ('soilsf_p', 'featpoint', 'geom, areasymbol, spatialver, featsym, featkey', soilsf_p_sql,
+        ('soilsf_p', 'featpoint', 'geom, areasymbol, spatialversion, featsym, featkey', soilsf_p_sql,
          'point'),
-        ('soilmu_l', 'muline', 'geom, areasymbol, spatialver, musym, mukey', soilmu_l_sql, 'line'),
-        ('soilmu_p', 'mupoint', 'geom, areasymbol, spatialver, musym, mukey', soilmu_p_sql,
+        ('soilmu_l', 'muline', 'geom, areasymbol, spatialversion, musym, mukey', soilmu_l_sql, 'line'),
+        ('soilmu_p', 'mupoint', 'geom, areasymbol, spatialversion, musym, mukey', soilmu_p_sql,
          'point'),
-        ('soilmu_a', 'mupolygon', 'geom, areasymbol, spatialver, musym, mukey', soilmu_a_sql,
+        ('soilmu_a', 'mupolygon', 'geom, areasymbol, spatialversion, musym, mukey', soilmu_a_sql,
          'poly')
     ]
 
@@ -506,7 +506,12 @@ def scan_insert(db, schema, scanpath, snap, repair, skip, survey_areas, stype, i
                     for rec in shrecs:
                         wkt = ''.join(("ST_GeomFromText('", str(asShape(rec.shape)), "', 4326)"))
                         sql = isql.format(wkt=wkt)
-                        c.execute(sql, rec.record)
+                        try:
+                            c.execute(sql, rec.record)
+                        except (sqlite.Error, pyodbc.Error, psycopg.Error):
+                            print("In shape insert loop:")
+                            print(isql)
+                            raise
                     gsql = f"INSERT INTO {schema}.{tbl} ({insert_text}) "\
                            f"{select_stmt.format(schema=schema, tbl=shp_table)} "\
                            "ON CONFLICT DO NOTHING;"
@@ -547,12 +552,12 @@ def repair_geom(db, schema, featlist, stype):
     c = db.conn.cursor()
         
     # each entry in tables is: tablename, SELECT string, geometry type for ST_CollectionExtract()
-    tables = [('mupolygon', 'areasymbol, spatialver, musym, mukey, area_ha', 3),
-              ('muline', 'areasymbol, spatialver, musym, mukey, length_m', 2),
-              ('mupoint', 'areasymbol, spatialver, musym, mukey, x, y', 1),
-              ('sapolygon', 'areasymbol, spatialver, lkey, area_ha', 3),
-              ('featline', 'areasymbol, spatialver, featsym, featkey, length_m', 2),
-              ('featpoint', 'areasymbol, spatialver, featsym, featkey, x, y', 1),
+    tables = [('mupolygon', 'areasymbol, spatialversion, musym, mukey, area_ha', 3),
+              ('muline', 'areasymbol, spatialversion, musym, mukey, length_m', 2),
+              ('mupoint', 'areasymbol, spatialversion, musym, mukey, x, y', 1),
+              ('sapolygon', 'areasymbol, spatialversion, lkey, area_ha', 3),
+              ('featline', 'areasymbol, spatialversion, featsym, featkey, length_m', 2),
+              ('featpoint', 'areasymbol, spatialversion, featsym, featkey, x, y', 1),
               ('ecopolygon', 'ecoclassid_std, ecoclassname, ecotype, area_ha, ecopct', 3),
               ('ecogrouppolygon',
                'ecogroup, groupname, grouptype, pub_status, area_ha, ecogrouppct', 3)]
@@ -665,6 +670,28 @@ def toggle_indices(db, schema, drop=False):
         execute_statements(db=db, stmts=drop_stmts, schema=schema)
     return spatial_index_support
 
+
+def do_comments(db, schema):
+    db.open()
+    c = db.conn.cursor()
+    table_md = c.execute(f"SELECT tabphyname, tabdesc FROM {schema}.mdstattabs;").fetchall()
+    for t in table_md:
+        table = t[0]
+        desc = t[1].replace("'", "''")
+        sql = f"COMMENT ON TABLE {schema}.{table} IS '{desc}';"
+        c.execute(sql)
+    col_md = c.execute(
+        f"SELECT tabphyname, colphyname, collabel, coldesc FROM {schema}.mdstattabcols;"
+    ).fetchall()
+    for f in col_md:
+        table = f[0]
+        column = f[1]
+        lbl = f[2]
+        desc = f[3].replace("'", "''")
+        sql = f"COMMENT ON COLUMN {schema}.{table}.{column} IS '{lbl}: {desc}';"
+        c.execute(sql)
+    db.conn.commit()
+    db.close()
 
 if __name__ == "__main__":
     my_args = sys.argv[1:]
@@ -854,5 +881,6 @@ if __name__ == "__main__":
 
     print('Updating table statistics...')
     update_stats(db=my_db, schema=my_schema, featlist=feature_list)
+    do_comments(db=my_db, schema=my_schema)
     my_db.close()  # shouldn't be open but just in case.
     print("Script finished.")
