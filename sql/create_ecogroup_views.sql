@@ -112,7 +112,7 @@ GROUP BY mukey
 SELECT a.mukey, a.ecogroup, a.groupname, a.grouptype,
        a.ecogrouppct, a.grouprank, (a.ecogrouppct * b.area_ha / 100) AS group_ha
   FROM {schema}.ecogroup_mapunit_ranked AS a
-  LEFT JOIN mu_area_sum AS b ON a.mukey = b.mukey
+  INNER JOIN mu_area_sum AS b ON a.mukey = b.mukey
 )
 
 SELECT x.ecogroup, COUNT(x.mukey) AS group_n, 
@@ -143,7 +143,7 @@ SELECT x.mukey,
 
 /* Calculates the hectares of each ecogroup within a map unit. */
 CREATE OR REPLACE VIEW {schema}.ecogroup_area AS
-SELECT a.areasymbol, a.spatialver, a.musym, a.mukey, a.area_ha,
+SELECT a.areasymbol, a.spatialversion, a.musym, a.mukey, a.area_ha,
        b.ecogroup, b.groupname, b.grouptype, b.ecogrouppct, b.grouprank,
        a.area_ha * b.ecogrouppct/100 AS ecogroup_ha
   FROM {schema}.mupolygon a
